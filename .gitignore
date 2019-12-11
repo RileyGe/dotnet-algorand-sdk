@@ -328,30 +328,3 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-/sdk-examples/sdk-examples.csproj
-/sdk-examples/Program.cs
-/sdk-examples
-/dotnet-algorand-sdk/Wordlist.cs
-/dotnet-algorand-sdk/VRFPublicKey.cs
-/dotnet-algorand-sdk/VarintResult.cs
-/dotnet-algorand-sdk/Uvarint.cs
-/dotnet-algorand-sdk/TxGroup.cs
-/dotnet-algorand-sdk/Transaction.cs
-/dotnet-algorand-sdk/SignedTransaction.cs
-/dotnet-algorand-sdk/Signature.cs
-/dotnet-algorand-sdk/ParticipationPublicKey.cs
-/dotnet-algorand-sdk/MultisigSignature.cs
-/dotnet-algorand-sdk/Mnemonic.cs
-/dotnet-algorand-sdk/LogicsigSignature.cs
-/dotnet-algorand-sdk/Logic.cs
-/dotnet-algorand-sdk/langspec.json
-/dotnet-algorand-sdk/Kmd/Client
-/dotnet-algorand-sdk/JavaHelper.cs
-/dotnet-algorand-sdk/Encoder.cs
-/dotnet-algorand-sdk/dotnet-algorand-sdk.csproj
-/dotnet-algorand-sdk/Digester.cs
-/dotnet-algorand-sdk/Digest.cs
-/dotnet-algorand-sdk/Base32.cs
-/dotnet-algorand-sdk/Address.cs
-/dotnet-algorand-sdk/Account.cs
-/sdk-test
