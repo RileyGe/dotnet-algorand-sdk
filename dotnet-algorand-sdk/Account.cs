@@ -17,24 +17,27 @@ namespace Algorand
     {
         private AsymmetricCipherKeyPair privateKeyPair;
         public Address Address { get; private set; }
-        private static string KEY_ALGO = "Ed25519";
-        private static string SIGN_ALGO = "EdDSA";
-        private static int PK_SIZE = 32;
+        //private static string KEY_ALGO = "Ed25519";
+        //private static string SIGN_ALGO = "EdDSA";
+        private const int PK_SIZE = 32;
         //private static int PK_X509_PREFIX_LENGTH = 12; // Ed25519 specific
-        private static int SK_SIZE = 32;
-        private static int SK_SIZE_BITS = SK_SIZE * 8;
+        private const int SK_SIZE = 32;
+        private const int SK_SIZE_BITS = SK_SIZE * 8;
         //private static byte[] BID_SIGN_PREFIX = ("aB").getBytes(StandardCharsets.UTF_8);
         //private static byte[] BYTES_SIGN_PREFIX = ("MX").getBytes(StandardCharsets.UTF_8);
-        private static ulong MIN_TX_FEE_UALGOS = 1000;
+        private const ulong MIN_TX_FEE_UALGOS = 1000;
 
-        /**
-         * Account creates a new, random account.
-         */
+        /// <summary>
+        /// Account creates a new, random account.
+        /// </summary>
         public Account()
         {
             CreateAccountFromRandom(new SecureRandom());
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="seed"></param>
         public Account(byte[] seed)
         {
             //var rand = new FixedSecureRandom(seed);
@@ -44,7 +47,10 @@ namespace Algorand
             // BC for instance takes the seed as private key straight up
             CreateAccountFromRandom(new FixedSecureRandom(seed));
         }
-
+        /// <summary>
+        /// Create a new account with mnemonic
+        /// </summary>
+        /// <param name="mnemonic">the mnemonic</param>
         public Account(string mnemonic) : this(Mnemonic.ToKey(mnemonic)) { }
 
         //    // randomSrc can be null, in which case system default is used
@@ -91,10 +97,10 @@ namespace Algorand
             this.Address = new Address(raw);
         }
 
-        /**
-         * Convenience method for getting the underlying public key for raw operations.
-         * @return the public key as length 32 byte array.
-         */
+        /// <summary>
+        /// Convenience method for getting the underlying public key for raw operations.
+        /// </summary>
+        /// <returns>the public key as length 32 byte array.</returns>
         public byte[] GetClearTextPublicKey()
         {
             var publicKey = privateKeyPair.Public as Ed25519PublicKeyParameters;
@@ -138,12 +144,11 @@ namespace Algorand
         //        }
         //    }
 
-        /**
-         * Sign a transaction with this account
-         * @param tx the transaction to sign
-         * @return a signed transaction
-         * @throws NoSuchAlgorithmException if signing algorithm could not be found
-         */
+        /// <summary>
+        /// Sign a transaction with this account
+        /// </summary>
+        /// <param name="tx">the transaction to sign</param>
+        /// <returns>a signed transaction</returns>
         public SignedTransaction SignTransaction(Transaction tx)
         {
             //try
@@ -172,14 +177,12 @@ namespace Algorand
         //    //        throw new IOException("could not decode transaction", e);
         //    //    }
         //    //}
-
-        /**
-         * Sign a transaction with this account, replacing the fee with the given feePerByte.
-         * @param tx transaction to sign
-         * @param feePerByte fee per byte, often returned as a suggested fee
-         * @return a signed transaction
-         * @throws NoSuchAlgorithmException crypto provider not found
-         */
+        /// <summary>
+        /// Sign a transaction with this account, replacing the fee with the given feePerByte.
+        /// </summary>
+        /// <param name="tx">transaction to sign</param>
+        /// <param name="feePerByte">feePerByte fee per byte, often returned as a suggested fee</param>
+        /// <returns>a signed transaction</returns>
         public SignedTransaction SignTransactionWithFeePerByte(Transaction tx, ulong? feePerByte)
         {
             SetFeeByFeePerByte(tx, feePerByte);
@@ -236,12 +239,11 @@ namespace Algorand
         //        }
         //    }
 
-        /**
-         * Sets the transaction fee according to suggestedFeePerByte * estimateTxSize.
-         * @param tx transaction to populate fee field
-         * @param suggestedFeePerByte suggestedFee given by network
-         * @throws NoSuchAlgorithmException could not estimate tx encoded size.
-         */
+        /// <summary>
+        /// Sets the transaction fee according to suggestedFeePerByte * estimateTxSize.
+        /// </summary>
+        /// <param name="tx">transaction to populate fee field</param>
+        /// <param name="suggestedFeePerByte">suggestedFee given by network</param>
         static public void SetFeeByFeePerByte(Transaction tx, ulong? suggestedFeePerByte)
         {
             ulong? newFee = suggestedFeePerByte * EstimatedEncodedSize(tx);
@@ -251,12 +253,12 @@ namespace Algorand
             }
             tx.fee = newFee;
         }
-
-        /**
-         * EstimateEncodedSize returns the estimated encoded size of the transaction including the signature.
-         * This function is useful for calculating the fee from suggested fee per byte.
-         * @return an estimated byte size for the transaction.
-         */
+        /// <summary>
+        /// EstimateEncodedSize returns the estimated encoded size of the transaction including the signature.
+        /// This function is useful for calculating the fee from suggested fee per byte.
+        /// </summary>
+        /// <param name="tx"></param>
+        /// <returns>an estimated byte size for the transaction.</returns>
         public static ulong? EstimatedEncodedSize(Transaction tx)
         {
             Account acc = new Account();

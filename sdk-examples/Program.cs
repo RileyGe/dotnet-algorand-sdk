@@ -9,6 +9,7 @@ using Algorand.Algod.Client.Model;
 using Algorand.Algod.Client;
 using Transaction = Algorand.Transaction;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace sdk_examples
 {
@@ -16,6 +17,32 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
+            //var sss = Encoding.UTF8.GetBytes("this is a test");
+            //var strddd = Algorand.Encoder.EncodeToMsgPack(new SignedTransaction());
+
+            //Employee joe = new Employee
+            //{
+            //    Name = "Joe Employee"
+            //};
+            //Employee mike = new Employee
+            //{
+            //    Name = "Mike Manager"
+            //};
+
+            //joe.Manager = mike;
+
+            //// mike is his own manager
+            //// ShouldSerialize will skip this property
+            //mike.Manager = mike;
+            //var setting = new JsonSerializerSettings()
+            //{
+            //    ContractResolver = ShouldSerializeContractResolver.Instance
+            //};
+            //var str = JsonConvert.SerializeObject(mike, setting);
+
+            //int i = 100;
+
+
             //Sha512tDigest digest = new Sha512tDigest(256);
             //var abc = digest.AlgorithmName;
 
@@ -48,7 +75,7 @@ namespace sdk_examples
 
             string ALGOD_API_ADDR = algodApiAddrTmp;
             string ALGOD_API_TOKEN = args[1];
-            string SRC_ACCOUNT = "viable grain female caution grant mind cry mention pudding oppose orchard people forget similar social gossip marble fish guitar art morning ring west above concert";
+            string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
             string DEST_ADDR = "KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU";
 
             //Console.WriteLine("Hello World!");
@@ -95,6 +122,7 @@ namespace sdk_examples
             ulong? lastRound = firstRound + 1000; // 1000 is the max tx window
             Account src = new Account(SRC_ACCOUNT);
             Console.WriteLine("My account address is:" + src.Address.ToString());
+            //Account newAcc = new Account();
             Transaction tx = new Transaction(src.Address, new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
             SignedTransaction signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);
             Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
@@ -103,14 +131,21 @@ namespace sdk_examples
             try
             {
                 var encodedMsg = Algorand.Encoder.EncodeToMsgPack(signedTx);
-                TransactionID id = algodApiInstance.RawTransaction(encodedMsg);
-                Console.WriteLine("Successfully sent tx with id: " + id);
+                //encodedMsg = "{\"sig\":\"I8Lw9Y2jTyDexYYD9pSU+ufPCBFlHiHgpczYCClhwYwwRTnsqv5lFl+giu+cd0FQVSif3EjynFyVTp3orMZKBw==\",\"txn\":{\"amt\":100000,\"fee\":1000,\"fv\":1519490,\"gen\":\"testnet-v1.0\",\"gh\":\"SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=\",\"lv\":1520490,\"rcv\":\"VXVzKZc2E+fbEAd3/gcIgFe3NiySAReIokkAwB4Erh4=\",\"snd\":\"18tanNp1HaLZ/pgO5Dzzfusz0yrp6d5xy89Xk2oyAwQ=\",\"type\":\"pay\"}}";
+                //TransactionID id = algodApiInstance.RawTransaction(encodedMsg);
+                //Console.WriteLine("Successfully sent tx with id: " + id);
             }
             catch (ApiException e)
             {
                 // This is generally expected, but should give us an informative error message.
                 Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
             }
+
+
+
+
+
+
 
             // let's create a transaction group
             //Digest gid = TxGroup.ComputeGroupID(new Transaction[] { tx, tx });
@@ -159,4 +194,7 @@ namespace sdk_examples
             //}
         }
     }
+
+
+
 }

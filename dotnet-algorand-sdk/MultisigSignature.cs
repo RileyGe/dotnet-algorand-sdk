@@ -12,16 +12,16 @@ namespace Algorand
     [JsonObject]
     public class MultisigSignature
     {
-        private const string SIGN_ALGO = "EdDSA";
-        private const int MULTISIG_VERSION = 1;
+        //private const string SIGN_ALGO = "EdDSA";
+        //private const int MULTISIG_VERSION = 1;
         //@JsonProperty("v")
-        [JsonProperty(PropertyName = "v", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "v")]
         public int version;
         //@JsonProperty("thr")
-        [JsonProperty(PropertyName = "thr", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "thr")]
         public int threshold;
         //@JsonProperty("subsig")
-        [JsonProperty(PropertyName = "subsig", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "subsig")]
         public List<MultisigSubsig> subsigs;
 
         //@JsonCreator
@@ -112,17 +112,10 @@ namespace Algorand
         {
             if (obj is MultisigSignature actual) {
                 //MultisigSignature actual = (MultisigSignature)obj;
-                if (this.version != actual.version)
-                {
-                    return false;
-                }
-                else
-                {
-                    return this.threshold != actual.threshold ? false : this.subsigs.Equals(actual.subsigs);
-                }
-            } else {
-                return false;
+                if (this.version == actual.version && this.threshold == actual.threshold && Enumerable.SequenceEqual(this.subsigs, actual.subsigs))
+                    return true;                
             }
+            return false;            
         }
         public override int GetHashCode()
         {
@@ -136,9 +129,10 @@ namespace Algorand
         public class MultisigSubsig
         {
             //@JsonProperty("pk")
-            [JsonProperty(PropertyName = "pk", DefaultValueHandling = DefaultValueHandling.Ignore)]
+            [JsonProperty(PropertyName = "pk")]
             public Ed25519PublicKeyParameters key;
             //@JsonProperty("s")
+            [JsonProperty(PropertyName = "s")]
             public Signature sig;
 
             //@JsonCreator
@@ -149,14 +143,12 @@ namespace Algorand
                 if (key != null)
                     this.key = new Ed25519PublicKeyParameters(key, 0);
                 else
-                    this.key = new Ed25519PublicKeyParameters(new byte[0], 0);
-                
+                    this.key = new Ed25519PublicKeyParameters(new byte[0], 0);                
 
                 if (sig != null)                
                     this.sig = new Signature(sig);                
                 else
                     this.sig = new Signature();
-
             }
 
             public MultisigSubsig(Ed25519PublicKeyParameters key, Signature sig = null)
@@ -189,6 +181,10 @@ namespace Algorand
                     //MultisigSignature.MultisigSubsig actual = (MultisigSignature.MultisigSubsig)obj;
                     return false;
                 }
+            }
+            public override int GetHashCode()
+            {
+                return key.GetHashCode() + sig.GetHashCode();
             }
         }
     }

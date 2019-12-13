@@ -12,7 +12,7 @@ namespace Algorand
     {
         private static byte[] TG_PREFIX = Encoding.UTF8.GetBytes("TG");// (StandardCharsets.UTF_8);;
         //@JsonProperty("txlist")
-        [JsonProperty(PropertyName = "txlist", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "txlist")]
         private Digest[] txGroupHashes;
 
         public static Digest ComputeGroupID(Transaction[] txns)
@@ -65,7 +65,7 @@ namespace Algorand
 
         private byte[] BytesToSign() {
             //try {
-            byte[] encodedTx = Encoding.UTF8.GetBytes(Encoder.EncodeToMsgPack(this));
+            byte[] encodedTx = Encoder.EncodeToMsgPack(this);
             byte[] prefixEncodedTx = JavaHelper<byte>.ArrayCopyOf(TG_PREFIX, TG_PREFIX.Length + encodedTx.Length);
             JavaHelper<byte>.SyatemArrayCopy(encodedTx, 0, prefixEncodedTx, TG_PREFIX.Length, encodedTx.Length);
             return prefixEncodedTx;

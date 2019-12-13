@@ -11,17 +11,17 @@ namespace Algorand
     public class SignedTransaction
     {
         //@JsonProperty("txn")
-        [JsonProperty(PropertyName = "txn", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "txn")]
         //[DefaultValue(typeof(Transaction))]
         public Transaction tx = new Transaction();
         //@JsonProperty("sig")
-        [JsonProperty(PropertyName = "sig", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "sig")]
         public Signature sig = new Signature(); // can be null
         //@JsonProperty("msig")
-        [JsonProperty(PropertyName = "msig", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "msig")]
         public MultisigSignature mSig = new MultisigSignature();
         //@JsonProperty("lsig")
-        [JsonProperty(PropertyName = "lsig", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "lsig")]
         public LogicsigSignature lSig = new LogicsigSignature();
 
         //@JsonIgnore

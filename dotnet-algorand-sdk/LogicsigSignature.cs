@@ -20,16 +20,16 @@ namespace Algorand
         //[JsonIgnore]
         //private const string SIGN_ALGO = "EdDSA";
         //@JsonProperty("l")
-        [JsonProperty(PropertyName = "l", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "l")]
         public byte[] logic;
         //@JsonProperty("arg")
-        [JsonProperty(PropertyName = "arg", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "arg")]
         public List<byte[]> args;
         //@JsonProperty("sig")
-        [JsonProperty(PropertyName = "sig", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "sig")]
         public Signature sig;
         //@JsonProperty("msig")
-        [JsonProperty(PropertyName = "msig", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "msig")]
         public MultisigSignature msig;
 
         //@JsonCreator
@@ -55,7 +55,6 @@ namespace Algorand
             if (sig != null) {
                 this.sig = new Signature(sig);
             }
-
             this.msig = msig;
         }
 

@@ -3,20 +3,21 @@ using System.Linq;
 using System.Text;
 using Org.BouncyCastle.Crypto.Signers;
 using Org.BouncyCastle.Crypto.Parameters;
+using Newtonsoft.Json;
 
 namespace Algorand
 {
     //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
-
     /// 
     /// Address represents a serializable 32-byte length Algorand address.
     /// 
+    [JsonConverter(typeof(BytesConverter))]
     public class Address
     {
         /**
          * The length of an address. Equal to the size of a SHA256 checksum.
          */
-        public static int LEN_BYTES = 32;
+        public const int LEN_BYTES = 32;
 
         // the underlying bytes
         //private byte[] bytes = new byte[LEN_BYTES];
@@ -37,6 +38,7 @@ namespace Algorand
          * @param bytes array of 32 bytes
          */
         //@JsonCreator
+        [JsonConstructor]
         public Address(byte[] bytes)
         {
             if (bytes == null)

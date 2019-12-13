@@ -9,7 +9,7 @@ namespace Algorand
  * A raw serializable signature class.
  */
     //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
-    [JsonConverter(typeof(Signature2BytesConverter))]
+    [JsonConverter(typeof(BytesConverter))]
     public class Signature
     {
         private static int ED25519_SIG_SIZE = 64;
@@ -71,44 +71,5 @@ namespace Algorand
         //{
         //    return new Signature(bytes);
         //}
-    }
-
-    public class Signature2BytesConverter : JsonConverter
-    {
-        //是否开启自定义反序列化，值为true时，反序列化时会走ReadJson方法，值为false时，不走ReadJson方法，而是默认的反序列化
-        public override bool CanRead => false;
-        //是否开启自定义序列化，值为true时，序列化时会走WriteJson方法，值为false时，不走WriteJson方法，而是默认的序列化
-        public override bool CanWrite => true;
-
-        public override bool CanConvert(Type objectType)
-        {
-            return typeof(Signature) == objectType;
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            //new一个JObject对象,JObject可以像操作对象来操作json
-            //var jobj = new JObject();
-            //value参数实际上是你要序列化的Model对象，所以此处直接强转
-            var sig = value as Signature;
-            //if (model.ID != 1)
-            //{
-            //    //如果ID值为1，添加一个键位"ID"，值为false
-            //    jobj.Add("ID", false);
-            //}
-            //else
-            //{
-            //    jobj.Add("ID", true);
-            //}
-            //通过ToString()方法把JObject对象转换成json
-            //var jsonstr = jobj.ToString();
-            //调用该方法，把json放进去，最终序列化Model对象的json就是jsonstr，由此，我们就能自定义的序列化对象了
-            writer.WriteValue(Convert.ToBase64String(sig.Bytes));
-        }
-    }
+    }    
 }

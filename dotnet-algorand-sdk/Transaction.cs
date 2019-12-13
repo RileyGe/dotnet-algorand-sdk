@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
+using System.ComponentModel;
 using System.Text;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Algorand
 {
@@ -15,107 +16,120 @@ namespace Algorand
     [JsonObject]
     public class Transaction
     {
-        private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
+        //private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
+        private const string TX_SIGN_PREFIX = "TX";
         private const int LEASE_LENGTH = 32;
         //@JsonProperty("type")
-        [JsonProperty(PropertyName = "type", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "type")]
+        [DefaultValue("")]
         public Type type = Type.Default;
 
         // Instead of embedding POJOs and using JsonUnwrapped, we explicitly export inner fields. This circumvents our encoders'
         // inability to sort child fields.
         /* header fields ***********************************************************/
         //@JsonProperty("snd")
-        [JsonProperty(PropertyName = "snd", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "snd")]
         public Address sender = new Address();
         //@JsonProperty("fee")
-        [JsonProperty(PropertyName = "fee", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "fee")]
+        [DefaultValue(0)]
         public ulong? fee = 0;
         //@JsonProperty("fv")
-        [JsonProperty(PropertyName = "fv", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "fv")]
+        [DefaultValue(0)]
         public ulong? firstValid = 0;
         //@JsonProperty("lv")
-        [JsonProperty(PropertyName = "lv", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "lv")]
+        [DefaultValue(0)]
         public ulong? lastValid = 0;
         //@JsonProperty("note")
-        [JsonProperty(PropertyName = "note", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "note")]        
         public byte[] note;
         //@JsonProperty("gen")
-        [JsonProperty(PropertyName = "gen", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "gen")]
+        [DefaultValue("")]
         public string genesisID = "";
         //@JsonProperty("gh")
-        [JsonProperty(PropertyName = "gh", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "gh")]
         public Digest genesisHash = new Digest();
         //@JsonProperty("grp")
-        [JsonProperty(PropertyName = "grp", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "grp")]
         public Digest group = new Digest();
         //@JsonProperty("lx")
-        [JsonProperty(PropertyName = "lx", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "lx")]
         public byte[] lease;
 
         /* payment fields  *********************************************************/
         //@JsonProperty("amt")
-        [JsonProperty(PropertyName = "amt", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "amt")]
+        [DefaultValue(0)]
         public ulong? amount = 0;
         //@JsonProperty("rcv")
-        [JsonProperty(PropertyName = "rcv", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "rcv")]
         public Address receiver = new Address();
         //@JsonProperty("close")
-        [JsonProperty(PropertyName = "close", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "close")]
         public Address closeRemainderTo = new Address(); // can be null, optional
 
         /* keyreg fields ***********************************************************/
         // VotePK is the participation public key used in key registration transactions
         //@JsonProperty("votekey")
-        [JsonProperty(PropertyName = "votekey", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "votekey")]
         public ParticipationPublicKey votePK = new ParticipationPublicKey();
 
         // selectionPK is the VRF public key used in key registration transactions
         //@JsonProperty("selkey")
-        [JsonProperty(PropertyName = "selkey", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "selkey")]
         public VRFPublicKey selectionPK = new VRFPublicKey();
         // voteFirst is the first round this keyreg tx is valid for
         //@JsonProperty("votefst")
-        [JsonProperty(PropertyName = "votefst", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "votefst")]
+        [DefaultValue(0)]
         public ulong? voteFirst = 0;
 
         // voteLast is the last round this keyreg tx is valid for
         //@JsonProperty("votelst")
-        [JsonProperty(PropertyName = "votelst", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "votelst")]
+        [DefaultValue(0)]
         public ulong? voteLast = 0;
         // voteKeyDilution
         //@JsonProperty("votekd")
-        [JsonProperty(PropertyName = "votekd", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "votekd")]
+        [DefaultValue(0)]
         public ulong? voteKeyDilution = 0;
 
         /* asset creation and configuration fields *********************************/
         //@JsonProperty("apar")
-        [JsonProperty(PropertyName = "apar", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "apar")]
         public AssetParams assetParams = new AssetParams();
         //@JsonProperty("caid")
-        [JsonProperty(PropertyName = "caid", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "caid")]
+        [DefaultValue(0)]
         public ulong? assetIndex = 0;
 
         /* asset transfer fields ***************************************************/
         //@JsonProperty("xaid")
-        [JsonProperty(PropertyName = "xaid", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "xaid")]
+        [DefaultValue(0)]
         public ulong? xferAsset = 0;
 
         // The amount of asset to transfer. A zero amount transferred to self
         // allocates that asset in the account's Assets map.
         //@JsonProperty("aamt")
-        [JsonProperty(PropertyName = "aamt", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "aamt")]
+        [DefaultValue(0)]
         public ulong? assetAmount = 0;
 
         // The sender of the transfer.  If this is not a zero value, the real
         // transaction sender must be the Clawback address from the AssetParams. If
         // this is the zero value, the asset is sent from the transaction's Sender.
         //@JsonProperty("asnd")
-        [JsonProperty(PropertyName = "asnd", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "asnd")]
         public Address assetSender = new Address();
 
         // The receiver of the transfer.
         //@JsonProperty("arcv")
-        [JsonProperty(PropertyName = "arcv", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "arcv")]
         public Address assetReceiver = new Address();
 
         // Indicates that the asset should be removed from the account's Assets map,
@@ -123,18 +137,20 @@ namespace Algorand
         // It's always valid to transfer remaining asset holdings to the AssetID
         // account.
         //@JsonProperty("aclose")
-        [JsonProperty(PropertyName = "aclose", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "aclose")]
         public Address assetCloseTo = new Address();
 
         /* asset freeze fields */
         //@JsonProperty("fadd")
-        [JsonProperty(PropertyName = "fadd", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "fadd")]
         public Address freezeTarget = new Address();
         //@JsonProperty("faid")
-        [JsonProperty(PropertyName = "faid", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "faid")]
+        [DefaultValue(0)]
         public ulong? assetFreezeID = 0;
         //@JsonProperty("afrz")
-        [JsonProperty(PropertyName = "afrz", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "afrz")]
+        [DefaultValue(false)]
         public bool freezeState = false;
 
         /**
@@ -743,25 +759,21 @@ namespace Algorand
         ///**
         // * TxType represents a transaction type.
         // */
-        public enum Type
+        [JsonConverter(typeof(Type2StringConverter))]
+        public class Type
         {
-            Default,
-            Payment,
-            KeyRegistration,
-            AssetConfig,
-            AssetTransfer,
-            AssetFreeze
+            private int type;
+            public static readonly Type Default = new Type(0);
+            public static readonly Type Payment = new Type(1);
+            public static readonly Type KeyRegistration = new Type(2);
+            public static readonly Type AssetConfig = new Type(3);
+            public static readonly Type AssetTransfer = new Type(4);
+            public static readonly Type AssetFreeze = new Type(5);
 
-            //        private static Map<String, Type> namesMap = new HashMap<String, Type>(6);
-
-            //static {
-            //            namesMap.put(Default.value, Default);
-            //            namesMap.put(Payment.value, Payment);
-            //            namesMap.put(KeyRegistration.value, KeyRegistration);
-            //            namesMap.put(AssetConfig.value, AssetConfig);
-            //            namesMap.put(AssetTransfer.value, AssetTransfer);
-            //            namesMap.put(AssetFreeze.value, AssetFreeze);
-            //        }
+            private static Dictionary<string, int> namesMap = new Dictionary<string, int> {
+                {"", 0 }, {"pay", 1}, {"keyreg", 2},
+                { "acfg", 3}, {"axfer", 4}, { "afrz", 5}
+            };
 
             //        private final String value;
             //        Type(String value)
@@ -769,31 +781,38 @@ namespace Algorand
             //    this.value = value;
             //}
 
-            ///**
-            // * Return the enumeration for the given string value. Required for JSON serialization.
-            // * @param value string representation
-            // * @return enumeration type
-            // */
+            /**
+             * Return the enumeration for the given string value. Required for JSON serialization.
+             * @param value string representation
+             * @return enumeration type
+             */
             //@JsonCreator
-            //        public static Type forValue(String value)
-            //{
-            //    return namesMap.get(value);
-            //}
+            [JsonConstructor]
+            public Type(string value)
+            {
+                this.type = namesMap.GetValueOrDefault(value, 0);
+            }
+
+            public Type(int value)
+            {
+                this.type = value;
+            }
 
             ///**
             // * Return the string value for this enumeration. Required for JSON serialization.
             // * @return string value
             // */
             //@JsonValue
-            //        public String toValue()
-            //{
-            //    for (Map.Entry<String, Type> entry : namesMap.entrySet())
-            //    {
-            //        if (entry.getValue() == this)
-            //            return entry.getKey();
-            //    }
-            //    return null;
-            //}
+            public string ToValue()
+            {
+                //namesMap.Add()
+                foreach (var entry in namesMap)
+                {
+                    if (entry.Value == this.type)
+                        return entry.Key;
+                }
+                return null;
+            }
         }
 
         //    /**
@@ -816,11 +835,12 @@ namespace Algorand
         {
             //try
             //{
-            byte[] encodedTx = Encoding.UTF8.GetBytes(Encoder.EncodeToMsgPack(this));
-            byte[] prefixEncodedTx = new byte[encodedTx.Length + TX_SIGN_PREFIX.Length];
-            JavaHelper<byte>.SyatemArrayCopy(TX_SIGN_PREFIX, 0, prefixEncodedTx, 0, TX_SIGN_PREFIX.Length);
-            JavaHelper<byte>.SyatemArrayCopy(encodedTx, 0, prefixEncodedTx, TX_SIGN_PREFIX.Length, encodedTx.Length);
-            return prefixEncodedTx;
+            //byte[] encodedTx = Encoder.EncodeToMsgPack(this);
+            var encodedStr = Encoder.EncodeToJson(this);
+            //byte[] prefixEncodedTx = new byte[encodedTx.Length + TX_SIGN_PREFIX.Length];
+            //JavaHelper<byte>.SyatemArrayCopy(TX_SIGN_PREFIX, 0, prefixEncodedTx, 0, TX_SIGN_PREFIX.Length);
+            //JavaHelper<byte>.SyatemArrayCopy(encodedTx, 0, prefixEncodedTx, TX_SIGN_PREFIX.Length, encodedTx.Length);
+            return Encoding.UTF8.GetBytes(TX_SIGN_PREFIX + encodedStr);
             //}
             //catch (IOException e)
             //{
@@ -854,89 +874,107 @@ namespace Algorand
             this.group = gid;
         }
 
-        //@Override
-        //    public boolean equals(Object o)
-        //{
-        //    if (this == o) return true;
-        //    if (o == null || getClass() != o.getClass()) return false;
-        //    Transaction that = (Transaction)o;
-        //    return type == that.type &&
-        //            sender.equals(that.sender) &&
-        //            fee.equals(that.fee) &&
-        //            firstValid.equals(that.firstValid) &&
-        //            lastValid.equals(that.lastValid) &&
-        //            Arrays.equals(note, that.note) &&
-        //            genesisID.equals(that.genesisID) &&
-        //            genesisHash.equals(that.genesisHash) &&
-        //            Arrays.equals(lease, that.lease) &&
-        //            group.equals(that.group) &&
-        //            amount.equals(that.amount) &&
-        //            receiver.equals(that.receiver) &&
-        //            closeRemainderTo.equals(that.closeRemainderTo) &&
-        //            votePK.equals(that.votePK) &&
-        //            selectionPK.equals(that.selectionPK) &&
-        //            voteFirst.equals(that.voteFirst) &&
-        //            voteLast.equals(that.voteLast) &&
-        //            voteKeyDilution.equals(that.voteKeyDilution) &&
-        //            assetParams.equals(that.assetParams) &&
-        //            assetIndex.equals(that.assetIndex) &&
-        //            xferAsset.equals(that.xferAsset) &&
-        //            assetAmount.equals(that.assetAmount) &&
-        //            assetSender.equals(that.assetSender) &&
-        //            assetReceiver.equals(that.assetReceiver) &&
-        //            assetCloseTo.equals(that.assetCloseTo) &&
-        //            freezeTarget.equals(that.freezeTarget) &&
-        //            assetFreezeID.equals(that.assetFreezeID) &&
-        //            freezeState == that.freezeState;
-        //}
 
-
-
-
+        public override bool Equals(object o)
+        {
+            if (this == o) return true;
+            if (o == null || !(o is Transaction)) return false;
+            Transaction that = o as Transaction;
+            return type == that.type &&
+                    sender.Equals(that.sender) &&
+                    fee == that.fee &&
+                    firstValid == that.firstValid &&
+                    lastValid == that.lastValid &&
+                    Enumerable.SequenceEqual(note, that.note) &&
+                    genesisID.Equals(that.genesisID) &&
+                    genesisHash.Equals(that.genesisHash) &&
+                    Enumerable.SequenceEqual(lease, that.lease) &&
+                    group.Equals(that.group) &&
+                    amount == that.amount &&
+                    receiver.Equals(that.receiver) &&
+                    closeRemainderTo.Equals(that.closeRemainderTo) &&
+                    votePK.Equals(that.votePK) &&
+                    selectionPK.Equals(that.selectionPK) &&
+                    voteFirst == that.voteFirst &&
+                    voteLast == that.voteLast &&
+                    voteKeyDilution == that.voteKeyDilution &&
+                    assetParams.Equals(that.assetParams) &&
+                    assetIndex == that.assetIndex &&
+                    xferAsset == that.xferAsset &&
+                    assetAmount == that.assetAmount &&
+                    assetSender.Equals(that.assetSender) &&
+                    assetReceiver.Equals(that.assetReceiver) &&
+                    assetCloseTo.Equals(that.assetCloseTo) &&
+                    freezeTarget.Equals(that.freezeTarget) &&
+                    assetFreezeID == that.assetFreezeID &&
+                    freezeState == that.freezeState;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         //}
         //@JsonPropertyOrder(alphabetic= true)
         //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
         public class AssetParams
         {
-            //    // total asset issuance
             //    @JsonProperty("t")
+            ///
+            /// <summary>
+            /// total asset issuance
+            /// </summary>
+            [JsonProperty(PropertyName = "t")]
+            [DefaultValue(0)]
             public ulong? assetTotal = 0;
 
             //// whether each account has their asset slot frozen for this asset by default
             //@JsonProperty("df")
+            [JsonProperty(PropertyName = "df")]
+            [DefaultValue(false)]
             public bool assetDefaultFrozen = false;
 
             //// a hint to the unit name of the asset
             //@JsonProperty("un")
-            public String assetUnitName = "";
+            [JsonProperty(PropertyName = "un")]
+            [DefaultValue("")]
+            public string assetUnitName = "";
 
             //// the name of the asset
             //@JsonProperty("an")
+            [JsonProperty(PropertyName = "an")]
+            [DefaultValue("")]
             public String assetName = "";
 
             //// URL where more information about the asset can be retrieved
             //@JsonProperty("au")
+            [JsonProperty(PropertyName = "au")]
+            [DefaultValue("")]
             public String url = "";
 
             //// MetadataHash specifies a commitment to some unspecified asset
             //// metadata. The format of this metadata is up to the application.
             //@JsonProperty("am")
+            [JsonProperty(PropertyName = "am")]
             public byte[] metadataHash;
 
             //// the address which has the ability to reconfigure the asset
             //@JsonProperty("m")
+            [JsonProperty(PropertyName = "m")]
             public Address assetManager = new Address();
 
             //// the asset reserve: assets owned by this address do not count against circulation
             //@JsonProperty("r")
+            [JsonProperty(PropertyName = "r")]
             public Address assetReserve = new Address();
 
             //// the address which has the ability to freeze/unfreeze accounts holding this asset
             //@JsonProperty("f")
+            [JsonProperty(PropertyName = "f")]
             public Address assetFreeze = new Address();
 
             //// the address which has the ability to issue clawbacks against asset-holding accounts
             //@JsonProperty("c")
+            [JsonProperty(PropertyName = "c")]
             public Address assetClawback = new Address();
 
             public AssetParams(
@@ -963,55 +1001,58 @@ namespace Algorand
                 if (clawback != null) this.assetClawback = clawback;
             }
 
-            public AssetParams()
+            public AssetParams() { }
+
+            public override bool Equals(object o)
+            {
+                if (this == o) return true;
+                if (o == null || !(o is AssetParams)) return false;
+                AssetParams that = o as AssetParams;
+                return assetTotal == that.assetTotal &&
+                    (assetDefaultFrozen == that.assetDefaultFrozen) &&
+                    assetName == that.assetName &&
+                    assetUnitName == that.assetUnitName &&
+                    url == that.url &&
+                    ((metadataHash is null && that.metadataHash is null) || Enumerable.SequenceEqual(metadataHash, that.metadataHash)) &&
+                    assetManager.Equals(that.assetManager) &&
+                    assetReserve.Equals(that.assetReserve) &&
+                    assetFreeze.Equals(that.assetFreeze) &&
+                    assetClawback.Equals(that.assetClawback);
+            }
+            public override int GetHashCode()
+            {
+                return base.GetHashCode();
+            }
+
+            //@JsonCreator
+            [JsonConstructor]
+            private AssetParams([JsonProperty(PropertyName = "t")] ulong? assetTotal,
+                [JsonProperty(PropertyName = "df")] bool assetDefaultFrozen,
+                [JsonProperty(PropertyName = "un")] string assetUnitName,
+                [JsonProperty(PropertyName = "an")] string assetName,
+                [JsonProperty(PropertyName = "au")] string url,
+                [JsonProperty(PropertyName = "am")] byte[] metadataHash,
+                [JsonProperty(PropertyName = "m")] byte[] assetManager,
+                [JsonProperty(PropertyName = "r")] byte[] assetReserve,
+                [JsonProperty(PropertyName = "f")] byte[] assetFreeze,
+                [JsonProperty(PropertyName = "c")] byte[] assetClawback) : 
+                this(assetTotal, assetDefaultFrozen, assetUnitName, assetName, url, metadataHash, 
+                    new Address(assetManager), new Address(assetReserve), new Address(assetFreeze), new Address(assetClawback))
             {
 
             }
 
-
-            //@Override
-            //        public boolean equals(Object o)
-            //{
-            //    if (this == o) return true;
-            //    if (o == null || getClass() != o.getClass()) return false;
-            //    AssetParams that = (AssetParams)o;
-            //    return assetTotal.equals(that.assetTotal) &&
-            //        (assetDefaultFrozen == that.assetDefaultFrozen) &&
-            //        assetName.equals(that.assetName) &&
-            //        assetUnitName.equals(that.assetUnitName) &&
-            //        url.equals(that.url) &&
-            //        Arrays.equals(metadataHash, that.metadataHash) &&
-            //        assetManager.equals(that.assetManager) &&
-            //        assetReserve.equals(that.assetReserve) &&
-            //        assetFreeze.equals(that.assetFreeze) &&
-            //        assetClawback.equals(that.assetClawback);
-            //}
-
-            //@JsonCreator
-            //        private AssetParams(@JsonProperty("t") BigInteger assetTotal,
-            //            @JsonProperty("df") boolean assetDefaultFrozen,
-            //            @JsonProperty("un") String assetUnitName,
-            //            @JsonProperty("an") String assetName,
-            //            @JsonProperty("au") String url,
-            //            @JsonProperty("am") byte[] metadataHash,
-            //            @JsonProperty("m") byte[] assetManager,
-            //            @JsonProperty("r") byte[] assetReserve,
-            //            @JsonProperty("f") byte[] assetFreeze,
-            //            @JsonProperty("c") byte[] assetClawback) {
-            //            this(assetTotal, assetDefaultFrozen, assetUnitName, assetName, url, metadataHash, new Address(assetManager), new Address(assetReserve), new Address(assetFreeze), new Address(assetClawback));
-            //        }
-
-            //        /**
-            //         * Convert the given object to string with each line indented by 4 spaces
-            //         * (except the first line).
-            //         */
-            //        private String toIndentedString(java.lang.Object o)
-            //{
-            //    if (o == null)
-            //    {
-            //        return "null";
-            //    }
-            //    return o.toString().replace("\n", "\n    ");
-        }
+        //        /**
+        //         * Convert the given object to string with each line indented by 4 spaces
+        //         * (except the first line).
+        //         */
+        //        private String toIndentedString(java.lang.Object o)
+        //{
+        //    if (o == null)
+        //    {
+        //        return "null";
+        //    }
+        //    return o.toString().replace("\n", "\n    ");}
+    }
     }
 }

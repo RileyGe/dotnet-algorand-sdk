@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Linq;
 
 namespace Algorand
 {
-    /**
- * A serializable class representing a SHA512-256 Digest
- */
     //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    /// <summary>
+    /// A serializable class representing a SHA512-256 Digest
+    /// </summary>
+    [JsonConverter(typeof(BytesConverter))]
     public class Digest
     {
         private static int DIG_LEN_BYTES = 32;
@@ -16,6 +19,7 @@ namespace Algorand
          * @param bytes a length 32 byte array.
          */
         //@JsonCreator
+        [JsonConstructor]
         public Digest(byte[] bytes)
         {
             if (bytes == null)
@@ -46,7 +50,7 @@ namespace Algorand
         //@Override
         public override bool Equals(object obj)
         {
-            if (obj is Digest && this.Bytes.Equals(((Digest)obj).Bytes)) {
+            if (obj is Digest && Enumerable.SequenceEqual(this.Bytes, ((Digest)obj).Bytes)) {
                 return true;
             } else {
                 return false;
@@ -56,5 +60,5 @@ namespace Algorand
         {
             return this.Bytes.GetHashCode();
         }
-    }
+    }    
 }
