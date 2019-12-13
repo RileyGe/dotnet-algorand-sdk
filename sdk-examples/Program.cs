@@ -122,6 +122,7 @@ namespace sdk_examples
             ulong? lastRound = firstRound + 1000; // 1000 is the max tx window
             Account src = new Account(SRC_ACCOUNT);
             Console.WriteLine("My account address is:" + src.Address.ToString());
+            var str = src.ToMnemonic();
             //Account newAcc = new Account();
             Transaction tx = new Transaction(src.Address, new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
             SignedTransaction signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);

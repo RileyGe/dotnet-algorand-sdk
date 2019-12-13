@@ -1,8 +1,11 @@
-﻿using Org.BouncyCastle.Crypto;
+﻿using Org.BouncyCastle.Asn1.Pkcs;
+using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Crypto.Signers;
+using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Asn1;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -122,27 +125,35 @@ namespace Algorand
         //    }
 
 
-        //    /**
-        //     * Converts the 32 byte private key to a 25 word mnemonic, including a checksum.
-        //     * Refer to the mnemonic package for additional documentation.
-        //     * @return string a 25 word mnemonic
-        //     */
-        //    public String toMnemonic()
-        //    {
-        //        // this is the only place we use a bouncy castle compile-time dependency
-        //        byte[] X509enc = this.privateKeyPair.getPrivate().getEncoded();
-        //        PrivateKeyInfo pkinfo = PrivateKeyInfo.getInstance(X509enc);
-        //        try
-        //        {
-        //            ASN1Encodable keyOcts = pkinfo.parsePrivateKey();
-        //            byte[] res = ASN1OctetString.getInstance(keyOcts).getOctets();
-        //            return Mnemonic.fromKey(res);
-        //        }
-        //        catch (IOException e)
-        //        {
-        //            throw new RuntimeException("unexpected behavior", e);
-        //        }
-        //    }
+        /**
+         * Converts the 32 byte private key to a 25 word mnemonic, including a checksum.
+         * Refer to the mnemonic package for additional documentation.
+         * @return string a 25 word mnemonic
+         */
+        public string ToMnemonic()
+        {
+            // this is the only place we use a bouncy castle compile-time dependency
+            PrivateKeyInfo privateKeyInfo = PrivateKeyInfoFactory.CreatePrivateKeyInfo(this.privateKeyPair.Private);
+            byte[] X509enc = privateKeyInfo.ToAsn1Object().GetEncoded();
+            //privateKeyInfo.ToAsn1Object().
+            //return Mnemonic.FromKey(X509enc);
+
+            //byte[] X509enc = this.privateKeyPair.Private.getEncoded();
+            PrivateKeyInfo pkinfo = PrivateKeyInfo.GetInstance(X509enc);
+            //try
+            //{
+            var keyOcts = pkinfo.ParsePrivateKey();
+            //org.bouncycastle.asn1.ASN1Object
+            byte[] res = Asn1OctetString.GetInstance(keyOcts).GetOctets();
+
+            //ASN1OctetString.getInstance(keyOcts).getOctets();
+            return Mnemonic.FromKey(res);
+            //}
+            //catch (IOException e)
+            //{
+            //    throw new RuntimeException("unexpected behavior", e);
+            //}
+        }
 
         /// <summary>
         /// Sign a transaction with this account
