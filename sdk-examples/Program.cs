@@ -123,6 +123,8 @@ namespace sdk_examples
             Account src = new Account(SRC_ACCOUNT);
             Console.WriteLine("My account address is:" + src.Address.ToString());
             var str = src.ToMnemonic();
+            var bytes = Encoding.UTF8.GetBytes("examples");
+            var siguture = src.SignBytes(bytes);
             //Account newAcc = new Account();
             Transaction tx = new Transaction(src.Address, new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
             SignedTransaction signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);

@@ -27,7 +27,7 @@ namespace Algorand
         private const int SK_SIZE = 32;
         private const int SK_SIZE_BITS = SK_SIZE * 8;
         //private static byte[] BID_SIGN_PREFIX = ("aB").getBytes(StandardCharsets.UTF_8);
-        //private static byte[] BYTES_SIGN_PREFIX = ("MX").getBytes(StandardCharsets.UTF_8);
+        private static byte[] BYTES_SIGN_PREFIX = Encoding.UTF8.GetBytes("MX");
         private const ulong MIN_TX_FEE_UALGOS = 1000;
 
         /// <summary>
@@ -309,21 +309,24 @@ namespace Algorand
             //}
         }
 
-        ///**
-        // * Sign the given bytes, and wrap in signature. The message is prepended with "MX" for domain separation.
-        // * @param bytes the data to sign
-        // * @return a signature
-        // */
-        //public Signature signBytes(byte[] bytes) //throws NoSuchAlgorithmException
-        //{
-        //        // prepend hashable prefix
-        //        byte[]
-        //    prefixBytes = new byte[bytes.length + BYTES_SIGN_PREFIX.length];
-        //        System.arraycopy(BYTES_SIGN_PREFIX, 0, prefixBytes, 0, BYTES_SIGN_PREFIX.length);
-        //        System.arraycopy(bytes, 0, prefixBytes, BYTES_SIGN_PREFIX.length, bytes.length);
-        //        // sign
-        //        return rawSignBytes(prefixBytes);
-        //    }
+        /**
+         * Sign the given bytes, and wrap in signature. The message is prepended with "MX" for domain separation.
+         * @param bytes the data to sign
+         * @return a signature
+         */
+        public Signature SignBytes(byte[] bytes) //throws NoSuchAlgorithmException
+        {
+            // prepend hashable prefix
+            List<byte> retByte = new List<byte>();
+            retByte.AddRange(BYTES_SIGN_PREFIX);
+            retByte.AddRange(bytes);
+            //byte[] prefixBytes = new byte[bytes.Length + BYTES_SIGN_PREFIX.Length];
+            //System.arraycopy(BYTES_SIGN_PREFIX, 0, prefixBytes, 0, BYTES_SIGN_PREFIX.length);
+            //System.arraycopy(bytes, 0, prefixBytes, BYTES_SIGN_PREFIX.length, bytes.length);
+            
+            // sign
+            return RawSignBytes(retByte.ToArray());
+        }
 
         //    /* Multisignature support */
 
