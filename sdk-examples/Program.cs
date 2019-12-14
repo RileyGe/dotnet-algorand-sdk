@@ -126,6 +126,7 @@ namespace sdk_examples
             var bytes = Encoding.UTF8.GetBytes("examples");
             var siguture = src.SignBytes(bytes);
             //Account newAcc = new Account();
+            var adrvalid = Address.IsValid(DEST_ADDR);
             Transaction tx = new Transaction(src.Address, new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
             SignedTransaction signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);
             //var signedTrans = src.SignTransaction(tx);
@@ -149,56 +150,58 @@ namespace sdk_examples
             }
 
 
-
-
-
-
-
             // let's create a transaction group
-            //Digest gid = TxGroup.ComputeGroupID(new Transaction[] { tx, tx });
-            //tx.AssignGroupID(gid);
-            //signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);
-            //try
-            //{
-            //    byte[] encodedTxBytes = Algorand.Encoder.EncodeToMsgPack(signedTx);
-            //    byte[] concat = JavaHelper<byte>.ArrayCopyOf(encodedTxBytes, encodedTxBytes.Length + encodedTxBytes.Length);
-            //    JavaHelper<byte>.SyatemArrayCopy(encodedTxBytes, 0, concat, encodedTxBytes.Length, encodedTxBytes.Length);
-            //    TransactionID id = algodApiInstance.RawTransaction(concat);
-            //    Console.WriteLine("Successfully sent tx group with first tx id: " + id);
-            //}
-            //catch (ApiException e)
-            //{
-            //    // This is generally expected, but should give us an informative error message.
-            //    Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
-            //}
+            Transaction tx2 = new Transaction(src.Address, new Address("OAMCXDCH7LIVYUF2HSNQLPENI2ZXCWBSOLUAOITT47E4FAMFGAMI4NFLYU"), amount, firstRound, lastRound, genesisID, genesisHash);
+            //SignedTransaction signedTx2 = src.SignTransactionWithFeePerByte(tx2, feePerByte);
+            Digest gid = TxGroup.ComputeGroupID(new Transaction[] { tx, tx2 });
+            tx.AssignGroupID(gid);
+            tx2.AssignGroupID(gid);
+            // already updated the groupid, sign again
+            signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);
+            var signedTx2 = src.SignTransactionWithFeePerByte(tx2, feePerByte);
+            try
+            {
+                List<byte> byteList = new List<byte>(Algorand.Encoder.EncodeToMsgPack(signedTx));
+                //byte[] encodedTxBytes = ;
+                //byte[] concat = JavaHelper<byte>.ArrayCopyOf(encodedTxBytes, encodedTxBytes.Length + encodedTxBytes.Length);
+                //JavaHelper<byte>.SyatemArrayCopy(encodedTxBytes, 0, concat, encodedTxBytes.Length, encodedTxBytes.Length);
+                byteList.AddRange(Algorand.Encoder.EncodeToMsgPack(signedTx2));
+                TransactionID id = algodApiInstance.RawTransaction(byteList.ToArray());
+                Console.WriteLine("Successfully sent tx group with first tx id: " + id);
+            }
+            catch (ApiException e)
+            {
+                // This is generally expected, but should give us an informative error message.
+                Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
+            }
 
-            //// format and send logic sig
-            //byte[] program = { 0x01, 0x20, 0x01, 0x00, 0x22 };
+            // format and send logic sig
+            byte[] program = { 0x01, 0x20, 0x01, 0x00, 0x22 };
 
-            //LogicsigSignature lsig = new LogicsigSignature(program, null);
-            //Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
+            LogicsigSignature lsig = new LogicsigSignature(program, null);
+            Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
 
-            //tx = new Transaction(lsig.ToAddress(), new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
-            //if (!lsig.Verify(tx.sender))
-            //{
-            //    String msg = "Verification failed";
-            //    Console.WriteLine(msg);
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
-            //        byte[] encodedTxBytes = Algorand.Encoder.EncodeToMsgPack(signedTx);
-            //        TransactionID id = algodApiInstance.RawTransaction(encodedTxBytes);
-            //        Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
-            //    }
-            //    catch (ApiException e)
-            //    {
-            //        // This is generally expected, but should give us an informative error message.
-            //        Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
-            //    }
-            //}
+            tx = new Transaction(lsig.ToAddress(), new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
+            if (!lsig.Verify(tx.sender))
+            {
+                string msg = "Verification failed";
+                Console.WriteLine(msg);
+            }
+            else
+            {
+                try
+                {
+                    SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
+                    byte[] encodedTxBytes = Algorand.Encoder.EncodeToMsgPack(signedTx);
+                    TransactionID id = algodApiInstance.RawTransaction(encodedTxBytes);
+                    Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
+                }
+                catch (ApiException e)
+                {
+                    // This is generally expected, but should give us an informative error message.
+                    Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
+                }
+            }
         }
     }
 

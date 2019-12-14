@@ -83,13 +83,36 @@ namespace Algorand
             {
                 throw new Exception("address must not be null");
             }
+            if (IsValid(encodedAddr))
+            {
+                this.Bytes = GetAdressBytes(encodedAddr);
+            }
+            else
+            {
+                throw new ArgumentException("The address is not valid");
+            }
+        }
+
+        private byte[] GetAdressBytes(string encodedAddr)
+        {
+            byte[] checksumAddr = Base32.DecodeFromBase32String(encodedAddr);
+            return JavaHelper<byte>.ArrayCopyOf(checksumAddr, LEN_BYTES);
+        }
+        /// <summary>
+        /// check if the address is valid
+        /// </summary>
+        /// <param name="encodedAddress">Address</param>
+        /// <returns>valid or not</returns>
+        public static bool IsValid(string encodedAddress)
+        {
             // interpret as base32
             //Base32 codec = new Base32();
             //    Base32.DecodeFromBase32String
-            byte[] checksumAddr = Base32.DecodeFromBase32String(encodedAddr); // may expect padding
+            byte[] checksumAddr = Base32.DecodeFromBase32String(encodedAddress); // may expect padding
                                                                               // sanity check length
-            if (checksumAddr.Length != LEN_BYTES + CHECKSUM_LEN_BYTES) {
-                throw new ArgumentException("Input string is an invalid address. Wrong length");
+            if (checksumAddr.Length != LEN_BYTES + CHECKSUM_LEN_BYTES)
+            {
+                return false;
             }
             // split into checksum
             byte[] checksum = JavaHelper<byte>.ArrayCopyRange(checksumAddr, LEN_BYTES, checksumAddr.Length);
@@ -104,18 +127,22 @@ namespace Algorand
             // compute expected checksum
             byte[] hashedAddr = Digester.Digest(addr);
             //byte[] expectedChecksum = Arrays.copyOfRange(hashedAddr, LEN_BYTES - CHECKSUM_LEN_BYTES, hashedAddr.length);
-            byte[] expectedChecksum = JavaHelper<byte>.ArrayCopyRange(hashedAddr, 
+            byte[] expectedChecksum = JavaHelper<byte>.ArrayCopyRange(hashedAddr,
                 LEN_BYTES - CHECKSUM_LEN_BYTES, hashedAddr.Length);
 
 
             // compare
-            if(Enumerable.SequenceEqual(checksum, expectedChecksum)) {
+            if (Enumerable.SequenceEqual(checksum, expectedChecksum))
+            {
                 //if (checksum == expectedChecksum) {
                 //System.arraycopy(addr, 0, this.bytes, 0, LEN_BYTES);
                 //addr.CopyTo(this.Bytes, 0);
-                this.Bytes = addr;
-            } else {
-                throw new ArgumentException("Input checksum did not validate");
+                //this.Bytes = addr;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
