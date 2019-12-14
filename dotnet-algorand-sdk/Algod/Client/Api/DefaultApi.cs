@@ -279,7 +279,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>TransactionID</returns>
-        TransactionID RawTransaction(string body);
+        TransactionID RawTransaction(byte[] body);
 
         /// <summary>
         /// Broadcasts a raw transaction to the network.
@@ -290,7 +290,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>ApiResponse of TransactionID</returns>
-        ApiResponse<TransactionID> RawTransactionWithHttpInfo(string body);
+        ApiResponse<TransactionID> RawTransactionWithHttpInfo(byte[] body);
         /// <summary>
         /// Get the suggested fee
         /// </summary>
@@ -2609,7 +2609,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>TransactionID</returns>
-        public TransactionID RawTransaction(string body)
+        public TransactionID RawTransaction(byte[] body)
         {
             ApiResponse<TransactionID> localVarResponse = RawTransactionWithHttpInfo(body);
             return localVarResponse.Data;
@@ -2621,7 +2621,8 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>ApiResponse of TransactionID</returns>
-        public ApiResponse<TransactionID> RawTransactionWithHttpInfo(string body)
+        //public ApiResponse<TransactionID> RawTransactionWithHttpInfo(string body)
+        public ApiResponse<TransactionID> RawTransactionWithHttpInfo(byte[] body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
