@@ -48,7 +48,8 @@ namespace Algorand
                 var ppk = value as ParticipationPublicKey;
                 bytes = ppk.Bytes;
             }
-            writer.WriteValue(Convert.ToBase64String(bytes));
+            //writer.WriteValue(Convert.ToBase64String(bytes));
+            writer.WriteValue(bytes);
         }
     }
     public class Type2StringConverter : JsonConverter

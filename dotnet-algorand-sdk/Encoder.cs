@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Serialization;
+using Newtonsoft.Msgpack;
 
 namespace Algorand
 {
@@ -34,19 +33,37 @@ namespace Algorand
             //// also annotate all fields manually
             //objectMapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
 
-            MemoryStream ms = new MemoryStream();
-            using (var writer = new BsonDataWriter(ms))
-            {
-                JsonSerializer serializer = new JsonSerializer
-                {
-                    DefaultValueHandling = DefaultValueHandling.Ignore,
-                    ContractResolver = AlgorandContractResolver.Instance,
-                    Formatting = Formatting.None
-                };
-                serializer.Serialize(writer, o);
-            }
+            //MemoryStream ms = new MemoryStream();
+            //using (var writer = new BsonDataWriter(ms))
+            //{
+            //    JsonSerializer serializer = new JsonSerializer
+            //    {
+            //        DefaultValueHandling = DefaultValueHandling.Ignore,
+            //        ContractResolver = AlgorandContractResolver.Instance,
+            //        Formatting = Formatting.None
+            //    };
+            //    serializer.Serialize(writer, o);
+            //}
             //string data = Convert.ToBase64String(ms.ToArray());
-            return ms.ToArray();
+            //MessagePack.MessagePackSerializerOptions options = 
+            //    MessagePack.MessagePackSerializerOptions.Standard.
+
+            MemoryStream memoryStream = new MemoryStream();
+            JsonSerializer serializer = new JsonSerializer(){
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                ContractResolver = AlgorandContractResolver.Instance,
+                Formatting = Formatting.None
+            };
+
+            // serialize product to MessagePack
+            MessagePackWriter writer = new MessagePackWriter(memoryStream);
+            serializer.Serialize(writer, o);
+            var bytes = memoryStream.ToArray();
+            //Console.WriteLine(BitConverter.ToString(memoryStream.ToArray()));
+            //var jstr = EncodeToJson(o);
+            //var newObj = JsonConvert.DeserializeObject(jstr);
+            //var bytes = MessagePack.MessagePackSerializer.ConvertFromJson(EncodeToJson(o));
+            return bytes;
         }
 
         //    /**
@@ -80,7 +97,7 @@ namespace Algorand
                 ContractResolver = AlgorandContractResolver.Instance,
                 DefaultValueHandling = DefaultValueHandling.Ignore
             };
-            var ostr = JsonConvert.SerializeObject(o, settings);
+            var ostr = JsonConvert.SerializeObject(o, settings);            
             return ostr;
         }
 
