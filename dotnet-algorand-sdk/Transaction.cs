@@ -17,7 +17,7 @@ namespace Algorand
     public class Transaction
     {
         //private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
-        private const string TX_SIGN_PREFIX = "TX";
+        private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
         private const int LEASE_LENGTH = 32;
         //@JsonProperty("type")
         [JsonProperty(PropertyName = "type")]
@@ -835,12 +835,16 @@ namespace Algorand
         {
             //try
             //{
-            //byte[] encodedTx = Encoder.EncodeToMsgPack(this);
-            var encodedStr = Encoder.EncodeToJson(this);
+            byte[] encodedTx = Encoder.EncodeToMsgPack(this);
+            var retList = new List<byte>();
+            retList.AddRange(TX_SIGN_PREFIX);
+            retList.AddRange(encodedTx);
+            return retList.ToArray();
+            //var encodedStr = Encoder.EncodeToJson(this);
             //byte[] prefixEncodedTx = new byte[encodedTx.Length + TX_SIGN_PREFIX.Length];
             //JavaHelper<byte>.SyatemArrayCopy(TX_SIGN_PREFIX, 0, prefixEncodedTx, 0, TX_SIGN_PREFIX.Length);
             //JavaHelper<byte>.SyatemArrayCopy(encodedTx, 0, prefixEncodedTx, TX_SIGN_PREFIX.Length, encodedTx.Length);
-            return Encoding.UTF8.GetBytes(TX_SIGN_PREFIX + encodedStr);
+            //return Encoding.UTF8.GetBytes(TX_SIGN_PREFIX + encodedStr);
             //}
             //catch (IOException e)
             //{

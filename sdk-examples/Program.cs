@@ -128,14 +128,18 @@ namespace sdk_examples
             //Account newAcc = new Account();
             Transaction tx = new Transaction(src.Address, new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
             SignedTransaction signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);
+            //var signedTrans = src.SignTransaction(tx);
+
+            //Console.WriteLine("signed transaction:" + signedTrans.transactionID);
             Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
             // send the transaction to the network
             try
             {
                 var encodedMsg = Algorand.Encoder.EncodeToMsgPack(signedTx);
+                //var str222 = Algorand.Encoder.EncodeToJson(signedTx);
                 //encodedMsg = "{\"sig\":\"I8Lw9Y2jTyDexYYD9pSU+ufPCBFlHiHgpczYCClhwYwwRTnsqv5lFl+giu+cd0FQVSif3EjynFyVTp3orMZKBw==\",\"txn\":{\"amt\":100000,\"fee\":1000,\"fv\":1519490,\"gen\":\"testnet-v1.0\",\"gh\":\"SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=\",\"lv\":1520490,\"rcv\":\"VXVzKZc2E+fbEAd3/gcIgFe3NiySAReIokkAwB4Erh4=\",\"snd\":\"18tanNp1HaLZ/pgO5Dzzfusz0yrp6d5xy89Xk2oyAwQ=\",\"type\":\"pay\"}}";
-                //TransactionID id = algodApiInstance.RawTransaction(encodedMsg);
+                TransactionID id = algodApiInstance.RawTransaction(encodedMsg);
                 //Console.WriteLine("Successfully sent tx with id: " + id);
             }
             catch (ApiException e)

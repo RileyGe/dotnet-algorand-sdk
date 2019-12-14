@@ -65,23 +65,23 @@ namespace Algorand
         }
 
         //@Override
-        //public override bool Equals(Object obj)
-        //{
-        //    if (obj is SignedTransaction actual)
-        //    {
-        //        if (!tx.Equals(actual.tx)) return false;
-        //        if (!sig.Equals(actual.sig)) return false;
-        //        if (!lSig.Equals(actual.lSig)) return false;
-        //        return this.mSig.Equals(actual.mSig);
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-        //public override int GetHashCode()
-        //{
-        //    return base.GetHashCode();
-        //}
+        public override bool Equals(object obj)
+        {
+            if (obj is SignedTransaction actual)
+            {
+                if (!tx.Equals(actual.tx)) return false;
+                if (!sig.Equals(actual.sig)) return false;
+                if (!lSig.Equals(actual.lSig)) return false;
+                return this.mSig.Equals(actual.mSig);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
