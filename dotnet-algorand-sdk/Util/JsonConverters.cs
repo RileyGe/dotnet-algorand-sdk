@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +16,8 @@ namespace Algorand
         public override bool CanConvert(Type objectType)
         {
             return (typeof(Signature) == objectType || typeof(Digest) == objectType || typeof(Address) == objectType ||
-                typeof(VRFPublicKey) == objectType || typeof(ParticipationPublicKey) == objectType);
+                typeof(VRFPublicKey) == objectType || typeof(ParticipationPublicKey) == objectType ||
+                typeof(Ed25519PublicKeyParameters) == objectType);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -47,6 +49,10 @@ namespace Algorand
             {
                 var ppk = value as ParticipationPublicKey;
                 bytes = ppk.Bytes;
+            }else if(value is Ed25519PublicKeyParameters)
+            {
+                var key = value as Ed25519PublicKeyParameters;
+                bytes = key.GetEncoded();
             }
             //writer.WriteValue(Convert.ToBase64String(bytes));
             writer.WriteValue(bytes);

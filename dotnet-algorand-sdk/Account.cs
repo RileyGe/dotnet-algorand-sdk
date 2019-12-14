@@ -9,6 +9,7 @@ using Org.BouncyCastle.Asn1;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Algorand
 {
@@ -62,7 +63,7 @@ namespace Algorand
             Ed25519KeyPairGenerator keyPairGenerator = new Ed25519KeyPairGenerator();
             //keyPairGenerator.Init(new KeyGenerationParameters())
             keyPairGenerator.Init(new Ed25519KeyGenerationParameters(randomSrc));
-            
+
             this.privateKeyPair = keyPairGenerator.GenerateKeyPair();
             //Ed25519PrivateKeyParameters privateKey = (Ed25519PrivateKeyParameters)privateKeyPair.Private;
             //Ed25519PublicKeyParameters publicKey = (Ed25519PublicKeyParameters)privateKeyPair.Public;
@@ -119,10 +120,14 @@ namespace Algorand
             return b;
         }
 
-        //    public Ed25519PublicKey getEd25519PublicKey()
-        //    {
-        //        return new Ed25519PublicKey(this.getClearTextPublicKey());
-        //    }
+        /// <summary>
+        /// Get the public key
+        /// </summary>
+        /// <returns>public key</returns>
+        public Ed25519PublicKeyParameters GetEd25519PublicKey()
+        {
+            return new Ed25519PublicKeyParameters(this.GetClearTextPublicKey(), 0);
+        }
 
 
         /**
@@ -303,7 +308,7 @@ namespace Algorand
             //signer.update(bytes);
             //byte[] sigRaw = signer.sign();
             return new Signature(signature);
-            
+
             //    } catch (InvalidKeyException|SignatureException e) {
             //                throw new RuntimeException("unexpected behavior", e);
             //}
@@ -323,122 +328,142 @@ namespace Algorand
             //byte[] prefixBytes = new byte[bytes.Length + BYTES_SIGN_PREFIX.Length];
             //System.arraycopy(BYTES_SIGN_PREFIX, 0, prefixBytes, 0, BYTES_SIGN_PREFIX.length);
             //System.arraycopy(bytes, 0, prefixBytes, BYTES_SIGN_PREFIX.length, bytes.length);
-            
+
             // sign
             return RawSignBytes(retByte.ToArray());
         }
 
-        //    /* Multisignature support */
+        /* Multisignature support */
 
-        //    /**
-        //     * signMultisigTransaction creates a multisig transaction from the input and the multisig account.
-        //     * @param from sign as this multisignature account
-        //     * @param tx the transaction to sign
-        //     * @return SignedTransaction a partially signed multisig transaction
-        //     * @throws NoSuchAlgorithmException if could not sign tx
-        //     */
-        //    public SignedTransaction signMultisigTransaction(MultisigAddress from, Transaction tx) //throws NoSuchAlgorithmException
-        //{
-        //        // check that from addr of tx matches multisig preimage
-        //        if (!tx.sender.toString().equals(from.toString())) {
-        //        throw new IllegalArgumentException("Transaction sender does not match multisig account");
-        //    }
-        //    // check that account secret key is in multisig pk list
-        //    Ed25519PublicKey myPK = this.getEd25519PublicKey();
-        //        int myI = from.publicKeys.indexOf(myPK);
-        //        if (myI == -1) {
-        //        throw new IllegalArgumentException("Multisig account does not contain this secret key");
-        //    }
-        //    // now, create the multisignature
-        //    SignedTransaction txSig = this.signTransaction(tx);
-        //    MultisigSignature mSig = new MultisigSignature(from.version, from.threshold);
-        //        for (int i = 0; i<from.publicKeys.size(); i++) {
-        //            if (i == myI) {
-        //                mSig.subsigs.add(new MultisigSubsig(myPK, txSig.sig));
-        //            } else {
-        //                mSig.subsigs.add(new MultisigSubsig(from.publicKeys.get(i)));
-        //            }
-        //        }
-        //        return new SignedTransaction(tx, mSig, txSig.transactionID);
-        //    }
+        /**
+         * signMultisigTransaction creates a multisig transaction from the input and the multisig account.
+         * @param from sign as this multisignature account
+         * @param tx the transaction to sign
+         * @return SignedTransaction a partially signed multisig transaction
+         * @throws NoSuchAlgorithmException if could not sign tx
+         */
+        public SignedTransaction SignMultisigTransaction(MultisigAddress from, Transaction tx) //throws NoSuchAlgorithmException
+        {
+            // check that from addr of tx matches multisig preimage
+            if (!tx.sender.ToString().Equals(from.ToString()))
+            {
+                throw new ArgumentException("Transaction sender does not match multisig account");
+            }
+            // check that account secret key is in multisig pk list
+            var myPK = this.GetEd25519PublicKey();
+            byte[] myEncoded = myPK.GetEncoded();
+            int myI = -1;
+            for(int i = 0; i < from.publicKeys.Count; i++)
+            //{
+                //byte[] fromEncoded = from.publicKeys[i].GetEncoded();
+                if (Enumerable.SequenceEqual(myEncoded, from.publicKeys[i].GetEncoded()))
+                {
+                    myI = i;
+                    break;
+                }
+                    
+            //}
+            //int myI = from.publicKeys.IndexOf(myPK);
+            if (myI == -1)
+            {
+                throw new ArgumentException("Multisig account does not contain this secret key");
+            }
+            // now, create the multisignature
+            SignedTransaction txSig = this.SignTransaction(tx);
+            MultisigSignature mSig = new MultisigSignature(from.version, from.threshold);
+            for (int i = 0; i < from.publicKeys.Count; i++)
+            {
+                if (i == myI)
+                {
+                    mSig.subsigs.Add(new MultisigSubsig(myPK, txSig.sig));
+                }
+                else
+                {
+                    mSig.subsigs.Add(new MultisigSubsig(from.publicKeys[i]));
+                }
+            }
+            return new SignedTransaction(tx, mSig, txSig.transactionID);
+        }
 
-        //    /**
-        //     * mergeMultisigTransactions merges the given (partially) signed multisig transactions.
-        //     * @param txs partially signed multisig transactions to merge. Underlying transactions may be mutated.
-        //     * @return a merged multisig transaction
-        //     */
-        //    public static SignedTransaction mergeMultisigTransactions(SignedTransaction txs)
-        //{
-        //    if (txs.length < 2)
-        //    {
-        //        throw new IllegalArgumentException("cannot merge a single transaction");
-        //    }
-        //    SignedTransaction merged = txs[0];
-        //    for (int i = 0; i < txs.length; i++)
-        //    {
-        //        // check that multisig parameters match
-        //        SignedTransaction tx = txs[i];
-        //        if (tx.mSig.version != merged.mSig.version ||
-        //                tx.mSig.threshold != merged.mSig.threshold)
-        //        {
-        //            throw new IllegalArgumentException("transaction msig parameters do not match");
-        //        }
-        //        for (int j = 0; j < tx.mSig.subsigs.size(); j++)
-        //        {
-        //            MultisigSubsig myMsig = merged.mSig.subsigs.get(j);
-        //            MultisigSubsig theirMsig = tx.mSig.subsigs.get(j);
-        //            if (!theirMsig.key.equals(myMsig.key))
-        //            {
-        //                throw new IllegalArgumentException("transaction msig public keys do not match");
-        //            }
-        //            if (myMsig.sig.equals(new Signature()))
-        //            {
-        //                myMsig.sig = theirMsig.sig;
-        //            }
-        //            else if (!myMsig.sig.equals(theirMsig.sig) &&
-        //                  !theirMsig.sig.equals(new Signature()))
-        //            {
-        //                throw new IllegalArgumentException("transaction msig has mismatched signatures");
-        //            }
-        //            merged.mSig.subsigs.set(j, myMsig);
-        //        }
-        //    }
-        //    return merged;
-        //}
+        /**
+         * mergeMultisigTransactions merges the given (partially) signed multisig transactions.
+         * @param txs partially signed multisig transactions to merge. Underlying transactions may be mutated.
+         * @return a merged multisig transaction
+         */
+        public static SignedTransaction MergeMultisigTransactions(params SignedTransaction[] txs)
+        {
+            if (txs.Length < 2)
+            {
+                throw new ArgumentException("cannot merge a single transaction");
+            }
+            SignedTransaction merged = txs[0];
+            for (int i = 0; i < txs.Length; i++)
+            {
+                // check that multisig parameters match
+                SignedTransaction tx = txs[i];
+                if (tx.mSig.version != merged.mSig.version ||
+                        tx.mSig.threshold != merged.mSig.threshold)
+                {
+                    throw new ArgumentException("transaction msig parameters do not match");
+                }
+                for (int j = 0; j < tx.mSig.subsigs.Count; j++)
+                {
+                    MultisigSubsig myMsig = merged.mSig.subsigs[j];
+                    MultisigSubsig theirMsig = tx.mSig.subsigs[j];
+                    if (!theirMsig.key.Equals(myMsig.key))
+                    {
+                        throw new ArgumentException("transaction msig public keys do not match");
+                    }
+                    if (myMsig.sig.Equals(new Signature()))
+                    {
+                        myMsig.sig = theirMsig.sig;
+                    }
+                    else if (!myMsig.sig.Equals(theirMsig.sig) &&
+                          !theirMsig.sig.Equals(new Signature()))
+                    {
+                        throw new ArgumentException("transaction msig has mismatched signatures");
+                    }
+                    merged.mSig.subsigs[j] = myMsig;
+                }
+            }
+            return merged;
+        }
 
-        ///**
-        // * appendMultisigTransaction appends our signature to the given multisig transaction.
-        // * @param from the multisig public identity we are signing for
-        // * @param signedTx the partially signed msig tx to which to append signature
-        // * @return a merged multisig transaction
-        // * @throws NoSuchAlgorithmException unknown signature algorithm
-        // */
-        //public SignedTransaction appendMultisigTransaction(MultisigAddress from, SignedTransaction signedTx) //throws NoSuchAlgorithmException
-        //{
-        //    SignedTransaction sTx = this.signMultisigTransaction(from, signedTx.tx);
-        //        return mergeMultisigTransactions(sTx, signedTx);
-        //}
+        /**
+         * appendMultisigTransaction appends our signature to the given multisig transaction.
+         * @param from the multisig public identity we are signing for
+         * @param signedTx the partially signed msig tx to which to append signature
+         * @return a merged multisig transaction
+         * @throws NoSuchAlgorithmException unknown signature algorithm
+         */
+        public SignedTransaction AppendMultisigTransaction(MultisigAddress from, SignedTransaction signedTx) //throws NoSuchAlgorithmException
+        {
+            SignedTransaction sTx = this.SignMultisigTransaction(from, signedTx.tx);
+            return MergeMultisigTransactions(sTx, signedTx);
+        }
 
 
-        ///**
-        // * mergeMultisigTransactionBytes is a convenience method for working directly with raw transaction files.
-        // * @param txsBytes list of multisig transactions to merge
-        // * @return an encoded, merged multisignature transaction
-        // * @throws NoSuchAlgorithmException if could not compute signature
-        // */
-        //public static byte[] mergeMultisigTransactionBytes(byte[]... txsBytes)
-        //{
-        //        try {
-        //            SignedTransaction[] sTxs = new SignedTransaction[txsBytes.length];
-        //            for (int i = 0; i<txsBytes.length; i++) {
-        //                sTxs[i] = Encoder.decodeFromMsgPack(txsBytes[i], SignedTransaction.class);
-        //            }
-        //            SignedTransaction merged = Account.mergeMultisigTransactions(sTxs);
-        //            return Encoder.encodeToMsgPack(merged);
-        //        } catch (IOException e) {
-        //            throw new IOException("could not decode transactions", e);
-        //        }
-        //    }
+        /**
+         * mergeMultisigTransactionBytes is a convenience method for working directly with raw transaction files.
+         * @param txsBytes list of multisig transactions to merge
+         * @return an encoded, merged multisignature transaction
+         * @throws NoSuchAlgorithmException if could not compute signature
+         */
+        public static byte[] MergeMultisigTransactionBytes(params byte[][] txsBytes)
+        {
+            //try
+            //{
+            SignedTransaction[] sTxs = new SignedTransaction[txsBytes.Length];
+            for (int i = 0; i < txsBytes.Length; i++)
+            {
+                sTxs[i] = Encoder.DecodeFromMsgPack<SignedTransaction>(txsBytes[i]);
+            }
+            SignedTransaction merged = MergeMultisigTransactions(sTxs);
+            return Encoder.EncodeToMsgPack(merged);
+            //} catch (IOException e) {
+            //    throw new IOException("could not decode transactions", e);
+            //}
+        }
 
         //    /**
         //     * appendMultisigTransactionBytes is a convenience method for directly appending our signature to a raw tx file.

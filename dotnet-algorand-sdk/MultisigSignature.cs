@@ -120,72 +120,75 @@ namespace Algorand
         public override int GetHashCode()
         {
             return this.version.GetHashCode() + this.threshold.GetHashCode() + this.subsigs.GetHashCode();
+        }        
+    }
+    //@JsonPropertyOrder(
+    //    alphabetic = true
+    //)
+    [JsonObject]
+    public class MultisigSubsig
+    {
+        //@JsonProperty("pk")
+        [JsonProperty(PropertyName = "pk")]
+        public Ed25519PublicKeyParameters key;
+        //@JsonProperty("s")
+        [JsonProperty(PropertyName = "s")]
+        public Signature sig;
+
+        //@JsonCreator
+        [JsonConstructor]
+        public MultisigSubsig([JsonProperty("pk")] byte[] key = null, [JsonProperty("s")] byte[] sig = null)
+        {
+            //this.key = new Ed25519PublicKeyParameters(key, 0);
+            //this.sig = new Signature();
+            if (key != null)
+                this.key = new Ed25519PublicKeyParameters(key, 0);
+            else
+                this.key = new Ed25519PublicKeyParameters(new byte[0], 0);
+
+            if (sig != null)
+                this.sig = new Signature(sig);
+            else
+                this.sig = new Signature();
         }
 
-        //@JsonPropertyOrder(
-        //    alphabetic = true
-        //)
-        [JsonObject]
-        public class MultisigSubsig
+        public MultisigSubsig(Ed25519PublicKeyParameters key, Signature sig = null)
         {
-            //@JsonProperty("pk")
-            [JsonProperty(PropertyName = "pk")]
-            public Ed25519PublicKeyParameters key;
-            //@JsonProperty("s")
-            [JsonProperty(PropertyName = "s")]
-            public Signature sig;
+            //this.key = new Ed25519PublicKey();
+            //this.sig = new Signature();
+            this.key = JavaHelper<Ed25519PublicKeyParameters>.RequireNotNull(key, "public key cannot be null");
+            if (sig is null)
+                this.sig = new Signature();
+            else
+                this.sig = sig;
+        }
 
-            //@JsonCreator
-            [JsonConstructor]
-            public MultisigSubsig([JsonProperty("pk")] byte[] key = null, [JsonProperty("s")] byte[] sig = null) {
-                //this.key = new Ed25519PublicKeyParameters(key, 0);
-                //this.sig = new Signature();
-                if (key != null)
-                    this.key = new Ed25519PublicKeyParameters(key, 0);
-                else
-                    this.key = new Ed25519PublicKeyParameters(new byte[0], 0);                
+        //public MultisigSubsig(Ed25519PublicKey key)
+        //{
+        //    this(key, new Signature());
+        //}
 
-                if (sig != null)                
-                    this.sig = new Signature(sig);                
-                else
-                    this.sig = new Signature();
-            }
+        //public MultisigSubsig()
+        //{
+        //    this.key = new Ed25519PublicKey();
+        //    this.sig = new Signature();
+        //}
 
-            public MultisigSubsig(Ed25519PublicKeyParameters key, Signature sig = null)
+        public override bool Equals(object obj)
+        {
+            if ((obj is MultisigSubsig actual))
             {
-                //this.key = new Ed25519PublicKey();
-                //this.sig = new Signature();
-                this.key = JavaHelper<Ed25519PublicKeyParameters>.RequireNotNull(key, "public key cannot be null");
-                if (sig is null)
-                    this.sig = new Signature();
-                else
-                    this.sig = sig;
+                return Enumerable.SequenceEqual(this.key.GetEncoded(), actual.key.GetEncoded()) && this.sig.Equals(actual.sig);
             }
-
-            //public MultisigSubsig(Ed25519PublicKey key)
-            //{
-            //    this(key, new Signature());
-            //}
-
-            //public MultisigSubsig()
-            //{
-            //    this.key = new Ed25519PublicKey();
-            //    this.sig = new Signature();
-            //}
-
-            public override bool Equals(object obj)
+            else
             {
-                if ((obj is  MultisigSubsig actual)) {                    
-                    return Enumerable.SequenceEqual(this.key.GetEncoded(), actual.key.GetEncoded()) && this.sig.Equals(actual.sig);
-                } else {
-                    //MultisigSignature.MultisigSubsig actual = (MultisigSignature.MultisigSubsig)obj;
-                    return false;
-                }
+                //MultisigSignature.MultisigSubsig actual = (MultisigSignature.MultisigSubsig)obj;
+                return false;
             }
-            public override int GetHashCode()
-            {
-                return key.GetHashCode() + sig.GetHashCode();
-            }
+        }
+        public override int GetHashCode()
+        {
+            return key.GetHashCode() + sig.GetHashCode();
         }
     }
 }

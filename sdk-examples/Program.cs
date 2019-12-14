@@ -1,6 +1,4 @@
-﻿using Org.BouncyCastle.Crypto.Digests;
-using System;
-using System.Security.Cryptography;
+﻿using System;
 using System.Collections.Generic;
 using Algorand;
 using Account = Algorand.Account;
@@ -9,7 +7,7 @@ using Algorand.Algod.Client.Model;
 using Algorand.Algod.Client;
 using Transaction = Algorand.Transaction;
 using System.Text;
-using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto.Parameters;
 
 namespace sdk_examples
 {
@@ -17,32 +15,6 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
-            //var sss = Encoding.UTF8.GetBytes("this is a test");
-            //var strddd = Algorand.Encoder.EncodeToMsgPack(new SignedTransaction());
-
-            //Employee joe = new Employee
-            //{
-            //    Name = "Joe Employee"
-            //};
-            //Employee mike = new Employee
-            //{
-            //    Name = "Mike Manager"
-            //};
-
-            //joe.Manager = mike;
-
-            //// mike is his own manager
-            //// ShouldSerialize will skip this property
-            //mike.Manager = mike;
-            //var setting = new JsonSerializerSettings()
-            //{
-            //    ContractResolver = ShouldSerializeContractResolver.Instance
-            //};
-            //var str = JsonConvert.SerializeObject(mike, setting);
-
-            //int i = 100;
-
-
             //Sha512tDigest digest = new Sha512tDigest(256);
             //var abc = digest.AlgorithmName;
 
@@ -201,6 +173,56 @@ namespace sdk_examples
                     // This is generally expected, but should give us an informative error message.
                     Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
                 }
+            }
+
+
+            //MultisigTransaction
+            // List for Pks for multisig account
+            List<Ed25519PublicKeyParameters> publicKeys = new List<Ed25519PublicKeyParameters>();
+
+            // Create 3 random new account
+            Account act1 = new Account("solve gravity slight leader net silver enlist harsh apple shoulder question child material network lumber lion wagon filter cabin shoot raven barely next abandon tired");
+            Account act2 = new Account("scan acoustic prefer duck this error intact blush nominee woman retreat install picture lion fruit consider sail basic kind owner grocery ginger piece abandon wife");
+            Account act3 = new Account("advance main into silver law unfold cable indoor hockey legend chat pelican hobby knock symptom until travel olive quality melody toast pizza inspire absorb limit");
+
+            publicKeys.Add(act1.GetEd25519PublicKey());
+            publicKeys.Add(act2.GetEd25519PublicKey());
+            publicKeys.Add(act3.GetEd25519PublicKey());
+
+            // Instantiate the the Multisig Accout
+            MultisigAddress msa = new MultisigAddress(1, 2, publicKeys);
+            Console.WriteLine("Multisignature Address: " + msa.ToString());
+            Console.WriteLine("no algo in the random adress, use TestNet Dispenser to add funds");
+            //no algo in the random adress, use TestNet Dispenser to add funds
+            //Console.ReadKey();
+
+            // add some notes to the transaction
+            byte[] notes = Encoding.UTF8.GetBytes("These are some notes encoded in some way!");//.getBytes();
+
+            //BigInteger amount = BigInteger.valueOf(2000000);
+            //BigInteger lastRound = firstRound.add(BigInteger.valueOf(1000)); // 1000 is the max tx window
+                                                                             // Setup Transaction
+                                                                             // Use a fee of 0 as we will set the fee per
+                                                                             // byte when we sign the tx and overwrite it
+            Transaction tx3 = new Transaction(new Address(msa.ToString()), 1000, firstRound, lastRound,
+                    notes, amount, new Address(DEST_ADDR), genesisID, genesisHash);
+            // Sign the Transaction for two accounts
+            SignedTransaction signedTx3 = act1.SignMultisigTransaction(msa, tx3);
+            SignedTransaction completeTx = act2.AppendMultisigTransaction(msa, signedTx3);
+
+            // send the transaction to the network
+            try
+            {
+                // Msgpack encode the signed transaction
+                byte[] encodedTxBytes = Algorand.Encoder.EncodeToMsgPack(completeTx);
+                string encodedStr = Algorand.Encoder.EncodeToJson(completeTx);
+                TransactionID id = algodApiInstance.RawTransaction(encodedTxBytes);
+                Console.WriteLine("Successfully sent tx with id: " + id);
+            }
+            catch (ApiException e)
+            {
+                // This is generally expected, but should give us an informative error message.
+                Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
             }
         }
     }

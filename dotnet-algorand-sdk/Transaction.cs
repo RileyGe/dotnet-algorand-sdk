@@ -870,7 +870,7 @@ namespace Algorand
          * Return transaction ID as string
          */
         public string TxID(){
-                return Base32.ToBase32String(this.RawTxID().Bytes, false);
+                return Base32.EncodeToString(this.RawTxID().Bytes, false);
         }
 
         public void AssignGroupID(Digest gid)

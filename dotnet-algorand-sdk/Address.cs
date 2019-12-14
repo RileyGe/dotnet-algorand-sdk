@@ -95,7 +95,7 @@ namespace Algorand
 
         private byte[] GetAdressBytes(string encodedAddr)
         {
-            byte[] checksumAddr = Base32.DecodeFromBase32String(encodedAddr);
+            byte[] checksumAddr = Base32.DecodeFromString(encodedAddr);
             return JavaHelper<byte>.ArrayCopyOf(checksumAddr, LEN_BYTES);
         }
         /// <summary>
@@ -108,7 +108,7 @@ namespace Algorand
             // interpret as base32
             //Base32 codec = new Base32();
             //    Base32.DecodeFromBase32String
-            byte[] checksumAddr = Base32.DecodeFromBase32String(encodedAddress); // may expect padding
+            byte[] checksumAddr = Base32.DecodeFromString(encodedAddress); // may expect padding
                                                                               // sanity check length
             if (checksumAddr.Length != LEN_BYTES + CHECKSUM_LEN_BYTES)
             {
@@ -164,7 +164,7 @@ namespace Algorand
             JavaHelper<byte>.SyatemArrayCopy(checksum, 0, checksumAddr, Bytes.Length, CHECKSUM_LEN_BYTES);
 
             // encodeToMsgPack addr+checksum as base32 and return. Strip padding.
-            string res = Base32.ToBase32String(checksumAddr, false);
+            string res = Base32.EncodeToString(checksumAddr, false);
             if (res.Length != EXPECTED_STR_ENCODED_LEN)
             {
                 throw new ArgumentException("unexpected address length " + res.Length);

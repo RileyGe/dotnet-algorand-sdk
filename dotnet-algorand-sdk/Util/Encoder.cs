@@ -6,6 +6,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Msgpack;
+using Org.BouncyCastle.Crypto.Parameters;
 
 namespace Algorand
 {
@@ -66,31 +67,37 @@ namespace Algorand
             return bytes;
         }
 
-        //    /**
-        //     * Convenience method for deserializing arbitrary objects encoded with canonical msg-pack
-        //     * @param input byte array representing canonical msg-pack encoding
-        //     * @param tClass class of type of object to deserialize as
-        //     * @param <T> object type
-        //     * @return deserialized object
-        //     * @throws IOException if decoding failed
-        //     */
-        //    public static <T> T decodeFromMsgPack(byte[] input, Class<T> tClass) throws IOException
-        //    {
-        //        // See encodedToMsgPack for explanation of settings, and how this makes msgpack canonical
-        //        ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
-        //        objectMapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
-        //        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-        //        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
-        //        return objectMapper.readValue(input, tClass);
-        //    }
-
         /**
-         * Encode an object as json.
-         * @param o object to encode
-         * @return json string
-         * @throws JsonProcessingException error
+         * Convenience method for deserializing arbitrary objects encoded with canonical msg-pack
+         * @param input byte array representing canonical msg-pack encoding
+         * @param tClass class of type of object to deserialize as
+         * @param <T> object type
+         * @return deserialized object
+         * @throws IOException if decoding failed
          */
-        public static string EncodeToJson(object o)
+        public static T DecodeFromMsgPack<T>(byte[] input)
+        {
+            // See encodedToMsgPack for explanation of settings, and how this makes msgpack canonical
+            //ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
+            //    objectMapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
+            //    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+            //    objectMapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
+            //    return objectMapper.readValue(input, tClass);
+            // deserialize product from MessagePack
+            MemoryStream memoryStream = new MemoryStream();
+            JsonSerializer serializer = new JsonSerializer();
+            MessagePackReader reader = new MessagePackReader(memoryStream);
+            T deserializedT = serializer.Deserialize<T>(reader);
+            return deserializedT;
+        }
+
+    /**
+     * Encode an object as json.
+     * @param o object to encode
+     * @return json string
+     * @throws JsonProcessingException error
+     */
+    public static string EncodeToJson(object o)
         {
             var settings = new JsonSerializerSettings()
             {
@@ -187,10 +194,9 @@ namespace Algorand
         }
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
-            var property = base.CreateProperty(member, memberSerialization);
-
+            var property = base.CreateProperty(member, memberSerialization);            
             if (property.DeclaringType == typeof(SignedTransaction))
-            {
+            {                
                 if(property.PropertyType == typeof(LogicsigSignature) && property.PropertyName == "lsig")
                 {
                     property.ShouldSerialize =  instance =>
@@ -328,7 +334,7 @@ namespace Algorand
             }
             else if(property.DeclaringType == typeof(MultisigSignature))
             {
-                if(property.PropertyType == typeof(List<MultisigSignature.MultisigSubsig>) &&
+                if(property.PropertyType == typeof(List<MultisigSubsig>) &&
                     property.PropertyName == "subsig")
                 {
                     property.ShouldSerialize = instance =>
@@ -365,7 +371,21 @@ namespace Algorand
                     };
                 }
             }
-            //else
+            else if(property.DeclaringType == typeof(MultisigSubsig))
+            {
+                if (property.PropertyName == "pk" && property.PropertyType == typeof(Ed25519PublicKeyParameters))
+                {
+                    property.Converter = new BytesConverter();
+                    //int i = 0;
+                }else if (property.PropertyName == "s" && property.PropertyType == typeof(Signature))
+                {
+                    property.ShouldSerialize = instance =>
+                    {
+                        var msig = instance as MultisigSubsig;
+                        return !(msig.sig.Equals(new Signature()));
+                    };
+                }
+            }
             return property;
         }
     }

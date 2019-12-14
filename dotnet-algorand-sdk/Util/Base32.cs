@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 
 namespace Algorand
 {
@@ -26,7 +25,7 @@ namespace Algorand
         /// https://github.com/google/google-authenticator/wiki/Key-Uri-Format indicates that padding SHOULD be omitted.
         /// To meet both requirements, you can omit padding when required.
         /// </remarks>
-        public static string ToBase32String(this byte[] input, bool addPadding = true)
+        public static string EncodeToString(this byte[] input, bool addPadding = true)
         {
             if (input == null || input.Length == 0)
             {
@@ -42,23 +41,23 @@ namespace Algorand
             return result;
         }
 
-        public static string EncodeAsBase32String(this string input, bool addPadding = true)
-        {
-            if (string.IsNullOrEmpty(input))
-            {
-                return string.Empty;
-            }
+        //public static string EncodeAsBase32String(this string input, bool addPadding = true)
+        //{
+        //    if (string.IsNullOrEmpty(input))
+        //    {
+        //        return string.Empty;
+        //    }
 
-            var bytes = Encoding.UTF8.GetBytes(input);
-            var result = bytes.ToBase32String(addPadding);
-            return result;
-        }
+        //    var bytes = Encoding.UTF8.GetBytes(input);
+        //    var result = bytes.ToBase32String(addPadding);
+        //    return result;
+        //}
         /// <summary>
         /// Converts a Base32 string into the corresponding byte array, using 5 bits per character.
         /// </summary>
         /// <param name="input"></param>
         /// <returns>A byte array containing the properly encoded bytes.</returns>
-        public static byte[] DecodeFromBase32String(this string input)
+        public static byte[] DecodeFromString(this string input)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -75,12 +74,12 @@ namespace Algorand
         /// </summary>
         /// <param name="input">The Base32 String</param>
         /// <returns>A byte array containing the properly encoded bytes.</returns>
-        public static byte[] ToByteArray(this string input)
+        private static byte[] ToByteArray(this string input)
         {
-            if (string.IsNullOrEmpty(input))
-            {
-                return new byte[0];
-            }
+            //if (string.IsNullOrEmpty(input))
+            //{
+            //    return new byte[0];
+            //}
 
             var bits = input.TrimEnd('=').ToUpper().ToCharArray().Select(c => Convert.ToString(Base32AllowedCharacters.IndexOf(c), 2).PadLeft(5, '0')).Aggregate((a, b) => a + b);
             var result = Enumerable.Range(0, bits.Length / 8).Select(i => Convert.ToByte(bits.Substring(i * 8, 8), 2)).ToArray();
