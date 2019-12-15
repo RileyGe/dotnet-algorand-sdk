@@ -1,9 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <RootNamespace>Algorand</RootNamespace>
     <AssemblyName>Algorand</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>0.1</Version>
+    <Authors>rileyge</Authors>
+    <Company>tson.com</Company>
+    <Product>Algorand SDK</Product>
+    <PackageProjectUrl>https://github.com/RileyGe/dotnet-algorand-sdk</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/LICENSE</PackageLicenseUrl>
+    <Description>Algorand SDK for .Net Framework to interact with the Algorand network.</Description>
+    <PackageReleaseNotes>The first version of the Algorand SDK.</PackageReleaseNotes>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>

@@ -72,9 +72,7 @@ namespace Algorand
             if (auctionID != null) this.auctionID = auctionID;
         }
 
-        public Bid()
-        {
-        }
+        public Bid() { }
 
         //@Override
         public override bool Equals(object o)
