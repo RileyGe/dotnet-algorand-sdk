@@ -27,8 +27,8 @@ namespace Algorand
         //private static int PK_X509_PREFIX_LENGTH = 12; // Ed25519 specific
         private const int SK_SIZE = 32;
         private const int SK_SIZE_BITS = SK_SIZE * 8;
-        //private static byte[] BID_SIGN_PREFIX = ("aB").getBytes(StandardCharsets.UTF_8);
-        private static byte[] BYTES_SIGN_PREFIX = Encoding.UTF8.GetBytes("MX");
+        private static readonly byte[] BID_SIGN_PREFIX = Encoding.UTF8.GetBytes("aB");//.getBytes(StandardCharsets.UTF_8);
+        private static readonly byte[] BYTES_SIGN_PREFIX = Encoding.UTF8.GetBytes("MX");
         private const ulong MIN_TX_FEE_UALGOS = 1000;
 
         /// <summary>
@@ -205,25 +205,28 @@ namespace Algorand
             return this.SignTransaction(tx);
         }
 
-        //    ///**
-        //    // * Sign a bid with this account
-        //    // * @param bid the bid to sign
-        //    // * @return a signed bid
-        //    // */
-        //    //public SignedBid signBid(Bid bid)
-        //    //        try {
-        //    //        byte[] encodedBid = Encoder.encodeToMsgPack(bid);
-        //    //        // prepend hashable prefix
-        //    //        byte[] prefixEncodedBid = new byte[encodedBid.length + BID_SIGN_PREFIX.length];
-        //    //        System.arraycopy(BID_SIGN_PREFIX, 0, prefixEncodedBid, 0, BID_SIGN_PREFIX.length);
-        //    //        System.arraycopy(encodedBid, 0, prefixEncodedBid, BID_SIGN_PREFIX.length, encodedBid.length);
-        //    //        // sign
-        //    //        Signature bidSig = rawSignBytes(prefixEncodedBid);
-        //    //        return new SignedBid(bid, bidSig);
-        //    //    } catch (IOException e) {
-        //    //        throw new RuntimeException("unexpected behavior", e);
-        //    //    }
-        //    //}
+        /**
+         * Sign a bid with this account
+         * @param bid the bid to sign
+         * @return a signed bid
+         */
+        public SignedBid SignBid(Bid bid)
+        {
+            //try {
+            byte[] encodedBid = Encoder.EncodeToMsgPack(bid);
+            // prepend hashable prefix
+            //byte[] prefixEncodedBid = new byte[encodedBid.Length + BID_SIGN_PREFIX.length];
+            //System.arraycopy(BID_SIGN_PREFIX, 0, prefixEncodedBid, 0, BID_SIGN_PREFIX.length);
+            //System.arraycopy(encodedBid, 0, prefixEncodedBid, BID_SIGN_PREFIX.length, encodedBid.length);
+            List<byte> prefixEncodedBid = new List<byte>(BID_SIGN_PREFIX);
+            prefixEncodedBid.AddRange(encodedBid);
+            // sign
+            Signature bidSig = RawSignBytes(prefixEncodedBid.ToArray());
+            return new SignedBid(bid, bidSig);
+            //    } catch (IOException e) {
+            //                throw new RuntimeException("unexpected behavior", e);
+            //}
+        }
 
         //    /**
         //     * Creates a version of the given transaction with fee populated according to suggestedFeePerByte * estimateTxSize.

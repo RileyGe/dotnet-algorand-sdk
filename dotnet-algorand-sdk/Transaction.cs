@@ -43,7 +43,7 @@ namespace Algorand
         [DefaultValue(0)]
         public ulong? lastValid = 0;
         //@JsonProperty("note")
-        [JsonProperty(PropertyName = "note")]        
+        [JsonProperty(PropertyName = "note")]
         public byte[] note;
         //@JsonProperty("gen")
         [JsonProperty(PropertyName = "gen")]
@@ -167,7 +167,8 @@ namespace Algorand
 
         public Transaction(Address fromAddr, Address toAddr, ulong? fee, ulong? amount, ulong? firstRound, ulong? lastRound,
                            string genesisID, Digest genesisHash) : this(fromAddr, fee, firstRound, lastRound, null, amount,
-                               toAddr, genesisID, genesisHash) { }
+                               toAddr, genesisID, genesisHash)
+        { }
 
         /**
          * Create a payment transaction. Make sure to sign with a suggested fee.
@@ -184,7 +185,8 @@ namespace Algorand
 
         public Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note, ulong? amount,
             Address receiver, string genesisID, Digest genesisHash) : this(sender, fee, firstValid, lastValid, note,
-                genesisID, genesisHash, amount, receiver, new Address()) { }
+                genesisID, genesisHash, amount, receiver, new Address())
+        { }
 
         public Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note, String genesisID, Digest genesisHash,
                            ulong? amount, Address receiver, Address closeRemainderTo)
@@ -869,8 +871,9 @@ namespace Algorand
         /**
          * Return transaction ID as string
          */
-        public string TxID(){
-                return Base32.EncodeToString(this.RawTxID().Bytes, false);
+        public string TxID()
+        {
+            return Base32.EncodeToString(this.RawTxID().Bytes, false);
         }
 
         public void AssignGroupID(Digest gid)
@@ -1039,24 +1042,107 @@ namespace Algorand
                 [JsonProperty(PropertyName = "m")] byte[] assetManager,
                 [JsonProperty(PropertyName = "r")] byte[] assetReserve,
                 [JsonProperty(PropertyName = "f")] byte[] assetFreeze,
-                [JsonProperty(PropertyName = "c")] byte[] assetClawback) : 
-                this(assetTotal, assetDefaultFrozen, assetUnitName, assetName, url, metadataHash, 
+                [JsonProperty(PropertyName = "c")] byte[] assetClawback) :
+                this(assetTotal, assetDefaultFrozen, assetUnitName, assetName, url, metadataHash,
                     new Address(assetManager), new Address(assetReserve), new Address(assetFreeze), new Address(assetClawback))
             {
 
             }
 
-        //        /**
-        //         * Convert the given object to string with each line indented by 4 spaces
-        //         * (except the first line).
-        //         */
-        //        private String toIndentedString(java.lang.Object o)
-        //{
-        //    if (o == null)
-        //    {
-        //        return "null";
-        //    }
-        //    return o.toString().replace("\n", "\n    ");}
+            //        /**
+            //         * Convert the given object to string with each line indented by 4 spaces
+            //         * (except the first line).
+            //         */
+            //        private String toIndentedString(java.lang.Object o)
+            //{
+            //    if (o == null)
+            //    {
+            //        return "null";
+            //    }
+            //    return o.toString().replace("\n", "\n    ");}
+        }
     }
+    /// 
+    /// A serializable convenience type for packaging transactions with their signatures.
+    /// 
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+    public class SignedTransaction
+    {
+        //@JsonProperty("txn")
+        [JsonProperty(PropertyName = "txn")]
+        //[DefaultValue(typeof(Transaction))]
+        public Transaction tx = new Transaction();
+        //@JsonProperty("sig")
+        [JsonProperty(PropertyName = "sig")]
+        public Signature sig = new Signature(); // can be null
+        //@JsonProperty("msig")
+        [JsonProperty(PropertyName = "msig")]
+        public MultisigSignature mSig = new MultisigSignature();
+        //@JsonProperty("lsig")
+        [JsonProperty(PropertyName = "lsig")]
+        public LogicsigSignature lSig = new LogicsigSignature();
+
+        //@JsonIgnore
+        [JsonIgnore]
+        public string transactionID = "";
+
+        public SignedTransaction(Transaction tx, Signature sig, MultisigSignature mSig, LogicsigSignature lSig, string transactionID)
+        {
+            this.tx = JavaHelper<Transaction>.RequireNotNull(tx, "tx must not be null");
+            this.mSig = JavaHelper<MultisigSignature>.RequireNotNull(mSig, "mSig must not be null");
+            this.sig = JavaHelper<Signature>.RequireNotNull(sig, "sig must not be null");
+            this.lSig = JavaHelper<LogicsigSignature>.RequireNotNull(lSig, "lSig must not be null");
+            this.transactionID = JavaHelper<string>.RequireNotNull(transactionID, "txID must not be null");
+        }
+
+        public SignedTransaction(Transaction tx, Signature sig, string txId) :
+            this(tx, sig, new MultisigSignature(), new LogicsigSignature(), txId)
+        { }
+
+        public SignedTransaction(Transaction tx, MultisigSignature mSig, string txId) :
+            this(tx, new Signature(), mSig, new LogicsigSignature(), txId)
+        { }
+
+        public SignedTransaction(Transaction tx, LogicsigSignature lSig, string txId) :
+            this(tx, new Signature(), new MultisigSignature(), lSig, txId)
+        { }
+
+        public SignedTransaction() { }
+
+        //@JsonCreator
+        //public SignedTransaction(
+        //        @JsonProperty("txn") Transaction tx,
+        //        @JsonProperty("sig") byte[] sig,
+        //        @JsonProperty("msig") MultisigSignature mSig,
+        //        @JsonProperty("lsig") LogicsigSignature lSig    )  
+        [JsonConstructor]
+        public SignedTransaction(Transaction tx, byte[] sig, MultisigSignature mSig, LogicsigSignature lSig)
+        {
+            if (tx != null) this.tx = tx;
+            if (sig != null) this.sig = new Signature(sig);
+            if (mSig != null) this.mSig = mSig;
+            if (lSig != null) this.lSig = lSig;
+            // don't recover the txid yet
+        }
+
+        //@Override
+        public override bool Equals(object obj)
+        {
+            if (obj is SignedTransaction actual)
+            {
+                if (!tx.Equals(actual.tx)) return false;
+                if (!sig.Equals(actual.sig)) return false;
+                if (!lSig.Equals(actual.lSig)) return false;
+                return this.mSig.Equals(actual.mSig);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
