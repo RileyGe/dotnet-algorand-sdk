@@ -1,9 +1,7 @@
 ﻿using Algorand;
 using Algorand.Algod.Client.Api;
 using Algorand.Algod.Client.Model;
-using Algorand.Util;
 using System;
-using System.Text;
 using Account = Algorand.Account;
 
 namespace sdk_examples
@@ -13,44 +11,7 @@ namespace sdk_examples
  */
     class AssetExample
     {
-        // Inline class to handle changing block parameters
-        // Throughout the example
-        public class ChangingBlockParms
-        {
-            public ulong? fee;
-            public ulong? firstRound;
-            public ulong? lastRound;
-            public string genID;
-            public Digest genHash;
-            public ChangingBlockParms()
-            {
-                this.fee = 0;
-                this.firstRound = 0;
-                this.lastRound = 0;
-                this.genID = "";
-                this.genHash = null;
-            }
-        };        
-
-        // Utility function to update changing block parameters 
-        public static ChangingBlockParms GetChangingParms(AlgodApi algodApiInstance) //throws Exception
-        {
-            ChangingBlockParms cp = new ChangingBlockParms();
-            //try {
-            TransactionParams transParams = algodApiInstance.TransactionParams();
-            cp.fee = transParams.Fee;
-            cp.firstRound = transParams.LastRound;
-            cp.lastRound = cp.firstRound + 1000;
-            cp.genID = transParams.GenesisID;
-            cp.genHash = new Digest(Convert.FromBase64String(transParams.Genesishashb64));
-            //} catch (ApiException e) {
-            //    throw (e);
-            //}
-            return cp;
-        }
-
-        // Utility function for sending a raw signed transaction to the network
-        
+        // Utility function for sending a raw signed transaction to the network        
         public static void Main(params string[] args) //throws Exception
         {
             string algodApiAddrTmp = args[0];
@@ -62,10 +23,6 @@ namespace sdk_examples
             string ALGOD_API_ADDR = algodApiAddrTmp;
             string ALGOD_API_TOKEN = args[1];
 
-            //    AlgodClient client = new AlgodClient().SetBasePath(ALGOD_API_ADDR);
-
-            //ApiKeyAuth api_key = (ApiKeyAuth)client.getAuthentication("api_key");
-            //api_key.setApiKey(ALGOD_API_TOKEN);
             AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
 
             // Shown for demonstration purposes. NEVER reveal secret mnemonics in practice.
@@ -90,49 +47,27 @@ namespace sdk_examples
             // Transaction
             // We will account for changing transaction parameters
             // before every transaction in this example
-            ChangingBlockParms cp = null;
-            //try {
-            cp = GetChangingParms(algodApiInstance);
-            //} catch (ApiException e) {
-            //    e.printStackTrace();
-            //    return;
-            //}
+            var transParams = algodApiInstance.TransactionParams();
+
             // The following parameters are asset specific
             // and will be re-used throughout the example. 
 
             // Create the Asset
             // Total number of this asset available for circulation
-            ulong? assetTotal = 10000;
-            // Whether user accounts will need to be unfrozen before transacting
-            bool defaultFrozen = false;
-            // Used to display asset units to user
-            String unitName = "LATIUM22";
-            // Friendly name of the asset
-            String assetName = "latikum22";
-            // Optional string pointing to a URL relating to the asset 
-            String url = "http://this.test.com";
-            // Optional hash commitment of some sort relating to the asset. 32 character length.
-            String assetMetadataHash = "16efaa3924a6fd9d3a4880099a4ac65d";
-            // The following parameters are the only ones
-            // that can be changed, and they have to be changed
-            // by the current manager
-            // Specified address can change reserve, freeze, clawback, and manager
-            Address manager = acct2.Address;
-            // Specified address is considered the asset reserve
-            // (it has no special privileges, this is only informational)
-            Address reserve = acct2.Address;
-            // Specified address can freeze or unfreeze user asset holdings
-            Address freeze = acct2.Address;
-            // Specified address can revoke user asset holdings and send 
-            // them to other addresses
-            Address clawback = acct2.Address;
-            Algorand.Transaction tx = Algorand.Transaction.CreateAssetCreateTransaction(acct1.Address, 1000, cp.firstRound, cp.lastRound, null, cp.genID,
-            cp.genHash, assetTotal, 0, defaultFrozen, unitName, assetName, url,
-            Encoding.UTF8.GetBytes(assetMetadataHash), manager, reserve, freeze, clawback);
-            // Update the fee as per what the BlockChain is suggesting
-            Account.SetFeeByFeePerByte(tx, cp.fee);
+            var ap = new AssetParams(creator: acct1.Address.ToString(), assetname: "latikum22", 
+                unitname: "LAT", defaultfrozen: false, total: 10000,
+                url: "http://this.test.com", metadatahash: "16efaa3924a6fd9d3a4880099a4ac65d")
+            {
+                Managerkey = acct2.Address.ToString()
+            };
 
-            // Sign the Transaction
+
+            // Specified address can change reserve, freeze, clawback, and manager
+            // you can leave as default, by default the sender will be manager/reserve/freeze/clawback
+            // the following code only set the freeze to acct1
+            var tx = Utils.GetCreateAssetTransaction(ap, transParams, "asset tx message");
+
+            // Sign the Transaction by sender
             SignedTransaction signedTx = acct1.SignTransaction(tx);
             // send the transaction to the network and
             // wait for the transaction to be confirmed
@@ -141,8 +76,6 @@ namespace sdk_examples
             {
                 TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
-                //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
-                //Console.ReadKey();
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // Now that the transaction is confirmed we can get the assetID
                 Algorand.Algod.Client.Model.Transaction ptx = algodApiInstance.PendingTransactionInformation(id.TxId);
@@ -153,35 +86,26 @@ namespace sdk_examples
                 Console.WriteLine(e.StackTrace);
                 return;
             }
-
             Console.WriteLine("AssetID = " + assetID);
-
-
+            // now the asset already created
 
 
             // Change Asset Configuration:
             // Next we will change the asset configuration
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            try
-            {
-                cp = GetChangingParms(algodApiInstance);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return;
-            }
-            //ulong? assetTotal = 10000;
+            transParams = algodApiInstance.TransactionParams();
+            ap = algodApiInstance.AssetInformation((long?)assetID);
+
             // Note that configuration changes must be done by
             // The manager account, which is currently acct2
             // Note in this transaction we are re-using the asset
             // creation parameters and only changing the manager
             // and transaction parameters like first and last round
-            tx = Algorand.Transaction.CreateAssetConfigureTransaction(acct2.Address, 1000,
-                cp.firstRound, cp.lastRound, null, cp.genID, cp.genHash, assetID, acct1.Address, reserve, freeze, clawback, false);
-            // Update the fee as per what the BlockChain is suggesting
-            Account.SetFeeByFeePerByte(tx, cp.fee);
+            // now update the manager to acct1
+            ap.Managerkey = acct1.Address.ToString();
+            tx = Utils.GetConfigAssetTransaction(acct2.Address, assetID, ap, transParams, "config trans");
+
             // The transaction must be signed by the current manager account
             // We are reusing the signedTx variable from the first transaction in the example    
             signedTx = acct2.SignTransaction(tx);
@@ -191,8 +115,6 @@ namespace sdk_examples
             {
                 TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
-                //Console.ReadKey();
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
             }
             catch (Exception e)
@@ -203,12 +125,10 @@ namespace sdk_examples
             }
 
             // Next we will list the newly created asset
-            // Get the asset information for the newly changed asset
-            AssetParams assetInfo = algodApiInstance.AssetInformation((long?)assetID);
+            // Get the asset information for the newly changed asset            
+            ap = algodApiInstance.AssetInformation((long?)assetID);
             //The manager should now be the same as the creator
-            Console.WriteLine(assetInfo);
-
-
+            Console.WriteLine(ap);
 
 
 
@@ -221,20 +141,9 @@ namespace sdk_examples
             // receive the new asset        
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            try
-            {
-                cp = GetChangingParms(algodApiInstance);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                //e.printStackTrace();
-                return;
-            }
-            tx = Algorand.Transaction.CreateAssetAcceptTransaction(acct3.Address, 1000, cp.firstRound,
-            cp.lastRound, null, cp.genID, cp.genHash, assetID);
-            // Update the fee based on the network suggested fee
-            Account.SetFeeByFeePerByte(tx, cp.fee);
+            transParams = algodApiInstance.TransactionParams();
+            tx = Utils.GetActivateAssetTransaction(acct3.Address, assetID, transParams, "opt in transaction");
+
             // The transaction must be signed by the current manager account
             // We are reusing the signedTx variable from the first transaction in the example    
             signedTx = acct3.SignTransaction(tx);
@@ -245,9 +154,7 @@ namespace sdk_examples
             {
                 TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                //Console.ReadKey();
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
-                //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
                 // We can now list the account information for acct3 
                 // and see that it can accept the new asseet
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
@@ -262,33 +169,18 @@ namespace sdk_examples
 
 
 
-
-
             // Transfer the Asset:
             // Now that account3 can recieve the new asset 
             // we can tranfer assets in from the creator
             // to account3
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            try
-            {
-                cp = GetChangingParms(algodApiInstance);
-            }
-            catch (Exception e)
-            {
-                //e.printStackTrace();
-                Console.WriteLine(e.Message);
-                return;
-            }
+            transParams = algodApiInstance.TransactionParams();
             // Next we set asset xfer specific parameters
             // We set the assetCloseTo to null so we do not close the asset out
             Address assetCloseTo = new Address();
-            ulong? assetAmount = 10;
-            tx = Algorand.Transaction.CreateAssetTransferTransaction(acct1.Address,
-                acct3.Address, assetCloseTo, assetAmount, 1000,
-                cp.firstRound, cp.lastRound, null, cp.genID, cp.genHash, assetID);
-            // Update the fee based on the network suggested fee
-            Account.SetFeeByFeePerByte(tx, cp.fee);
+            ulong assetAmount = 10;
+            tx = Utils.GetTransferAssetTransaction(acct1.Address, acct3.Address, assetID, assetAmount, transParams, null, "transfer message");
             // The transaction must be signed by the sender account
             // We are reusing the signedTx variable from the first transaction in the example    
             signedTx = acct1.SignTransaction(tx);
@@ -298,13 +190,10 @@ namespace sdk_examples
             {
                 TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
-                //Console.ReadKey();
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // We can now list the account information for acct3 
                 // and see that it now has 5 of the new asset
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
-                
                 Console.WriteLine(act.GetHolding(assetID).Amount);
             }
             catch (Exception e)
@@ -327,25 +216,11 @@ namespace sdk_examples
             // Which in this example is account2 
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            try
-            {
-                cp = GetChangingParms(algodApiInstance);
-            }
-            catch (Exception e)
-            {
-                //e.printStackTrace();
-                Console.WriteLine(e.Message);
-                return;
-            }
+            transParams = algodApiInstance.TransactionParams();
             // Next we set asset xfer specific parameters
-            bool freezeState = true;
             // The sender should be freeze account acct2
             // Theaccount to freeze should be set to acct3
-            tx = Algorand.Transaction.CreateAssetFreezeTransaction(acct2.Address,
-                acct3.Address, freezeState, 1000, cp.firstRound,
-                cp.lastRound, null, cp.genHash, assetID);
-            // Update the fee based on the network suggested fee
-            Account.SetFeeByFeePerByte(tx, cp.fee);
+            tx = Utils.GetFreezeAssetTransaction(acct2.Address, acct3.Address, assetID, true, transParams, "freeze transaction");
             // The transaction must be signed by the freeze account acct2
             // We are reusing the signedTx variable from the first transaction in the example    
             signedTx = acct2.SignTransaction(tx);
@@ -355,8 +230,6 @@ namespace sdk_examples
             {
                 TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
-                //Console.ReadKey();
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // We can now list the account information for acct3 
                 // and see that it now frozen 
@@ -367,10 +240,9 @@ namespace sdk_examples
             catch (Exception e)
             {
                 //e.printStackTrace();
+                Console.WriteLine(e.Message);
                 return;
             }
-
-
 
 
             // Revoke the asset:
@@ -384,22 +256,10 @@ namespace sdk_examples
             // the recipient will also be be the creator acct1 in this case  
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            try
-            {
-                cp = GetChangingParms(algodApiInstance);
-            }
-            catch (Exception e)
-            {
-                //e.printStackTrace();
-                return;
-            }
+            transParams = algodApiInstance.TransactionParams();
             // Next we set asset xfer specific parameters
-            assetAmount = (10);
-            tx = Algorand.Transaction.CreateAssetRevokeTransaction(acct2.Address,
-            acct3.Address, acct1.Address, assetAmount, (1000), cp.firstRound,
-            cp.lastRound, null, cp.genID, cp.genHash, assetID);
-            // Update the fee based on the network suggested fee
-            Account.SetFeeByFeePerByte(tx, cp.fee);
+            assetAmount = 10;
+            tx = Utils.GetRevokeAssetTransaction(acct2.Address, acct3.Address, acct1.Address, assetID, assetAmount, transParams, "revoke transaction");
             // The transaction must be signed by the clawback account
             // We are reusing the signedTx variable from the first transaction in the example    
             signedTx = acct2.SignTransaction(tx);
@@ -409,8 +269,6 @@ namespace sdk_examples
             {
                 TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
-                //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
-                //Console.ReadKey();
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // We can now list the account information for acct3 
                 // and see that it now has 0 of the new asset
@@ -420,6 +278,7 @@ namespace sdk_examples
             catch (Exception e)
             {
                 //e.printStackTrace();
+                Console.WriteLine(e.Message);
                 return;
             }
 
@@ -432,22 +291,11 @@ namespace sdk_examples
             // The address for the from field must be the creator
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            try
-            {
-                cp = GetChangingParms(algodApiInstance);
-            }
-            catch (Exception e)
-            {
-                //e.printStackTrace();
-                return;
-            }
+            transParams = algodApiInstance.TransactionParams();
             // Next we set asset xfer specific parameters
             // The manager must sign and submit the transaction
             // This is currently set to acct1
-            tx = Algorand.Transaction.CreateAssetDestroyTransaction(acct1.Address,
-                (1000), cp.firstRound, cp.lastRound, null, cp.genHash, assetID);
-            // Update the fee based on the network suggested fee
-            Account.SetFeeByFeePerByte(tx, cp.fee);
+            tx = Utils.GetDestroyAssetTransaction(acct1.Address, assetID, transParams, "destroy transaction");
             // The transaction must be signed by the manager account
             // We are reusing the signedTx variable from the first transaction in the example    
             signedTx = acct1.SignTransaction(tx);
@@ -469,6 +317,7 @@ namespace sdk_examples
             catch (Exception e)
             {
                 //e.printStackTrace();
+                Console.WriteLine(e.Message);
                 return;
             }
 

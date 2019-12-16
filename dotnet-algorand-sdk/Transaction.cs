@@ -259,8 +259,8 @@ namespace Algorand
          * @param clawback account which can issue clawbacks against holder accounts
          */
         private Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
-                           String genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
-                           String assetUnitName, String assetName, String url, byte[] metadataHash,
+                           string genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
+                           string assetUnitName, string assetName, string url, byte[] metadataHash,
                            Address manager, Address reserve, Address freeze, Address clawback)
         {
             this.type = Type.AssetConfig;
@@ -394,8 +394,8 @@ namespace Algorand
                     clawback);
         }
 
-        //    // workaround for nested JsonValue classes
-        //@JsonCreator
+        // workaround for nested JsonValue classes
+        // @JsonCreator
         [JsonConstructor]
         private Transaction([JsonProperty(PropertyName = "type")] Type type,
                             //header fields
@@ -663,7 +663,7 @@ namespace Algorand
                 ulong? firstRound,
                 ulong? lastRound,
                 byte[] note,
-                String genesisID,
+                string genesisID,
                 Digest genesisHash,
                 ulong? assetIndex)
         {
@@ -923,7 +923,7 @@ namespace Algorand
         {
             return base.GetHashCode();
         }
-        //}
+        //}  
         //@JsonPropertyOrder(alphabetic= true)
         //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
         public class AssetParams
@@ -1077,7 +1077,7 @@ namespace Algorand
             //    }
             //    return o.toString().replace("\n", "\n    ");}
         }
-    }
+    }    
     /// 
     /// A serializable convenience type for packaging transactions with their signatures.
     /// 

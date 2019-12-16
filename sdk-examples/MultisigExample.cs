@@ -22,7 +22,6 @@ namespace sdk_examples
             string ALGOD_API_TOKEN = args[1];
 
             //    AlgodClient client = new AlgodClient().SetBasePath(ALGOD_API_ADDR);
-
             //ApiKeyAuth api_key = (ApiKeyAuth)client.getAuthentication("api_key");
             //api_key.setApiKey(ALGOD_API_TOKEN);
             AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
@@ -55,23 +54,27 @@ namespace sdk_examples
             //string genesisID;
             //Digest genesisHash;
             //ulong? firstRound = 0;
-            Algorand.Algod.Client.Model.TransactionParams transParams = null;
+            //Algorand.Algod.Client.Model.TransactionParams transParams = null;
+            var amount = Utils.AlgosToMicroalgos(1);
+            Transaction tx = null;
             try
             {
-                transParams = algodApiInstance.TransactionParams();            
+                tx = Utils.GetPaymentTransaction(new Address(msa.ToString()), new Address(DEST_ADDR), amount, "this is a multisig trans",
+                    algodApiInstance.TransactionParams());        
             }
-            catch (ApiException e)
+            catch (Exception e)
             {
-                throw new Exception("Could not get params", e);
+                Console.WriteLine("Could not get params", e.Message);
             }
             //BigInteger amount = BigInteger.valueOf(2000000);
             //BigInteger lastRound = firstRound.add(BigInteger.valueOf(1000)); // 1000 is the max tx window
             // Setup Transaction
             // Use a fee of 0 as we will set the fee per
             // byte when we sign the tx and overwrite it
-            var amount = Utils.AlgosToMicroalgos(1);
-            Transaction tx = new Transaction(new Address(msa.ToString()), transParams.Fee, transParams.LastRound, transParams.LastRound + 1000,
-                    notes, amount, new Address(DEST_ADDR), transParams.GenesisID, new Digest(Convert.FromBase64String(transParams.Genesishashb64)));
+            
+            //var tx = Utils.GetPaymentTransaction(new Address(msa.ToString()), new Address(DEST_ADDR), amount, "this is a multisig trans", transParams);
+            //Transaction tx = new Transaction(new Address(msa.ToString()), transParams.Fee, transParams.LastRound, transParams.LastRound + 1000,
+            //        notes, amount, new Address(DEST_ADDR), transParams.GenesisID, new Digest(Convert.FromBase64String(transParams.Genesishashb64)));
             // Sign the Transaction for two accounts
             SignedTransaction signedTx = act1.SignMultisigTransaction(msa, tx);
             SignedTransaction completeTx = act2.AppendMultisigTransaction(msa, signedTx);

@@ -265,7 +265,7 @@ namespace Algorand
         /// <param name="suggestedFeePerByte">suggestedFee given by network</param>
         static public void SetFeeByFeePerByte(Transaction tx, ulong? suggestedFeePerByte)
         {
-            ulong? newFee = suggestedFeePerByte * EstimatedEncodedSize(tx);
+            ulong? newFee = suggestedFeePerByte * (ulong)EstimatedEncodedSize(tx);
             if (newFee < MIN_TX_FEE_UALGOS)
             {
                 newFee = MIN_TX_FEE_UALGOS;
@@ -278,12 +278,12 @@ namespace Algorand
         /// </summary>
         /// <param name="tx"></param>
         /// <returns>an estimated byte size for the transaction.</returns>
-        public static ulong? EstimatedEncodedSize(Transaction tx)
+        public static int EstimatedEncodedSize(Transaction tx)
         {
             Account acc = new Account();
             //try
             //{
-            return (ulong?)Encoder.EncodeToMsgPack(acc.SignTransaction(tx)).Length;
+            return Encoder.EncodeToMsgPack(acc.SignTransaction(tx)).Length;
             //}
             //catch (IOException e)
             //{
