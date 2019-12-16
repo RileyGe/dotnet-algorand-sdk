@@ -259,7 +259,7 @@ namespace Algorand
          * @param clawback account which can issue clawbacks against holder accounts
          */
         private Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
-                           String genesisID, Digest genesisHash, ulong? assetTotal, bool defaultFrozen,
+                           String genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
                            String assetUnitName, String assetName, String url, byte[] metadataHash,
                            Address manager, Address reserve, Address freeze, Address clawback)
         {
@@ -272,129 +272,127 @@ namespace Algorand
             if (genesisID != null) this.genesisID = genesisID;
             if (genesisHash != null) this.genesisHash = genesisHash;
 
-            this.assetParams = new AssetParams(assetTotal, defaultFrozen, assetUnitName, assetName, url, metadataHash, manager, reserve, freeze, clawback);
+            this.assetParams = new AssetParams(assetTotal, assetDecimals, defaultFrozen, assetUnitName, assetName, url, metadataHash, manager, reserve, freeze, clawback);
+        }       
+
+        /**
+         * Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+         * @param sender source address
+         * @param fee transaction fee
+         * @param firstValid first valid round
+         * @param lastValid last valid round
+         * @param note optional note field (can be null)
+         * @param genesisID
+         * @param genesisHash
+         * @param assetTotal total asset issuance
+         * @param assetDecimals asset decimal precision
+         * @param defaultFrozen whether accounts have this asset frozen by default
+         * @param assetUnitName name of unit of the asset
+         * @param assetName name of the asset
+         * @param url where more information about the asset can be retrieved
+         * @param metadataHash specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application
+         * @param manager account which can reconfigure the asset
+         * @param reserve account whose asset holdings count as non-minted
+         * @param freeze account which can freeze or unfreeze holder accounts
+         * @param clawback account which can issue clawbacks against holder accounts
+         */
+        public static Transaction CreateAssetCreateTransaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
+                           string genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
+                           string assetUnitName, string assetName, string url, byte[] metadataHash,
+                           Address manager, Address reserve, Address freeze, Address clawback)
+        {
+            return new Transaction(
+                    sender, fee, firstValid, lastValid, note,
+                    genesisID, genesisHash, assetTotal, assetDecimals, defaultFrozen,
+                    assetUnitName, assetName, url, metadataHash,
+                    manager, reserve, freeze, clawback);
         }
 
-        //    /**
-        //     * Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-        //     * @param sender source address
-        //     * @param fee transaction fee
-        //     * @param firstValid first valid round
-        //     * @param lastValid last valid round
-        //     * @param note optional note field (can be null)
-        //     * @param genesisID
-        //     * @param genesisHash
-        //     * @param assetTotal total asset issuance
-        //     * @param defaultFrozen whether accounts have this asset frozen by default
-        //     * @param assetUnitName name of unit of the asset
-        //     * @param assetName name of the asset
-        //     * @param url where more information about the asset can be retrieved
-        //     * @param metadataHash specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application
-        //     * @param manager account which can reconfigure the asset
-        //     * @param reserve account whose asset holdings count as non-minted
-        //     * @param freeze account which can freeze or unfreeze holder accounts
-        //     * @param clawback account which can issue clawbacks against holder accounts
-        //     */
-        //    public static Transaction createAssetCreateTransaction(Address sender, BigInteger fee, BigInteger firstValid, BigInteger lastValid, byte[] note,
-        //                       String genesisID, Digest genesisHash, BigInteger assetTotal, boolean defaultFrozen,
-        //                       String assetUnitName, String assetName, String url, byte[] metadataHash,
-        //                       Address manager, Address reserve, Address freeze, Address clawback)
-        //    {
-        //        return new Transaction(
-        //                sender, fee, firstValid, lastValid, note,
-        //                genesisID, genesisHash, assetTotal, defaultFrozen,
-        //                assetUnitName, assetName, url, metadataHash,
-        //                manager, reserve, freeze, clawback);
-        //    }
+        /**
+         * Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+         * @param sender source address
+         * @param fee transaction fee
+         * @param firstValid first valid round
+         * @param lastValid last valid round
+         * @param note optional note field (can be null)
+         * @param genesisID
+         * @param genesisHash
+         * @param index asset index
+         * @param manager account which can reconfigure the asset
+         * @param reserve account whose asset holdings count as non-minted
+         * @param freeze account which can freeze or unfreeze holder accounts
+         * @param clawback account which can issue clawbacks against holder accounts
+         */
+        private Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
+                           string genesisID, Digest genesisHash, ulong? index,
+                        Address manager, Address reserve, Address freeze, Address clawback)
+        {
 
-        //    /**
-        //     * Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-        //     * @param sender source address
-        //     * @param fee transaction fee
-        //     * @param firstValid first valid round
-        //     * @param lastValid last valid round
-        //     * @param note optional note field (can be null)
-        //     * @param genesisID
-        //     * @param genesisHash
-        //     * @param index asset index
-        //     * @param manager account which can reconfigure the asset
-        //     * @param reserve account whose asset holdings count as non-minted
-        //     * @param freeze account which can freeze or unfreeze holder accounts
-        //     * @param clawback account which can issue clawbacks against holder accounts
-        //     */
-        //    private Transaction(Address sender, BigInteger fee, BigInteger firstValid, BigInteger lastValid, byte[] note,
-        //                       String genesisID, Digest genesisHash, BigInteger index,
-        //                    Address manager, Address reserve, Address freeze, Address clawback)
-        //    {
+            this.type = Type.AssetConfig;
+            if (sender != null) this.sender = sender;
+            if (fee != null) this.fee = fee;
+            if (firstValid != null) this.firstValid = firstValid;
+            if (lastValid != null) this.lastValid = lastValid;
+            if (note != null) this.note = note;
+            if (genesisID != null) this.genesisID = genesisID;
+            if (genesisHash != null) this.genesisHash = genesisHash;
+            this.assetParams = new AssetParams(0, 0, false, "", "", "", null, manager, reserve, freeze, clawback);
+            assetIndex = index;
+        }
 
-        //        this.type = Type.AssetConfig;
-        //        if (sender != null) this.sender = sender;
-        //        if (fee != null) this.fee = fee;
-        //        if (firstValid != null) this.firstValid = firstValid;
-        //        if (lastValid != null) this.lastValid = lastValid;
-        //        if (note != null) this.note = note;
-        //        if (genesisID != null) this.genesisID = genesisID;
-        //        if (genesisHash != null) this.genesisHash = genesisHash;
-        //        this.assetParams = new AssetParams(BigInteger.valueOf(0), false, "", "", "", null, manager, reserve, freeze, clawback);
-        //        assetIndex = index;
-        //    }
-
-        //    /**
-        //     * Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-        //     * @param sender source address
-        //     * @param fee transaction fee
-        //     * @param firstValid first valid round
-        //     * @param lastValid last valid round
-        //     * @param note optional note field (can be null)
-        //     * @param genesisID
-        //     * @param genesisHash
-        //     * @param index asset index
-        //     * @param manager account which can reconfigure the asset
-        //     * @param reserve account whose asset holdings count as non-minted
-        //     * @param freeze account which can freeze or unfreeze holder accounts
-        //     * @param clawback account which can issue clawbacks against holder accounts
-        //     * @param strictEmptyAddressChecking if true, disallow empty admin accounts from being set (preventing accidental disable of admin features)
-        //     */
-        //    public static Transaction createAssetConfigureTransaction(
-        //            Address sender,
-        //            BigInteger fee,
-        //            BigInteger firstValid,
-        //            BigInteger lastValid,
-        //            byte[] note,
-        //            String genesisID,
-        //            Digest genesisHash,
-        //            BigInteger index,
-        //            Address manager,
-        //            Address reserve,
-        //            Address freeze,
-        //            Address clawback,
-        //            boolean strictEmptyAddressChecking)
-        //    {
-        //        Address defaultAddr = new Address();
-        //        if (strictEmptyAddressChecking && (
-        //                (manager == null || manager.equals(defaultAddr)) ||
-        //                (reserve == null || reserve.equals(defaultAddr)) ||
-        //                (freeze == null || freeze.equals(defaultAddr)) ||
-        //                (clawback == null || clawback.equals(defaultAddr))
-        //                ))
-        //        {
-        //            throw new RuntimeException("strict empty address checking requested but "
-        //                    + "empty or default address supplied to one or more manager addresses");
-        //        }
-        //        return new Transaction(
-        //                sender,
-        //                fee,
-        //                firstValid,
-        //                lastValid,
-        //                note,
-        //                genesisID,
-        //                genesisHash,
-        //                index,
-        //                manager,
-        //                reserve,
-        //                freeze,
-        //                clawback);
-        //    }
+        /**
+         * Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+         * @param sender source address
+         * @param fee transaction fee
+         * @param firstValid first valid round
+         * @param lastValid last valid round
+         * @param note optional note field (can be null)
+         * @param genesisID
+         * @param genesisHash
+         * @param index asset index
+         * @param manager account which can reconfigure the asset
+         * @param reserve account whose asset holdings count as non-minted
+         * @param freeze account which can freeze or unfreeze holder accounts
+         * @param clawback account which can issue clawbacks against holder accounts
+         * @param strictEmptyAddressChecking if true, disallow empty admin accounts from being set (preventing accidental disable of admin features)
+         */
+        public static Transaction CreateAssetConfigureTransaction(
+                Address sender,
+                ulong? fee,
+                ulong? firstValid,
+                ulong? lastValid,
+                byte[] note,
+                string genesisID,
+                Digest genesisHash,
+                ulong? index,
+                Address manager,
+                Address reserve,
+                Address freeze,
+                Address clawback,
+                bool strictEmptyAddressChecking)
+        {
+            Address defaultAddr = new Address();
+            if (strictEmptyAddressChecking && (
+                    (manager == null || manager.Equals(defaultAddr)) || (reserve == null || reserve.Equals(defaultAddr)) ||
+                    (freeze == null || freeze.Equals(defaultAddr)) || (clawback == null || clawback.Equals(defaultAddr))))
+            {
+                throw new Exception("strict empty address checking requested but "
+                        + "empty or default address supplied to one or more manager addresses");
+            }
+            return new Transaction(
+                    sender,
+                    fee,
+                    firstValid,
+                    lastValid,
+                    note,
+                    genesisID,
+                    genesisHash,
+                    index,
+                    manager,
+                    reserve,
+                    freeze,
+                    clawback);
+        }
 
         //    // workaround for nested JsonValue classes
         //@JsonCreator
@@ -495,250 +493,252 @@ namespace Algorand
 
         public Transaction() { }
 
-        ///**
-        // * Base constructor with flat fee for asset xfer/freeze/destroy transactions.
-        // * @param flatFee is the transaction flat fee
-        // * @param firstRound is the first round this txn is valid (txn semantics
-        // * unrelated to asset management)
-        // * @param lastRound is the last round this txn is valid
-        // * @param note
-        // * @param genesisID corresponds to the id of the network
-        // * @param genesisHash corresponds to the base64-encoded hash of the genesis
-        // * of the network
-        // * @param assetIndex is the asset index
-        // **/
-        //private Transaction(
-        //        Type type,
-        //        BigInteger flatFee,
-        //        BigInteger firstRound,
-        //        BigInteger lastRound,
-        //        byte[] note,
-        //        Digest genesisHash)
-        //{
+        /**
+         * Base constructor with flat fee for asset xfer/freeze/destroy transactions.
+         * @param flatFee is the transaction flat fee
+         * @param firstRound is the first round this txn is valid (txn semantics
+         * unrelated to asset management)
+         * @param lastRound is the last round this txn is valid
+         * @param note
+         * @param genesisID corresponds to the id of the network
+         * @param genesisHash corresponds to the base64-encoded hash of the genesis
+         * of the network
+         * @param assetIndex is the asset index
+         **/
+        private Transaction(
+                Type type,
+                ulong? flatFee,
+                ulong? firstRound,
+                ulong? lastRound,
+                byte[] note,
+                Digest genesisHash)
+        {
 
-        //    this.type = type;
-        //    if (flatFee != null) this.fee = flatFee;
-        //    if (firstRound != null) this.firstValid = firstRound;
-        //    if (lastRound != null) this.lastValid = lastRound;
-        //    if (note != null) this.note = note;
-        //    if (genesisHash != null) this.genesisHash = genesisHash;
-        //}
+            this.type = type;
+            if (flatFee != null) this.fee = flatFee;
+            if (firstRound != null) this.firstValid = firstRound;
+            if (lastRound != null) this.lastValid = lastRound;
+            if (note != null) this.note = note;
+            if (genesisHash != null) this.genesisHash = genesisHash;
+        }
 
-        ///**
-        // * Creates a tx to mark the account as willing to accept the asset.
-        // * @param acceptingAccount is a checksummed, human-readable address that
-        // * will accept receiving the asset.
-        // * @param flatFee is the transaction flat fee
-        // * @param firstRound is the first round this txn is valid (txn semantics
-        // * unrelated to asset management)
-        // * @param lastRound is the last round this txn is valid
-        // * @param note
-        // * @param genesisID corresponds to the id of the network
-        // * @param genesisHash corresponds to the base64-encoded hash of the genesis
-        // * of the network
-        // * @param assetIndex is the asset index
-        // **/
-        //public static Transaction createAssetAcceptTransaction( //AssetTransaction
-        //        Address acceptingAccount,
-        //        BigInteger flatFee,
-        //        BigInteger firstRound,
-        //        BigInteger lastRound,
-        //        byte[] note,
-        //        String genesisID,
-        //        Digest genesisHash,
-        //        BigInteger assetIndex)
-        //{
+        /**
+         * Creates a tx to mark the account as willing to accept the asset.
+         * @param acceptingAccount is a checksummed, human-readable address that
+         * will accept receiving the asset.
+         * @param flatFee is the transaction flat fee
+         * @param firstRound is the first round this txn is valid (txn semantics
+         * unrelated to asset management)
+         * @param lastRound is the last round this txn is valid
+         * @param note
+         * @param genesisID corresponds to the id of the network
+         * @param genesisHash corresponds to the base64-encoded hash of the genesis
+         * of the network
+         * @param assetIndex is the asset index
+         **/
+        public static Transaction CreateAssetAcceptTransaction( //AssetTransaction
+                Address acceptingAccount,
+                ulong? flatFee,
+                ulong? firstRound,
+                ulong? lastRound,
+                byte[] note,
+                string genesisID,
+                Digest genesisHash,
+                ulong? assetIndex)
+        {
 
-        //    Transaction tx = createAssetTransferTransaction(
-        //            acceptingAccount,
-        //            acceptingAccount,
-        //            new Address(),
-        //            BigInteger.valueOf(0),
-        //            flatFee,
-        //            firstRound,
-        //            lastRound,
-        //            note,
-        //            genesisID,
-        //            genesisHash,
-        //            assetIndex);
+            Transaction tx = CreateAssetTransferTransaction(
+                    acceptingAccount,
+                    acceptingAccount,
+                    new Address(),
+                    0,
+                    flatFee,
+                    firstRound,
+                    lastRound,
+                    note,
+                    genesisID,
+                    genesisHash,
+                    assetIndex);
 
-        //    return tx;
-        //}
+            return tx;
+        }
 
-        ///**
-        // * Creates a tx to destroy the asset
-        // * @param senderAccount is a checksummed, human-readable address of the sender 
-        // * @param flatFee is the transaction flat fee
-        // * @param firstValid is the first round this txn is valid (txn semantics
-        // * unrelated to asset management)
-        // * @param lastValid is the last round this txn is valid
-        // * @param note
-        // * @param genesisHash corresponds to the base64-encoded hash of the genesis
-        // * of the network
-        // * @param assetIndex is the asset ID to destroy
-        // **/
-        //public static Transaction createAssetDestroyTransaction(
-        //        Address senderAccount,
-        //        BigInteger flatFee,
-        //        BigInteger firstValid,
-        //        BigInteger lastValid,
-        //        byte[] note,
-        //        Digest genesisHash,
-        //        BigInteger assetIndex)
-        //{
-        //    Transaction tx = new Transaction(
-        //            Type.AssetConfig,
-        //            flatFee,
-        //            firstValid,
-        //            lastValid,
-        //            note,
-        //            genesisHash);
+        /**
+         * Creates a tx to destroy the asset
+         * @param senderAccount is a checksummed, human-readable address of the sender 
+         * @param flatFee is the transaction flat fee
+         * @param firstValid is the first round this txn is valid (txn semantics
+         * unrelated to asset management)
+         * @param lastValid is the last round this txn is valid
+         * @param note
+         * @param genesisHash corresponds to the base64-encoded hash of the genesis
+         * of the network
+         * @param assetIndex is the asset ID to destroy
+         **/
+        public static Transaction CreateAssetDestroyTransaction(
+                Address senderAccount,
+                ulong? flatFee,
+                ulong? firstValid,
+                ulong? lastValid,
+                byte[] note,
+                Digest genesisHash,
+                ulong? assetIndex)
+        {
+            Transaction tx = new Transaction(
+                    Type.AssetConfig,
+                    flatFee,
+                    firstValid,
+                    lastValid,
+                    note,
+                    genesisHash);
 
-        //    if (assetIndex != null) tx.assetIndex = assetIndex;
-        //    if (senderAccount != null) tx.sender = senderAccount;
-        //    return tx;
-        //}
+            if (assetIndex != null) tx.assetIndex = assetIndex;
+            if (senderAccount != null) tx.sender = senderAccount;
+            return tx;
+        }
 
-        ///**
-        // * Creates a tx to freeze/unfreeze assets
-        // * @param senderAccount is a checksummed, human-readable address of the sender 
-        // * @param flatFee is the transaction flat fee
-        // * @param firstValid is the first round this txn is valid (txn semantics
-        // * unrelated to asset management)
-        // * @param lastValid is the last round this txn is valid
-        // * @param note
-        // * @param genesisHash corresponds to the base64-encoded hash of the genesis
-        // * of the network
-        // * @param assetIndex is the asset ID to destroy
-        // **/
-        //public static Transaction createAssetFreezeTransaction(
-        //        Address senderAccount,
-        //        Address accountToFreeze,
-        //        boolean freezeState,
-        //        BigInteger flatFee,
-        //        BigInteger firstValid,
-        //        BigInteger lastValid,
-        //        byte[] note,
-        //        Digest genesisHash,
-        //        BigInteger assetIndex)
-        //{
-        //    Transaction tx = new Transaction(
-        //            Type.AssetFreeze,
-        //            flatFee,
-        //            firstValid,
-        //            lastValid,
-        //            note,
-        //            genesisHash);
+        /**
+         * Creates a tx to freeze/unfreeze assets
+         * @param senderAccount is a checksummed, human-readable address of the sender 
+         * @param flatFee is the transaction flat fee
+         * @param firstValid is the first round this txn is valid (txn semantics
+         * unrelated to asset management)
+         * @param lastValid is the last round this txn is valid
+         * @param note
+         * @param genesisHash corresponds to the base64-encoded hash of the genesis
+         * of the network
+         * @param assetIndex is the asset ID to destroy
+         **/
+        public static Transaction CreateAssetFreezeTransaction(
+                Address senderAccount,
+                Address accountToFreeze,
+                bool freezeState,
+                ulong? flatFee,
+                ulong? firstValid,
+                ulong? lastValid,
+                byte[] note,
+                Digest genesisHash,
+                ulong? assetIndex)
+        {
+            Transaction tx = new Transaction(
+                    Type.AssetFreeze,
+                    flatFee,
+                    firstValid,
+                    lastValid,
+                    note,
+                    genesisHash);
 
-        //    if (senderAccount != null) tx.sender = senderAccount;
-        //    if (accountToFreeze != null) tx.freezeTarget = accountToFreeze;
-        //    if (assetIndex != null) tx.assetFreezeID = assetIndex;
-        //    tx.freezeState = freezeState;
-        //    return tx;
-        //}
+            if (senderAccount != null) tx.sender = senderAccount;
+            if (accountToFreeze != null) tx.freezeTarget = accountToFreeze;
+            if (assetIndex != null) tx.assetFreezeID = assetIndex;
+            tx.freezeState = freezeState;
+            return tx;
+        }
 
-        ///**
-        // * Creates a tx for revoking an asset from an account and sending it to another
-        // * @param transactionSender is a checksummed, human-readable address that will
-        // * send the transaction
-        // * @param assetRevokedFrom is a checksummed, human-readable address that will
-        // * have assets taken from
-        // * @param assetReceiver is a checksummed, human-readable address what will
-        // * receive the assets
-        // * @param assetAmount is the number of assets to send
-        // * @param flatFee is the transaction flat fee
-        // * @param firstRound is the first round this txn is valid (txn semantics
-        // * unrelated to asset management)
-        // * @param lastRound is the last round this txn is valid
-        // * @param note
-        // * @param genesisID corresponds to the id of the network
-        // * @param genesisHash corresponds to the base64-encoded hash of the genesis
-        // * of the network
-        // * @param assetIndex is the asset index
-        // **/
-        //public static Transaction createAssetRevokeTransaction(// AssetTransaction
-        //        Address transactionSender,
-        //        Address assetRevokedFrom,
-        //        Address assetReceiver,
-        //        BigInteger assetAmount,
-        //        BigInteger flatFee,
-        //        BigInteger firstRound,
-        //        BigInteger lastRound,
-        //        byte[] note,
-        //        String genesisID,
-        //        Digest genesisHash,
-        //        BigInteger assetIndex)
-        //{
+        /**
+         * Creates a tx for revoking an asset from an account and sending it to another
+         * @param transactionSender is a checksummed, human-readable address that will
+         * send the transaction
+         * @param assetRevokedFrom is a checksummed, human-readable address that will
+         * have assets taken from
+         * @param assetReceiver is a checksummed, human-readable address what will
+         * receive the assets
+         * @param assetAmount is the number of assets to send
+         * @param flatFee is the transaction flat fee
+         * @param firstRound is the first round this txn is valid (txn semantics
+         * unrelated to asset management)
+         * @param lastRound is the last round this txn is valid
+         * @param note
+         * @param genesisID corresponds to the id of the network
+         * @param genesisHash corresponds to the base64-encoded hash of the genesis
+         * of the network
+         * @param assetIndex is the asset index
+         **/
+        public static Transaction CreateAssetRevokeTransaction(// AssetTransaction
+                Address transactionSender,
+                Address assetRevokedFrom,
+                Address assetReceiver,
+                ulong? assetAmount,
+                ulong? flatFee,
+                ulong? firstRound,
+                ulong? lastRound,
+                byte[] note,
+                String genesisID,
+                Digest genesisHash,
+                ulong? assetIndex)
+        {
 
-        //    Transaction tx = new Transaction(
-        //            Type.AssetTransfer,
-        //            flatFee,    // fee
-        //            firstRound, // fv
-        //            lastRound, // lv
-        //            note, //note
-        //            genesisHash); // gh
+            Transaction tx = new Transaction(
+                    Type.AssetTransfer,
+                    flatFee,    // fee
+                    firstRound, // fv
+                    lastRound, // lv
+                    note, //note
+                    genesisHash)
+            {
+                assetReceiver = assetReceiver, //arcv
+                assetSender = assetRevokedFrom, //asnd        
+                assetAmount = assetAmount, // aamt
+                sender = transactionSender // snd
+            }; // gh
+            if (assetIndex != null) tx.xferAsset = assetIndex;
+            return tx;
+        }
 
-        //    tx.assetReceiver = assetReceiver; //arcv
-        //    tx.assetSender = assetRevokedFrom; //asnd        
-        //    tx.assetAmount = assetAmount; // aamt
-        //    tx.sender = transactionSender; // snd
-        //    if (assetIndex != null) tx.xferAsset = assetIndex;
-        //    return tx;
-        //}
 
+        /**
+         * Creates a tx for sending some asset from an asset holder to another user.
+         *  The asset receiver must have marked itself as willing to accept the
+         *  asset.
+         * @param assetSender is a checksummed, human-readable address that will
+         * send the transaction and assets
+         * @param assetReceiver is a checksummed, human-readable address what will
+         * receive the assets
+         * @param assetCloseTo is a checksummed, human-readable address that
+         * behaves as a close-to address for the asset transaction; the remaining
+         * assets not sent to assetReceiver will be sent to assetCloseTo. Leave
+         * blank for no close-to behavior.
+         * @param assetAmount is the number of assets to send
+         * @param flatFee is the transaction flat fee
+         * @param firstRound is the first round this txn is valid (txn semantics
+         * unrelated to asset management)
+         * @param lastRound is the last round this txn is valid
+         * @param note
+         * @param genesisID corresponds to the id of the network
+         * @param genesisHash corresponds to the base64-encoded hash of the genesis
+         * of the network
+         * @param assetIndex is the asset index
+         **/
+        public static Transaction CreateAssetTransferTransaction(// AssetTransaction
+                Address assetSender,
+                Address assetReceiver,
+                Address assetCloseTo,
+                ulong? assetAmount,
+                ulong? flatFee,
+                ulong? firstRound,
+                ulong? lastRound,
+                byte[] note,
+                string genesisID,
+                Digest genesisHash,
+                ulong? assetIndex)
+        {
 
-        ///**
-        // * Creates a tx for sending some asset from an asset holder to another user.
-        // *  The asset receiver must have marked itself as willing to accept the
-        // *  asset.
-        // * @param assetSender is a checksummed, human-readable address that will
-        // * send the transaction and assets
-        // * @param assetReceiver is a checksummed, human-readable address what will
-        // * receive the assets
-        // * @param assetCloseTo is a checksummed, human-readable address that
-        // * behaves as a close-to address for the asset transaction; the remaining
-        // * assets not sent to assetReceiver will be sent to assetCloseTo. Leave
-        // * blank for no close-to behavior.
-        // * @param assetAmount is the number of assets to send
-        // * @param flatFee is the transaction flat fee
-        // * @param firstRound is the first round this txn is valid (txn semantics
-        // * unrelated to asset management)
-        // * @param lastRound is the last round this txn is valid
-        // * @param note
-        // * @param genesisID corresponds to the id of the network
-        // * @param genesisHash corresponds to the base64-encoded hash of the genesis
-        // * of the network
-        // * @param assetIndex is the asset index
-        // **/
-        //public static Transaction createAssetTransferTransaction(// AssetTransaction
-        //        Address assetSender,
-        //        Address assetReceiver,
-        //        Address assetCloseTo,
-        //        BigInteger assetAmount,
-        //        BigInteger flatFee,
-        //        BigInteger firstRound,
-        //        BigInteger lastRound,
-        //        byte[] note,
-        //        String genesisID,
-        //        Digest genesisHash,
-        //        BigInteger assetIndex)
-        //{
-
-        //    Transaction tx = new Transaction(
-        //            Type.AssetTransfer,
-        //            flatFee,    // fee
-        //            firstRound, // fv
-        //            lastRound, // lv
-        //            note, //note
-        //            genesisHash); // gh
-
-        //    tx.assetReceiver = assetReceiver; //arcv
-        //    tx.assetCloseTo = assetCloseTo; // aclose
-        //    tx.assetAmount = assetAmount; // aamt
-        //    tx.sender = assetSender; // snd
-        //    if (assetIndex != null) tx.xferAsset = assetIndex;
-        //    return tx;
-        //}
+            Transaction tx = new Transaction(
+                    Type.AssetTransfer,
+                    flatFee,    // fee
+                    firstRound, // fv
+                    lastRound, // lv
+                    note, //note
+                    genesisHash)
+            {
+                assetReceiver = assetReceiver, //arcv
+                assetCloseTo = assetCloseTo, // aclose
+                assetAmount = assetAmount, // aamt
+                sender = assetSender // snd
+            }; // gh
+            if (assetIndex != null) tx.xferAsset = assetIndex;
+            return tx;
+        }
 
         ///** Lease enforces mutual exclusion of transactions.  If this field
         // * is nonzero, then once the transaction is confirmed, it acquires
@@ -792,7 +792,10 @@ namespace Algorand
             [JsonConstructor]
             public Type(string value)
             {
-                this.type = namesMap.GetValueOrDefault(value, 0);
+                if (namesMap.TryGetValue(value, out int typeint))
+                    this.type = typeint;
+                else this.type = 0;
+                //this.type = namesMap.GetValueOrDefault(value, 0);
             }
 
             public Type(int value)
@@ -934,6 +937,16 @@ namespace Algorand
             [DefaultValue(0)]
             public ulong? assetTotal = 0;
 
+            // Decimals specifies the number of digits to display after the decimal
+            // place when displaying this asset. A value of 0 represents an asset
+            // that is not divisible, a value of 1 represents an asset divisible
+            // into tenths, and so on. This value must be between 0 and 19
+            // (inclusive).
+            //@JsonProperty("dc")
+            [JsonProperty(PropertyName = "dc")]
+            [DefaultValue(0)]
+            public int assetDecimals = 0;
+
             //// whether each account has their asset slot frozen for this asset by default
             //@JsonProperty("df")
             [JsonProperty(PropertyName = "df")]
@@ -986,6 +999,7 @@ namespace Algorand
 
             public AssetParams(
                    ulong? assetTotal,
+                   int assetDecimals,
                    bool defaultFrozen,
                    string assetUnitName,
                    string assetName,
@@ -997,6 +1011,7 @@ namespace Algorand
                    Address clawback)
             {
                 if (assetTotal != null) this.assetTotal = assetTotal;
+                this.assetDecimals = assetDecimals;
                 this.assetDefaultFrozen = defaultFrozen;
                 if (assetUnitName != null) this.assetUnitName = assetUnitName;
                 if (assetName != null) this.assetName = assetName;
@@ -1034,6 +1049,7 @@ namespace Algorand
             //@JsonCreator
             [JsonConstructor]
             private AssetParams([JsonProperty(PropertyName = "t")] ulong? assetTotal,
+                [JsonProperty(PropertyName = "dc")] int assetDecimals,
                 [JsonProperty(PropertyName = "df")] bool assetDefaultFrozen,
                 [JsonProperty(PropertyName = "un")] string assetUnitName,
                 [JsonProperty(PropertyName = "an")] string assetName,
@@ -1043,7 +1059,7 @@ namespace Algorand
                 [JsonProperty(PropertyName = "r")] byte[] assetReserve,
                 [JsonProperty(PropertyName = "f")] byte[] assetFreeze,
                 [JsonProperty(PropertyName = "c")] byte[] assetClawback) :
-                this(assetTotal, assetDefaultFrozen, assetUnitName, assetName, url, metadataHash,
+                this(assetTotal, assetDecimals, assetDefaultFrozen, assetUnitName, assetName, url, metadataHash,
                     new Address(assetManager), new Address(assetReserve), new Address(assetFreeze), new Address(assetClawback))
             {
 

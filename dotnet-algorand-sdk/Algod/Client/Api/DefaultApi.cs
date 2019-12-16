@@ -12,9 +12,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Algorand.Algod.Client;
-using Algorand.Algod.Client.Model;
 using Version = Algorand.Algod.Client.Model.Version;
+using Algorand.Algod.Client.Model;
 
 namespace Algorand.Algod.Client.Api
 {
@@ -33,7 +32,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>Account</returns>
-        Account AccountInformation(string address);
+        Model.Account AccountInformation(string address);
 
         /// <summary>
         /// Get account information.
@@ -44,7 +43,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>ApiResponse of Account</returns>
-        ApiResponse<Account> AccountInformationWithHttpInfo(string address);
+        ApiResponse<Model.Account> AccountInformationWithHttpInfo(string address);
         /// <summary>
         /// Get asset information.
         /// </summary>
@@ -258,7 +257,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Transaction</returns>
-        Transaction PendingTransactionInformation(string txid);
+        Model.Transaction PendingTransactionInformation(string txid);
 
         /// <summary>
         /// Get a specific pending transaction.
@@ -269,7 +268,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>ApiResponse of Transaction</returns>
-        ApiResponse<Transaction> PendingTransactionInformationWithHttpInfo(string txid);
+        ApiResponse<Model.Transaction> PendingTransactionInformationWithHttpInfo(string txid);
         /// <summary>
         /// Broadcasts a raw transaction to the network.
         /// </summary>
@@ -338,7 +337,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Transaction</returns>
-        Transaction Transaction(string txid);
+        Model.Transaction Transaction(string txid);
 
         /// <summary>
         /// Get an information of a single transaction.
@@ -349,7 +348,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>ApiResponse of Transaction</returns>
-        ApiResponse<Transaction> TransactionWithHttpInfo(string txid);
+        ApiResponse<Model.Transaction> TransactionWithHttpInfo(string txid);
         /// <summary>
         /// Get a specific confirmed transaction.
         /// </summary>
@@ -360,7 +359,7 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>Transaction</returns>
-        Transaction TransactionInformation(string address, string txid);
+        Model.Transaction TransactionInformation(string address, string txid);
 
         /// <summary>
         /// Get a specific confirmed transaction.
@@ -372,7 +371,7 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>ApiResponse of Transaction</returns>
-        ApiResponse<Transaction> TransactionInformationWithHttpInfo(string address, string txid);
+        ApiResponse<Model.Transaction> TransactionInformationWithHttpInfo(string address, string txid);
         /// <summary>
         /// Get parameters for constructing a new transaction
         /// </summary>
@@ -455,7 +454,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>Task of Account</returns>
-        System.Threading.Tasks.Task<Account> AccountInformationAsync(string address);
+        System.Threading.Tasks.Task<Model.Account> AccountInformationAsync(string address);
 
         /// <summary>
         /// Get account information.
@@ -466,7 +465,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>Task of ApiResponse (Account)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Account>> AccountInformationAsyncWithHttpInfo(string address);
+        System.Threading.Tasks.Task<ApiResponse<Model.Account>> AccountInformationAsyncWithHttpInfo(string address);
         /// <summary>
         /// Get asset information.
         /// </summary>
@@ -680,7 +679,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of Transaction</returns>
-        System.Threading.Tasks.Task<Transaction> PendingTransactionInformationAsync(string txid);
+        System.Threading.Tasks.Task<Model.Transaction> PendingTransactionInformationAsync(string txid);
 
         /// <summary>
         /// Get a specific pending transaction.
@@ -691,7 +690,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Transaction>> PendingTransactionInformationAsyncWithHttpInfo(string txid);
+        System.Threading.Tasks.Task<ApiResponse<Model.Transaction>> PendingTransactionInformationAsyncWithHttpInfo(string txid);
         /// <summary>
         /// Broadcasts a raw transaction to the network.
         /// </summary>
@@ -760,7 +759,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of Transaction</returns>
-        System.Threading.Tasks.Task<Transaction> TransactionAsync(string txid);
+        System.Threading.Tasks.Task<Model.Transaction> TransactionAsync(string txid);
 
         /// <summary>
         /// Get an information of a single transaction.
@@ -771,7 +770,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Transaction>> TransactionAsyncWithHttpInfo(string txid);
+        System.Threading.Tasks.Task<ApiResponse<Model.Transaction>> TransactionAsyncWithHttpInfo(string txid);
         /// <summary>
         /// Get a specific confirmed transaction.
         /// </summary>
@@ -782,7 +781,7 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of Transaction</returns>
-        System.Threading.Tasks.Task<Transaction> TransactionInformationAsync(string address, string txid);
+        System.Threading.Tasks.Task<Model.Transaction> TransactionInformationAsync(string address, string txid);
 
         /// <summary>
         /// Get a specific confirmed transaction.
@@ -794,7 +793,7 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Transaction>> TransactionInformationAsyncWithHttpInfo(string address, string txid);
+        System.Threading.Tasks.Task<ApiResponse<Model.Transaction>> TransactionInformationAsyncWithHttpInfo(string address, string txid);
         /// <summary>
         /// Get parameters for constructing a new transaction
         /// </summary>
@@ -983,9 +982,9 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>Account</returns>
-        public Account AccountInformation(string address)
+        public Model.Account AccountInformation(string address)
         {
-            ApiResponse<Account> localVarResponse = AccountInformationWithHttpInfo(address);
+            ApiResponse<Model.Account> localVarResponse = AccountInformationWithHttpInfo(address);
             return localVarResponse.Data;
         }
 
@@ -995,7 +994,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>ApiResponse of Account</returns>
-        public ApiResponse<Account> AccountInformationWithHttpInfo(string address)
+        public ApiResponse<Model.Account> AccountInformationWithHttpInfo(string address)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1042,9 +1041,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Account>(localVarStatusCode,
+            return new ApiResponse<Model.Account>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Account)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+                (Model.Account)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Account)));
         }
 
         /// <summary>
@@ -1053,9 +1052,9 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>Task of Account</returns>
-        public async System.Threading.Tasks.Task<Account> AccountInformationAsync(string address)
+        public async System.Threading.Tasks.Task<Model.Account> AccountInformationAsync(string address)
         {
-            ApiResponse<Account> localVarResponse = await AccountInformationAsyncWithHttpInfo(address);
+            ApiResponse<Model.Account> localVarResponse = await AccountInformationAsyncWithHttpInfo(address);
             return localVarResponse.Data;
 
         }
@@ -1066,7 +1065,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <returns>Task of ApiResponse (Account)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Account>> AccountInformationAsyncWithHttpInfo(string address)
+        public async System.Threading.Tasks.Task<ApiResponse<Model.Account>> AccountInformationAsyncWithHttpInfo(string address)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1113,9 +1112,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Account>(localVarStatusCode,
+            return new ApiResponse<Model.Account>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Account)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+                (Model.Account)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Account)));
         }
 
         /// <summary>
@@ -2468,9 +2467,9 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Transaction</returns>
-        public Transaction PendingTransactionInformation(string txid)
+        public Model.Transaction PendingTransactionInformation(string txid)
         {
-            ApiResponse<Transaction> localVarResponse = PendingTransactionInformationWithHttpInfo(txid);
+            ApiResponse<Model.Transaction> localVarResponse = PendingTransactionInformationWithHttpInfo(txid);
             return localVarResponse.Data;
         }
 
@@ -2480,7 +2479,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>ApiResponse of Transaction</returns>
-        public ApiResponse<Transaction> PendingTransactionInformationWithHttpInfo(string txid)
+        public ApiResponse<Model.Transaction> PendingTransactionInformationWithHttpInfo(string txid)
         {
             // verify the required parameter 'txid' is set
             if (txid == null)
@@ -2527,9 +2526,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Transaction>(localVarStatusCode,
+            return new ApiResponse<Model.Transaction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Transaction)));
+                (Model.Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Transaction)));
         }
 
         /// <summary>
@@ -2538,9 +2537,9 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of Transaction</returns>
-        public async System.Threading.Tasks.Task<Transaction> PendingTransactionInformationAsync(string txid)
+        public async System.Threading.Tasks.Task<Model.Transaction> PendingTransactionInformationAsync(string txid)
         {
-            ApiResponse<Transaction> localVarResponse = await PendingTransactionInformationAsyncWithHttpInfo(txid);
+            ApiResponse<Model.Transaction> localVarResponse = await PendingTransactionInformationAsyncWithHttpInfo(txid);
             return localVarResponse.Data;
 
         }
@@ -2551,7 +2550,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Transaction>> PendingTransactionInformationAsyncWithHttpInfo(string txid)
+        public async System.Threading.Tasks.Task<ApiResponse<Model.Transaction>> PendingTransactionInformationAsyncWithHttpInfo(string txid)
         {
             // verify the required parameter 'txid' is set
             if (txid == null)
@@ -2598,9 +2597,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Transaction>(localVarStatusCode,
+            return new ApiResponse<Model.Transaction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Transaction)));
+                (Model.Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Transaction)));
         }
 
         /// <summary>
@@ -3025,9 +3024,9 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Transaction</returns>
-        public Transaction Transaction(string txid)
+        public Model.Transaction Transaction(string txid)
         {
-            ApiResponse<Transaction> localVarResponse = TransactionWithHttpInfo(txid);
+            ApiResponse<Model.Transaction> localVarResponse = TransactionWithHttpInfo(txid);
             return localVarResponse.Data;
         }
 
@@ -3037,7 +3036,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>ApiResponse of Transaction</returns>
-        public ApiResponse<Transaction> TransactionWithHttpInfo(string txid)
+        public ApiResponse<Model.Transaction> TransactionWithHttpInfo(string txid)
         {
             // verify the required parameter 'txid' is set
             if (txid == null)
@@ -3084,9 +3083,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Transaction>(localVarStatusCode,
+            return new ApiResponse<Model.Transaction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Transaction)));
+                (Model.Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Transaction)));
         }
 
         /// <summary>
@@ -3095,9 +3094,9 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of Transaction</returns>
-        public async System.Threading.Tasks.Task<Transaction> TransactionAsync(string txid)
+        public async System.Threading.Tasks.Task<Model.Transaction> TransactionAsync(string txid)
         {
-            ApiResponse<Transaction> localVarResponse = await TransactionAsyncWithHttpInfo(txid);
+            ApiResponse<Model.Transaction> localVarResponse = await TransactionAsyncWithHttpInfo(txid);
             return localVarResponse.Data;
 
         }
@@ -3108,7 +3107,7 @@ namespace Algorand.Algod.Client.Api
         /// <exception cref="Algorand.Algod.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Transaction>> TransactionAsyncWithHttpInfo(string txid)
+        public async System.Threading.Tasks.Task<ApiResponse<Model.Transaction>> TransactionAsyncWithHttpInfo(string txid)
         {
             // verify the required parameter 'txid' is set
             if (txid == null)
@@ -3155,9 +3154,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Transaction>(localVarStatusCode,
+            return new ApiResponse<Model.Transaction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Transaction)));
+                (Model.Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Transaction)));
         }
 
         /// <summary>
@@ -3167,9 +3166,9 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>Transaction</returns>
-        public Transaction TransactionInformation(string address, string txid)
+        public Model.Transaction TransactionInformation(string address, string txid)
         {
-            ApiResponse<Transaction> localVarResponse = TransactionInformationWithHttpInfo(address, txid);
+            ApiResponse<Model.Transaction> localVarResponse = TransactionInformationWithHttpInfo(address, txid);
             return localVarResponse.Data;
         }
 
@@ -3180,7 +3179,7 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>ApiResponse of Transaction</returns>
-        public ApiResponse<Transaction> TransactionInformationWithHttpInfo(string address, string txid)
+        public ApiResponse<Model.Transaction> TransactionInformationWithHttpInfo(string address, string txid)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -3231,9 +3230,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Transaction>(localVarStatusCode,
+            return new ApiResponse<Model.Transaction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Transaction)));
+                (Model.Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Transaction)));
         }
 
         /// <summary>
@@ -3243,9 +3242,9 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of Transaction</returns>
-        public async System.Threading.Tasks.Task<Transaction> TransactionInformationAsync(string address, string txid)
+        public async System.Threading.Tasks.Task<Model.Transaction> TransactionInformationAsync(string address, string txid)
         {
-            ApiResponse<Transaction> localVarResponse = await TransactionInformationAsyncWithHttpInfo(address, txid);
+            ApiResponse<Model.Transaction> localVarResponse = await TransactionInformationAsyncWithHttpInfo(address, txid);
             return localVarResponse.Data;
 
         }
@@ -3257,7 +3256,7 @@ namespace Algorand.Algod.Client.Api
         /// <param name="address">An account public key</param>
         /// <param name="txid">A transaction id</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Transaction>> TransactionInformationAsyncWithHttpInfo(string address, string txid)
+        public async System.Threading.Tasks.Task<ApiResponse<Model.Transaction>> TransactionInformationAsyncWithHttpInfo(string address, string txid)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -3308,9 +3307,9 @@ namespace Algorand.Algod.Client.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Transaction>(localVarStatusCode,
+            return new ApiResponse<Model.Transaction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Transaction)));
+                (Model.Transaction)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Model.Transaction)));
         }
 
         /// <summary>

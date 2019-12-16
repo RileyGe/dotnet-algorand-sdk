@@ -42,7 +42,7 @@ namespace Algorand.Algod.Client.Model
         /// <param name="round">Round indicates the round for which this information is relevant (required).</param>
         /// <param name="status">Status indicates the delegation status of the account&#x27;s MicroAlgos Offline - indicates that the associated account is delegated. Online  - indicates that the associated account used as part of the delegation pool. NotParticipating - indicates that the associated account is neither a delegator nor a delegate. (required).</param>
         /// <param name="thisassettotal">AssetParams specifies the parameters of assets created by this account..</param>
-        public Account(string address = default(string), ulong? amount = default(ulong?), ulong? amountwithoutpendingrewards = default(ulong?), Object assets = default(Object), Participation participation = default(Participation), ulong? pendingrewards = default(ulong?), ulong? rewards = default(ulong?), ulong? round = default(ulong?), string status = default(string), Object thisassettotal = default(Object))
+        public Account(string address = default(string), ulong? amount = default(ulong?), ulong? amountwithoutpendingrewards = default(ulong?), Dictionary<ulong?, AssetHolding> assets = null, Participation participation = default(Participation), ulong? pendingrewards = default(ulong?), ulong? rewards = default(ulong?), ulong? round = default(ulong?), string status = default(string), Dictionary<ulong?, AssetParams> thisassettotal = null)
         {
             // to ensure "address" is required (not null)
             if (address == null)
@@ -107,9 +107,9 @@ namespace Algorand.Algod.Client.Model
             {
                 this.Status = status;
             }
-            this.Assets = assets;
+            this.Assets = assets ?? new Dictionary<ulong?, AssetHolding>();
             this.Participation = participation;
-            this.Thisassettotal = thisassettotal;
+            this.Thisassettotal = thisassettotal ?? new Dictionary<ulong?, AssetParams>();
         }
         
         /// <summary>
@@ -133,13 +133,29 @@ namespace Algorand.Algod.Client.Model
         [DataMember(Name="amountwithoutpendingrewards", EmitDefaultValue=false)]
         public ulong? Amountwithoutpendingrewards { get; set; }
 
+        #region changed by rileyge        
         /// <summary>
         /// Assets specifies the holdings of assets by this account, indexed by the asset ID.
         /// </summary>
         /// <value>Assets specifies the holdings of assets by this account, indexed by the asset ID.</value>
         [DataMember(Name="assets", EmitDefaultValue=false)]
-        public Object Assets { get; set; }
+        public Dictionary<ulong?, AssetHolding> Assets { get; set; }
 
+        /// <summary>
+        /// AssetParams specifies the parameters of assets created by this account.
+        /// </summary>
+        /// <value>AssetParams specifies the parameters of assets created by this account.</value>
+        [DataMember(Name = "thisassettotal", EmitDefaultValue = false)]
+        public Dictionary<ulong?, AssetParams> Thisassettotal { get; set; }
+
+        public AssetHolding GetHolding(ulong? assetIndex)
+        {
+            if (Assets.TryGetValue(assetIndex, out AssetHolding holding))
+                return holding;
+            else return new AssetHolding();
+            //return Assets.GetValueOrDefault(assetIndex, new AssetHolding());
+        }
+        #endregion
         /// <summary>
         /// Gets or Sets Participation
         /// </summary>
@@ -172,14 +188,7 @@ namespace Algorand.Algod.Client.Model
         /// </summary>
         /// <value>Status indicates the delegation status of the account&#x27;s MicroAlgos Offline - indicates that the associated account is delegated. Online  - indicates that the associated account used as part of the delegation pool. NotParticipating - indicates that the associated account is neither a delegator nor a delegate.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// AssetParams specifies the parameters of assets created by this account.
-        /// </summary>
-        /// <value>AssetParams specifies the parameters of assets created by this account.</value>
-        [DataMember(Name="thisassettotal", EmitDefaultValue=false)]
-        public Object Thisassettotal { get; set; }
+        public string Status { get; set; }        
 
         /// <summary>
         /// Returns the string presentation of the object

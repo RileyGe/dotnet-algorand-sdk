@@ -9,12 +9,12 @@ namespace Algorand
     public class Mnemonic
     {
 
-        private static int BITS_PER_WORD = 11;
-        private static int CHECKSUM_LEN_WORDS = 1;
-        private static int KEY_LEN_BYTES = 32;
-        private static int MNEM_LEN_WORDS = 25; // includes checksum word
-        private static int PADDING_ZEROS = BITS_PER_WORD - ((KEY_LEN_BYTES * 8) % BITS_PER_WORD);
-        private static string MNEMONIC_DELIM = " ";
+        private const int BITS_PER_WORD = 11;
+        private const int CHECKSUM_LEN_WORDS = 1;
+        private const int KEY_LEN_BYTES = 32;
+        private const int MNEM_LEN_WORDS = 25; // includes checksum word
+        private const int PADDING_ZEROS = BITS_PER_WORD - ((KEY_LEN_BYTES * 8) % BITS_PER_WORD);
+        private const char MNEMONIC_DELIM = ' ';
 
         // on set up, verify expected relationship between constants
         static Mnemonic()

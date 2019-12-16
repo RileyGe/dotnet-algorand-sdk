@@ -417,7 +417,7 @@ namespace Algorand.Algod.Client
         /// <returns>Casted object</returns>
         public static dynamic ConvertType(dynamic fromObject, Type toObject)
         {
-            return Convert.ChangeType(fromObject, toObject);
+            return System.Convert.ChangeType(fromObject, toObject);
         }
 
         /// <summary>

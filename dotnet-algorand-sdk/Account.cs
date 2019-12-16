@@ -446,27 +446,27 @@ namespace Algorand
         }
 
 
-        /**
-         * mergeMultisigTransactionBytes is a convenience method for working directly with raw transaction files.
-         * @param txsBytes list of multisig transactions to merge
-         * @return an encoded, merged multisignature transaction
-         * @throws NoSuchAlgorithmException if could not compute signature
-         */
-        public static byte[] MergeMultisigTransactionBytes(params byte[][] txsBytes)
-        {
-            //try
-            //{
-            SignedTransaction[] sTxs = new SignedTransaction[txsBytes.Length];
-            for (int i = 0; i < txsBytes.Length; i++)
-            {
-                sTxs[i] = Encoder.DecodeFromMsgPack<SignedTransaction>(txsBytes[i]);
-            }
-            SignedTransaction merged = MergeMultisigTransactions(sTxs);
-            return Encoder.EncodeToMsgPack(merged);
-            //} catch (IOException e) {
-            //    throw new IOException("could not decode transactions", e);
-            //}
-        }
+        ///**
+        // * mergeMultisigTransactionBytes is a convenience method for working directly with raw transaction files.
+        // * @param txsBytes list of multisig transactions to merge
+        // * @return an encoded, merged multisignature transaction
+        // * @throws NoSuchAlgorithmException if could not compute signature
+        // */
+        //public static byte[] MergeMultisigTransactionBytes(params byte[][] txsBytes)
+        //{
+        //    //try
+        //    //{
+        //    SignedTransaction[] sTxs = new SignedTransaction[txsBytes.Length];
+        //    for (int i = 0; i < txsBytes.Length; i++)
+        //    {
+        //        sTxs[i] = Encoder.DecodeFromMsgPack<SignedTransaction>(txsBytes[i]);
+        //    }
+        //    SignedTransaction merged = MergeMultisigTransactions(sTxs);
+        //    return Encoder.EncodeToMsgPack(merged);
+        //    //} catch (IOException e) {
+        //    //    throw new IOException("could not decode transactions", e);
+        //    //}
+        //}
 
         //    /**
         //     * appendMultisigTransactionBytes is a convenience method for directly appending our signature to a raw tx file.
