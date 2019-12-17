@@ -16,37 +16,30 @@ namespace Algorand
     ///
     /// Create and manage secrets, and perform account-based work such as signing transactions.
     ///
-
     public class Account
     {
         private AsymmetricCipherKeyPair privateKeyPair;
         public Address Address { get; private set; }
-        //private static string KEY_ALGO = "Ed25519";
-        //private static string SIGN_ALGO = "EdDSA";
         private const int PK_SIZE = 32;
-        //private static int PK_X509_PREFIX_LENGTH = 12; // Ed25519 specific
         private const int SK_SIZE = 32;
         private const int SK_SIZE_BITS = SK_SIZE * 8;
-        private static readonly byte[] BID_SIGN_PREFIX = Encoding.UTF8.GetBytes("aB");//.getBytes(StandardCharsets.UTF_8);
+        private static readonly byte[] BID_SIGN_PREFIX = Encoding.UTF8.GetBytes("aB");
         private static readonly byte[] BYTES_SIGN_PREFIX = Encoding.UTF8.GetBytes("MX");
         private const ulong MIN_TX_FEE_UALGOS = 1000;
 
         /// <summary>
-        /// Account creates a new, random account.
+        /// Generate a newc account, random account.
         /// </summary>
         public Account()
         {
             CreateAccountFromRandom(new SecureRandom());
         }
         /// <summary>
-        /// 
+        /// Generate a newc account with seed(master derivation key)
         /// </summary>
-        /// <param name="seed"></param>
+        /// <param name="seed">seed(master derivation key)</param>
         public Account(byte[] seed)
         {
-            //var rand = new FixedSecureRandom(seed);
-            //rand.SetSeed(seed);
-            //CreateAccountFromRandom(rand);
             // seed here corresponds to rfc8037 private key, corresponds to seed in go impl
             // BC for instance takes the seed as private key straight up
             CreateAccountFromRandom(new FixedSecureRandom(seed));
@@ -57,46 +50,12 @@ namespace Algorand
         /// <param name="mnemonic">the mnemonic</param>
         public Account(string mnemonic) : this(Mnemonic.ToKey(mnemonic)) { }
 
-        //    // randomSrc can be null, in which case system default is used
-        private void CreateAccountFromRandom(SecureRandom randomSrc)
+        private void CreateAccountFromRandom(SecureRandom srandom)
         {
             Ed25519KeyPairGenerator keyPairGenerator = new Ed25519KeyPairGenerator();
-            //keyPairGenerator.Init(new KeyGenerationParameters())
-            keyPairGenerator.Init(new Ed25519KeyGenerationParameters(randomSrc));
+            keyPairGenerator.Init(new Ed25519KeyGenerationParameters(srandom));
 
             this.privateKeyPair = keyPairGenerator.GenerateKeyPair();
-            //Ed25519PrivateKeyParameters privateKey = (Ed25519PrivateKeyParameters)privateKeyPair.Private;
-            //Ed25519PublicKeyParameters publicKey = (Ed25519PublicKeyParameters)privateKeyPair.Public;
-
-            //var msg = "eyJhbGciOiJFZERTQSJ9.RXhhbXBsZSBvZiBFZDI1NTE5IHNpZ25pbmc".getBytes(StandardCharsets.UTF_8);
-            //var expectedSig = "hgyY0il_MGCjP0JzlnLWG1PPOt7-09PGcvMg3AIbQR6dWbhijcNR4ki4iylGjg5BhVsPt9g7sVvpAr_MuM0KAg";
-
-            //var privateKeyBytes = Base64.getUrlDecoder().decode("nWGxne_9WmC6hEr0kuwsxERJxWl7MmkZcDusAxyuf2A");
-            //var publicKeyBytes = Base64.getUrlDecoder().decode("11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo");
-
-            //var privateKey = new Ed25519PrivateKeyParameters(privateKeyBytes, 0);
-            //var publicKey = new Ed25519PublicKeyParameters(publicKeyBytes, 0);
-
-            //// Generate new signature
-            //var signer = new Ed25519Signer();
-            //signer.Init(true, privateKey);
-            //signer.Update(msg, 0, msg.length);
-            //byte[] signature = signer.GenerateSignature();
-            //var actualSignature = Base64.getUrlEncoder().encodeToString(signature).replace("=", "");
-
-            ////LOG.info("Expected signature: {}", expectedSig);
-            ////LOG.info("Actual signature  : {}", actualSignature);
-
-            //assertEquals(expectedSig, actualSignature);
-
-            //CryptoProvider.setupIfNeeded();
-            //KeyPairGenerator gen = KeyPairGenerator.getInstance(KEY_ALGO);
-            //if (randomSrc != null)
-            //{
-            //    gen.initialize(SK_SIZE_BITS, randomSrc);
-            //}
-            //this.privateKeyPair = gen.generateKeyPair();
-            // now, convert public key to an address
             byte[] raw = this.GetClearTextPublicKey();
             this.Address = new Address(raw);
         }
@@ -115,8 +74,6 @@ namespace Algorand
             {
                 throw new Exception("Generated public key is the wrong size");
             }
-            //byte[] raw = new byte[PK_SIZE];
-            //JavaHelper<byte>.SyatemArrayCopy(b, PK_X509_PREFIX_LENGTH, raw, 0, PK_SIZE);
             return b;
         }
 
@@ -129,35 +86,19 @@ namespace Algorand
             return new Ed25519PublicKeyParameters(this.GetClearTextPublicKey(), 0);
         }
 
-
-        /**
-         * Converts the 32 byte private key to a 25 word mnemonic, including a checksum.
-         * Refer to the mnemonic package for additional documentation.
-         * @return string a 25 word mnemonic
-         */
+        /// <summary>
+        /// Converts the 32 byte private key to a 25 word mnemonic, including a checksum.
+        /// Refer to the mnemonic package for additional documentation.
+        /// </summary>
+        /// <returns>return string a 25 word mnemonic</returns>
         public string ToMnemonic()
         {
-            // this is the only place we use a bouncy castle compile-time dependency
             PrivateKeyInfo privateKeyInfo = PrivateKeyInfoFactory.CreatePrivateKeyInfo(this.privateKeyPair.Private);
             byte[] X509enc = privateKeyInfo.ToAsn1Object().GetEncoded();
-            //privateKeyInfo.ToAsn1Object().
-            //return Mnemonic.FromKey(X509enc);
-
-            //byte[] X509enc = this.privateKeyPair.Private.getEncoded();
             PrivateKeyInfo pkinfo = PrivateKeyInfo.GetInstance(X509enc);
-            //try
-            //{
             var keyOcts = pkinfo.ParsePrivateKey();
-            //org.bouncycastle.asn1.ASN1Object
             byte[] res = Asn1OctetString.GetInstance(keyOcts).GetOctets();
-
-            //ASN1OctetString.getInstance(keyOcts).getOctets();
             return Mnemonic.FromKey(res);
-            //}
-            //catch (IOException e)
-            //{
-            //    throw new RuntimeException("unexpected behavior", e);
-            //}
         }
 
         /// <summary>
@@ -167,97 +108,34 @@ namespace Algorand
         /// <returns>a signed transaction</returns>
         public SignedTransaction SignTransaction(Transaction tx)
         {
-            //try
-            //{
             byte[] prefixEncodedTx = tx.BytesToSign();
-            Signature txSig = RawSignBytes(JavaHelper<byte>.ArrayCopyOf(prefixEncodedTx, prefixEncodedTx.Length));
+            Signature txSig = RawSignBytes(prefixEncodedTx);
             return new SignedTransaction(tx, txSig, tx.TxID());
-            //}
-            //catch (IOException e)
-            //{
-            //    throw new RuntimeException("unexpected behavior", e);
-            //}
         }
-
-        //    ///**
-        //    //    * Sign a canonical msg-pack encoded Transaction
-        //    //    * @param bytes a canonical msg-pack encoded transaction
-        //    //    * @return a signed transaction
-        //    //    * @throws NoSuchAlgorithmException if ed25519 not found on this system
-        //    //    */
-        //    //public SignedTransaction signTransactionBytes(byte[] bytes)  {
-        //    //    try {
-        //    //        Transaction tx = Encoder.decodeFromMsgPack(bytes, Transaction.class);
-        //    //        return this.signTransaction(tx);
-        //    //    } catch (IOException e) {
-        //    //        throw new IOException("could not decode transaction", e);
-        //    //    }
-        //    //}
         /// <summary>
         /// Sign a transaction with this account, replacing the fee with the given feePerByte.
         /// </summary>
         /// <param name="tx">transaction to sign</param>
         /// <param name="feePerByte">feePerByte fee per byte, often returned as a suggested fee</param>
         /// <returns>a signed transaction</returns>
-        public SignedTransaction SignTransactionWithFeePerByte(Transaction tx, ulong? feePerByte)
+        public SignedTransaction SignTransactionWithFeePerByte(Transaction tx, ulong feePerByte)
         {
             SetFeeByFeePerByte(tx, feePerByte);
             return this.SignTransaction(tx);
         }
-
-        /**
-         * Sign a bid with this account
-         * @param bid the bid to sign
-         * @return a signed bid
-         */
+        /// <summary>
+        /// Sign a bid with this account
+        /// </summary>
+        /// <param name="bid">the bid to sign</param>
+        /// <returns>signed bid</returns>
         public SignedBid SignBid(Bid bid)
         {
-            //try {
             byte[] encodedBid = Encoder.EncodeToMsgPack(bid);
-            // prepend hashable prefix
-            //byte[] prefixEncodedBid = new byte[encodedBid.Length + BID_SIGN_PREFIX.length];
-            //System.arraycopy(BID_SIGN_PREFIX, 0, prefixEncodedBid, 0, BID_SIGN_PREFIX.length);
-            //System.arraycopy(encodedBid, 0, prefixEncodedBid, BID_SIGN_PREFIX.length, encodedBid.length);
             List<byte> prefixEncodedBid = new List<byte>(BID_SIGN_PREFIX);
             prefixEncodedBid.AddRange(encodedBid);
-            // sign
             Signature bidSig = RawSignBytes(prefixEncodedBid.ToArray());
             return new SignedBid(bid, bidSig);
-            //    } catch (IOException e) {
-            //                throw new RuntimeException("unexpected behavior", e);
-            //}
         }
-
-        //    /**
-        //     * Creates a version of the given transaction with fee populated according to suggestedFeePerByte * estimateTxSize.
-        //     * @param copyTx transaction to populate fee field
-        //     * @param suggestedFeePerByte suggestedFee given by network
-        //     * @return transaction with proper fee set
-        //     * @throws NoSuchAlgorithmException could not estimate tx encoded size.
-        //     * @deprecated  Replaced by {@link #setFeeByFeePerByte}.
-        //     * This is unsafe to use because the returned transaction is a shallow copy of copyTx.
-        //     */
-        //    //@Deprecated
-        //    static public Transaction transactionWithSuggestedFeePerByte(Transaction copyTx, BigInteger suggestedFeePerByte)
-        //    {
-        //        BigInteger newFee = suggestedFeePerByte.multiply(estimatedEncodedSize(copyTx));
-        //        if (newFee.compareTo(MIN_TX_FEE_UALGOS) < 0) {
-        //            newFee = MIN_TX_FEE_UALGOS;
-        //        }
-        //        switch (copyTx.type) {
-        //            case Payment:
-        //                return new Transaction(copyTx.sender, newFee, copyTx.firstValid, copyTx.lastValid, copyTx.note, copyTx.genesisID, copyTx.genesisHash,
-        //                        copyTx.amount, copyTx.receiver, copyTx.closeRemainderTo);
-        //            case KeyRegistration:
-        //                return new Transaction(copyTx.sender, newFee, copyTx.firstValid, copyTx.lastValid, copyTx.note, copyTx.genesisID, copyTx.genesisHash,
-        //                        copyTx.votePK, copyTx.selectionPK, copyTx.voteFirst, copyTx.voteLast, copyTx.voteKeyDilution);
-        //            case Default:
-        //                throw new IllegalArgumentException("tx cannot have no type");
-        //            default:
-        //                throw new RuntimeException("cannot reach");
-        //        }
-        //    }
-
         /// <summary>
         /// Sets the transaction fee according to suggestedFeePerByte * estimateTxSize.
         /// </summary>
@@ -276,75 +154,45 @@ namespace Algorand
         /// EstimateEncodedSize returns the estimated encoded size of the transaction including the signature.
         /// This function is useful for calculating the fee from suggested fee per byte.
         /// </summary>
-        /// <param name="tx"></param>
+        /// <param name="tx">the transaction</param>
         /// <returns>an estimated byte size for the transaction.</returns>
         public static int EstimatedEncodedSize(Transaction tx)
         {
             Account acc = new Account();
-            //try
-            //{
             return Encoder.EncodeToMsgPack(acc.SignTransaction(tx)).Length;
-            //}
-            //catch (IOException e)
-            //{
-            //    throw new RuntimeException("unexpected behavior", e);
-            //}
         }
-
-        /**
-         * Sign the given bytes, and wrap in Signature.
-         * @param bytes the data to sign
-         * @return a signature
-         */
+        /// <summary>
+        /// Sign the given bytes, and wrap in Signature.
+        /// </summary>
+        /// <param name="bytes">bytes the data to sign</param>
+        /// <returns>a signature</returns>
         private Signature RawSignBytes(byte[] bytes)
         {
-            //try {
-
             var signer = new Ed25519Signer();
             signer.Init(true, privateKeyPair.Private);
             signer.BlockUpdate(bytes, 0, bytes.Length);
             byte[] signature = signer.GenerateSignature();
-
-            //CryptoProvider.setupIfNeeded();
-            //java.security.Signature signer = java.security.Signature.getInstance(SIGN_ALGO);
-            //signer.initSign(this.privateKeyPair.getPrivate());
-            //signer.update(bytes);
-            //byte[] sigRaw = signer.sign();
             return new Signature(signature);
-
-            //    } catch (InvalidKeyException|SignatureException e) {
-            //                throw new RuntimeException("unexpected behavior", e);
-            //}
         }
-
-        /**
-         * Sign the given bytes, and wrap in signature. The message is prepended with "MX" for domain separation.
-         * @param bytes the data to sign
-         * @return a signature
-         */
+        /// <summary>
+        /// Sign the given bytes, and wrap in signature. The message is prepended with "MX" for domain separation.
+        /// </summary>
+        /// <param name="bytes">bytes the data to sign</param>
+        /// <returns>signature</returns>
         public Signature SignBytes(byte[] bytes) //throws NoSuchAlgorithmException
         {
-            // prepend hashable prefix
             List<byte> retByte = new List<byte>();
             retByte.AddRange(BYTES_SIGN_PREFIX);
             retByte.AddRange(bytes);
-            //byte[] prefixBytes = new byte[bytes.Length + BYTES_SIGN_PREFIX.Length];
-            //System.arraycopy(BYTES_SIGN_PREFIX, 0, prefixBytes, 0, BYTES_SIGN_PREFIX.length);
-            //System.arraycopy(bytes, 0, prefixBytes, BYTES_SIGN_PREFIX.length, bytes.length);
-
-            // sign
             return RawSignBytes(retByte.ToArray());
         }
-
-        /* Multisignature support */
-
-        /**
-         * signMultisigTransaction creates a multisig transaction from the input and the multisig account.
-         * @param from sign as this multisignature account
-         * @param tx the transaction to sign
-         * @return SignedTransaction a partially signed multisig transaction
-         * @throws NoSuchAlgorithmException if could not sign tx
-         */
+        #region Multisignature support
+        /// <summary>
+        /// SignMultisigTransaction creates a multisig transaction from the input and the multisig account.
+        /// </summary>
+        /// <param name="from">sign as this multisignature account</param>
+        /// <param name="tx">the transaction to sign</param>
+        /// <returns>SignedTransaction a partially signed multisig transaction</returns>
         public SignedTransaction SignMultisigTransaction(MultisigAddress from, Transaction tx) //throws NoSuchAlgorithmException
         {
             // check that from addr of tx matches multisig preimage
@@ -356,17 +204,13 @@ namespace Algorand
             var myPK = this.GetEd25519PublicKey();
             byte[] myEncoded = myPK.GetEncoded();
             int myI = -1;
-            for(int i = 0; i < from.publicKeys.Count; i++)
-            //{
-                //byte[] fromEncoded = from.publicKeys[i].GetEncoded();
+            for (int i = 0; i < from.publicKeys.Count; i++)
                 if (Enumerable.SequenceEqual(myEncoded, from.publicKeys[i].GetEncoded()))
                 {
                     myI = i;
                     break;
                 }
-                    
-            //}
-            //int myI = from.publicKeys.IndexOf(myPK);
+
             if (myI == -1)
             {
                 throw new ArgumentException("Multisig account does not contain this secret key");
@@ -387,12 +231,11 @@ namespace Algorand
             }
             return new SignedTransaction(tx, mSig, txSig.transactionID);
         }
-
-        /**
-         * mergeMultisigTransactions merges the given (partially) signed multisig transactions.
-         * @param txs partially signed multisig transactions to merge. Underlying transactions may be mutated.
-         * @return a merged multisig transaction
-         */
+        /// <summary>
+        /// MergeMultisigTransactions merges the given (partially) signed multisig transactions.
+        /// </summary>
+        /// <param name="txs">partially signed multisig transactions to merge. Underlying transactions may be mutated.</param>
+        /// <returns>merged multisig transaction</returns>
         public static SignedTransaction MergeMultisigTransactions(params SignedTransaction[] txs)
         {
             if (txs.Length < 2)
@@ -431,190 +274,117 @@ namespace Algorand
             }
             return merged;
         }
-
-        /**
-         * appendMultisigTransaction appends our signature to the given multisig transaction.
-         * @param from the multisig public identity we are signing for
-         * @param signedTx the partially signed msig tx to which to append signature
-         * @return a merged multisig transaction
-         * @throws NoSuchAlgorithmException unknown signature algorithm
-         */
+        /// <summary>
+        /// AppendMultisigTransaction appends our signature to the given multisig transaction.
+        /// </summary>
+        /// <param name="from">the multisig public identity we are signing for</param>
+        /// <param name="signedTx">the partially signed msig tx to which to append signature</param>
+        /// <returns>merged multisig transaction</returns>
         public SignedTransaction AppendMultisigTransaction(MultisigAddress from, SignedTransaction signedTx) //throws NoSuchAlgorithmException
         {
             SignedTransaction sTx = this.SignMultisigTransaction(from, signedTx.tx);
             return MergeMultisigTransactions(sTx, signedTx);
         }
+        #endregion
 
+        #region LogicSig
+        /// <summary>
+        /// Sign LogicSig with account's secret key
+        /// </summary>
+        /// <param name="lsig">LogicsigSignature to sign</param>
+        /// <returns>LogicsigSignature with updated signature</returns>
+        public LogicsigSignature SignLogicsig(LogicsigSignature lsig)
+        {
+            byte[] bytesToSign = lsig.BytesToSign();
+            Signature sig = this.RawSignBytes(bytesToSign);
+            lsig.sig = sig;
+            return lsig;
+        }
 
-        ///**
-        // * mergeMultisigTransactionBytes is a convenience method for working directly with raw transaction files.
-        // * @param txsBytes list of multisig transactions to merge
-        // * @return an encoded, merged multisignature transaction
-        // * @throws NoSuchAlgorithmException if could not compute signature
-        // */
-        //public static byte[] MergeMultisigTransactionBytes(params byte[][] txsBytes)
-        //{
-        //    //try
-        //    //{
-        //    SignedTransaction[] sTxs = new SignedTransaction[txsBytes.Length];
-        //    for (int i = 0; i < txsBytes.Length; i++)
-        //    {
-        //        sTxs[i] = Encoder.DecodeFromMsgPack<SignedTransaction>(txsBytes[i]);
-        //    }
-        //    SignedTransaction merged = MergeMultisigTransactions(sTxs);
-        //    return Encoder.EncodeToMsgPack(merged);
-        //    //} catch (IOException e) {
-        //    //    throw new IOException("could not decode transactions", e);
-        //    //}
-        //}
+        /// <summary>
+        /// Sign LogicSig as multisig
+        /// </summary>
+        /// <param name="lsig">LogicsigSignature to sign</param>
+        /// <param name="ma">MultisigAddress to format multi signature from</param>
+        /// <returns>LogicsigSignature</returns>
+        public LogicsigSignature SignLogicsig(LogicsigSignature lsig, MultisigAddress ma)
+        {
+            var pk = this.GetEd25519PublicKey();
+            int pkIndex = -1;
+            for (int i = 0; i < ma.publicKeys.Count; i++)
+            {
+                if (Enumerable.SequenceEqual(pk.GetEncoded(), ma.publicKeys[i].GetEncoded())){
+                    pkIndex = i;
+                    break;
+                }
+            }
 
-        //    /**
-        //     * appendMultisigTransactionBytes is a convenience method for directly appending our signature to a raw tx file.
-        //     * @param from the public identity we are signing as.
-        //     * @param txBytes the multisig transaction to append signature to
-        //     * @return merged multisignature transaction inclukding our signature
-        //     * @throws NoSuchAlgorithmException on failure to compute signature
-        //     */
-        //    public byte[] appendMultisigTransactionBytes(MultisigAddress from, byte[] txBytes)
-        //{
-        //        try {
-        //            SignedTransaction inTx = Encoder.decodeFromMsgPack(txBytes, SignedTransaction.class);
-        //            SignedTransaction appended = this.appendMultisigTransaction(from, inTx);
-        //            return Encoder.encodeToMsgPack(appended);
-        //        } catch (IOException e) {
-        //            throw new IOException("could not decode transactions", e);
-        //        }
-        //    }
+            if (pkIndex == -1)
+            {
+                throw new ArgumentException("Multisig account does not contain this secret key");
+            }
+            // now, create the multisignature
+            byte[] bytesToSign = lsig.BytesToSign();
+            Signature sig = this.RawSignBytes(bytesToSign);
+            MultisigSignature mSig = new MultisigSignature(ma.version, ma.threshold);
+            for (int i = 0; i < ma.publicKeys.Count; i++)
+            {
+                if (i == pkIndex)
+                {
+                    mSig.subsigs.Add(new MultisigSubsig(pk, sig));
+                }
+                else
+                {
+                    mSig.subsigs.Add(new MultisigSubsig(ma.publicKeys[i]));
+                }
+            }
+            lsig.msig = mSig;
+            return lsig;
+        }
 
-        //    /**
-        //     * signMultisigTransactionBytes is a convenience method for signing a multistransaction into bytes
-        //     * @param from the public identity we are signing as.
-        //     * @param tx the multisig transaction to append signature to
-        //     * @return merged multisignature transaction inclukding our signature
-        //     * @throws NoSuchAlgorithmException on failure to compute signature
-        //     */
-        //    public byte[] signMultisigTransactionBytes(MultisigAddress from, Transaction tx)
-        //{
-        //        try {
-        //            SignedTransaction signed = this.signMultisigTransaction(from, tx);
-        //            return Encoder.encodeToMsgPack(signed);
-        //        } catch (IOException e) {
-        //            throw new IOException("could not encode transactions", e);
-        //        }
-        //    }
-
-        //    /**
-        //     * Sign LogicSig with account's secret key
-        //     * @param lsig LogicsigSignature to sign
-        //     * @return LogicsigSignature with updated signature
-        //     * @throws IOException
-        //     */
-        //    public LogicsigSignature signLogicsig(LogicsigSignature lsig) 
-
-        //{
-        //    Signature sig;
-        //        try {
-        //        byte[] bytesToSign = lsig.bytesToSign();
-        //        sig = this.rawSignBytes(bytesToSign);
-        //    } catch (NoSuchAlgorithmException ex) {
-        //        throw new IOException("could not sign transaction", ex);
-        //    }
-        //    lsig.sig = sig;
-        //        return lsig;
-        //}
-
-        ///**
-        // * Sign LogicSig as multisig
-        // * @param lsig LogicsigSignature to sign
-        // * @param ma MultisigAddress to format multi signature from
-        // * @return LogicsigSignature
-        // * @throws IOException
-        // */
-        //public LogicsigSignature signLogicsig(LogicsigSignature lsig, MultisigAddress ma) 
-
-        //{
-        //    Ed25519PublicKey myPK = this.getEd25519PublicKey();
-        //        int myIndex = ma.publicKeys.indexOf(myPK);
-        //        if (myIndex == -1) {
-        //        throw new IllegalArgumentException("Multisig account does not contain this secret key");
-        //    }
-        //    // now, create the multisignature
-        //    Signature sig;
-        //        try {
-        //        byte[] bytesToSign = lsig.bytesToSign();
-        //        sig = this.rawSignBytes(bytesToSign);
-        //    } catch (NoSuchAlgorithmException ex) {
-        //        throw new IOException("could not sign transaction", ex);
-        //    }
-
-        //    MultisigSignature mSig = new MultisigSignature(ma.version, ma.threshold);
-        //        for (int i = 0; i<ma.publicKeys.size(); i++) {
-        //            if (i == myIndex) {
-        //                mSig.subsigs.add(new MultisigSubsig(myPK, sig));
-        //            } else {
-        //                mSig.subsigs.add(new MultisigSubsig(ma.publicKeys.get(i)));
-        //            }
-        //        }
-        //        lsig.msig = mSig;
-        //        return lsig;
-        //    }
-
-        //    /**
-        //     * Appends a signature to multisig logic signed transaction
-        //     * @param lsig LogicsigSignature append to
-        //     * @return LogicsigSignature
-        //     * @throws IllegalArgumentException
-        //     * @throws NoSuchAlgorithmException
-        //     */
-        //    public LogicsigSignature appendToLogicsig(LogicsigSignature lsig)
-        //{
-        //        Ed25519PublicKey myPK = this.getEd25519PublicKey();
-        //int myIndex = -1;
-        //        for (int i = 0; i<lsig.msig.subsigs.size(); i++ ) {
-        //            MultisigSubsig subsig = lsig.msig.subsigs.get(i);
-        //            if (subsig.key.equals(myPK)) {
-        //                myIndex = i;
-        //            }
-        //        }
-        //        if (myIndex == -1) {
-        //            throw new IllegalArgumentException("Multisig account does not contain this secret key");
-        //        }
-
-        //        try {
-        //            // now, create the multisignature
-        //            byte[] bytesToSign = lsig.bytesToSign();
-        //Signature sig = this.rawSignBytes(bytesToSign);
-        //lsig.msig.subsigs.set(myIndex, new MultisigSubsig(myPK, sig));
-        //            return lsig;
-        //        } catch (NoSuchAlgorithmException ex) {
-        //            throw new IOException("could not sign transaction", ex);
-        //        }
-
-        //    }
-
-        /**
-         * Creates SignedTransaction from LogicsigSignature and Transaction.
-         * LogicsigSignature must be valid and verifiable against transaction sender field.
-         * @param lsig LogicsigSignature
-         * @param tx Transaction
-         * @return SignedTransaction
-         */
+        /// <summary>
+        /// Appends a signature to multisig logic signed transaction
+        /// </summary>
+        /// <param name="lsig">LogicsigSignature append to</param>
+        /// <returns>LogicsigSignature</returns>
+        public LogicsigSignature AppendToLogicsig(LogicsigSignature lsig)
+        {
+            var pk = this.GetEd25519PublicKey();
+            int pkIndex = -1;
+            for (int i = 0; i < lsig.msig.subsigs.Count; i++)
+            {
+                MultisigSubsig subsig = lsig.msig.subsigs[i];
+                if (Enumerable.SequenceEqual(subsig.key.GetEncoded(), pk.GetEncoded()))
+                {
+                    pkIndex = i;
+                }
+            }
+            if (pkIndex == -1)
+            {
+                throw new ArgumentException("Multisig account does not contain this secret key");
+            }
+            // now, create the multisignature
+            byte[] bytesToSign = lsig.BytesToSign();
+            Signature sig = this.RawSignBytes(bytesToSign);
+            lsig.msig.subsigs[pkIndex] = new MultisigSubsig(pk, sig);
+            return lsig;
+        }
+        /// <summary>
+        /// Creates SignedTransaction from LogicsigSignature and Transaction.
+        /// LogicsigSignature must be valid and verifiable against transaction sender field.
+        /// </summary>
+        /// <param name="lsig">LogicsigSignature</param>
+        /// <param name="tx">Transaction</param>
+        /// <returns>SignedTransaction</returns>
         public static SignedTransaction SignLogicsigTransaction(LogicsigSignature lsig, Transaction tx)
         {
             if (!lsig.Verify(tx.sender))
             {
                 throw new ArgumentException("verification failed");
             }
-
-            //try
-            //{
             return new SignedTransaction(tx, lsig, tx.TxID());
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new IOException("could not encode transactions", ex);
-            //}
         }
+        #endregion        
     }
 
     // Return a pre-set seed in response to nextBytes or generateSeed
@@ -625,10 +395,8 @@ namespace Algorand
 
         public FixedSecureRandom(byte[] fixedValue)
         {
-            this.fixedValue = JavaHelper<byte>.ArrayCopyOf(fixedValue, fixedValue.Length);
+            this.fixedValue = fixedValue;
         }
-
-
         public override void NextBytes(byte[] bytes)
         {
             if (this.index >= this.fixedValue.Length)
