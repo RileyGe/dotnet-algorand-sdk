@@ -2,8 +2,6 @@
 using Algorand.Algod.Client;
 using Algorand.Algod.Client.Api;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace sdk_examples
 {
@@ -37,27 +35,29 @@ namespace sdk_examples
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
             Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
-            //var tx = new Transaction(lsig.ToAddress(), new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
-            //if (!lsig.Verify(tx.sender))
-            //{
-            //    string msg = "Verification failed";
-            //    Console.WriteLine(msg);
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
-            //        byte[] encodedTxBytes = Algorand.Encoder.EncodeToMsgPack(signedTx);
-            //        var id = algodApiInstance.RawTransaction(encodedTxBytes);
-            //        Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
-            //    }
-            //    catch (ApiException e)
-            //    {
-            //        // This is generally expected, but should give us an informative error message.
-            //        Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
-            //    }
-            //}
+            var tx = new Transaction(lsig.ToAddress(), new Address(DEST_ADDR), 1, transParams.LastRound, 
+                transParams.LastRound + 1000, transParams.GenesisID, new Digest(Convert.FromBase64String(transParams.Genesishashb64)));
+            Account.SetFeeByFeePerByte(tx, transParams.Fee);
+            if (!lsig.Verify(tx.sender))
+            {
+                string msg = "Verification failed";
+                Console.WriteLine(msg);
+            }
+            else
+            {
+                try
+                {
+                    SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
+                    byte[] encodedTxBytes = Algorand.Encoder.EncodeToMsgPack(stx);
+                    var id = algodApiInstance.RawTransaction(encodedTxBytes);
+                    Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
+                }
+                catch (ApiException e)
+                {
+                    // This is generally expected, but should give us an informative error message.
+                    Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
+                }
+            }
         }
     }
 }
