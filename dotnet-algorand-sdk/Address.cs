@@ -184,18 +184,15 @@ namespace Algorand
             //var pk = this.ToVerifyKey();
             var pk = new Ed25519PublicKeyParameters(this.Bytes, 0);
             // prepend the message prefix
-            byte[] prefixBytes = new byte[message.Length + BYTES_SIGN_PREFIX.Length];
-            JavaHelper<byte>.SyatemArrayCopy(BYTES_SIGN_PREFIX, 0, prefixBytes, 0, BYTES_SIGN_PREFIX.Length);
-            JavaHelper<byte>.SyatemArrayCopy(message, 0, prefixBytes, BYTES_SIGN_PREFIX.Length, message.Length);
-
-
+            List<byte> prefixBytes = new List<byte>(BYTES_SIGN_PREFIX);
+            prefixBytes.AddRange(message);
 
             // verify signature
             // Generate new signature
             
             var signer = new Ed25519Signer();
-            signer.Init(true, pk);
-            signer.BlockUpdate(prefixBytes, 0, prefixBytes.Length);
+            signer.Init(false, pk);
+            signer.BlockUpdate(prefixBytes.ToArray(), 0, prefixBytes.ToArray().Length);
             return signer.VerifySignature(signature.Bytes);
             //byte[] signature = signer.GenerateSignature();
             //var actualSignature = Base64.getUrlEncoder().encodeToString(signature).replace("=", "");

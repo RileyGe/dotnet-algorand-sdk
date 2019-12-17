@@ -15,7 +15,7 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
-            AssetExample.Main(args); return;
+            //AssetExample.Main(args); return;
             //MultisigExample.Main(args); return;
 
             // If the protocol is not specified in the address, http is added.
@@ -37,9 +37,12 @@ namespace sdk_examples
                 Console.WriteLine("ToMnemonic function is wriong!");
             }
 
-            //sign bytes function test
+            //sign and verify bytes function test
             var bytes = Encoding.UTF8.GetBytes("examples");
             var siguture = src.SignBytes(bytes);
+
+            Address srcAddr = new Address(src.Address.ToString());
+            var verifyed = srcAddr.VerifyBytes(bytes, siguture);
 
             AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
 
