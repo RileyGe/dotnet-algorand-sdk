@@ -35,9 +35,7 @@ namespace sdk_examples
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
             Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
-            var tx = new Transaction(lsig.ToAddress(), new Address(DEST_ADDR), 1, transParams.LastRound, 
-                transParams.LastRound + 1000, transParams.GenesisID, new Digest(Convert.FromBase64String(transParams.Genesishashb64)));
-            Account.SetFeeByFeePerByte(tx, transParams.Fee);
+            Transaction tx = Utils.GetLogicSignatureTransaction(lsig, new Address(DEST_ADDR), transParams, "logic sig message");
             if (!lsig.Verify(tx.sender))
             {
                 string msg = "Verification failed";
@@ -48,7 +46,7 @@ namespace sdk_examples
                 try
                 {
                     SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
-                    byte[] encodedTxBytes = Algorand.Encoder.EncodeToMsgPack(stx);
+                    byte[] encodedTxBytes = Encoder.EncodeToMsgPack(stx);
                     var id = algodApiInstance.RawTransaction(encodedTxBytes);
                     Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
                 }

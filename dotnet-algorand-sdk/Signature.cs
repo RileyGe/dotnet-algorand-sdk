@@ -146,10 +146,12 @@ namespace Algorand
 
         public byte[] BytesToSign()
         {
-            byte[] prefixedEncoded = new byte[this.logic.Length + LOGIC_PREFIX.Length];
-            JavaHelper<byte>.SyatemArrayCopy(LOGIC_PREFIX, 0, prefixedEncoded, 0, LOGIC_PREFIX.Length);
-            JavaHelper<byte>.SyatemArrayCopy(this.logic, 0, prefixedEncoded, LOGIC_PREFIX.Length, this.logic.Length);
-            return prefixedEncoded;
+            List<byte> prefixedEncoded = new List<byte>(LOGIC_PREFIX);
+            prefixedEncoded.AddRange(this.logic);
+            //byte[] prefixedEncoded = new byte[this.logic.Length + LOGIC_PREFIX.Length];
+            //JavaHelper<byte>.SyatemArrayCopy(LOGIC_PREFIX, 0, prefixedEncoded, 0, LOGIC_PREFIX.Length);
+            //JavaHelper<byte>.SyatemArrayCopy(this.logic, 0, prefixedEncoded, LOGIC_PREFIX.Length, this.logic.Length);
+            return prefixedEncoded.ToArray();
         }
 
         public bool Verify(Address address)
