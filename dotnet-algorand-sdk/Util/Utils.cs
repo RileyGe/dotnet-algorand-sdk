@@ -186,6 +186,16 @@ namespace Algorand
             else if (!Address.IsValid(asset.Freezeaddr)) throw new ArgumentException("The freeze address is not valid.");
             if (asset.Clawbackaddr is null || asset.Clawbackaddr == "") asset.Clawbackaddr = asset.Managerkey;
             else if (!Address.IsValid(asset.Clawbackaddr)) throw new ArgumentException("The clawback address is not valid.");
-        }  
+        }
+        public static Transaction GetBidTransaction(Address bidder, Address auction, SignedBid signedBid, TransactionParams trans)
+        {
+            var tx = new Transaction(bidder, auction, 0, trans.LastRound, trans.LastRound + 1000,
+                trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
+            {
+                note = Encoder.EncodeToMsgPack(signedBid)
+            };
+            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            return tx;
+        }
     }
 }

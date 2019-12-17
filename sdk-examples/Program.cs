@@ -16,6 +16,9 @@ namespace sdk_examples
         static void Main(string[] args)
         {
             //AssetExample.Main(args); return;
+            BidExample.Main(args); return;
+            //GroupSigExample.Main(args); return;
+            //LogicSigExample.Main(args); return;
             //MultisigExample.Main(args); return;
 
             // If the protocol is not specified in the address, http is added.
