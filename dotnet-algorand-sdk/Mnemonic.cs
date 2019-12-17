@@ -3,12 +3,11 @@ using System.Text;
 
 namespace Algorand
 {
-    /**
- * Provides an easy way to create mnemonics from 32-byte length keys.
- */
+    /// <summary>
+    /// Provides an easy way to create mnemonics from 32-byte length keys.
+    /// </summary>
     public class Mnemonic
     {
-
         private const int BITS_PER_WORD = 11;
         private const int CHECKSUM_LEN_WORDS = 1;
         private const int KEY_LEN_BYTES = 32;
@@ -24,37 +23,30 @@ namespace Algorand
                 throw new Exception("cannot initialize mnemonic library: invalid constants");
             }
         }
-
-        /**
-         * Converts a 32-byte key into a 25 word mnemonic. The generated
-         * mnemonic includes a checksum. Each word in the mnemonic represents 11 bits
-         * of data, and the last 11 bits are reserved for the checksum.
-         * @param key 32 byte length key
-         * @return
-         */
+        /// <summary>
+        /// Converts a 32-byte key into a 25 word mnemonic. The generated
+        /// mnemonic includes a checksum. Each word in the mnemonic represents 11 bits
+        /// of data, and the last 11 bits are reserved for the checksum.
+        /// </summary>
+        /// <param name="key">32 byte length key</param>
+        /// <returns>the mnemonic</returns>
         public static string FromKey(byte[] key)
         {
             if (key == null || key.Length != KEY_LEN_BYTES)
                 throw new ArgumentException("key must not be null and the key length must be " + KEY_LEN_BYTES + " bytes");
-            //Objects.requireNonNull(key, "key must not be null");
-            //if (key.length != KEY_LEN_BYTES)
-            //{
-            //    throw new IllegalArgumentException("key length must be " + KEY_LEN_BYTES + " bytes");
-            //}
             string chkWord = Checksum(key);
             int[] uint11Arr = ToUintNArray(key);
             string[] words = ApplyWords(uint11Arr);
             return MnemonicToString(words, chkWord);
         }
-
-        /**
-         * toKey converts a mnemonic generated using this library into the source
-         * key used to create it. It returns an error if the passed mnemonic has an
-         * incorrect checksum, if the number of words is unexpected, or if one
-         * of the passed words is not found in the words list.
-         * @param mnemonicStr words delimited by MNEMONIC_DELIM
-         * @return 32 byte array key
-         */
+        /// <summary>
+        /// toKey converts a mnemonic generated using this library into the source
+        /// key used to create it. It returns an error if the passed mnemonic has an
+        /// incorrect checksum, if the number of words is unexpected, or if one
+        /// of the passed words is not found in the words list.
+        /// </summary>
+        /// <param name="mnemonicStr">words delimited by MNEMONIC_DELIM</param>
+        /// <returns>32 byte array key</returns>
         public static byte[] ToKey(string mnemonicStr)
         {
             if (mnemonicStr is null) throw new ArgumentException("mnemonic must not be null");
@@ -183,7 +175,7 @@ namespace Algorand
             return ret;
         }
 
-        private static String ApplyWord(int iN)
+        private static string ApplyWord(int iN)
         {
             return Wordlist.RAW[iN];
         }

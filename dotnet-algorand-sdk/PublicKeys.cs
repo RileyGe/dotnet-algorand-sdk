@@ -4,30 +4,12 @@ using Newtonsoft.Json;
 
 namespace Algorand
 {
-    //public class ParticipationPublicKey
-    //{
-    //    private byte[] votePK;
-
-    //    public ParticipationPublicKey()
-    //    {
-    //    }
-
-    //    public ParticipationPublicKey(byte[] votePK)
-    //    {
-    //        this.votePK = votePK;
-    //    }
-    //}
-
-
-
-    //@JsonInclude(Include.NON_DEFAULT)
     [JsonConverter(typeof(BytesConverter))]
     public class ParticipationPublicKey
     {
         private const int KEY_LEN_BYTES = 32;
         public byte[] Bytes { get; private set; }
 
-        //@JsonCreator
         [JsonConstructor]
         public ParticipationPublicKey(byte[] bytes)
         {
@@ -49,12 +31,6 @@ namespace Algorand
             this.Bytes = new byte[32];
         }
 
-        //@JsonValue
-        //public byte[] getBytes()
-        //{
-        //    return this.bytes;
-        //}
-
         public override bool Equals(object obj)
         {
             return obj is ParticipationPublicKey && Enumerable.SequenceEqual(this.Bytes, ((ParticipationPublicKey)obj).Bytes);
@@ -64,14 +40,13 @@ namespace Algorand
             return this.Bytes.GetHashCode();
         }
     }
-    //@JsonInclude(Include.NON_DEFAULT)
+
     [JsonConverter(typeof(BytesConverter))]
     public class VRFPublicKey
     {
         private const int KEY_LEN_BYTES = 32;
         public byte[] Bytes { get; private set; }
 
-        //@JsonCreator
         [JsonConstructor]
         public VRFPublicKey(byte[] bytes)
         {

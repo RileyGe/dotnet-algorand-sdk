@@ -4,46 +4,42 @@ using System.ComponentModel;
 
 namespace Algorand
 {
-    /**
- * A raw serializable Bid class.
- */
-    //    @JsonPropertyOrder(alphabetic= true)
-    //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    /// <summary>
+    /// A raw serializable Bid class.
+    /// </summary>
     [JsonObject]
     public class Bid
     {
-        //@JsonProperty("bidder")
         [JsonProperty(PropertyName = "bidder")]
         public Address bidderKey = new Address(); // cannot be null
-        //@JsonProperty("auc")
+
         [JsonProperty(PropertyName = "auc")]
         public Address auctionKey = new Address(); // cannot be null
-        //@JsonProperty("cur")
+
         [JsonProperty(PropertyName = "cur")]
         [DefaultValue(0)]
         public ulong? bidCurrency = 0;
-        //@JsonProperty("price")
+
         [JsonProperty(PropertyName = "price")]
         [DefaultValue(0)]
         public ulong? maxPrice = 0;
-        //@JsonProperty("id")
+
         [JsonProperty(PropertyName = "id")]
         [DefaultValue(0)]
         public ulong? bidID = 0;
-        //@JsonProperty("aid")
+
         [JsonProperty(PropertyName = "aid")]
         [DefaultValue(0)]
         public ulong? auctionID = 0;
-
-        /**
-         * Create a new bid
-         * @param bidderKey
-         * @param auctionKey
-         * @param bidCurrency
-         * @param maxPrice
-         * @param bidID
-         * @param auctionID
-         */
+        /// <summary>
+        /// Create a new bid
+        /// </summary>
+        /// <param name="bidderKey"></param>
+        /// <param name="auctionKey"></param>
+        /// <param name="bidCurrency"></param>
+        /// <param name="maxPrice"></param>
+        /// <param name="bidID"></param>
+        /// <param name="auctionID"></param>
         public Bid(Address bidderKey, Address auctionKey, ulong? bidCurrency, ulong? maxPrice, ulong? bidID, ulong? auctionID)
         {
             if (bidderKey != null) this.bidderKey = bidderKey;
@@ -54,7 +50,6 @@ namespace Algorand
             if (auctionID != null) this.auctionID = auctionID;
         }
 
-        //@JsonCreator
         [JsonConstructor]
         public Bid(
             [JsonProperty(PropertyName = "bidder")] byte[] bidderKey,
@@ -94,21 +89,18 @@ namespace Algorand
         }
 
     }
-    /**
- * A serializable raw signed bid class.
- */
-    //    @JsonPropertyOrder(alphabetic= true)
-    //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    /// <summary>
+    /// A serializable raw signed bid class.
+    /// </summary>
     [JsonObject]
     public class SignedBid
     {
-        //@JsonProperty("bid")
         [JsonProperty(PropertyName = "bid")]
         public Bid bid = new Bid();
-        //@JsonProperty("sig")
+
         [JsonProperty(PropertyName = "sig")]
         public Signature sig = new Signature();
-        //@JsonProperty("msig")
+
         [JsonProperty(PropertyName = "msig")]
         public MultisigSignature mSig = new MultisigSignature();
 
@@ -125,7 +117,6 @@ namespace Algorand
 
         public SignedBid() { }
 
-        //@JsonCreator
         [JsonConstructor]
         public SignedBid([JsonProperty(PropertyName = "bid")] Bid bid,
             [JsonProperty(PropertyName = "sig")] byte[] sig,
@@ -136,7 +127,6 @@ namespace Algorand
             if (mSig != null) this.mSig = mSig;
         }
 
-        //@Override
         public override bool Equals(object o)
         {
             if (this == o) return true;

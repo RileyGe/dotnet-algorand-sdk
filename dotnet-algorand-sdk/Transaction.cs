@@ -7,8 +7,6 @@ using System.Collections.Generic;
 
 namespace Algorand
 {
-    //@JsonPropertyOrder(alphabetic= true)
-    //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
     /// 
     /// A raw serializable transaction class, used to generate transactions to broadcast to the network.
     /// This is distinct from algod.model.Transaction, which is only returned for GET requests to algod.
@@ -19,7 +17,7 @@ namespace Algorand
         //private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
         private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
         private const int LEASE_LENGTH = 32;
-        //@JsonProperty("type")
+
         [JsonProperty(PropertyName = "type")]
         [DefaultValue("")]
         public Type type = Type.Default;
@@ -27,7 +25,6 @@ namespace Algorand
         // Instead of embedding POJOs and using JsonUnwrapped, we explicitly export inner fields. This circumvents our encoders'
         // inability to sort child fields.
         /* header fields ***********************************************************/
-        //@JsonProperty("snd")
         [JsonProperty(PropertyName = "snd")]
         public Address sender = new Address();
         //@JsonProperty("fee")
@@ -152,16 +149,15 @@ namespace Algorand
         [JsonProperty(PropertyName = "afrz")]
         [DefaultValue(false)]
         public bool freezeState = false;
-
-        /**
-         * Create a payment transaction
-         * @param fromAddr source address
-         * @param toAddr destination address
-         * @param fee transaction fee
-         * @param amount payment amount
-         * @param firstRound first valid round
-         * @param lastRound last valid round
-         */
+        /// <summary>
+        /// Create a payment transaction
+        /// </summary>
+        /// <param name="fromAddr">source address</param>
+        /// <param name="toAddr">destination address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="amount">payment amount</param>
+        /// <param name="firstRound">first valid round</param>
+        /// <param name="lastRound">last valid round</param>
         public Transaction(Address fromAddr, Address toAddr, ulong? fee, ulong? amount, ulong? firstRound,
             ulong? lastRound) : this(fromAddr, fee, firstRound, lastRound, null, amount, toAddr, "", new Digest()) { }
 
@@ -169,17 +165,16 @@ namespace Algorand
                            string genesisID, Digest genesisHash) : this(fromAddr, fee, firstRound, lastRound, null, amount,
                                toAddr, genesisID, genesisHash)
         { }
-
-        /**
-         * Create a payment transaction. Make sure to sign with a suggested fee.
-         * @param fromAddr source address
-         * @param toAddr destination address
-         * @param amount amount to send
-         * @param firstRound first valid round
-         * @param lastRound last valid round
-         * @param genesisID genesis id
-         * @param genesisHash genesis hash
-         */
+        /// <summary>
+        /// Create a payment transaction. Make sure to sign with a suggested fee.
+        /// </summary>
+        /// <param name="fromAddr">source address</param>
+        /// <param name="toAddr">destination address</param>
+        /// <param name="amount">amount to send</param>
+        /// <param name="firstRound">first valid round</param>
+        /// <param name="lastRound">last valid round</param>
+        /// <param name="genesisID">genesis id</param>
+        /// <param name="genesisHash">genesis hash</param>
         public Transaction(Address fromAddr, Address toAddr, ulong? amount, ulong? firstRound, ulong? lastRound,
             string genesisID, Digest genesisHash) : this(fromAddr, 0, firstRound, lastRound, null, amount, toAddr, genesisID, genesisHash) { }
 
@@ -203,20 +198,21 @@ namespace Algorand
             if (receiver != null) this.receiver = receiver;
             if (closeRemainderTo != null) this.closeRemainderTo = closeRemainderTo;
         }
-
-        /**
-         * Create a key registration transaction. No field can be null except the note field.
-         * @param sender source address
-         * @param fee transaction fee
-         * @param firstValid first valid round
-         * @param lastValid last valid round
-         * @param note optional notes field (can be null)
-         * @param votePK the new participation key to register
-         * @param vrfPK the sortition key to register
-         * @param voteFirst key reg valid first round
-         * @param voteLast key reg valid last round
-         * @param voteKeyDilution key reg dilution
-         */
+        /// <summary>
+        /// Create a key registration transaction. No field can be null except the note field.
+        /// </summary>
+        /// <param name="sender">source address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="firstValid">first valid round</param>
+        /// <param name="lastValid">last valid round</param>
+        /// <param name="note">optional notes field (can be null)</param>
+        /// <param name="genesisID">genesis id</param>
+        /// <param name="genesisHash">genesis hash</param>
+        /// <param name="votePK">the new participation key to register</param>
+        /// <param name="vrfPK">the sortition key to register</param>
+        /// <param name="voteFirst">key reg valid first round</param>
+        /// <param name="voteLast">key reg valid last round</param>
+        /// <param name="voteKeyDilution">key reg dilution</param>
         public Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
                            String genesisID, Digest genesisHash,
                            ParticipationPublicKey votePK, VRFPublicKey vrfPK,
@@ -237,27 +233,27 @@ namespace Algorand
             if (voteLast != null) this.voteLast = voteLast;
             if (voteKeyDilution != null) this.voteKeyDilution = voteKeyDilution;
         }
-
-        /**
-         * Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-         * @param sender source address
-         * @param fee transaction fee
-         * @param firstValid first valid round
-         * @param lastValid last valid round
-         * @param note optional note field (can be null)
-         * @param genesisID
-         * @param genesisHash
-         * @param assetTotal total asset issuance
-         * @param defaultFrozen whether accounts have this asset frozen by default
-         * @param assetUnitName name of unit of the asset
-         * @param assetName name of the asset
-         * @param url where more information about the asset can be retrieved
-         * @param metadataHash specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application
-         * @param manager account which can reconfigure the asset
-         * @param reserve account whose asset holdings count as non-minted
-         * @param freeze account which can freeze or unfreeze holder accounts
-         * @param clawback account which can issue clawbacks against holder accounts
-         */
+        /// <summary>
+        /// Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+        /// </summary>
+        /// <param name="sender">source address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="firstValid">first valid round</param>
+        /// <param name="lastValid">last valid round</param>
+        /// <param name="note">optional note field (can be null)</param>
+        /// <param name="genesisID"></param>
+        /// <param name="genesisHash"></param>
+        /// <param name="assetTotal">total asset issuance</param>
+        /// <param name="assetDecimals"></param>
+        /// <param name="defaultFrozen">whether accounts have this asset frozen by default</param>
+        /// <param name="assetUnitName">name of unit of the asset</param>
+        /// <param name="assetName">name of the asset</param>
+        /// <param name="url">where more information about the asset can be retrieved</param>
+        /// <param name="metadataHash">specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application</param>
+        /// <param name="manager">account which can reconfigure the asset</param>
+        /// <param name="reserve">account whose asset holdings count as non-minted</param>
+        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
+        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
         private Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
                            string genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
                            string assetUnitName, string assetName, string url, byte[] metadataHash,
@@ -273,29 +269,29 @@ namespace Algorand
             if (genesisHash != null) this.genesisHash = genesisHash;
 
             this.assetParams = new AssetParams(assetTotal, assetDecimals, defaultFrozen, assetUnitName, assetName, url, metadataHash, manager, reserve, freeze, clawback);
-        }       
-
-        /**
-         * Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-         * @param sender source address
-         * @param fee transaction fee
-         * @param firstValid first valid round
-         * @param lastValid last valid round
-         * @param note optional note field (can be null)
-         * @param genesisID
-         * @param genesisHash
-         * @param assetTotal total asset issuance
-         * @param assetDecimals asset decimal precision
-         * @param defaultFrozen whether accounts have this asset frozen by default
-         * @param assetUnitName name of unit of the asset
-         * @param assetName name of the asset
-         * @param url where more information about the asset can be retrieved
-         * @param metadataHash specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application
-         * @param manager account which can reconfigure the asset
-         * @param reserve account whose asset holdings count as non-minted
-         * @param freeze account which can freeze or unfreeze holder accounts
-         * @param clawback account which can issue clawbacks against holder accounts
-         */
+        }
+        /// <summary>
+        /// Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+        /// </summary>
+        /// <param name="sender">source address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="firstValid">first valid round</param>
+        /// <param name="lastValid">last valid round</param>
+        /// <param name="note">optional note field (can be null)</param>
+        /// <param name="genesisID"></param>
+        /// <param name="genesisHash"></param>
+        /// <param name="assetTotal">total asset issuance</param>
+        /// <param name="assetDecimals">asset decimal precision</param>
+        /// <param name="defaultFrozen">whether accounts have this asset frozen by default</param>
+        /// <param name="assetUnitName">name of unit of the asset</param>
+        /// <param name="assetName">name of the asset</param>
+        /// <param name="url">where more information about the asset can be retrieved</param>
+        /// <param name="metadataHash">specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application</param>
+        /// <param name="manager">account which can reconfigure the asset</param>
+        /// <param name="reserve">account whose asset holdings count as non-minted</param>
+        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
+        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
+        /// <returns></returns>
         public static Transaction CreateAssetCreateTransaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
                            string genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
                            string assetUnitName, string assetName, string url, byte[] metadataHash,
@@ -306,23 +302,22 @@ namespace Algorand
                     genesisID, genesisHash, assetTotal, assetDecimals, defaultFrozen,
                     assetUnitName, assetName, url, metadataHash,
                     manager, reserve, freeze, clawback);
-        }
-
-        /**
-         * Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-         * @param sender source address
-         * @param fee transaction fee
-         * @param firstValid first valid round
-         * @param lastValid last valid round
-         * @param note optional note field (can be null)
-         * @param genesisID
-         * @param genesisHash
-         * @param index asset index
-         * @param manager account which can reconfigure the asset
-         * @param reserve account whose asset holdings count as non-minted
-         * @param freeze account which can freeze or unfreeze holder accounts
-         * @param clawback account which can issue clawbacks against holder accounts
-         */
+        }        
+        /// <summary>
+        /// Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+        /// </summary>
+        /// <param name="sender">source address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="firstValid">first valid round</param>
+        /// <param name="lastValid">last valid round</param>
+        /// <param name="note">optional note field (can be null)</param>
+        /// <param name="genesisID"></param>
+        /// <param name="genesisHash"></param>
+        /// <param name="index">asset index</param>
+        /// <param name="manager">account which can reconfigure the asset</param>
+        /// <param name="reserve">account whose asset holdings count as non-minted</param>
+        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
+        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
         private Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
                            string genesisID, Digest genesisHash, ulong? index,
                         Address manager, Address reserve, Address freeze, Address clawback)
@@ -339,23 +334,23 @@ namespace Algorand
             this.assetParams = new AssetParams(0, 0, false, "", "", "", null, manager, reserve, freeze, clawback);
             assetIndex = index;
         }
-
-        /**
-         * Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-         * @param sender source address
-         * @param fee transaction fee
-         * @param firstValid first valid round
-         * @param lastValid last valid round
-         * @param note optional note field (can be null)
-         * @param genesisID
-         * @param genesisHash
-         * @param index asset index
-         * @param manager account which can reconfigure the asset
-         * @param reserve account whose asset holdings count as non-minted
-         * @param freeze account which can freeze or unfreeze holder accounts
-         * @param clawback account which can issue clawbacks against holder accounts
-         * @param strictEmptyAddressChecking if true, disallow empty admin accounts from being set (preventing accidental disable of admin features)
-         */
+        /// <summary>
+        /// Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+        /// </summary>
+        /// <param name="sender">source address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="firstValid">first valid round</param>
+        /// <param name="lastValid">last valid round</param>
+        /// <param name="note">optional note field (can be null)</param>
+        /// <param name="genesisID">corresponds to the id of the network</param>
+        /// <param name="genesisHash"></param>
+        /// <param name="index">asset index</param>
+        /// <param name="manager">account which can reconfigure the asset</param>
+        /// <param name="reserve">account whose asset holdings count as non-minted</param>
+        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
+        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
+        /// <param name="strictEmptyAddressChecking">if true, disallow empty admin accounts from being set (preventing accidental disable of admin features)</param>
+        /// <returns>the asset configure transaction</returns>
         public static Transaction CreateAssetConfigureTransaction(
                 Address sender,
                 ulong? fee,
@@ -492,19 +487,15 @@ namespace Algorand
         }
 
         public Transaction() { }
-
-        /**
-         * Base constructor with flat fee for asset xfer/freeze/destroy transactions.
-         * @param flatFee is the transaction flat fee
-         * @param firstRound is the first round this txn is valid (txn semantics
-         * unrelated to asset management)
-         * @param lastRound is the last round this txn is valid
-         * @param note
-         * @param genesisID corresponds to the id of the network
-         * @param genesisHash corresponds to the base64-encoded hash of the genesis
-         * of the network
-         * @param assetIndex is the asset index
-         **/
+        /// <summary>
+        /// Base constructor with flat fee for asset xfer/freeze/destroy transactions.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="flatFee">the transaction flat fee</param>
+        /// <param name="firstRound">the first round this txn is valid (txn semantics unrelated to asset management)</param>
+        /// <param name="lastRound">the last round this txn is valid</param>
+        /// <param name="note"></param>
+        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis of the network</param>
         private Transaction(
                 Type type,
                 ulong? flatFee,
@@ -520,22 +511,19 @@ namespace Algorand
             if (lastRound != null) this.lastValid = lastRound;
             if (note != null) this.note = note;
             if (genesisHash != null) this.genesisHash = genesisHash;
-        }
-
-        /**
-         * Creates a tx to mark the account as willing to accept the asset.
-         * @param acceptingAccount is a checksummed, human-readable address that
-         * will accept receiving the asset.
-         * @param flatFee is the transaction flat fee
-         * @param firstRound is the first round this txn is valid (txn semantics
-         * unrelated to asset management)
-         * @param lastRound is the last round this txn is valid
-         * @param note
-         * @param genesisID corresponds to the id of the network
-         * @param genesisHash corresponds to the base64-encoded hash of the genesis
-         * of the network
-         * @param assetIndex is the asset index
-         **/
+        }        
+        /// <summary>
+        /// Creates a tx to mark the account as willing to accept the asset.
+        /// </summary>
+        /// <param name="acceptingAccount">checksummed, human-readable address that will accept receiving the asset.</param>
+        /// <param name="flatFee">the transaction flat fee</param>
+        /// <param name="firstRound">the first round this txn is valid (txn semantics unrelated to asset management)</param>
+        /// <param name="lastRound">the last round this txn is valid</param>
+        /// <param name="note"></param>
+        /// <param name="genesisID">corresponds to the id of the network</param>
+        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis</param>
+        /// <param name="assetIndex">the asset index</param>
+        /// <returns></returns>
         public static Transaction CreateAssetAcceptTransaction( //AssetTransaction
                 Address acceptingAccount,
                 ulong? flatFee,
@@ -562,19 +550,17 @@ namespace Algorand
 
             return tx;
         }
-
-        /**
-         * Creates a tx to destroy the asset
-         * @param senderAccount is a checksummed, human-readable address of the sender 
-         * @param flatFee is the transaction flat fee
-         * @param firstValid is the first round this txn is valid (txn semantics
-         * unrelated to asset management)
-         * @param lastValid is the last round this txn is valid
-         * @param note
-         * @param genesisHash corresponds to the base64-encoded hash of the genesis
-         * of the network
-         * @param assetIndex is the asset ID to destroy
-         **/
+        /// <summary>
+        /// Creates a tx to destroy the asset
+        /// </summary>
+        /// <param name="senderAccount">checksummed, human-readable address of the sender </param>
+        /// <param name="flatFee">the transaction flat fee</param>
+        /// <param name="firstValid">the first round this txn is valid (txn semantics unrelated to asset management)</param>
+        /// <param name="lastValid">the last round this txn is valid</param>
+        /// <param name="note"></param>
+        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis</param>
+        /// <param name="assetIndex">the asset ID to destroy</param>
+        /// <returns></returns>
         public static Transaction CreateAssetDestroyTransaction(
                 Address senderAccount,
                 ulong? flatFee,
@@ -596,19 +582,19 @@ namespace Algorand
             if (senderAccount != null) tx.sender = senderAccount;
             return tx;
         }
-
-        /**
-         * Creates a tx to freeze/unfreeze assets
-         * @param senderAccount is a checksummed, human-readable address of the sender 
-         * @param flatFee is the transaction flat fee
-         * @param firstValid is the first round this txn is valid (txn semantics
-         * unrelated to asset management)
-         * @param lastValid is the last round this txn is valid
-         * @param note
-         * @param genesisHash corresponds to the base64-encoded hash of the genesis
-         * of the network
-         * @param assetIndex is the asset ID to destroy
-         **/
+        /// <summary>
+        /// Creates a tx to freeze/unfreeze assets
+        /// </summary>
+        /// <param name="senderAccount">checksummed, human-readable address of the sender </param>
+        /// <param name="accountToFreeze"></param>
+        /// <param name="freezeState"></param>
+        /// <param name="flatFee">the transaction flat fee</param>
+        /// <param name="firstValid">the first round this txn is valid (txn semantics unrelated to asset management)</param>
+        /// <param name="lastValid">the last round this txn is valid</param>
+        /// <param name="note"></param>
+        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis of the network</param>
+        /// <param name="assetIndex">the asset ID to destroy</param>
+        /// <returns></returns>
         public static Transaction CreateAssetFreezeTransaction(
                 Address senderAccount,
                 Address accountToFreeze,
@@ -633,27 +619,22 @@ namespace Algorand
             if (assetIndex != null) tx.assetFreezeID = assetIndex;
             tx.freezeState = freezeState;
             return tx;
-        }
-
-        /**
-         * Creates a tx for revoking an asset from an account and sending it to another
-         * @param transactionSender is a checksummed, human-readable address that will
-         * send the transaction
-         * @param assetRevokedFrom is a checksummed, human-readable address that will
-         * have assets taken from
-         * @param assetReceiver is a checksummed, human-readable address what will
-         * receive the assets
-         * @param assetAmount is the number of assets to send
-         * @param flatFee is the transaction flat fee
-         * @param firstRound is the first round this txn is valid (txn semantics
-         * unrelated to asset management)
-         * @param lastRound is the last round this txn is valid
-         * @param note
-         * @param genesisID corresponds to the id of the network
-         * @param genesisHash corresponds to the base64-encoded hash of the genesis
-         * of the network
-         * @param assetIndex is the asset index
-         **/
+        }        
+        /// <summary>
+        /// Creates a tx for revoking an asset from an account and sending it to another
+        /// </summary>
+        /// <param name="transactionSender">checksummed, human-readable address that will send the transaction</param>
+        /// <param name="assetRevokedFrom">checksummed, human-readable address that will have assets taken from</param>
+        /// <param name="assetReceiver">checksummed, human-readable address what will receive the assets</param>
+        /// <param name="assetAmount">the number of assets to send</param>
+        /// <param name="flatFee">the transaction flat fee</param>
+        /// <param name="firstRound">the first round this txn is valid (txn semantics unrelated to asset management)</param>
+        /// <param name="lastRound">the last round this txn is valid</param>
+        /// <param name="note"></param>
+        /// <param name="genesisID">corresponds to the id of the network</param>
+        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis of the network</param>
+        /// <param name="assetIndex">the asset index</param>
+        /// <returns></returns>
         public static Transaction CreateAssetRevokeTransaction(// AssetTransaction
                 Address transactionSender,
                 Address assetRevokedFrom,
@@ -683,32 +664,24 @@ namespace Algorand
             }; // gh
             if (assetIndex != null) tx.xferAsset = assetIndex;
             return tx;
-        }
-
-
-        /**
-         * Creates a tx for sending some asset from an asset holder to another user.
-         *  The asset receiver must have marked itself as willing to accept the
-         *  asset.
-         * @param assetSender is a checksummed, human-readable address that will
-         * send the transaction and assets
-         * @param assetReceiver is a checksummed, human-readable address what will
-         * receive the assets
-         * @param assetCloseTo is a checksummed, human-readable address that
-         * behaves as a close-to address for the asset transaction; the remaining
-         * assets not sent to assetReceiver will be sent to assetCloseTo. Leave
-         * blank for no close-to behavior.
-         * @param assetAmount is the number of assets to send
-         * @param flatFee is the transaction flat fee
-         * @param firstRound is the first round this txn is valid (txn semantics
-         * unrelated to asset management)
-         * @param lastRound is the last round this txn is valid
-         * @param note
-         * @param genesisID corresponds to the id of the network
-         * @param genesisHash corresponds to the base64-encoded hash of the genesis
-         * of the network
-         * @param assetIndex is the asset index
-         **/
+        }        
+        /// <summary>
+        /// Creates a tx for sending some asset from an asset holder to another user.
+        /// The asset receiver must have marked itself as willing to accept the asset.
+        /// </summary>
+        /// <param name="assetSender">checksummed, human-readable address that will send the transaction and assets</param>
+        /// <param name="assetReceiver">checksummed, human-readable address what will receive the assets</param>
+        /// <param name="assetCloseTo">checksummed, human-readable address that behaves as a close-to address for the asset transaction; the remaining
+        /// assets not sent to assetReceiver will be sent to assetCloseTo. Leave blank for no close-to behavior.</param>
+        /// <param name="assetAmount">the number of assets to send</param>
+        /// <param name="flatFee">the transaction flat fee</param>
+        /// <param name="firstRound">the first round this txn is valid (txn semantics unrelated to asset management)</param>
+        /// <param name="lastRound">the last round this txn is valid</param>
+        /// <param name="note"></param>
+        /// <param name="genesisID">corresponds to the id of the network</param>
+        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis of the network</param>
+        /// <param name="assetIndex">the asset index</param>
+        /// <returns></returns>
         public static Transaction CreateAssetTransferTransaction(// AssetTransaction
                 Address assetSender,
                 Address assetReceiver,
@@ -739,28 +712,9 @@ namespace Algorand
             if (assetIndex != null) tx.xferAsset = assetIndex;
             return tx;
         }
-
-        ///** Lease enforces mutual exclusion of transactions.  If this field
-        // * is nonzero, then once the transaction is confirmed, it acquires
-        // * the lease identified by the (Sender, Lease) pair of the
-        // * transaction until the LastValid round passes.  While this
-        // * transaction possesses the lease, no other transaction
-        // * specifying this lease can be confirmed. 
-        // * The Size is fixed at 32 bytes. 
-        // * @param lease 32 byte lease
-        // **/
-        //public void setLease(byte[] lease)
-        //{
-        //    if (lease.length != LEASE_LENGTH && lease.length != 0)
-        //    {
-        //        throw new RuntimeException("The lease should be an empty array or a 32 byte array.");
-        //    }
-        //    this.lease = lease;
-        //}
-
-        ///**
-        // * TxType represents a transaction type.
-        // */
+        ///
+        /// TxType represents a transaction type.
+        ///
         [JsonConverter(typeof(Type2StringConverter))]
         public class Type
         {
@@ -776,19 +730,10 @@ namespace Algorand
                 {"", 0 }, {"pay", 1}, {"keyreg", 2},
                 { "acfg", 3}, {"axfer", 4}, { "afrz", 5}
             };
-
-            //        private final String value;
-            //        Type(String value)
-            //{
-            //    this.value = value;
-            //}
-
-            /**
-             * Return the enumeration for the given string value. Required for JSON serialization.
-             * @param value string representation
-             * @return enumeration type
-             */
-            //@JsonCreator
+            /// <summary>
+            /// Return the enumeration for the given string value. Required for JSON serialization.
+            /// </summary>
+            /// <param name="value">string representation</param>
             [JsonConstructor]
             public Type(string value)
             {
@@ -802,12 +747,10 @@ namespace Algorand
             {
                 this.type = value;
             }
-
-            ///**
-            // * Return the string value for this enumeration. Required for JSON serialization.
-            // * @return string value
-            // */
-            //@JsonValue
+            /// <summary>
+            /// Return the string value for this enumeration. Required for JSON serialization.
+            /// </summary>
+            /// <returns>string value</returns>
             public string ToValue()
             {
                 //namesMap.Add()
@@ -819,61 +762,31 @@ namespace Algorand
                 return null;
             }
         }
-
-        //    /**
-        //     * Return encoded representation of the transaction
-        //     */
-        //    public byte[] bytes() throws IOException
-        //{
-        //        try {
-        //        return Encoder.encodeToMsgPack(this);
-        //    } catch (IOException e) {
-        //        throw new RuntimeException("serialization failed", e);
-        //    }
-        //}
-
-        /**
-         * Return encoded representation of the transaction with a prefix
-         * suitable for signing
-         */
+        /// <summary>
+        /// Return encoded representation of the transaction with a prefix
+        /// suitable for signing
+        /// </summary>
+        /// <returns></returns>
         public byte[] BytesToSign()
         {
-            //try
-            //{
             byte[] encodedTx = Encoder.EncodeToMsgPack(this);
             var retList = new List<byte>();
             retList.AddRange(TX_SIGN_PREFIX);
             retList.AddRange(encodedTx);
             return retList.ToArray();
-            //var encodedStr = Encoder.EncodeToJson(this);
-            //byte[] prefixEncodedTx = new byte[encodedTx.Length + TX_SIGN_PREFIX.Length];
-            //JavaHelper<byte>.SyatemArrayCopy(TX_SIGN_PREFIX, 0, prefixEncodedTx, 0, TX_SIGN_PREFIX.Length);
-            //JavaHelper<byte>.SyatemArrayCopy(encodedTx, 0, prefixEncodedTx, TX_SIGN_PREFIX.Length, encodedTx.Length);
-            //return Encoding.UTF8.GetBytes(TX_SIGN_PREFIX + encodedStr);
-            //}
-            //catch (IOException e)
-            //{
-            //    throw new RuntimeException("serialization failed", e);
-            //}
         }
-
-        /**
-         * Return transaction ID as Digest
-         */
+        /// <summary>
+        /// Return transaction ID as Digest
+        /// </summary>
+        /// <returns></returns>
         public Digest RawTxID()
         {
-            //try {
             return new Digest(Digester.Digest(this.BytesToSign()));
-            //            } catch (IOException e) {
-            //                throw new RuntimeException("tx computation failed", e);
-            //    } catch (NoSuchAlgorithmException e) {
-            //                throw new RuntimeException("tx computation failed", e);
-            //}
         }
-
-        /**
-         * Return transaction ID as string
-         */
+        /// <summary>
+        /// Return transaction ID as string
+        /// </summary>
+        /// <returns></returns>
         public string TxID()
         {
             return Base32.EncodeToString(this.RawTxID().Bytes, false);
@@ -883,7 +796,6 @@ namespace Algorand
         {
             this.group = gid;
         }
-
 
         public override bool Equals(object o)
         {
@@ -923,13 +835,8 @@ namespace Algorand
         {
             return base.GetHashCode();
         }
-        //}  
-        //@JsonPropertyOrder(alphabetic= true)
-        //@JsonInclude(JsonInclude.Include.NON_DEFAULT)
         public class AssetParams
         {
-            //    @JsonProperty("t")
-            ///
             /// <summary>
             /// total asset issuance
             /// </summary>
@@ -942,58 +849,48 @@ namespace Algorand
             // that is not divisible, a value of 1 represents an asset divisible
             // into tenths, and so on. This value must be between 0 and 19
             // (inclusive).
-            //@JsonProperty("dc")
             [JsonProperty(PropertyName = "dc")]
             [DefaultValue(0)]
             public int assetDecimals = 0;
 
             //// whether each account has their asset slot frozen for this asset by default
-            //@JsonProperty("df")
             [JsonProperty(PropertyName = "df")]
             [DefaultValue(false)]
             public bool assetDefaultFrozen = false;
 
             //// a hint to the unit name of the asset
-            //@JsonProperty("un")
             [JsonProperty(PropertyName = "un")]
             [DefaultValue("")]
             public string assetUnitName = "";
 
             //// the name of the asset
-            //@JsonProperty("an")
             [JsonProperty(PropertyName = "an")]
             [DefaultValue("")]
             public String assetName = "";
 
             //// URL where more information about the asset can be retrieved
-            //@JsonProperty("au")
             [JsonProperty(PropertyName = "au")]
             [DefaultValue("")]
             public String url = "";
 
             //// MetadataHash specifies a commitment to some unspecified asset
             //// metadata. The format of this metadata is up to the application.
-            //@JsonProperty("am")
             [JsonProperty(PropertyName = "am")]
             public byte[] metadataHash;
 
             //// the address which has the ability to reconfigure the asset
-            //@JsonProperty("m")
             [JsonProperty(PropertyName = "m")]
             public Address assetManager = new Address();
 
             //// the asset reserve: assets owned by this address do not count against circulation
-            //@JsonProperty("r")
             [JsonProperty(PropertyName = "r")]
             public Address assetReserve = new Address();
 
             //// the address which has the ability to freeze/unfreeze accounts holding this asset
-            //@JsonProperty("f")
             [JsonProperty(PropertyName = "f")]
             public Address assetFreeze = new Address();
 
             //// the address which has the ability to issue clawbacks against asset-holding accounts
-            //@JsonProperty("c")
             [JsonProperty(PropertyName = "c")]
             public Address assetClawback = new Address();
 
@@ -1046,7 +943,6 @@ namespace Algorand
                 return base.GetHashCode();
             }
 
-            //@JsonCreator
             [JsonConstructor]
             private AssetParams([JsonProperty(PropertyName = "t")] ulong? assetTotal,
                 [JsonProperty(PropertyName = "dc")] int assetDecimals,
@@ -1061,21 +957,7 @@ namespace Algorand
                 [JsonProperty(PropertyName = "c")] byte[] assetClawback) :
                 this(assetTotal, assetDecimals, assetDefaultFrozen, assetUnitName, assetName, url, metadataHash,
                     new Address(assetManager), new Address(assetReserve), new Address(assetFreeze), new Address(assetClawback))
-            {
-
-            }
-
-            //        /**
-            //         * Convert the given object to string with each line indented by 4 spaces
-            //         * (except the first line).
-            //         */
-            //        private String toIndentedString(java.lang.Object o)
-            //{
-            //    if (o == null)
-            //    {
-            //        return "null";
-            //    }
-            //    return o.toString().replace("\n", "\n    ");}
+            { }
         }
     }    
     /// 
@@ -1084,21 +966,18 @@ namespace Algorand
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class SignedTransaction
     {
-        //@JsonProperty("txn")
         [JsonProperty(PropertyName = "txn")]
-        //[DefaultValue(typeof(Transaction))]
         public Transaction tx = new Transaction();
-        //@JsonProperty("sig")
+
         [JsonProperty(PropertyName = "sig")]
         public Signature sig = new Signature(); // can be null
-        //@JsonProperty("msig")
+
         [JsonProperty(PropertyName = "msig")]
         public MultisigSignature mSig = new MultisigSignature();
-        //@JsonProperty("lsig")
+
         [JsonProperty(PropertyName = "lsig")]
         public LogicsigSignature lSig = new LogicsigSignature();
 
-        //@JsonIgnore
         [JsonIgnore]
         public string transactionID = "";
 
@@ -1125,12 +1004,6 @@ namespace Algorand
 
         public SignedTransaction() { }
 
-        //@JsonCreator
-        //public SignedTransaction(
-        //        @JsonProperty("txn") Transaction tx,
-        //        @JsonProperty("sig") byte[] sig,
-        //        @JsonProperty("msig") MultisigSignature mSig,
-        //        @JsonProperty("lsig") LogicsigSignature lSig    )  
         [JsonConstructor]
         public SignedTransaction(Transaction tx, byte[] sig, MultisigSignature mSig, LogicsigSignature lSig)
         {
@@ -1141,7 +1014,6 @@ namespace Algorand
             // don't recover the txid yet
         }
 
-        //@Override
         public override bool Equals(object obj)
         {
             if (obj is SignedTransaction actual)
