@@ -6,7 +6,7 @@
     <AssemblyName>Algorand</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Authors>rileyge</Authors>
     <Company>tson.com</Company>
     <Product>Algorand SDK</Product>
@@ -15,8 +15,8 @@
     <Description>Algorand SDK for .Net Framework to interact with the Algorand network.</Description>
     <PackageReleaseNotes>The first version of the Algorand SDK.</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
-    <AssemblyVersion>0.1.1.0</AssemblyVersion>
-    <FileVersion>0.1.1.0</FileVersion>
+    <AssemblyVersion>0.1.2.0</AssemblyVersion>
+    <FileVersion>0.1.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
