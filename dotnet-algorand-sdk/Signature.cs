@@ -188,19 +188,12 @@ namespace Algorand
         public override bool Equals(object obj)
         {
             if (obj is LogicsigSignature actual)
-            {
-                if (
-                    ((this.logic is null && actual.logic is null) || Enumerable.SequenceEqual(this.logic, actual.logic)) &&
-                    ((this.sig is null && actual.sig is null) || this.sig.Equals(actual.sig)) &&
-                    ((this.msig is null && actual.msig is null) || this.msig.Equals(actual.msig)) &&
-                    ((this.args is null && actual.args is null) || ArgsEqual(this.args, actual.args)))
-                    return true;
-                else return false;                
-            }
-            else
-            {
-                return false;
-            }
+                if((this.logic is null && actual.logic is null) || (!(this.logic is null || actual.logic is null) && Enumerable.SequenceEqual(this.logic, actual.logic)))                
+                    if ((this.sig is null && actual.sig is null) || this.sig.Equals(actual.sig))
+                        if ((this.msig is null && actual.msig is null) || this.msig.Equals(actual.msig))
+                            if ((this.args is null && actual.args is null) || ArgsEqual(this.args, actual.args))
+                                return true;
+            return false;            
         }
 
         public override int GetHashCode()

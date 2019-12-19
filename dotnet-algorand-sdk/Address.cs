@@ -127,7 +127,7 @@ namespace Algorand
             var checksum = Digester.Digest(Bytes).ToList().GetRange(LEN_BYTES - CHECKSUM_LEN_BYTES, CHECKSUM_LEN_BYTES);
 
             // concat the hashed address and the bytes
-            var checksumAddress = Enumerable.Concat(checksum, Bytes);
+            var checksumAddress = Enumerable.Concat(Bytes, checksum);
             string res = Base32.EncodeToString(checksumAddress.ToArray(), false);
             if (res.Length != EXPECTED_STR_ENCODED_LEN)
             {

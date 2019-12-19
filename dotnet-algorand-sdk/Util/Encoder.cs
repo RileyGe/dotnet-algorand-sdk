@@ -321,7 +321,7 @@ namespace Algorand
                     property.ShouldSerialize = instance =>
                     {
                         var trans = instance as Transaction;
-                        return !trans.assetCloseTo.Equals(new Address());
+                        return !(trans.assetCloseTo is null || trans.assetCloseTo.Equals(new Address()));
                     };
                 }else if(property.PropertyType == typeof(Address) && property.PropertyName == "fadd")
                 {
@@ -367,7 +367,7 @@ namespace Algorand
                     property.ShouldSerialize = instance =>
                     {
                         var lsig = instance as LogicsigSignature;
-                        return !(lsig.msig.Equals(new MultisigSignature()));
+                        return !(lsig.msig is null || lsig.msig.Equals(new MultisigSignature()));
                     };
                 }
             }
