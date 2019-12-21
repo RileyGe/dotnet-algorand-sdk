@@ -56,6 +56,8 @@ namespace sdk_examples
                     Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
                 }
             }
+            Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
+            Console.ReadKey();
         }
     }
 }

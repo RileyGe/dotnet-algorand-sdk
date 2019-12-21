@@ -2,6 +2,7 @@
 using Algorand.Algod.Client.Api;
 using Algorand.Algod.Client.Model;
 using System;
+using System.Text;
 using Account = Algorand.Account;
 
 namespace sdk_examples
@@ -53,14 +54,14 @@ namespace sdk_examples
             // and will be re-used throughout the example. 
 
             // Create the Asset
-            // Total number of this asset available for circulation
+            // Total number of this asset available for circulation            
             var ap = new AssetParams(creator: acct1.Address.ToString(), assetname: "latikum22", 
                 unitname: "LAT", defaultfrozen: false, total: 10000,
-                url: "http://this.test.com", metadatahash: "16efaa3924a6fd9d3a4880099a4ac65d")
+                url: "http://this.test.com", metadatahash: Convert.ToBase64String(
+                    Encoding.ASCII.GetBytes("16efaa3924a6fd9d3a4880099a4ac65d")))
             {
                 Managerkey = acct2.Address.ToString()
             };
-
 
             // Specified address can change reserve, freeze, clawback, and manager
             // you can leave as default, by default the sender will be manager/reserve/freeze/clawback
@@ -320,7 +321,8 @@ namespace sdk_examples
                 Console.WriteLine(e.Message);
                 return;
             }
-
+            Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
+            Console.ReadKey();
         }
     }
 }

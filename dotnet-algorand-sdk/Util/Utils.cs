@@ -69,10 +69,10 @@ namespace Algorand
         public static string GetRandomAssetMetaHash()
         {
             Random rd = new Random();
-            byte[] bts = new byte[24];
+            byte[] bts = new byte[32];
             rd.NextBytes(bts);
-            var base64 = Convert.ToBase64String(bts);
-            return base64.Substring(0, 32);
+            //var base64 = Convert.ToBase64String(bts);
+            return Convert.ToBase64String(bts);
         }
         /// <summary>
         /// Generate a create asset transaction
@@ -95,7 +95,7 @@ namespace Algorand
             var tx = Transaction.CreateAssetCreateTransaction(new Address(asset.Creator), trans.Fee, trans.LastRound, trans.LastRound + 1000,
                 Encoding.UTF8.GetBytes(message), trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)),
                 asset.Total, 0, (bool)asset.Defaultfrozen, asset.Unitname, asset.Assetname, asset.Url,
-                Encoding.UTF8.GetBytes(asset.Metadatahash), new Address(asset.Managerkey), new Address(asset.Reserveaddr),
+                Convert.FromBase64String(asset.Metadatahash), new Address(asset.Managerkey), new Address(asset.Reserveaddr),
                 new Address(asset.Freezeaddr), new Address(asset.Clawbackaddr));
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
@@ -216,7 +216,7 @@ namespace Algorand
             else if (!Address.IsValid(asset.Clawbackaddr)) throw new ArgumentException("The clawback address is not valid.");
             if (asset.Metadatahash is null || asset.Metadatahash == "")
                 asset.Metadatahash = GetRandomAssetMetaHash();//auto generate metahash by sdk
-            else if (Encoding.UTF8.GetByteCount(asset.Metadatahash) != 32)
+            else if (Convert.FromBase64String(asset.Metadatahash).Length != 32)
                 throw new ArgumentException("The metadata hash should be 32 bytes.");
         }
         /// <summary>
