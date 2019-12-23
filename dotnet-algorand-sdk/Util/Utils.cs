@@ -80,8 +80,12 @@ namespace Algorand
         /// <param name="asset">The asset infomation</param>
         /// <param name="trans">The blockchain infomation</param>
         /// <param name="message">The message for the transaction(have no affect to the assect)</param>
+        /// <param name="decimals">A value of 0 represents an asset that is not divisible, 
+        /// while a value of 1 represents an asset that is divisible into tenths and so on, i.e, 
+        /// the number of digits to display after the decimal place when displaying the asset. 
+        /// This value must be between 0 and 19</param>
         /// <returns>transaction</returns>
-        public static Transaction GetCreateAssetTransaction(AssetParams asset, TransactionParams trans, string message = "")
+        public static Transaction GetCreateAssetTransaction(AssetParams asset, TransactionParams trans, string message = "", int decimals = 0)
         {
             ValidateAsset(asset);
             //asset.
@@ -94,7 +98,7 @@ namespace Algorand
             // assetDecimals is not exist in api, so set as zero in this version
             var tx = Transaction.CreateAssetCreateTransaction(new Address(asset.Creator), trans.Fee, trans.LastRound, trans.LastRound + 1000,
                 Encoding.UTF8.GetBytes(message), trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)),
-                asset.Total, 0, (bool)asset.Defaultfrozen, asset.Unitname, asset.Assetname, asset.Url,
+                asset.Total, decimals, (bool)asset.Defaultfrozen, asset.Unitname, asset.Assetname, asset.Url,
                 Convert.FromBase64String(asset.Metadatahash), new Address(asset.Managerkey), new Address(asset.Reserveaddr),
                 new Address(asset.Freezeaddr), new Address(asset.Clawbackaddr));
             Account.SetFeeByFeePerByte(tx, trans.Fee);
