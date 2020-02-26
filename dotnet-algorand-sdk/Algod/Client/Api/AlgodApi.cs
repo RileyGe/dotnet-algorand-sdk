@@ -18,12 +18,19 @@ namespace Algorand.Algod.Client.Api
             {
                 BasePath = bathPath
             };
-            config.ApiKey.Add(new KeyValuePair<string, string>("X-Algo-API-Token", apiToken));
-            if(timeout > 0)
+            if (bathPath.Contains("algorand.api.purestake.io"))
+                //config.ApiKey.Add(new KeyValuePair<string, string>("X-API-Key", apiToken)); //purestake
+                config.AddDefaultHeader("X-API-Key", apiToken);
+            else
+                config.ApiKey.Add(new KeyValuePair<string, string>("X-Algo-API-Token", apiToken));
+
+            
+            if (timeout > 0)
             {
                 config.Timeout = timeout;
             }
             this.Configuration = config;
         }
+        
     }
 }

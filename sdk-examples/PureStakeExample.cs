@@ -1,29 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using Algorand;
 using Account = Algorand.Account;
 using Algorand.Algod.Client.Api;
 using Algorand.Algod.Client.Model;
 using Algorand.Algod.Client;
-using Transaction = Algorand.Transaction;
 using System.Text;
-using Org.BouncyCastle.Crypto.Parameters;
 
 namespace sdk_examples
 {
-    class Program
+    public class PureStakeExample
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            //AssetExample.Main(args); return;
-            //BidExample.Main(args); return;
-            //GroupSigExample.Main(args); return;
-            LogicSigExample.Main(args); return;
-            //MultisigExample.Main(args); return;
-
-            // the SDK also support purestake, just use the two lines below replace the line 28~32
-            //string ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps1";
-            //string ALGOD_API_TOKEN = "YOUR API PURESTAKE KEY";
             // If the protocol is not specified in the address, http is added.
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -38,7 +26,7 @@ namespace sdk_examples
                 Console.WriteLine("The address " + DEST_ADDR + " is not valid!");
             Account src = new Account(SRC_ACCOUNT);
             Console.WriteLine("My account address is:" + src.Address.ToString());
-            if(src.ToMnemonic() != SRC_ACCOUNT)
+            if (src.ToMnemonic() != SRC_ACCOUNT)
             {
                 Console.WriteLine("ToMnemonic function is wriong!");
             }
