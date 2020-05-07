@@ -23,6 +23,11 @@ namespace Algorand
                 //} catch (Exception e) {
                 //    throw (e);
                 //}
+                // loops 4 times per second, > 5 times per second will fail using TestNet Purestake Free verison  
+                // also blocks are created in under 5 seconds so no real need to poll constantly - 
+                // a few times per second should be fine
+                System.Threading.Thread.Sleep(250); 
+             
             }
         }
         public static TransactionID SubmitTransaction(AlgodApi instance, SignedTransaction signedTx) //throws Exception
