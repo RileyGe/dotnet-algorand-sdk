@@ -1996,7 +1996,11 @@ namespace Algorand.Algod.Client.Api
             {
                 localVarHeaderParams["X-Algo-API-Token"] = this.Configuration.GetApiKeyWithPrefix("X-Algo-API-Token");
             }
-
+            //else if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            //{
+            //    localVarHeaderParams["X-API-Key"] = this.Configuration.GetApiKeyWithPrefix("X-API-Key");
+            //}
+            
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
