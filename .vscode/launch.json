@@ -1,0 +1,33 @@
+{
+   // Use IntelliSense to find out which attributes exist for C# debugging
+   // Use hover for the description of the existing attributes
+   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/sdk-examples/bin/Debug/netcoreapp2.0/sdk-examples.dll",
+            // "args": [
+            //     "https://testnet-algorand.api.purestake.io/ps1", 
+            //     "WpYvadV1w53mSODr6Xrq77tw0ODcgHAx9iJBn5tb"],
+            "args": [
+                "http://hackathon.algodev.network:9100",
+                "ef920e2e7e002953f4b29a8af720efe8e4ecc75ff102b165e0472834b25832c1"
+            ],
+            "cwd": "${workspaceFolder}/sdk-examples",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}
