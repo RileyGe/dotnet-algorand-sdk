@@ -84,12 +84,14 @@ namespace sdk_examples
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
+                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
             }
             catch (ApiException e)
             {
                 // This is generally expected, but should give us an informative error message.
                 Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
             }
+
             Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
             Console.ReadKey();
         }
