@@ -40,29 +40,41 @@ namespace sdk_examples
             src.SignLogicsig(lsig);
            
             Transaction tx = Utils.GetLogicSignatureTransaction(src.Address, new Address(DEST_ADDR), transParams, "logic sig message");
-
-
-            if (!lsig.Verify(tx.sender))
+            try
             {
-                // verification failing on use case with Account signing.
-                string msg = "Verification failed";
-                Console.WriteLine(msg);
+                //bypass verify for non-lsig
+                SignedTransaction stx = Account.SignLogicsigDelegatedTransaction(lsig, tx);
+                byte[] encodedTxBytes = Encoder.EncodeToMsgPack(stx);
+                var id = algodApiInstance.RawTransaction(encodedTxBytes);
+                Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
             }
-            else
+            catch (ApiException e)
             {
-                try
-                {
-                    SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
-                    byte[] encodedTxBytes = Encoder.EncodeToMsgPack(stx);
-                    var id = algodApiInstance.RawTransaction(encodedTxBytes);
-                    Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
-                }
-                catch (ApiException e)
-                {
-                    // This is generally expected, but should give us an informative error message.
-                    Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
-                }
+                // This is generally expected, but should give us an informative error message.
+                Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
             }
+
+            // if (!lsig.Verify(tx.sender))
+            // {
+            //     // verification failing on use case with Account signing.
+            //     string msg = "Verification failed";
+            //     Console.WriteLine(msg);
+            // }
+            // else
+            // {
+            //     try
+            //     {
+            //         SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
+            //         byte[] encodedTxBytes = Encoder.EncodeToMsgPack(stx);
+            //         var id = algodApiInstance.RawTransaction(encodedTxBytes);
+            //         Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
+            //     }
+            //     catch (ApiException e)
+            //     {
+            //         // This is generally expected, but should give us an informative error message.
+            //         Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
+            //     }
+            // }
             Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
             Console.ReadKey();
         }
