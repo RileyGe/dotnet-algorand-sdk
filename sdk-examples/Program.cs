@@ -18,7 +18,8 @@ namespace sdk_examples
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;
-            LogicSigExample.Main(args); return;
+            // LogicSigExample.Main(args); return;
+            LogicSigExampleDelegatedAccount.Main(args);return;
             //MultisigExample.Main(args); return;
 
             // the SDK also support purestake, just use the two lines below replace the line 28~32
@@ -62,6 +63,19 @@ namespace sdk_examples
             {
                 Console.WriteLine("Exception when calling algod#getSupply:" + e.Message);
             }
+
+            try
+            {
+                TransactionParams trans = algodApiInstance.TransactionParams();
+                var lr = (long?)trans.LastRound;
+                Block block = algodApiInstance.GetBlock((long?)trans.LastRound);
+                Console.WriteLine("Lastround: " + trans.LastRound.ToString());
+                Console.WriteLine("Block txns: " + block.Txns.ToJson());
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling algod#getSupply:" + e.Message);
+            }     
 
             TransactionParams transParams = null;
             try

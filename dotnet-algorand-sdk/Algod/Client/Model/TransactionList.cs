@@ -38,7 +38,8 @@ namespace Algorand.Algod.Client.Model
             // to ensure "transactions" is required (not null)
             if (transactions == null)
             {
-                throw new InvalidDataException("transactions is a required property for TransactionList and cannot be null");
+                // not throwing as an exception as Blocks can have no transactions.
+             //   throw new InvalidDataException("transactions is a required property for TransactionList and cannot be null");
             }
             else
             {

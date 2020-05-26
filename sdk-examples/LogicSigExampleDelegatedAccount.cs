@@ -1,11 +1,11 @@
-﻿using Algorand;
+using Algorand;
 using Algorand.Algod.Client;
 using Algorand.Algod.Client.Api;
 using System;
 
 namespace sdk_examples
 {
-    class LogicSigExample
+    class LogicSigExampleDelegatedAccount
     {
         public static void Main(params string[] args)
         {
@@ -35,10 +35,16 @@ namespace sdk_examples
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
             Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
+
+            // sign the logic signaure with an account sk
+            src.SignLogicsig(lsig);
            
-            Transaction tx = Utils.GetLogicSignatureTransaction(lsig, new Address(DEST_ADDR), transParams, "logic sig message");
+            Transaction tx = Utils.GetLogicSignatureTransaction(src.Address, new Address(DEST_ADDR), transParams, "logic sig message");
+
+
             if (!lsig.Verify(tx.sender))
             {
+                // verification failing on use case with Account signing.
                 string msg = "Verification failed";
                 Console.WriteLine(msg);
             }

@@ -2,6 +2,7 @@
 using System;
 using Newtonsoft.Json;
 using System.IO;
+using System.Reflection;
 
 namespace Algorand
 {
@@ -22,17 +23,22 @@ namespace Algorand
         {
             if (langSpec == null)
             {
-                //StreamReader sr = ;
-                var jsonStr = (new StreamReader("langspec.json")).ReadToEnd();
+              
+                //     var jsonStr = (new StreamReader("langspec.json")).ReadToEnd();
+                //     langSpec = JsonConvert.DeserializeObject<LangSpec>(jsonStr);
+                
+                // read file from embedded resources - not the file system
+                var jsonStr = GetFromResources("langspec.json");
                 langSpec = JsonConvert.DeserializeObject<LangSpec>(jsonStr);
-                //                InputStreamReader reader;
-                //                //try {
-                //                reader = new InputStreamReader(Logic.class.getResourceAsStream("/langspec.json"), "UTF-8");
-                ////            } catch (UnsupportedEncodingException var11) {
-                ////                throw new IllegalStateException("langspec opening error");
-                ////}
 
-                //Gson g = (new GsonBuilder()).create();
+                //                InputStreamReader reader;
+                //                try {
+                //                reader = new InputStreamReader(Logic.class.getResourceAsStream("/langspec.json"), "UTF-8");
+                //            } catch (UnsupportedEncodingException var11) {
+                //                throw new IllegalStateException("langspec opening error");
+                // }
+
+                // Gson g = (new GsonBuilder()).create();
                 //        langSpec = (Logic.LangSpec) g.fromJson(reader, Logic.LangSpec.class);
                 //            reader.close();
             }
@@ -123,7 +129,18 @@ namespace Algorand
                 }
             }
         }
+        internal static string GetFromResources(string resourceName)
+        {
+            Assembly assem = Assembly.GetExecutingAssembly();
 
+            using (Stream stream = assem.GetManifestResourceStream(assem.GetName().Name + '.' + resourceName))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
         static int CheckIntConstBlock(byte[] program, int pc)
         {
             int size = 1;

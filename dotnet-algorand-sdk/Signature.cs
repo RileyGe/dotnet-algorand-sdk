@@ -156,8 +156,9 @@ namespace Algorand
                             signer.BlockUpdate(this.BytesToSign(), 0, this.BytesToSign().Length);
                             return signer.VerifySignature(this.sig.Bytes);
                         }
-                        catch (Exception)
+                        catch (Exception err)
                         {
+                            Console.WriteLine("Message = " + err.Message);
                             return false;
                         }
                     }
