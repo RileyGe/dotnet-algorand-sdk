@@ -18,6 +18,7 @@ namespace sdk_examples
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;
+            //LogicSigExample.Main(args); return;
             //MultisigExample.Main(args); return;
 
             // the SDK also support purestake, just use the two lines below replace the line 28~32
