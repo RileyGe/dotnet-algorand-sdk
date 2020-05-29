@@ -35,6 +35,7 @@ namespace sdk_examples
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
             Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
+           
             Transaction tx = Utils.GetLogicSignatureTransaction(lsig, new Address(DEST_ADDR), transParams, "logic sig message");
             if (!lsig.Verify(tx.sender))
             {

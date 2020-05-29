@@ -10,7 +10,7 @@ namespace Algorand.Algod.Client.Model
         //@SerializedName("creator")
         [JsonProperty(PropertyName = "creator")]
         [DefaultValue(null)]
-        private string creator = null;
+        public string Creator { get; private set; }
 
         //@SerializedName("amount")
         [JsonProperty(PropertyName = "amount")]
@@ -20,7 +20,7 @@ namespace Algorand.Algod.Client.Model
         //@SerializedName("frozen")
         [JsonProperty(PropertyName = "frozen")]
         [DefaultValue(null)]
-        private bool? frozen = null;
+        public bool? Frozen { get; private set; }
 
         public AssetHolding() { Amount = null; }
     }

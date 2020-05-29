@@ -384,6 +384,12 @@ namespace Algorand
             }
             return new SignedTransaction(tx, lsig, tx.TxID());
         }
+
+        public static SignedTransaction SignLogicsigDelegatedTransaction(LogicsigSignature lsig, Transaction tx)
+        {
+
+            return new SignedTransaction(tx, lsig, tx.TxID());
+        }
         #endregion        
     }
 
