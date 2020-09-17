@@ -6,23 +6,28 @@
     <AssemblyName>Algorand</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.1.2.4</Version>
+    <Version>0.1.2.6</Version>
     <Authors>rileyge</Authors>
     <Company>tson.com</Company>
     <Product>Algorand SDK</Product>
     <PackageProjectUrl>https://github.com/RileyGe/dotnet-algorand-sdk</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <Description>Algorand SDK for .Net Framework to interact with the Algorand network.</Description>
-    <PackageReleaseNotes>The first version of the Algorand SDK.
-Add decimals to the GetCreateAssetTransaction method.</PackageReleaseNotes>
+    <PackageReleaseNotes>The Algorand SDK.
+Fixed some bugs.</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <AssemblyVersion>0.1.2.4</AssemblyVersion>
     <FileVersion>0.1.2.4</FileVersion>
     <Copyright></Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="langspec.json" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +43,10 @@ Add decimals to the GetCreateAssetTransaction method.</PackageReleaseNotes>
     <PackageReference Include="Newtonsoft.Msgpack" Version="0.1.11" />
     <PackageReference Include="RestSharp" Version="106.6.10" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="V2\Algod\" />
   </ItemGroup>
 
 </Project>
