@@ -35,7 +35,7 @@ namespace Algorand.V2.Model
         /// <param name="subsignature">\\[subsig\\] holds pairs of public key and signatures..</param>
         /// <param name="threshold">\\[thr\\].</param>
         /// <param name="version">\\[v\\].</param>
-        public TransactionSignatureMultisig(List<TransactionSignatureMultisigSubsignature> subsignature = default(List<TransactionSignatureMultisigSubsignature>), int? threshold = default(int?), int? version = default(int?))
+        public TransactionSignatureMultisig(List<TransactionSignatureMultisigSubsignature> subsignature = default(List<TransactionSignatureMultisigSubsignature>), long? threshold = default, long? version = default)
         {
             this.Subsignature = subsignature;
             this.Threshold = threshold;
@@ -54,14 +54,14 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[thr\\]</value>
         [DataMember(Name="threshold", EmitDefaultValue=false)]
-        public int? Threshold { get; set; }
+        public long? Threshold { get; set; }
 
         /// <summary>
         /// \\[v\\]
         /// </summary>
         /// <value>\\[v\\]</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int? Version { get; set; }
+        public long? Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

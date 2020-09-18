@@ -35,7 +35,7 @@ namespace Algorand.V2.Model
         /// <param name="accounts">accounts (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
         /// <param name="nextToken">Used for pagination, when making another request provide this token with the next parameter..</param>
-        public AccountsResponse(List<Account> accounts = default(List<Account>), int? currentRound = default(int?), string nextToken = default(string))
+        public AccountsResponse(List<Account> accounts = default(List<Account>), long? currentRound = default, string nextToken = default(string))
         {
             // to ensure "accounts" is required (not null)
             if (accounts == null)
@@ -69,7 +69,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Round at which the results were computed.</value>
         [DataMember(Name="current-round", EmitDefaultValue=false)]
-        public int? CurrentRound { get; set; }
+        public long? CurrentRound { get; set; }
 
         /// <summary>
         /// Used for pagination, when making another request provide this token with the next parameter.

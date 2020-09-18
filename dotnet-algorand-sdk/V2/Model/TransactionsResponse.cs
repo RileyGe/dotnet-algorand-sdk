@@ -35,7 +35,7 @@ namespace Algorand.V2.Model
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
         /// <param name="nextToken">Used for pagination, when making another request provide this token with the next parameter..</param>
         /// <param name="transactions">transactions (required).</param>
-        public TransactionsResponse(int? currentRound = default(int?), string nextToken = default(string), List<Transaction> transactions = default(List<Transaction>))
+        public TransactionsResponse(long? currentRound = default, string nextToken = default(string), List<Transaction> transactions = default(List<Transaction>))
         {
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
@@ -63,7 +63,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Round at which the results were computed.</value>
         [DataMember(Name="current-round", EmitDefaultValue=false)]
-        public int? CurrentRound { get; set; }
+        public long? CurrentRound { get; set; }
 
         /// <summary>
         /// Used for pagination, when making another request provide this token with the next parameter.

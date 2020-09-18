@@ -38,7 +38,7 @@ namespace Algorand.V2.Model
         /// <param name="voteKeyDilution">\\[votekd\\] Number of subkeys in each batch of participation keys..</param>
         /// <param name="voteLastValid">\\[votelst\\] Last round this participation key is valid..</param>
         /// <param name="voteParticipationKey">\\[votekey\\] Participation public key used in key registration transactions..</param>
-        public TransactionKeyreg(bool? nonParticipation = default(bool?), byte[] selectionParticipationKey = default(byte[]), int? voteFirstValid = default(int?), int? voteKeyDilution = default(int?), int? voteLastValid = default(int?), byte[] voteParticipationKey = default(byte[]))
+        public TransactionKeyreg(bool? nonParticipation = default(bool?), byte[] selectionParticipationKey = default(byte[]), long? voteFirstValid = default, long? voteKeyDilution = default, long? voteLastValid = default, byte[] voteParticipationKey = default(byte[]))
         {
             this.NonParticipation = nonParticipation;
             this.SelectionParticipationKey = selectionParticipationKey;
@@ -67,21 +67,21 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[votefst\\] First round this participation key is valid.</value>
         [DataMember(Name="vote-first-valid", EmitDefaultValue=false)]
-        public int? VoteFirstValid { get; set; }
+        public long? VoteFirstValid { get; set; }
 
         /// <summary>
         /// \\[votekd\\] Number of subkeys in each batch of participation keys.
         /// </summary>
         /// <value>\\[votekd\\] Number of subkeys in each batch of participation keys.</value>
         [DataMember(Name="vote-key-dilution", EmitDefaultValue=false)]
-        public int? VoteKeyDilution { get; set; }
+        public long? VoteKeyDilution { get; set; }
 
         /// <summary>
         /// \\[votelst\\] Last round this participation key is valid.
         /// </summary>
         /// <value>\\[votelst\\] Last round this participation key is valid.</value>
         [DataMember(Name="vote-last-valid", EmitDefaultValue=false)]
-        public int? VoteLastValid { get; set; }
+        public long? VoteLastValid { get; set; }
 
         /// <summary>
         /// \\[votekey\\] Participation public key used in key registration transactions.

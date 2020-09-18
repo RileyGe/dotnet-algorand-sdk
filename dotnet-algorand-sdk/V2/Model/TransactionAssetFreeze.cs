@@ -35,7 +35,7 @@ namespace Algorand.V2.Model
         /// <param name="address">\\[fadd\\] Address of the account whose asset is being frozen or thawed. (required).</param>
         /// <param name="assetId">\\[faid\\] ID of the asset being frozen or thawed. (required).</param>
         /// <param name="newFreezeStatus">\\[afrz\\] The new freeze status. (required).</param>
-        public TransactionAssetFreeze(string address = default(string), int? assetId = default(int?), bool? newFreezeStatus = default(bool?))
+        public TransactionAssetFreeze(string address = default(string), long? assetId = default, bool? newFreezeStatus = default(bool?))
         {
             // to ensure "address" is required (not null)
             if (address == null)
@@ -78,7 +78,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[faid\\] ID of the asset being frozen or thawed.</value>
         [DataMember(Name="asset-id", EmitDefaultValue=false)]
-        public int? AssetId { get; set; }
+        public long? AssetId { get; set; }
 
         /// <summary>
         /// \\[afrz\\] The new freeze status.

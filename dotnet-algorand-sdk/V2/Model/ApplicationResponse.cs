@@ -34,7 +34,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="application">application.</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        public ApplicationResponse(Application application = default(Application), int? currentRound = default(int?))
+        public ApplicationResponse(Application application = default(Application), long? currentRound = default)
         {
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
@@ -59,7 +59,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Round at which the results were computed.</value>
         [DataMember(Name="current-round", EmitDefaultValue=false)]
-        public int? CurrentRound { get; set; }
+        public long? CurrentRound { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

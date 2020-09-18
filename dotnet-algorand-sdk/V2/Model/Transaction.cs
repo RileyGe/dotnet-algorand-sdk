@@ -106,7 +106,7 @@ namespace Algorand.V2.Model
         /// <param name="senderRewards">\\[rs\\] rewards applied to sender account..</param>
         /// <param name="signature">signature (required).</param>
         /// <param name="txType">\\[type\\] Indicates what type of transaction this is. Different types have different fields.  Valid types, and where their fields are stored: * \\[pay\\] payment-transaction * \\[keyreg\\] keyreg-transaction * \\[acfg\\] asset-config-transaction * \\[axfer\\] asset-transfer-transaction * \\[afrz\\] asset-freeze-transaction * \\[appl\\] application-transaction (required).</param>
-        public Transaction(TransactionApplication applicationTransaction = default(TransactionApplication), TransactionAssetConfig assetConfigTransaction = default(TransactionAssetConfig), TransactionAssetFreeze assetFreezeTransaction = default(TransactionAssetFreeze), TransactionAssetTransfer assetTransferTransaction = default(TransactionAssetTransfer), string authAddr = default(string), int? closeRewards = default(int?), int? closingAmount = default(int?), int? confirmedRound = default(int?), int? createdApplicationIndex = default(int?), int? createdAssetIndex = default(int?), int? fee = default(int?), int? firstValid = default(int?), byte[] genesisHash = default(byte[]), string genesisId = default(string), StateDelta globalStateDelta = default, byte[] group = default(byte[]), string id = default(string), int? intraRoundOffset = default(int?), TransactionKeyreg keyregTransaction = default(TransactionKeyreg), int? lastValid = default(int?), byte[] lease = default(byte[]), List<AccountStateDelta> localStateDelta = default(List<AccountStateDelta>), byte[] note = default(byte[]), TransactionPayment paymentTransaction = default(TransactionPayment), int? receiverRewards = default(int?), string rekeyTo = default(string), int? roundTime = default(int?), string sender = default(string), int? senderRewards = default(int?), TransactionSignature signature = default(TransactionSignature), TxTypeEnum txType = default(TxTypeEnum))
+        public Transaction(TransactionApplication applicationTransaction = default(TransactionApplication), TransactionAssetConfig assetConfigTransaction = default(TransactionAssetConfig), TransactionAssetFreeze assetFreezeTransaction = default(TransactionAssetFreeze), TransactionAssetTransfer assetTransferTransaction = default(TransactionAssetTransfer), string authAddr = default(string), long? closeRewards = default, long? closingAmount = default, long? confirmedRound = default, long? createdApplicationIndex = default, long? createdAssetIndex = default, long? fee = default, long? firstValid = default, byte[] genesisHash = default(byte[]), string genesisId = default(string), StateDelta globalStateDelta = default, byte[] group = default(byte[]), string id = default(string), long? intraRoundOffset = default, TransactionKeyreg keyregTransaction = default(TransactionKeyreg), long? lastValid = default, byte[] lease = default(byte[]), List<AccountStateDelta> localStateDelta = default(List<AccountStateDelta>), byte[] note = default(byte[]), TransactionPayment paymentTransaction = default(TransactionPayment), long? receiverRewards = default, string rekeyTo = default(string), long? roundTime = default, string sender = default(string), long? senderRewards = default, TransactionSignature signature = default(TransactionSignature), TxTypeEnum txType = default(TxTypeEnum))
         {
             // to ensure "fee" is required (not null)
             if (fee == null)
@@ -233,49 +233,49 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[rc\\] rewards applied to close-remainder-to account.</value>
         [DataMember(Name="close-rewards", EmitDefaultValue=false)]
-        public int? CloseRewards { get; set; }
+        public long? CloseRewards { get; set; }
 
         /// <summary>
         /// \\[ca\\] closing amount for transaction.
         /// </summary>
         /// <value>\\[ca\\] closing amount for transaction.</value>
         [DataMember(Name="closing-amount", EmitDefaultValue=false)]
-        public int? ClosingAmount { get; set; }
+        public long? ClosingAmount { get; set; }
 
         /// <summary>
         /// Round when the transaction was confirmed.
         /// </summary>
         /// <value>Round when the transaction was confirmed.</value>
         [DataMember(Name="confirmed-round", EmitDefaultValue=false)]
-        public int? ConfirmedRound { get; set; }
+        public long? ConfirmedRound { get; set; }
 
         /// <summary>
         /// Specifies an application index (ID) if an application was created with this transaction.
         /// </summary>
         /// <value>Specifies an application index (ID) if an application was created with this transaction.</value>
         [DataMember(Name="created-application-index", EmitDefaultValue=false)]
-        public int? CreatedApplicationIndex { get; set; }
+        public long? CreatedApplicationIndex { get; set; }
 
         /// <summary>
         /// Specifies an asset index (ID) if an asset was created with this transaction.
         /// </summary>
         /// <value>Specifies an asset index (ID) if an asset was created with this transaction.</value>
         [DataMember(Name="created-asset-index", EmitDefaultValue=false)]
-        public int? CreatedAssetIndex { get; set; }
+        public long? CreatedAssetIndex { get; set; }
 
         /// <summary>
         /// \\[fee\\] Transaction fee.
         /// </summary>
         /// <value>\\[fee\\] Transaction fee.</value>
         [DataMember(Name="fee", EmitDefaultValue=false)]
-        public int? Fee { get; set; }
+        public long? Fee { get; set; }
 
         /// <summary>
         /// \\[fv\\] First valid round for this transaction.
         /// </summary>
         /// <value>\\[fv\\] First valid round for this transaction.</value>
         [DataMember(Name="first-valid", EmitDefaultValue=false)]
-        public int? FirstValid { get; set; }
+        public long? FirstValid { get; set; }
 
         /// <summary>
         /// \\[gh\\] Hash of genesis block.
@@ -316,7 +316,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Offset into the round where this transaction was confirmed.</value>
         [DataMember(Name="intra-round-offset", EmitDefaultValue=false)]
-        public int? IntraRoundOffset { get; set; }
+        public long? IntraRoundOffset { get; set; }
 
         /// <summary>
         /// Gets or Sets KeyregTransaction
@@ -329,7 +329,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[lv\\] Last valid round for this transaction.</value>
         [DataMember(Name="last-valid", EmitDefaultValue=false)]
-        public int? LastValid { get; set; }
+        public long? LastValid { get; set; }
 
         /// <summary>
         /// \\[lx\\] Base64 encoded 32-byte array. Lease enforces mutual exclusion of transactions.  If this field is nonzero, then once the transaction is confirmed, it acquires the lease identified by the (Sender, Lease) pair of the transaction until the LastValid round passes.  While this transaction possesses the lease, no other transaction specifying this lease can be confirmed.
@@ -363,7 +363,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[rr\\] rewards applied to receiver account.</value>
         [DataMember(Name="receiver-rewards", EmitDefaultValue=false)]
-        public int? ReceiverRewards { get; set; }
+        public long? ReceiverRewards { get; set; }
 
         /// <summary>
         /// \\[rekey\\] when included in a valid transaction, the accounts auth addr will be updated with this value and future signatures must be signed with the key represented by this address.
@@ -377,7 +377,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Time when the block this transaction is in was confirmed.</value>
         [DataMember(Name="round-time", EmitDefaultValue=false)]
-        public int? RoundTime { get; set; }
+        public long? RoundTime { get; set; }
 
         /// <summary>
         /// \\[snd\\] Sender&#x27;s address.
@@ -391,7 +391,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[rs\\] rewards applied to sender account.</value>
         [DataMember(Name="sender-rewards", EmitDefaultValue=false)]
-        public int? SenderRewards { get; set; }
+        public long? SenderRewards { get; set; }
 
         /// <summary>
         /// Gets or Sets Signature

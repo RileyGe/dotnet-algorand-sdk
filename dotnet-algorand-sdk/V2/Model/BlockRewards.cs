@@ -38,7 +38,7 @@ namespace Algorand.V2.Model
         /// <param name="rewardsPool">\\[rwd\\] accepts periodic injections from the fee-sink and continually redistributes them as rewards. (required).</param>
         /// <param name="rewardsRate">\\[rate\\] Number of new MicroAlgos added to the participation stake from rewards at the next round. (required).</param>
         /// <param name="rewardsResidue">\\[frac\\] Number of leftover MicroAlgos after the distribution of RewardsRate/rewardUnits MicroAlgos for every reward unit in the next round. (required).</param>
-        public BlockRewards(string feeSink = default(string), int? rewardsCalculationRound = default(int?), int? rewardsLevel = default(int?), string rewardsPool = default(string), int? rewardsRate = default(int?), int? rewardsResidue = default(int?))
+        public BlockRewards(string feeSink = default(string), long? rewardsCalculationRound = default, long? rewardsLevel = default, string rewardsPool = default(string), long? rewardsRate = default, long? rewardsResidue = default)
         {
             // to ensure "feeSink" is required (not null)
             if (feeSink == null)
@@ -108,14 +108,14 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[rwcalr\\] number of leftover MicroAlgos after the distribution of rewards-rate MicroAlgos for every reward unit in the next round.</value>
         [DataMember(Name="rewards-calculation-round", EmitDefaultValue=false)]
-        public int? RewardsCalculationRound { get; set; }
+        public long? RewardsCalculationRound { get; set; }
 
         /// <summary>
         /// \\[earn\\] How many rewards, in MicroAlgos, have been distributed to each RewardUnit of MicroAlgos since genesis.
         /// </summary>
         /// <value>\\[earn\\] How many rewards, in MicroAlgos, have been distributed to each RewardUnit of MicroAlgos since genesis.</value>
         [DataMember(Name="rewards-level", EmitDefaultValue=false)]
-        public int? RewardsLevel { get; set; }
+        public long? RewardsLevel { get; set; }
 
         /// <summary>
         /// \\[rwd\\] accepts periodic injections from the fee-sink and continually redistributes them as rewards.
@@ -129,14 +129,14 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[rate\\] Number of new MicroAlgos added to the participation stake from rewards at the next round.</value>
         [DataMember(Name="rewards-rate", EmitDefaultValue=false)]
-        public int? RewardsRate { get; set; }
+        public long? RewardsRate { get; set; }
 
         /// <summary>
         /// \\[frac\\] Number of leftover MicroAlgos after the distribution of RewardsRate/rewardUnits MicroAlgos for every reward unit in the next round.
         /// </summary>
         /// <value>\\[frac\\] Number of leftover MicroAlgos after the distribution of RewardsRate/rewardUnits MicroAlgos for every reward unit in the next round.</value>
         [DataMember(Name="rewards-residue", EmitDefaultValue=false)]
-        public int? RewardsResidue { get; set; }
+        public long? RewardsResidue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

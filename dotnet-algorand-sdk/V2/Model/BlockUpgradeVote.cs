@@ -35,7 +35,7 @@ namespace Algorand.V2.Model
         /// <param name="upgradeApprove">\\[upgradeyes\\] Indicates a yes vote for the current proposal..</param>
         /// <param name="upgradeDelay">\\[upgradedelay\\] Indicates the time between acceptance and execution..</param>
         /// <param name="upgradePropose">\\[upgradeprop\\] Indicates a proposed upgrade..</param>
-        public BlockUpgradeVote(bool? upgradeApprove = default(bool?), int? upgradeDelay = default(int?), string upgradePropose = default(string))
+        public BlockUpgradeVote(bool? upgradeApprove = default(bool?), long? upgradeDelay = default, string upgradePropose = default(string))
         {
             this.UpgradeApprove = upgradeApprove;
             this.UpgradeDelay = upgradeDelay;
@@ -54,7 +54,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[upgradedelay\\] Indicates the time between acceptance and execution.</value>
         [DataMember(Name="upgrade-delay", EmitDefaultValue=false)]
-        public int? UpgradeDelay { get; set; }
+        public long? UpgradeDelay { get; set; }
 
         /// <summary>
         /// \\[upgradeprop\\] Indicates a proposed upgrade.

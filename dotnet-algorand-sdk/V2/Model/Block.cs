@@ -44,7 +44,7 @@ namespace Algorand.V2.Model
         /// <param name="txnCounter">\\[tc\\] TxnCounter counts the number of transactions committed in the ledger, from the time at which support for this feature was introduced.  Specifically, TxnCounter is the number of the next transaction that will be committed after this block.  It is 0 when no transactions have ever been committed (since TxnCounter started being supported)..</param>
         /// <param name="upgradeState">upgradeState.</param>
         /// <param name="upgradeVote">upgradeVote.</param>
-        public Block(byte[] genesisHash = default(byte[]), string genesisId = default(string), byte[] previousBlockHash = default(byte[]), BlockRewards rewards = default(BlockRewards), int? round = default(int?), byte[] seed = default(byte[]), int? timestamp = default(int?), List<Transaction> transactions = default(List<Transaction>), byte[] transactionsRoot = default(byte[]), int? txnCounter = default(int?), BlockUpgradeState upgradeState = default(BlockUpgradeState), BlockUpgradeVote upgradeVote = default(BlockUpgradeVote))
+        public Block(byte[] genesisHash = default(byte[]), string genesisId = default(string), byte[] previousBlockHash = default(byte[]), BlockRewards rewards = default(BlockRewards), long? round = default, byte[] seed = default(byte[]), long? timestamp = default, List<Transaction> transactions = default(List<Transaction>), byte[] transactionsRoot = default(byte[]), long? txnCounter = default, BlockUpgradeState upgradeState = default(BlockUpgradeState), BlockUpgradeVote upgradeVote = default(BlockUpgradeVote))
         {
             // to ensure "genesisHash" is required (not null)
             if (genesisHash == null)
@@ -148,7 +148,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[rnd\\] Current round on which this block was appended to the chain.</value>
         [DataMember(Name="round", EmitDefaultValue=false)]
-        public int? Round { get; set; }
+        public long? Round { get; set; }
 
         /// <summary>
         /// \\[seed\\] Sortition seed.
@@ -162,7 +162,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[ts\\] Block creation timestamp in seconds since eposh</value>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
-        public int? Timestamp { get; set; }
+        public long? Timestamp { get; set; }
 
         /// <summary>
         /// \\[txns\\] list of transactions corresponding to a given round.
@@ -183,7 +183,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[tc\\] TxnCounter counts the number of transactions committed in the ledger, from the time at which support for this feature was introduced.  Specifically, TxnCounter is the number of the next transaction that will be committed after this block.  It is 0 when no transactions have ever been committed (since TxnCounter started being supported).</value>
         [DataMember(Name="txn-counter", EmitDefaultValue=false)]
-        public int? TxnCounter { get; set; }
+        public long? TxnCounter { get; set; }
 
         /// <summary>
         /// Gets or Sets UpgradeState

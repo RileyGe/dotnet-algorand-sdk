@@ -37,7 +37,7 @@ namespace Algorand.V2.Model
         /// <param name="nextProtocolApprovals">\\[nextyes\\] Number of blocks which approved the protocol upgrade..</param>
         /// <param name="nextProtocolSwitchOn">\\[nextswitch\\] Round on which the protocol upgrade will take effect..</param>
         /// <param name="nextProtocolVoteBefore">\\[nextbefore\\] Deadline round for this protocol upgrade (No votes will be consider after this round)..</param>
-        public BlockUpgradeState(string currentProtocol = default(string), string nextProtocol = default(string), int? nextProtocolApprovals = default(int?), int? nextProtocolSwitchOn = default(int?), int? nextProtocolVoteBefore = default(int?))
+        public BlockUpgradeState(string currentProtocol = default(string), string nextProtocol = default(string), long? nextProtocolApprovals = default, long? nextProtocolSwitchOn = default, long? nextProtocolVoteBefore = default)
         {
             // to ensure "currentProtocol" is required (not null)
             if (currentProtocol == null)
@@ -73,21 +73,21 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[nextyes\\] Number of blocks which approved the protocol upgrade.</value>
         [DataMember(Name="next-protocol-approvals", EmitDefaultValue=false)]
-        public int? NextProtocolApprovals { get; set; }
+        public long? NextProtocolApprovals { get; set; }
 
         /// <summary>
         /// \\[nextswitch\\] Round on which the protocol upgrade will take effect.
         /// </summary>
         /// <value>\\[nextswitch\\] Round on which the protocol upgrade will take effect.</value>
         [DataMember(Name="next-protocol-switch-on", EmitDefaultValue=false)]
-        public int? NextProtocolSwitchOn { get; set; }
+        public long? NextProtocolSwitchOn { get; set; }
 
         /// <summary>
         /// \\[nextbefore\\] Deadline round for this protocol upgrade (No votes will be consider after this round).
         /// </summary>
         /// <value>\\[nextbefore\\] Deadline round for this protocol upgrade (No votes will be consider after this round).</value>
         [DataMember(Name="next-protocol-vote-before", EmitDefaultValue=false)]
-        public int? NextProtocolVoteBefore { get; set; }
+        public long? NextProtocolVoteBefore { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

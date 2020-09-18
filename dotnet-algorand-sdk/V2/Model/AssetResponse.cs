@@ -34,7 +34,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="asset">asset (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        public AssetResponse(Asset asset = default(Asset), int? currentRound = default(int?))
+        public AssetResponse(Asset asset = default(Asset), long? currentRound = default)
         {
             // to ensure "asset" is required (not null)
             if (asset == null)
@@ -67,7 +67,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Round at which the results were computed.</value>
         [DataMember(Name="current-round", EmitDefaultValue=false)]
-        public int? CurrentRound { get; set; }
+        public long? CurrentRound { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

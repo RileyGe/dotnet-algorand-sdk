@@ -34,7 +34,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="assetId">\\[xaid\\] ID of the asset being configured or empty if creating..</param>
         /// <param name="_params">_params.</param>
-        public TransactionAssetConfig(int? assetId = default(int?), AssetParams _params = default(AssetParams))
+        public TransactionAssetConfig(long? assetId = default, AssetParams _params = default(AssetParams))
         {
             this.AssetId = assetId;
             this.Params = _params;
@@ -45,7 +45,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[xaid\\] ID of the asset being configured or empty if creating.</value>
         [DataMember(Name="asset-id", EmitDefaultValue=false)]
-        public int? AssetId { get; set; }
+        public long? AssetId { get; set; }
 
         /// <summary>
         /// Gets or Sets Params

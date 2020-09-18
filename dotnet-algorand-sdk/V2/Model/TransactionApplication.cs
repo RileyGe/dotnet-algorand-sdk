@@ -47,7 +47,7 @@ namespace Algorand.V2.Model
         /// <param name="globalStateSchema">globalStateSchema.</param>
         /// <param name="localStateSchema">localStateSchema.</param>
         /// <param name="onCompletion">onCompletion (required).</param>
-        public TransactionApplication(List<string> accounts = default(List<string>), List<string> applicationArgs = default(List<string>), int? applicationId = default(int?), byte[] approvalProgram = default(byte[]), byte[] clearStateProgram = default(byte[]), List<int?> foreignApps = default(List<int?>), List<int?> foreignAssets = default(List<int?>), StateSchema globalStateSchema = default(StateSchema), StateSchema localStateSchema = default(StateSchema), OnCompletion onCompletion = default(OnCompletion))
+        public TransactionApplication(List<string> accounts = default(List<string>), List<string> applicationArgs = default(List<string>), long? applicationId = default, byte[] approvalProgram = default(byte[]), byte[] clearStateProgram = default(byte[]), List<int?> foreignApps = default(List<int?>), List<int?> foreignAssets = default(List<int?>), StateSchema globalStateSchema = default(StateSchema), StateSchema localStateSchema = default(StateSchema), OnCompletion onCompletion = default(OnCompletion))
         {
             // to ensure "applicationId" is required (not null)
             if (applicationId == null)
@@ -96,7 +96,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[apid\\] ID of the application being configured or empty if creating.</value>
         [DataMember(Name="application-id", EmitDefaultValue=false)]
-        public int? ApplicationId { get; set; }
+        public long? ApplicationId { get; set; }
 
         /// <summary>
         /// \\[apap\\] Logic executed for every application transaction, except when on-completion is set to \&quot;clear\&quot;. It can read and write global state for the application, as well as account-specific local state. Approval programs may reject the transaction.

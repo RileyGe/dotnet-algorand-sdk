@@ -34,7 +34,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="numByteSlice">Maximum number of TEAL byte slices that may be stored in the key/value store. (required).</param>
         /// <param name="numUint">Maximum number of TEAL uints that may be stored in the key/value store. (required).</param>
-        public StateSchema(int? numByteSlice = default(int?), int? numUint = default(int?))
+        public StateSchema(long? numByteSlice = default, long? numUint = default)
         {
             // to ensure "numByteSlice" is required (not null)
             if (numByteSlice == null)
@@ -61,14 +61,14 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Maximum number of TEAL byte slices that may be stored in the key/value store.</value>
         [DataMember(Name="num-byte-slice", EmitDefaultValue=false)]
-        public int? NumByteSlice { get; set; }
+        public long? NumByteSlice { get; set; }
 
         /// <summary>
         /// Maximum number of TEAL uints that may be stored in the key/value store.
         /// </summary>
         /// <value>Maximum number of TEAL uints that may be stored in the key/value store.</value>
         [DataMember(Name="num-uint", EmitDefaultValue=false)]
-        public int? NumUint { get; set; }
+        public long? NumUint { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

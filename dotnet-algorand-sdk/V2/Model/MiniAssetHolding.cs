@@ -35,7 +35,7 @@ namespace Algorand.V2.Model
         /// <param name="address">address (required).</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="isFrozen">isFrozen (required).</param>
-        public MiniAssetHolding(string address = default(string), int? amount = default(int?), bool? isFrozen = default(bool?))
+        public MiniAssetHolding(string address = default(string), long? amount = default, bool? isFrozen = default(bool?))
         {
             // to ensure "address" is required (not null)
             if (address == null)
@@ -76,7 +76,7 @@ namespace Algorand.V2.Model
         /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public int? Amount { get; set; }
+        public long? Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets IsFrozen

@@ -34,7 +34,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
         /// <param name="transaction">transaction (required).</param>
-        public TransactionResponse(int? currentRound = default(int?), Transaction transaction = default(Transaction))
+        public TransactionResponse(long? currentRound = default, Transaction transaction = default(Transaction))
         {
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
@@ -61,7 +61,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Round at which the results were computed.</value>
         [DataMember(Name="current-round", EmitDefaultValue=false)]
-        public int? CurrentRound { get; set; }
+        public long? CurrentRound { get; set; }
 
         /// <summary>
         /// Gets or Sets Transaction

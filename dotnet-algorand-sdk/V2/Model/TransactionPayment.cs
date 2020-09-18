@@ -36,7 +36,7 @@ namespace Algorand.V2.Model
         /// <param name="closeAmount">Number of MicroAlgos that were sent to the close-remainder-to address when closing the sender account..</param>
         /// <param name="closeRemainderTo">\\[close\\] when set, indicates that the sending account should be closed and all remaining funds be transferred to this address..</param>
         /// <param name="receiver">\\[rcv\\] receiver&#x27;s address. (required).</param>
-        public TransactionPayment(int? amount = default(int?), int? closeAmount = default(int?), string closeRemainderTo = default(string), string receiver = default(string))
+        public TransactionPayment(long? amount = default, long? closeAmount = default, string closeRemainderTo = default(string), string receiver = default(string))
         {
             // to ensure "amount" is required (not null)
             if (amount == null)
@@ -65,14 +65,14 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[amt\\] number of MicroAlgos intended to be transferred.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public int? Amount { get; set; }
+        public long? Amount { get; set; }
 
         /// <summary>
         /// Number of MicroAlgos that were sent to the close-remainder-to address when closing the sender account.
         /// </summary>
         /// <value>Number of MicroAlgos that were sent to the close-remainder-to address when closing the sender account.</value>
         [DataMember(Name="close-amount", EmitDefaultValue=false)]
-        public int? CloseAmount { get; set; }
+        public long? CloseAmount { get; set; }
 
         /// <summary>
         /// \\[close\\] when set, indicates that the sending account should be closed and all remaining funds be transferred to this address.

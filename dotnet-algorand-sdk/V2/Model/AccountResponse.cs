@@ -34,7 +34,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="account">account (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        public AccountResponse(Account account = default(Account), int? currentRound = default(int?))
+        public AccountResponse(Account account = default(Account), long? currentRound = default)
         {
             // to ensure "account" is required (not null)
             if (account == null)
@@ -67,7 +67,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Round at which the results were computed.</value>
         [DataMember(Name="current-round", EmitDefaultValue=false)]
-        public int? CurrentRound { get; set; }
+        public long? CurrentRound { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

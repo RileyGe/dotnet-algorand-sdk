@@ -33,7 +33,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>AccountResponse</returns>
-        AccountResponse LookupAccountByID (string accountId, int? round = null);
+        AccountResponse LookupAccountByID (string accountId, long? round = null);
 
         /// <summary>
         /// 
@@ -45,7 +45,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>ApiResponse of AccountResponse</returns>
-        ApiResponse<AccountResponse> LookupAccountByIDWithHttpInfo (string accountId, int? round = null);
+        ApiResponse<AccountResponse> LookupAccountByIDWithHttpInfo (string accountId, long? round = null);
         /// <summary>
         /// 
         /// </summary>
@@ -70,7 +70,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>TransactionsResponse</returns>
-        TransactionsResponse LookupAccountTransactions (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null);
+        TransactionsResponse LookupAccountTransactions (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null);
 
         /// <summary>
         /// 
@@ -96,7 +96,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>ApiResponse of TransactionsResponse</returns>
-        ApiResponse<TransactionsResponse> LookupAccountTransactionsWithHttpInfo (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null);
+        ApiResponse<TransactionsResponse> LookupAccountTransactionsWithHttpInfo (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null);
         /// <summary>
         /// 
         /// </summary>
@@ -106,7 +106,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApplicationResponse</returns>
-        ApplicationResponse LookupApplicationByID (int? applicationId);
+        ApplicationResponse LookupApplicationByID (long? applicationId);
 
         /// <summary>
         /// 
@@ -117,7 +117,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApiResponse of ApplicationResponse</returns>
-        ApiResponse<ApplicationResponse> LookupApplicationByIDWithHttpInfo (int? applicationId);
+        ApiResponse<ApplicationResponse> LookupApplicationByIDWithHttpInfo (long? applicationId);
         /// <summary>
         /// 
         /// </summary>
@@ -132,7 +132,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>AssetBalancesResponse</returns>
-        AssetBalancesResponse LookupAssetBalances (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null);
+        AssetBalancesResponse LookupAssetBalances (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null);
 
         /// <summary>
         /// 
@@ -148,7 +148,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>ApiResponse of AssetBalancesResponse</returns>
-        ApiResponse<AssetBalancesResponse> LookupAssetBalancesWithHttpInfo (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null);
+        ApiResponse<AssetBalancesResponse> LookupAssetBalancesWithHttpInfo (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null);
         /// <summary>
         /// 
         /// </summary>
@@ -158,7 +158,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>AssetResponse</returns>
-        AssetResponse LookupAssetByID (int? assetId);
+        AssetResponse LookupAssetByID (long? assetId);
 
         /// <summary>
         /// 
@@ -169,7 +169,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>ApiResponse of AssetResponse</returns>
-        ApiResponse<AssetResponse> LookupAssetByIDWithHttpInfo (int? assetId);
+        ApiResponse<AssetResponse> LookupAssetByIDWithHttpInfo (long? assetId);
         /// <summary>
         /// 
         /// </summary>
@@ -196,7 +196,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>TransactionsResponse</returns>
-        TransactionsResponse LookupAssetTransactions (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
+        TransactionsResponse LookupAssetTransactions (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
 
         /// <summary>
         /// 
@@ -224,7 +224,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>ApiResponse of TransactionsResponse</returns>
-        ApiResponse<TransactionsResponse> LookupAssetTransactionsWithHttpInfo (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
+        ApiResponse<TransactionsResponse> LookupAssetTransactionsWithHttpInfo (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
         /// <summary>
         /// 
         /// </summary>
@@ -234,7 +234,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Block</returns>
-        Block LookupBlock (int? roundNumber);
+        Block LookupBlock (long? roundNumber);
 
         /// <summary>
         /// 
@@ -245,7 +245,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>ApiResponse of Block</returns>
-        ApiResponse<Block> LookupBlockWithHttpInfo (int? roundNumber);
+        ApiResponse<Block> LookupBlockWithHttpInfo (long? roundNumber);
         /// <summary>
         /// 
         /// </summary>
@@ -279,7 +279,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of AccountResponse</returns>
-        System.Threading.Tasks.Task<AccountResponse> LookupAccountByIDAsync (string accountId, int? round = null);
+        System.Threading.Tasks.Task<AccountResponse> LookupAccountByIDAsync (string accountId, long? round = null);
 
         /// <summary>
         /// 
@@ -291,7 +291,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountResponse>> LookupAccountByIDAsyncWithHttpInfo (string accountId, int? round = null);
+        System.Threading.Tasks.Task<ApiResponse<AccountResponse>> LookupAccountByIDAsyncWithHttpInfo (string accountId, long? round = null);
         /// <summary>
         /// 
         /// </summary>
@@ -316,7 +316,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of TransactionsResponse</returns>
-        System.Threading.Tasks.Task<TransactionsResponse> LookupAccountTransactionsAsync (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null);
+        System.Threading.Tasks.Task<TransactionsResponse> LookupAccountTransactionsAsync (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null);
 
         /// <summary>
         /// 
@@ -342,7 +342,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAccountTransactionsAsyncWithHttpInfo (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null);
+        System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAccountTransactionsAsyncWithHttpInfo (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null);
         /// <summary>
         /// 
         /// </summary>
@@ -352,7 +352,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApplicationResponse</returns>
-        System.Threading.Tasks.Task<ApplicationResponse> LookupApplicationByIDAsync (int? applicationId);
+        System.Threading.Tasks.Task<ApplicationResponse> LookupApplicationByIDAsync (long? applicationId);
 
         /// <summary>
         /// 
@@ -363,7 +363,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (ApplicationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationResponse>> LookupApplicationByIDAsyncWithHttpInfo (int? applicationId);
+        System.Threading.Tasks.Task<ApiResponse<ApplicationResponse>> LookupApplicationByIDAsyncWithHttpInfo (long? applicationId);
         /// <summary>
         /// 
         /// </summary>
@@ -378,7 +378,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>Task of AssetBalancesResponse</returns>
-        System.Threading.Tasks.Task<AssetBalancesResponse> LookupAssetBalancesAsync (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null);
+        System.Threading.Tasks.Task<AssetBalancesResponse> LookupAssetBalancesAsync (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null);
 
         /// <summary>
         /// 
@@ -394,7 +394,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>Task of ApiResponse (AssetBalancesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AssetBalancesResponse>> LookupAssetBalancesAsyncWithHttpInfo (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null);
+        System.Threading.Tasks.Task<ApiResponse<AssetBalancesResponse>> LookupAssetBalancesAsyncWithHttpInfo (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null);
         /// <summary>
         /// 
         /// </summary>
@@ -404,7 +404,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of AssetResponse</returns>
-        System.Threading.Tasks.Task<AssetResponse> LookupAssetByIDAsync (int? assetId);
+        System.Threading.Tasks.Task<AssetResponse> LookupAssetByIDAsync (long? assetId);
 
         /// <summary>
         /// 
@@ -415,7 +415,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of ApiResponse (AssetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AssetResponse>> LookupAssetByIDAsyncWithHttpInfo (int? assetId);
+        System.Threading.Tasks.Task<ApiResponse<AssetResponse>> LookupAssetByIDAsyncWithHttpInfo (long? assetId);
         /// <summary>
         /// 
         /// </summary>
@@ -442,7 +442,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of TransactionsResponse</returns>
-        System.Threading.Tasks.Task<TransactionsResponse> LookupAssetTransactionsAsync (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
+        System.Threading.Tasks.Task<TransactionsResponse> LookupAssetTransactionsAsync (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
 
         /// <summary>
         /// 
@@ -470,7 +470,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAssetTransactionsAsyncWithHttpInfo (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
+        System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAssetTransactionsAsyncWithHttpInfo (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null);
         /// <summary>
         /// 
         /// </summary>
@@ -480,7 +480,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of Block</returns>
-        System.Threading.Tasks.Task<Block> LookupBlockAsync (int? roundNumber);
+        System.Threading.Tasks.Task<Block> LookupBlockAsync (long? roundNumber);
 
         /// <summary>
         /// 
@@ -491,7 +491,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of ApiResponse (Block)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Block>> LookupBlockAsyncWithHttpInfo (int? roundNumber);
+        System.Threading.Tasks.Task<ApiResponse<Block>> LookupBlockAsyncWithHttpInfo (long? roundNumber);
         /// <summary>
         /// 
         /// </summary>
@@ -631,7 +631,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>AccountResponse</returns>
-        public AccountResponse LookupAccountByID (string accountId, int? round = null)
+        public AccountResponse LookupAccountByID (string accountId, long? round = null)
         {
              ApiResponse<AccountResponse> localVarResponse = LookupAccountByIDWithHttpInfo(accountId, round);
              return localVarResponse.Data;
@@ -644,7 +644,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>ApiResponse of AccountResponse</returns>
-        public ApiResponse< AccountResponse > LookupAccountByIDWithHttpInfo (string accountId, int? round = null)
+        public ApiResponse< AccountResponse > LookupAccountByIDWithHttpInfo (string accountId, long? round = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -699,7 +699,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of AccountResponse</returns>
-        public async System.Threading.Tasks.Task<AccountResponse> LookupAccountByIDAsync (string accountId, int? round = null)
+        public async System.Threading.Tasks.Task<AccountResponse> LookupAccountByIDAsync (string accountId, long? round = null)
         {
              ApiResponse<AccountResponse> localVarResponse = await LookupAccountByIDAsyncWithHttpInfo(accountId, round);
              return localVarResponse.Data;
@@ -713,7 +713,7 @@ namespace Algorand.V2.Indexer
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AccountResponse>> LookupAccountByIDAsyncWithHttpInfo (string accountId, int? round = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AccountResponse>> LookupAccountByIDAsyncWithHttpInfo (string accountId, long? round = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -782,7 +782,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>TransactionsResponse</returns>
-        public TransactionsResponse LookupAccountTransactions (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null)
+        public TransactionsResponse LookupAccountTransactions (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null)
         {
              ApiResponse<TransactionsResponse> localVarResponse = LookupAccountTransactionsWithHttpInfo(accountId, limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, assetId, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, rekeyTo);
              return localVarResponse.Data;
@@ -809,7 +809,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>ApiResponse of TransactionsResponse</returns>
-        public ApiResponse< TransactionsResponse > LookupAccountTransactionsWithHttpInfo (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null)
+        public ApiResponse< TransactionsResponse > LookupAccountTransactionsWithHttpInfo (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -892,7 +892,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of TransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionsResponse> LookupAccountTransactionsAsync (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null)
+        public async System.Threading.Tasks.Task<TransactionsResponse> LookupAccountTransactionsAsync (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null)
         {
              ApiResponse<TransactionsResponse> localVarResponse = await LookupAccountTransactionsAsyncWithHttpInfo(accountId, limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, assetId, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, rekeyTo);
              return localVarResponse.Data;
@@ -920,7 +920,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAccountTransactionsAsyncWithHttpInfo (string accountId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, bool? rekeyTo = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAccountTransactionsAsyncWithHttpInfo (string accountId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, long? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, bool? rekeyTo = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -988,7 +988,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApplicationResponse</returns>
-        public ApplicationResponse LookupApplicationByID (int? applicationId)
+        public ApplicationResponse LookupApplicationByID (long? applicationId)
         {
              ApiResponse<ApplicationResponse> localVarResponse = LookupApplicationByIDWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -1000,7 +1000,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApiResponse of ApplicationResponse</returns>
-        public ApiResponse< ApplicationResponse > LookupApplicationByIDWithHttpInfo (int? applicationId)
+        public ApiResponse< ApplicationResponse > LookupApplicationByIDWithHttpInfo (long? applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -1053,7 +1053,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApplicationResponse</returns>
-        public async System.Threading.Tasks.Task<ApplicationResponse> LookupApplicationByIDAsync (int? applicationId)
+        public async System.Threading.Tasks.Task<ApplicationResponse> LookupApplicationByIDAsync (long? applicationId)
         {
              ApiResponse<ApplicationResponse> localVarResponse = await LookupApplicationByIDAsyncWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -1066,7 +1066,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (ApplicationResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApplicationResponse>> LookupApplicationByIDAsyncWithHttpInfo (int? applicationId)
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationResponse>> LookupApplicationByIDAsyncWithHttpInfo (long? applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -1124,7 +1124,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>AssetBalancesResponse</returns>
-        public AssetBalancesResponse LookupAssetBalances (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null)
+        public AssetBalancesResponse LookupAssetBalances (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null)
         {
              ApiResponse<AssetBalancesResponse> localVarResponse = LookupAssetBalancesWithHttpInfo(assetId, limit, next, round, currencyGreaterThan, currencyLessThan);
              return localVarResponse.Data;
@@ -1141,7 +1141,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>ApiResponse of AssetBalancesResponse</returns>
-        public ApiResponse< AssetBalancesResponse > LookupAssetBalancesWithHttpInfo (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null)
+        public ApiResponse< AssetBalancesResponse > LookupAssetBalancesWithHttpInfo (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null)
         {
             // verify the required parameter 'assetId' is set
             if (assetId == null)
@@ -1204,7 +1204,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>Task of AssetBalancesResponse</returns>
-        public async System.Threading.Tasks.Task<AssetBalancesResponse> LookupAssetBalancesAsync (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null)
+        public async System.Threading.Tasks.Task<AssetBalancesResponse> LookupAssetBalancesAsync (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null)
         {
              ApiResponse<AssetBalancesResponse> localVarResponse = await LookupAssetBalancesAsyncWithHttpInfo(assetId, limit, next, round, currencyGreaterThan, currencyLessThan);
              return localVarResponse.Data;
@@ -1222,7 +1222,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currencyGreaterThan">Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <param name="currencyLessThan">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</param>
         /// <returns>Task of ApiResponse (AssetBalancesResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AssetBalancesResponse>> LookupAssetBalancesAsyncWithHttpInfo (int? assetId, int? limit = null, string next = null, int? round = null, int? currencyGreaterThan = null, int? currencyLessThan = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AssetBalancesResponse>> LookupAssetBalancesAsyncWithHttpInfo (long? assetId, long? limit = null, string next = null, long? round = null, long? currencyGreaterThan = null, long? currencyLessThan = null)
         {
             // verify the required parameter 'assetId' is set
             if (assetId == null)
@@ -1280,7 +1280,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>AssetResponse</returns>
-        public AssetResponse LookupAssetByID (int? assetId)
+        public AssetResponse LookupAssetByID (long? assetId)
         {
              ApiResponse<AssetResponse> localVarResponse = LookupAssetByIDWithHttpInfo(assetId);
              return localVarResponse.Data;
@@ -1292,7 +1292,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>ApiResponse of AssetResponse</returns>
-        public ApiResponse< AssetResponse > LookupAssetByIDWithHttpInfo (int? assetId)
+        public ApiResponse< AssetResponse > LookupAssetByIDWithHttpInfo (long? assetId)
         {
             // verify the required parameter 'assetId' is set
             if (assetId == null)
@@ -1345,7 +1345,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of AssetResponse</returns>
-        public async System.Threading.Tasks.Task<AssetResponse> LookupAssetByIDAsync (int? assetId)
+        public async System.Threading.Tasks.Task<AssetResponse> LookupAssetByIDAsync (long? assetId)
         {
              ApiResponse<AssetResponse> localVarResponse = await LookupAssetByIDAsyncWithHttpInfo(assetId);
              return localVarResponse.Data;
@@ -1358,7 +1358,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of ApiResponse (AssetResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AssetResponse>> LookupAssetByIDAsyncWithHttpInfo (int? assetId)
+        public async System.Threading.Tasks.Task<ApiResponse<AssetResponse>> LookupAssetByIDAsyncWithHttpInfo (long? assetId)
         {
             // verify the required parameter 'assetId' is set
             if (assetId == null)
@@ -1428,7 +1428,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>TransactionsResponse</returns>
-        public TransactionsResponse LookupAssetTransactions (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
+        public TransactionsResponse LookupAssetTransactions (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
         {
              ApiResponse<TransactionsResponse> localVarResponse = LookupAssetTransactionsWithHttpInfo(assetId, limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, address, addressRole, excludeCloseTo, rekeyTo);
              return localVarResponse.Data;
@@ -1457,7 +1457,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>ApiResponse of TransactionsResponse</returns>
-        public ApiResponse< TransactionsResponse > LookupAssetTransactionsWithHttpInfo (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
+        public ApiResponse< TransactionsResponse > LookupAssetTransactionsWithHttpInfo (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
         {
             // verify the required parameter 'assetId' is set
             if (assetId == null)
@@ -1544,7 +1544,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of TransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionsResponse> LookupAssetTransactionsAsync (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
+        public async System.Threading.Tasks.Task<TransactionsResponse> LookupAssetTransactionsAsync (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
         {
              ApiResponse<TransactionsResponse> localVarResponse = await LookupAssetTransactionsAsyncWithHttpInfo(assetId, limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, address, addressRole, excludeCloseTo, rekeyTo);
              return localVarResponse.Data;
@@ -1574,7 +1574,7 @@ namespace Algorand.V2.Indexer
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAssetTransactionsAsyncWithHttpInfo (int? assetId, int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> LookupAssetTransactionsAsyncWithHttpInfo (long? assetId, long? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = null, long? minRound = null, long? maxRound = null, DateTime? beforeTime = null, DateTime? afterTime = null, long? currencyGreaterThan = null, long? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null)
         {
             // verify the required parameter 'assetId' is set
             if (assetId == null)
@@ -1644,7 +1644,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Block</returns>
-        public Block LookupBlock (int? roundNumber)
+        public Block LookupBlock (long? roundNumber)
         {
              ApiResponse<Block> localVarResponse = LookupBlockWithHttpInfo(roundNumber);
              return localVarResponse.Data;
@@ -1656,7 +1656,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>ApiResponse of Block</returns>
-        public ApiResponse< Block > LookupBlockWithHttpInfo (int? roundNumber)
+        public ApiResponse< Block > LookupBlockWithHttpInfo (long? roundNumber)
         {
             // verify the required parameter 'roundNumber' is set
             if (roundNumber == null)
@@ -1709,7 +1709,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of Block</returns>
-        public async System.Threading.Tasks.Task<Block> LookupBlockAsync (int? roundNumber)
+        public async System.Threading.Tasks.Task<Block> LookupBlockAsync (long? roundNumber)
         {
              ApiResponse<Block> localVarResponse = await LookupBlockAsyncWithHttpInfo(roundNumber);
              return localVarResponse.Data;
@@ -1722,7 +1722,7 @@ namespace Algorand.V2.Indexer
         /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of ApiResponse (Block)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Block>> LookupBlockAsyncWithHttpInfo (int? roundNumber)
+        public async System.Threading.Tasks.Task<ApiResponse<Block>> LookupBlockAsyncWithHttpInfo (long? roundNumber)
         {
             // verify the required parameter 'roundNumber' is set
             if (roundNumber == null)
