@@ -38,7 +38,7 @@ namespace Algorand.V2.Model
         /// <param name="closeTo">\\[aclose\\] Indicates that the asset should be removed from the account&#x27;s Assets map, and specifies where the remaining asset holdings should be transferred.  It&#x27;s always valid to transfer remaining asset holdings to the creator account..</param>
         /// <param name="receiver">\\[arcv\\] Recipient address of the transfer. (required).</param>
         /// <param name="sender">\\[asnd\\] The effective sender during a clawback transactions. If this is not a zero value, the real transaction sender must be the Clawback address from the AssetParams..</param>
-        public TransactionAssetTransfer(long? amount = default, long? assetId = default, long? closeAmount = default, string closeTo = default(string), string receiver = default(string), string sender = default(string))
+        public TransactionAssetTransfer(ulong? amount = default, long? assetId = default, ulong? closeAmount = default, string closeTo = default(string), string receiver = default(string), string sender = default(string))
         {
             // to ensure "amount" is required (not null)
             if (amount == null)
@@ -77,7 +77,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>\\[aamt\\] Amount of asset to transfer. A zero amount transferred to self allocates that asset in the account&#x27;s Assets map.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public long? Amount { get; set; }
+        public ulong? Amount { get; set; }
 
         /// <summary>
         /// \\[xaid\\] ID of the asset being transferred.
@@ -91,7 +91,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Number of assets transfered to the close-to account as part of the transaction.</value>
         [DataMember(Name="close-amount", EmitDefaultValue=false)]
-        public long? CloseAmount { get; set; }
+        public ulong? CloseAmount { get; set; }
 
         /// <summary>
         /// \\[aclose\\] Indicates that the asset should be removed from the account&#x27;s Assets map, and specifies where the remaining asset holdings should be transferred.  It&#x27;s always valid to transfer remaining asset holdings to the creator account.
