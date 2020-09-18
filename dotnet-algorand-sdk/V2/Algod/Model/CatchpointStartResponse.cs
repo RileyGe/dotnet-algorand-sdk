@@ -44,7 +44,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "catchupMessage" is required (not null)
             if (catchupMessage == null)
             {
-                throw new InvalidDataException("catchupMessage is a required property for InlineResponse2008 and cannot be null");
+                throw new InvalidDataException("catchupMessage is a required property for CatchpointStartResponse and cannot be null");
             }
             else
             {
@@ -66,7 +66,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2008 {\n");
+            sb.Append("class CatchpointStartResponse {\n");
             sb.Append("  CatchupMessage: ").Append(CatchupMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,9 +92,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2008 instances are equal
+        /// Returns true if CatchpointStartResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2008 to be compared</param>
+        /// <param name="input">Instance of CatchpointStartResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(CatchpointStartResponse input)
         {

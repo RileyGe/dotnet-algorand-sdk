@@ -25,7 +25,7 @@ using SwaggerDateConverter = Algorand.V2.Algod.Client.SwaggerDateConverter;
 namespace Algorand.V2.Algod.Model
 {
     /// <summary>
-    /// InlineResponse20010
+    /// DryrunResponse
     /// </summary>
     [DataContract]
     public partial class DryrunResponse :  IEquatable<DryrunResponse>, IValidatableObject
@@ -46,7 +46,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "txns" is required (not null)
             if (txns == null)
             {
-                throw new InvalidDataException("txns is a required property for InlineResponse20010 and cannot be null");
+                throw new InvalidDataException("txns is a required property for DryrunResponse and cannot be null");
             }
             else
             {
@@ -55,7 +55,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "error" is required (not null)
             if (error == null)
             {
-                throw new InvalidDataException("error is a required property for InlineResponse20010 and cannot be null");
+                throw new InvalidDataException("error is a required property for DryrunResponse and cannot be null");
             }
             else
             {
@@ -64,7 +64,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "protocolVersion" is required (not null)
             if (protocolVersion == null)
             {
-                throw new InvalidDataException("protocolVersion is a required property for InlineResponse20010 and cannot be null");
+                throw new InvalidDataException("protocolVersion is a required property for DryrunResponse and cannot be null");
             }
             else
             {
@@ -98,7 +98,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse20010 {\n");
+            sb.Append("class DryrunResponse {\n");
             sb.Append("  Txns: ").Append(Txns).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  ProtocolVersion: ").Append(ProtocolVersion).Append("\n");
@@ -126,9 +126,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse20010 instances are equal
+        /// Returns true if DryrunResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse20010 to be compared</param>
+        /// <param name="input">Instance of DryrunResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(DryrunResponse input)
         {

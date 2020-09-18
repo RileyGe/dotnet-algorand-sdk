@@ -45,7 +45,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "topTransactions" is required (not null)
             if (topTransactions == null)
             {
-                throw new InvalidDataException("topTransactions is a required property for InlineResponse200 and cannot be null");
+                throw new InvalidDataException("topTransactions is a required property for PendingTransactionsResponse and cannot be null");
             }
             else
             {
@@ -54,7 +54,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "totalTransactions" is required (not null)
             if (totalTransactions == null)
             {
-                throw new InvalidDataException("totalTransactions is a required property for InlineResponse200 and cannot be null");
+                throw new InvalidDataException("totalTransactions is a required property for PendingTransactionsResponse and cannot be null");
             }
             else
             {
@@ -83,7 +83,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse200 {\n");
+            sb.Append("class PendingTransactionsResponse {\n");
             sb.Append("  TopTransactions: ").Append(TopTransactions).Append("\n");
             sb.Append("  TotalTransactions: ").Append(TotalTransactions).Append("\n");
             sb.Append("}\n");
@@ -110,9 +110,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse200 instances are equal
+        /// Returns true if PendingTransactionsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse200 to be compared</param>
+        /// <param name="input">Instance of PendingTransactionsResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(PendingTransactionsResponse input)
         {

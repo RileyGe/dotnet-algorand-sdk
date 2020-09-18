@@ -25,7 +25,7 @@ using SwaggerDateConverter = Algorand.V2.Algod.Client.SwaggerDateConverter;
 namespace Algorand.V2.Algod.Model
 {
     /// <summary>
-    /// InlineResponse2003
+    /// PostTransactionsResponse
     /// </summary>
     [DataContract]
     public partial class PostTransactionsResponse :  IEquatable<PostTransactionsResponse>, IValidatableObject
@@ -44,7 +44,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "txId" is required (not null)
             if (txId == null)
             {
-                throw new InvalidDataException("txId is a required property for InlineResponse2003 and cannot be null");
+                throw new InvalidDataException("txId is a required property for PostTransactionsResponse and cannot be null");
             }
             else
             {
@@ -66,7 +66,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2003 {\n");
+            sb.Append("class PostTransactionsResponse {\n");
             sb.Append("  TxId: ").Append(TxId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,9 +92,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2003 instances are equal
+        /// Returns true if PostTransactionsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2003 to be compared</param>
+        /// <param name="input">Instance of PostTransactionsResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(PostTransactionsResponse input)
         {

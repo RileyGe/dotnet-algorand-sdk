@@ -25,7 +25,7 @@ using SwaggerDateConverter = Algorand.V2.Algod.Client.SwaggerDateConverter;
 namespace Algorand.V2.Algod.Model
 {
     /// <summary>
-    /// InlineResponse2007
+    /// CompileResponse
     /// </summary>
     [DataContract]
     public partial class CompileResponse :  IEquatable<CompileResponse>, IValidatableObject
@@ -45,7 +45,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "hash" is required (not null)
             if (hash == null)
             {
-                throw new InvalidDataException("hash is a required property for InlineResponse2007 and cannot be null");
+                throw new InvalidDataException("hash is a required property for CompileResponse and cannot be null");
             }
             else
             {
@@ -54,7 +54,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "result" is required (not null)
             if (result == null)
             {
-                throw new InvalidDataException("result is a required property for InlineResponse2007 and cannot be null");
+                throw new InvalidDataException("result is a required property for CompileResponse and cannot be null");
             }
             else
             {
@@ -83,7 +83,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2007 {\n");
+            sb.Append("class CompileResponse {\n");
             sb.Append("  Hash: ").Append(Hash).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("}\n");
@@ -110,9 +110,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2007 instances are equal
+        /// Returns true if CompileResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2007 to be compared</param>
+        /// <param name="input">Instance of CompileResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(CompileResponse input)
         {

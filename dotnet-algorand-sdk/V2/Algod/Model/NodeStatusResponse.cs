@@ -57,7 +57,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "catchupTime" is required (not null)
             if (catchupTime == null)
             {
-                throw new InvalidDataException("catchupTime is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("catchupTime is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -66,7 +66,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "lastRound" is required (not null)
             if (lastRound == null)
             {
-                throw new InvalidDataException("lastRound is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("lastRound is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -75,7 +75,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "lastVersion" is required (not null)
             if (lastVersion == null)
             {
-                throw new InvalidDataException("lastVersion is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("lastVersion is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -84,7 +84,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "nextVersion" is required (not null)
             if (nextVersion == null)
             {
-                throw new InvalidDataException("nextVersion is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("nextVersion is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -93,7 +93,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "nextVersionRound" is required (not null)
             if (nextVersionRound == null)
             {
-                throw new InvalidDataException("nextVersionRound is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("nextVersionRound is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -102,7 +102,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "nextVersionSupported" is required (not null)
             if (nextVersionSupported == null)
             {
-                throw new InvalidDataException("nextVersionSupported is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("nextVersionSupported is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -111,7 +111,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "stoppedAtUnsupportedRound" is required (not null)
             if (stoppedAtUnsupportedRound == null)
             {
-                throw new InvalidDataException("stoppedAtUnsupportedRound is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("stoppedAtUnsupportedRound is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -120,7 +120,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "timeSinceLastRound" is required (not null)
             if (timeSinceLastRound == null)
             {
-                throw new InvalidDataException("timeSinceLastRound is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("timeSinceLastRound is a required property for NodeStatusResponse and cannot be null");
             }
             else
             {
@@ -239,7 +239,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2004 {\n");
+            sb.Append("class NodeStatusResponse {\n");
             sb.Append("  CatchupTime: ").Append(CatchupTime).Append("\n");
             sb.Append("  LastRound: ").Append(LastRound).Append("\n");
             sb.Append("  LastVersion: ").Append(LastVersion).Append("\n");
@@ -278,9 +278,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2004 instances are equal
+        /// Returns true if NodeStatusResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2004 to be compared</param>
+        /// <param name="input">Instance of NodeStatusResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(NodeStatusResponse input)
         {

@@ -54,7 +54,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "poolError" is required (not null)
             if (poolError == null)
             {
-                throw new InvalidDataException("poolError is a required property for InlineResponse2006 and cannot be null");
+                throw new InvalidDataException("poolError is a required property for PendingTransactionResponse and cannot be null");
             }
             else
             {
@@ -63,7 +63,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "txn" is required (not null)
             if (txn == null)
             {
-                throw new InvalidDataException("txn is a required property for InlineResponse2006 and cannot be null");
+                throw new InvalidDataException("txn is a required property for PendingTransactionResponse and cannot be null");
             }
             else
             {
@@ -164,7 +164,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2006 {\n");
+            sb.Append("class PendingTransactionResponse {\n");
             sb.Append("  AssetIndex: ").Append(AssetIndex).Append("\n");
             sb.Append("  ApplicationIndex: ").Append(ApplicationIndex).Append("\n");
             sb.Append("  CloseRewards: ").Append(CloseRewards).Append("\n");
@@ -200,9 +200,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2006 instances are equal
+        /// Returns true if PendingTransactionResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2006 to be compared</param>
+        /// <param name="input">Instance of PendingTransactionResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(PendingTransactionResponse input)
         {

@@ -49,7 +49,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "consensusVersion" is required (not null)
             if (consensusVersion == null)
             {
-                throw new InvalidDataException("consensusVersion is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("consensusVersion is a required property for TransactionParametersResponse and cannot be null");
             }
             else
             {
@@ -58,7 +58,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "fee" is required (not null)
             if (fee == null)
             {
-                throw new InvalidDataException("fee is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("fee is a required property for TransactionParametersResponse and cannot be null");
             }
             else
             {
@@ -67,7 +67,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "genesisHash" is required (not null)
             if (genesisHash == null)
             {
-                throw new InvalidDataException("genesisHash is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("genesisHash is a required property for TransactionParametersResponse and cannot be null");
             }
             else
             {
@@ -76,7 +76,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "genesisId" is required (not null)
             if (genesisId == null)
             {
-                throw new InvalidDataException("genesisId is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("genesisId is a required property for TransactionParametersResponse and cannot be null");
             }
             else
             {
@@ -85,7 +85,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "lastRound" is required (not null)
             if (lastRound == null)
             {
-                throw new InvalidDataException("lastRound is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("lastRound is a required property for TransactionParametersResponse and cannot be null");
             }
             else
             {
@@ -94,7 +94,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "minFee" is required (not null)
             if (minFee == null)
             {
-                throw new InvalidDataException("minFee is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("minFee is a required property for TransactionParametersResponse and cannot be null");
             }
             else
             {
@@ -151,7 +151,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2005 {\n");
+            sb.Append("class TransactionParametersResponse {\n");
             sb.Append("  ConsensusVersion: ").Append(ConsensusVersion).Append("\n");
             sb.Append("  Fee: ").Append(Fee).Append("\n");
             sb.Append("  GenesisHash: ").Append(GenesisHash).Append("\n");
@@ -182,9 +182,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2005 instances are equal
+        /// Returns true if TransactionParametersResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2005 to be compared</param>
+        /// <param name="input">Instance of TransactionParametersResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(TransactionParametersResponse input)
         {

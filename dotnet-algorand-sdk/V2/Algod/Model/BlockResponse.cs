@@ -25,7 +25,7 @@ using SwaggerDateConverter = Algorand.V2.Algod.Client.SwaggerDateConverter;
 namespace Algorand.V2.Algod.Model
 {
     /// <summary>
-    /// InlineResponse2001
+    /// BlockResponse
     /// </summary>
     [DataContract]
     public partial class BlockResponse :  IEquatable<BlockResponse>, IValidatableObject
@@ -45,7 +45,7 @@ namespace Algorand.V2.Algod.Model
             // to ensure "block" is required (not null)
             if (block == null)
             {
-                throw new InvalidDataException("block is a required property for InlineResponse2001 and cannot be null");
+                throw new InvalidDataException("block is a required property for BlockResponse and cannot be null");
             }
             else
             {
@@ -75,7 +75,7 @@ namespace Algorand.V2.Algod.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2001 {\n");
+            sb.Append("class BlockResponse {\n");
             sb.Append("  Block: ").Append(Block).Append("\n");
             sb.Append("  Cert: ").Append(Cert).Append("\n");
             sb.Append("}\n");
@@ -102,9 +102,9 @@ namespace Algorand.V2.Algod.Model
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2001 instances are equal
+        /// Returns true if BlockResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2001 to be compared</param>
+        /// <param name="input">Instance of BlockResponse to be compared</param>
         /// <returns>Boolean</returns>
         public bool Equals(BlockResponse input)
         {
