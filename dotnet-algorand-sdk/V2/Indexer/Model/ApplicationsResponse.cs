@@ -30,7 +30,7 @@ namespace Algorand.V2.Indexer.Model
         public partial class ApplicationsResponse :  IEquatable<ApplicationsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationsResponse" /> class.
         /// </summary>
         /// <param name="applications">applications (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>

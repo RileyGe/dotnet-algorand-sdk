@@ -30,7 +30,7 @@ namespace Algorand.V2.Indexer.Model
         public partial class AssetBalancesResponse :  IEquatable<AssetBalancesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2007" /> class.
+        /// Initializes a new instance of the <see cref="AssetBalancesResponse" /> class.
         /// </summary>
         /// <param name="balances">balances (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>

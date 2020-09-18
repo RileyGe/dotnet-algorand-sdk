@@ -30,7 +30,7 @@ namespace Algorand.V2.Indexer.Model
         public partial class TransactionResponse :  IEquatable<TransactionResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2008" /> class.
+        /// Initializes a new instance of the <see cref="TransactionResponse" /> class.
         /// </summary>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
         /// <param name="transaction">transaction (required).</param>
