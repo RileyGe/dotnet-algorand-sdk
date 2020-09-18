@@ -8,6 +8,7 @@ using Algorand.Algod.Client;
 using Transaction = Algorand.Transaction;
 using System.Text;
 using Org.BouncyCastle.Crypto.Parameters;
+using sdk_examples.V2;
 
 namespace sdk_examples
 {
@@ -15,6 +16,7 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
+            BasicExamples.Main(args); return;
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;
