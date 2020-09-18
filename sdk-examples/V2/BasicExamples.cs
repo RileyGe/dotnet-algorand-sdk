@@ -1,5 +1,5 @@
 ﻿using Algorand.V2.Algod;
-using Algorand.V2.Algod.Client;
+using Algorand.V2.Client;
 using System;
 using System.Collections.Generic;
 using System.Text;
