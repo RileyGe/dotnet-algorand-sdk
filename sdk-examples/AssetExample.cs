@@ -1,6 +1,6 @@
 ﻿using Algorand;
-using Algorand.Algod.Client.Api;
-using Algorand.Algod.Client.Model;
+using Algorand.Algod.Api;
+using Algorand.Algod.Model;
 using System;
 using System.Text;
 using Account = Algorand.Account;
@@ -79,7 +79,7 @@ namespace sdk_examples
                 Console.WriteLine("Transaction ID: " + id);
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // Now that the transaction is confirmed we can get the assetID
-                Algorand.Algod.Client.Model.Transaction ptx = algodApiInstance.PendingTransactionInformation(id.TxId);
+                Algorand.Algod.Model.Transaction ptx = algodApiInstance.PendingTransactionInformation(id.TxId);
                 assetID = ptx.Txresults.Createdasset;
             }
             catch (Exception e)
@@ -150,7 +150,7 @@ namespace sdk_examples
             signedTx = acct3.SignTransaction(tx);
             // send the transaction to the network and
             // wait for the transaction to be confirmed
-            Algorand.Algod.Client.Model.Account act = null;
+            Algorand.Algod.Model.Account act = null;
             try
             {
                 TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);

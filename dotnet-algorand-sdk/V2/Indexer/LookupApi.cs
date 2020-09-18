@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Algorand.V2.Client;
+using Algorand.Client;
 using Algorand.V2.Model;
 
 namespace Algorand.V2.Indexer
@@ -29,7 +29,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>AccountResponse</returns>
@@ -41,7 +41,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>ApiResponse of AccountResponse</returns>
@@ -52,7 +52,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -78,7 +78,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -103,7 +103,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup application.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApplicationResponse</returns>
         ApplicationResponse LookupApplicationByID (long? applicationId);
@@ -114,7 +114,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup application.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApiResponse of ApplicationResponse</returns>
         ApiResponse<ApplicationResponse> LookupApplicationByIDWithHttpInfo (long? applicationId);
@@ -124,7 +124,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup the list of accounts who hold this asset 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -140,7 +140,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup the list of accounts who hold this asset 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -155,7 +155,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup asset information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>AssetResponse</returns>
         AssetResponse LookupAssetByID (long? assetId);
@@ -166,7 +166,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup asset information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>ApiResponse of AssetResponse</returns>
         ApiResponse<AssetResponse> LookupAssetByIDWithHttpInfo (long? assetId);
@@ -176,7 +176,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup transactions for an asset.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -204,7 +204,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup transactions for an asset.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -231,7 +231,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup block.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Block</returns>
         Block LookupBlock (long? roundNumber);
@@ -242,7 +242,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup block.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>ApiResponse of Block</returns>
         ApiResponse<Block> LookupBlockWithHttpInfo (long? roundNumber);
@@ -252,7 +252,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup a single transaction.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>TransactionResponse</returns>
         TransactionResponse LookupTransactions (string txid);
@@ -263,7 +263,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup a single transaction.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>ApiResponse of TransactionResponse</returns>
         ApiResponse<TransactionResponse> LookupTransactionsWithHttpInfo (string txid);
@@ -275,7 +275,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of AccountResponse</returns>
@@ -287,7 +287,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -298,7 +298,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -324,7 +324,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup account transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -349,7 +349,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup application.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApplicationResponse</returns>
         System.Threading.Tasks.Task<ApplicationResponse> LookupApplicationByIDAsync (long? applicationId);
@@ -360,7 +360,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup application.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (ApplicationResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationResponse>> LookupApplicationByIDAsyncWithHttpInfo (long? applicationId);
@@ -370,7 +370,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup the list of accounts who hold this asset 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -386,7 +386,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup the list of accounts who hold this asset 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -401,7 +401,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup asset information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of AssetResponse</returns>
         System.Threading.Tasks.Task<AssetResponse> LookupAssetByIDAsync (long? assetId);
@@ -412,7 +412,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup asset information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of ApiResponse (AssetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AssetResponse>> LookupAssetByIDAsyncWithHttpInfo (long? assetId);
@@ -422,7 +422,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup transactions for an asset.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -450,7 +450,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup transactions for an asset.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -477,7 +477,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup block.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of Block</returns>
         System.Threading.Tasks.Task<Block> LookupBlockAsync (long? roundNumber);
@@ -488,7 +488,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup block.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of ApiResponse (Block)</returns>
         System.Threading.Tasks.Task<ApiResponse<Block>> LookupBlockAsyncWithHttpInfo (long? roundNumber);
@@ -498,7 +498,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup a single transaction.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>Task of TransactionResponse</returns>
         System.Threading.Tasks.Task<TransactionResponse> LookupTransactionsAsync (string txid);
@@ -509,7 +509,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Lookup a single transaction.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>Task of ApiResponse (TransactionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionResponse>> LookupTransactionsAsyncWithHttpInfo (string txid);
@@ -521,7 +521,7 @@ namespace Algorand.V2.Indexer
     /// </summary>
         public partial class LookupApi : ILookupApi
     {
-        private Algorand.V2.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Algorand.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LookupApi"/> class.
@@ -529,9 +529,9 @@ namespace Algorand.V2.Indexer
         /// <returns></returns>
         public LookupApi(String basePath)
         {
-            this.Configuration = new Algorand.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Algorand.Client.Configuration { BasePath = basePath };
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -540,9 +540,9 @@ namespace Algorand.V2.Indexer
         /// <returns></returns>
         public LookupApi()
         {
-            this.Configuration = Algorand.V2.Client.Configuration.Default;
+            this.Configuration = Algorand.Client.Configuration.Default;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -551,14 +551,14 @@ namespace Algorand.V2.Indexer
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public LookupApi(Algorand.V2.Client.Configuration configuration = null)
+        public LookupApi(Algorand.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Algorand.V2.Client.Configuration.Default;
+                this.Configuration = Algorand.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -584,12 +584,12 @@ namespace Algorand.V2.Indexer
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Algorand.V2.Client.Configuration Configuration {get; set;}
+        public Algorand.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Algorand.V2.Client.ExceptionFactory ExceptionFactory
+        public Algorand.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -627,7 +627,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>AccountResponse</returns>
@@ -640,7 +640,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>ApiResponse of AccountResponse</returns>
@@ -695,7 +695,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of AccountResponse</returns>
@@ -709,7 +709,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="round">Include results for the specified round. (optional)</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -764,7 +764,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -791,7 +791,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -874,7 +874,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -902,7 +902,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup account transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">account string</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -985,7 +985,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup application.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApplicationResponse</returns>
         public ApplicationResponse LookupApplicationByID (long? applicationId)
@@ -997,7 +997,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup application.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>ApiResponse of ApplicationResponse</returns>
         public ApiResponse< ApplicationResponse > LookupApplicationByIDWithHttpInfo (long? applicationId)
@@ -1050,7 +1050,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup application.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApplicationResponse</returns>
         public async System.Threading.Tasks.Task<ApplicationResponse> LookupApplicationByIDAsync (long? applicationId)
@@ -1063,7 +1063,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup application.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (ApplicationResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApplicationResponse>> LookupApplicationByIDAsyncWithHttpInfo (long? applicationId)
@@ -1116,7 +1116,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup the list of accounts who hold this asset 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1133,7 +1133,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup the list of accounts who hold this asset 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1196,7 +1196,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup the list of accounts who hold this asset 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1214,7 +1214,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup the list of accounts who hold this asset 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1277,7 +1277,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup asset information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>AssetResponse</returns>
         public AssetResponse LookupAssetByID (long? assetId)
@@ -1289,7 +1289,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup asset information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>ApiResponse of AssetResponse</returns>
         public ApiResponse< AssetResponse > LookupAssetByIDWithHttpInfo (long? assetId)
@@ -1342,7 +1342,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup asset information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of AssetResponse</returns>
         public async System.Threading.Tasks.Task<AssetResponse> LookupAssetByIDAsync (long? assetId)
@@ -1355,7 +1355,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup asset information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <returns>Task of ApiResponse (AssetResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AssetResponse>> LookupAssetByIDAsyncWithHttpInfo (long? assetId)
@@ -1408,7 +1408,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup transactions for an asset.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1437,7 +1437,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup transactions for an asset.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1524,7 +1524,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup transactions for an asset.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1554,7 +1554,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup transactions for an asset.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId"></param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -1641,7 +1641,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup block.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Block</returns>
         public Block LookupBlock (long? roundNumber)
@@ -1653,7 +1653,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup block.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>ApiResponse of Block</returns>
         public ApiResponse< Block > LookupBlockWithHttpInfo (long? roundNumber)
@@ -1706,7 +1706,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup block.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of Block</returns>
         public async System.Threading.Tasks.Task<Block> LookupBlockAsync (long? roundNumber)
@@ -1719,7 +1719,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup block.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roundNumber">Round number</param>
         /// <returns>Task of ApiResponse (Block)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Block>> LookupBlockAsyncWithHttpInfo (long? roundNumber)
@@ -1772,7 +1772,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup a single transaction.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>TransactionResponse</returns>
         public TransactionResponse LookupTransactions (string txid)
@@ -1784,7 +1784,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup a single transaction.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>ApiResponse of TransactionResponse</returns>
         public ApiResponse< TransactionResponse > LookupTransactionsWithHttpInfo (string txid)
@@ -1837,7 +1837,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup a single transaction.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>Task of TransactionResponse</returns>
         public async System.Threading.Tasks.Task<TransactionResponse> LookupTransactionsAsync (string txid)
@@ -1850,7 +1850,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Lookup a single transaction.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid"></param>
         /// <returns>Task of ApiResponse (TransactionResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TransactionResponse>> LookupTransactionsAsyncWithHttpInfo (string txid)

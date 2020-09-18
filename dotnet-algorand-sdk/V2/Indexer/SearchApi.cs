@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Algorand.V2.Client;
+using Algorand.Client;
 using Algorand.V2.Model;
 
 namespace Algorand.V2.Indexer
@@ -29,7 +29,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for accounts.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -47,7 +47,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for accounts.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -64,7 +64,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for applications
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -77,7 +77,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for applications
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -89,7 +89,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for assets.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -105,7 +105,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for assets.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -120,7 +120,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>
@@ -149,7 +149,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>
@@ -179,7 +179,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for accounts.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -197,7 +197,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for accounts.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -214,7 +214,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for applications
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -227,7 +227,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for applications
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -239,7 +239,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for assets.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -255,7 +255,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for assets.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -270,7 +270,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>
@@ -299,7 +299,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// Search for transactions.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>
@@ -329,7 +329,7 @@ namespace Algorand.V2.Indexer
     /// </summary>
         public partial class SearchApi : ISearchApi
     {
-        private Algorand.V2.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Algorand.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchApi"/> class.
@@ -337,9 +337,9 @@ namespace Algorand.V2.Indexer
         /// <returns></returns>
         public SearchApi(String basePath)
         {
-            this.Configuration = new Algorand.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Algorand.Client.Configuration { BasePath = basePath };
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -348,9 +348,9 @@ namespace Algorand.V2.Indexer
         /// <returns></returns>
         public SearchApi()
         {
-            this.Configuration = Algorand.V2.Client.Configuration.Default;
+            this.Configuration = Algorand.Client.Configuration.Default;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -359,14 +359,14 @@ namespace Algorand.V2.Indexer
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public SearchApi(Algorand.V2.Client.Configuration configuration = null)
+        public SearchApi(Algorand.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Algorand.V2.Client.Configuration.Default;
+                this.Configuration = Algorand.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -392,12 +392,12 @@ namespace Algorand.V2.Indexer
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Algorand.V2.Client.Configuration Configuration {get; set;}
+        public Algorand.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Algorand.V2.Client.ExceptionFactory ExceptionFactory
+        public Algorand.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -435,7 +435,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for accounts.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -454,7 +454,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for accounts.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -518,7 +518,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for accounts.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -538,7 +538,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for accounts.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">Asset ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -602,7 +602,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for applications
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -616,7 +616,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for applications
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -670,7 +670,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for applications
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -685,7 +685,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for applications
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
@@ -739,7 +739,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for assets.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -756,7 +756,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for assets.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -816,7 +816,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for assets.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -834,7 +834,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for assets.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="creator">Filter just assets with the given creator address. (optional)</param>
@@ -894,7 +894,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>
@@ -924,7 +924,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>
@@ -1010,7 +1010,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>
@@ -1041,7 +1041,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         ///  Search for transactions.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
         /// <param name="notePrefix">Specifies a prefix which must be contained in the note field. (optional)</param>

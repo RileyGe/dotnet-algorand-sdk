@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Algorand.V2.Client;
+using Algorand.Client;
 using Algorand.V2.Model;
 
 namespace Algorand.V2.Algod
@@ -30,7 +30,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it aborts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>CatchpointAbortResponse</returns>
         CatchpointAbortResponse AbortCatchup (string catchpoint);
@@ -41,7 +41,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it aborts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>ApiResponse of CatchpointAbortResponse</returns>
         ApiResponse<CatchpointAbortResponse> AbortCatchupWithHttpInfo (string catchpoint);
@@ -51,7 +51,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Generate (or renew) and register participation keys on the node for a given account address.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -66,7 +66,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Generate (or renew) and register participation keys on the node for a given account address.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -80,7 +80,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>Object</returns>
         Object ShutdownNode (int? timeout = null);
@@ -91,7 +91,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> ShutdownNodeWithHttpInfo (int? timeout = null);
@@ -101,7 +101,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it starts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>CatchpointStartResponse</returns>
         CatchpointStartResponse StartCatchup (string catchpoint);
@@ -112,7 +112,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it starts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>ApiResponse of CatchpointStartResponse</returns>
         ApiResponse<CatchpointStartResponse> StartCatchupWithHttpInfo (string catchpoint);
@@ -124,7 +124,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it aborts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of CatchpointAbortResponse</returns>
         System.Threading.Tasks.Task<CatchpointAbortResponse> AbortCatchupAsync (string catchpoint);
@@ -135,7 +135,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it aborts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of ApiResponse (CatchpointAbortResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CatchpointAbortResponse>> AbortCatchupAsyncWithHttpInfo (string catchpoint);
@@ -145,7 +145,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Generate (or renew) and register participation keys on the node for a given account address.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -160,7 +160,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Generate (or renew) and register participation keys on the node for a given account address.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -174,7 +174,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> ShutdownNodeAsync (int? timeout = null);
@@ -185,7 +185,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ShutdownNodeAsyncWithHttpInfo (int? timeout = null);
@@ -195,7 +195,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it starts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of CatchpointStartResponse</returns>
         System.Threading.Tasks.Task<CatchpointStartResponse> StartCatchupAsync (string catchpoint);
@@ -206,7 +206,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a catchpoint, it starts catching up to this catchpoint
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of ApiResponse (CatchpointStartResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CatchpointStartResponse>> StartCatchupAsyncWithHttpInfo (string catchpoint);
@@ -218,7 +218,7 @@ namespace Algorand.V2.Algod
     /// </summary>
     public partial class PrivateApi : IPrivateApi
     {
-        private Algorand.V2.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Algorand.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PrivateApi"/> class.
@@ -226,9 +226,9 @@ namespace Algorand.V2.Algod
         /// <returns></returns>
         public PrivateApi(String basePath)
         {
-            this.Configuration = new Algorand.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Algorand.Client.Configuration { BasePath = basePath };
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -237,14 +237,14 @@ namespace Algorand.V2.Algod
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public PrivateApi(Algorand.V2.Client.Configuration configuration = null)
+        public PrivateApi(Algorand.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Algorand.V2.Client.Configuration.Default;
+                this.Configuration = Algorand.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -270,12 +270,12 @@ namespace Algorand.V2.Algod
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Algorand.V2.Client.Configuration Configuration {get; set;}
+        public Algorand.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Algorand.V2.Client.ExceptionFactory ExceptionFactory
+        public Algorand.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -313,7 +313,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Aborts a catchpoint catchup. Given a catchpoint, it aborts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>CatchpointAbortResponse</returns>
         public CatchpointAbortResponse AbortCatchup (string catchpoint)
@@ -325,7 +325,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Aborts a catchpoint catchup. Given a catchpoint, it aborts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>ApiResponse of CatchpointAbortResponse</returns>
         public ApiResponse< CatchpointAbortResponse > AbortCatchupWithHttpInfo (string catchpoint)
@@ -385,7 +385,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Aborts a catchpoint catchup. Given a catchpoint, it aborts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of CatchpointAbortResponse</returns>
         public async System.Threading.Tasks.Task<CatchpointAbortResponse> AbortCatchupAsync (string catchpoint)
@@ -398,7 +398,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Aborts a catchpoint catchup. Given a catchpoint, it aborts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of ApiResponse (CatchpointAbortResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CatchpointAbortResponse>> AbortCatchupAsyncWithHttpInfo (string catchpoint)
@@ -458,7 +458,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Generate (or renew) and register participation keys on the node for a given account address.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -474,7 +474,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Generate (or renew) and register participation keys on the node for a given account address.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -542,7 +542,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Generate (or renew) and register participation keys on the node for a given account address.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -559,7 +559,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Generate (or renew) and register participation keys on the node for a given account address.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">The &#x60;account-id&#x60; to update, or &#x60;all&#x60; to update all accounts.</param>
         /// <param name="fee">The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</param>
         /// <param name="keyDilution">value to use for two-level participation key. (optional)</param>
@@ -627,7 +627,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>Object</returns>
         public Object ShutdownNode (int? timeout = null)
@@ -639,7 +639,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>ApiResponse of Object</returns>
         public ApiResponse< Object > ShutdownNodeWithHttpInfo (int? timeout = null)
@@ -696,7 +696,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> ShutdownNodeAsync (int? timeout = null)
@@ -709,7 +709,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeout"> (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> ShutdownNodeAsyncWithHttpInfo (int? timeout = null)
@@ -766,7 +766,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Starts a catchpoint catchup. Given a catchpoint, it starts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>CatchpointStartResponse</returns>
         public CatchpointStartResponse StartCatchup (string catchpoint)
@@ -778,7 +778,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Starts a catchpoint catchup. Given a catchpoint, it starts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>ApiResponse of CatchpointStartResponse</returns>
         public ApiResponse< CatchpointStartResponse > StartCatchupWithHttpInfo (string catchpoint)
@@ -838,7 +838,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Starts a catchpoint catchup. Given a catchpoint, it starts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of CatchpointStartResponse</returns>
         public async System.Threading.Tasks.Task<CatchpointStartResponse> StartCatchupAsync (string catchpoint)
@@ -851,7 +851,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Starts a catchpoint catchup. Given a catchpoint, it starts catching up to this catchpoint
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catchpoint">A catch point</param>
         /// <returns>Task of ApiResponse (CatchpointStartResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CatchpointStartResponse>> StartCatchupAsyncWithHttpInfo (string catchpoint)

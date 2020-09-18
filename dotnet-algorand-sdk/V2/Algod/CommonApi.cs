@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Algorand.V2.Client;
+using Algorand.Client;
 using Algorand.V2.Model;
 using Version = Algorand.V2.Model.Version;
 
@@ -31,7 +31,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire genesis file in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>string</returns>
         string GetGenesis ();
 
@@ -41,7 +41,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire genesis file in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> GetGenesisWithHttpInfo ();
         /// <summary>
@@ -50,7 +50,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Retrieves the supported API versions, binary build versions, and genesis information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Version</returns>
         Version GetVersion ();
 
@@ -60,7 +60,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Retrieves the supported API versions, binary build versions, and genesis information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Version</returns>
         ApiResponse<Version> GetVersionWithHttpInfo ();
         /// <summary>
@@ -69,7 +69,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void HealthCheck ();
 
@@ -79,7 +79,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> HealthCheckWithHttpInfo ();
         /// <summary>
@@ -88,7 +88,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void Metrics ();
 
@@ -98,7 +98,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> MetricsWithHttpInfo ();
         /// <summary>
@@ -107,7 +107,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire swagger spec in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>string</returns>
         string SwaggerJSON ();
 
@@ -117,7 +117,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire swagger spec in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> SwaggerJSONWithHttpInfo ();
         #endregion Synchronous Operations
@@ -128,7 +128,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire genesis file in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of string</returns>
         System.Threading.Tasks.Task<string> GetGenesisAsync ();
 
@@ -138,7 +138,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire genesis file in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> GetGenesisAsyncWithHttpInfo ();
         /// <summary>
@@ -147,7 +147,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Retrieves the supported API versions, binary build versions, and genesis information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of Version</returns>
         System.Threading.Tasks.Task<Version> GetVersionAsync ();
 
@@ -157,7 +157,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Retrieves the supported API versions, binary build versions, and genesis information.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (Version)</returns>
         System.Threading.Tasks.Task<ApiResponse<Version>> GetVersionAsyncWithHttpInfo ();
         /// <summary>
@@ -166,7 +166,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task HealthCheckAsync ();
 
@@ -176,7 +176,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> HealthCheckAsyncWithHttpInfo ();
         /// <summary>
@@ -185,7 +185,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task MetricsAsync ();
 
@@ -195,7 +195,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> MetricsAsyncWithHttpInfo ();
         /// <summary>
@@ -204,7 +204,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire swagger spec in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of string</returns>
         System.Threading.Tasks.Task<string> SwaggerJSONAsync ();
 
@@ -214,7 +214,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Returns the entire swagger spec in json.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> SwaggerJSONAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
@@ -225,7 +225,7 @@ namespace Algorand.V2.Algod
     /// </summary>
     public partial class CommonApi : ICommonApi
     {
-        private Algorand.V2.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Algorand.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonApi"/> class.
@@ -233,9 +233,9 @@ namespace Algorand.V2.Algod
         /// <returns></returns>
         public CommonApi(String basePath)
         {
-            this.Configuration = new Algorand.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Algorand.Client.Configuration { BasePath = basePath };
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -244,14 +244,14 @@ namespace Algorand.V2.Algod
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public CommonApi(Algorand.V2.Client.Configuration configuration = null)
+        public CommonApi(Algorand.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Algorand.V2.Client.Configuration.Default;
+                this.Configuration = Algorand.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -277,12 +277,12 @@ namespace Algorand.V2.Algod
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Algorand.V2.Client.Configuration Configuration {get; set;}
+        public Algorand.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Algorand.V2.Client.ExceptionFactory ExceptionFactory
+        public Algorand.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -320,7 +320,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the genesis information. Returns the entire genesis file in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>string</returns>
         public string GetGenesis ()
         {
@@ -331,7 +331,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the genesis information. Returns the entire genesis file in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of string</returns>
         public ApiResponse< string > GetGenesisWithHttpInfo ()
         {
@@ -386,7 +386,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the genesis information. Returns the entire genesis file in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of string</returns>
         public async System.Threading.Tasks.Task<string> GetGenesisAsync ()
         {
@@ -398,7 +398,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the genesis information. Returns the entire genesis file in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (string)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<string>> GetGenesisAsyncWithHttpInfo ()
         {
@@ -453,7 +453,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Retrieves the supported API versions, binary build versions, and genesis information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Version</returns>
         public Version GetVersion ()
         {
@@ -464,7 +464,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Retrieves the supported API versions, binary build versions, and genesis information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Version</returns>
         public ApiResponse< Version > GetVersionWithHttpInfo ()
         {
@@ -519,7 +519,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Retrieves the supported API versions, binary build versions, and genesis information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of Version</returns>
         public async System.Threading.Tasks.Task<Version> GetVersionAsync ()
         {
@@ -531,7 +531,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         ///  Retrieves the supported API versions, binary build versions, and genesis information.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (Version)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Version>> GetVersionAsyncWithHttpInfo ()
         {
@@ -586,7 +586,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Returns OK if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void HealthCheck ()
         {
@@ -596,7 +596,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Returns OK if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> HealthCheckWithHttpInfo ()
         {
@@ -651,7 +651,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Returns OK if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task HealthCheckAsync ()
         {
@@ -662,7 +662,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Returns OK if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> HealthCheckAsyncWithHttpInfo ()
         {
@@ -717,7 +717,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Return metrics about algod functioning. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void Metrics ()
         {
@@ -727,7 +727,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Return metrics about algod functioning. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> MetricsWithHttpInfo ()
         {
@@ -782,7 +782,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Return metrics about algod functioning. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task MetricsAsync ()
         {
@@ -793,7 +793,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Return metrics about algod functioning. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> MetricsAsyncWithHttpInfo ()
         {
@@ -848,7 +848,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current swagger spec. Returns the entire swagger spec in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>string</returns>
         public string SwaggerJSON ()
         {
@@ -859,7 +859,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current swagger spec. Returns the entire swagger spec in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of string</returns>
         public ApiResponse< string > SwaggerJSONWithHttpInfo ()
         {
@@ -914,7 +914,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current swagger spec. Returns the entire swagger spec in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of string</returns>
         public async System.Threading.Tasks.Task<string> SwaggerJSONAsync ()
         {
@@ -926,7 +926,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current swagger spec. Returns the entire swagger spec in json.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (string)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<string>> SwaggerJSONAsyncWithHttpInfo ()
         {

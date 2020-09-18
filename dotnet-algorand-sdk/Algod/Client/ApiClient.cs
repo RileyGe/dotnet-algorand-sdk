@@ -20,7 +20,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace Algorand.Algod.Client
+namespace Algorand.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
@@ -51,7 +51,7 @@ namespace Algorand.Algod.Client
         /// </summary>
         public ApiClient()
         {
-            Configuration = Algorand.Algod.Client.Configuration.Default;
+            Configuration = Algorand.Client.Configuration.Default;
             RestClient = new RestClient("http://localhost/");
         }
 
@@ -62,7 +62,7 @@ namespace Algorand.Algod.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Algorand.Algod.Client.Configuration.Default;
+            Configuration = config ?? Algorand.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
         }

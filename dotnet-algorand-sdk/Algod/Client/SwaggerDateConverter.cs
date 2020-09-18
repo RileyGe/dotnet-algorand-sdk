@@ -9,7 +9,7 @@
  */
 using Newtonsoft.Json.Converters;
 
-namespace Algorand.Algod.Client
+namespace Algorand.Client
 {
     /// <summary>
     /// Formatter for 'date' swagger formats ss defined by full-date - RFC3339

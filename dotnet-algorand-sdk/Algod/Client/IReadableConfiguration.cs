@@ -10,7 +10,7 @@
 
 using System.Collections.Generic;
 
-namespace Algorand.Algod.Client
+namespace Algorand.Client
 {
     /// <summary>
     /// Represents a readable-only configuration contract.

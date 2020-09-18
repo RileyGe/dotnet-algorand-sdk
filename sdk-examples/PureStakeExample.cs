@@ -1,9 +1,9 @@
 ﻿using System;
 using Algorand;
 using Account = Algorand.Account;
-using Algorand.Algod.Client.Api;
-using Algorand.Algod.Client.Model;
-using Algorand.Algod.Client;
+using Algorand.Algod.Api;
+using Algorand.Algod.Model;
+using Algorand.Client;
 using System.Text;
 
 namespace sdk_examples

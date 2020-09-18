@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Algorand.V2.Client;
+using Algorand.Client;
 using Algorand.V2.Model;
 
 namespace Algorand.V2.Algod
@@ -30,7 +30,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Account</returns>
@@ -42,7 +42,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of Account</returns>
@@ -53,7 +53,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>Application</returns>
         Application GetApplicationByID (long? applicationId);
@@ -64,7 +64,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>ApiResponse of Application</returns>
         ApiResponse<Application> GetApplicationByIDWithHttpInfo (long? applicationId);
@@ -74,7 +74,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>Asset</returns>
         Asset GetAssetByID (long? assetId);
@@ -85,7 +85,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>ApiResponse of Asset</returns>
         ApiResponse<Asset> GetAssetByIDWithHttpInfo (long? assetId);
@@ -95,7 +95,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>BlockResponse</returns>
@@ -107,7 +107,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of BlockResponse</returns>
@@ -118,7 +118,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>PendingTransactionsResponse</returns>
@@ -130,7 +130,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of PendingTransactionsResponse</returns>
@@ -141,7 +141,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -154,7 +154,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -166,7 +166,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>NodeStatusResponse</returns>
         NodeStatusResponse GetStatus ();
 
@@ -176,7 +176,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of NodeStatusResponse</returns>
         ApiResponse<NodeStatusResponse> GetStatusWithHttpInfo ();
         /// <summary>
@@ -185,7 +185,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>SupplyResponse</returns>
         SupplyResponse GetSupply ();
 
@@ -195,7 +195,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SupplyResponse</returns>
         ApiResponse<SupplyResponse> GetSupplyWithHttpInfo ();
         /// <summary>
@@ -204,7 +204,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>PendingTransactionResponse</returns>
@@ -216,7 +216,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of PendingTransactionResponse</returns>
@@ -227,7 +227,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>PostTransactionsResponse</returns>
         PostTransactionsResponse RawTransaction (byte[] rawtxn);
@@ -238,7 +238,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>ApiResponse of PostTransactionsResponse</returns>
         ApiResponse<PostTransactionsResponse> RawTransactionWithHttpInfo (byte[] rawtxn);
@@ -248,7 +248,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>CompileResponse</returns>
         CompileResponse TealCompile (byte[] source);
@@ -259,7 +259,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>ApiResponse of CompileResponse</returns>
         ApiResponse<CompileResponse> TealCompileWithHttpInfo (byte[] source);
@@ -269,7 +269,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>DryrunResponse</returns>
         DryrunResponse TealDryrun (DryrunRequest request = null);
@@ -280,7 +280,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>ApiResponse of DryrunResponse</returns>
         ApiResponse<DryrunResponse> TealDryrunWithHttpInfo (DryrunRequest request = null);
@@ -290,7 +290,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>TransactionParametersResponse</returns>
         TransactionParametersResponse TransactionParams ();
 
@@ -300,7 +300,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TransactionParametersResponse</returns>
         ApiResponse<TransactionParametersResponse> TransactionParamsWithHttpInfo ();
         /// <summary>
@@ -309,7 +309,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>NodeStatusResponse</returns>
         NodeStatusResponse WaitForBlock (long? round);
@@ -320,7 +320,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>ApiResponse of NodeStatusResponse</returns>
         ApiResponse<NodeStatusResponse> WaitForBlockWithHttpInfo (long? round);
@@ -332,7 +332,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of Account</returns>
@@ -344,7 +344,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (Account)</returns>
@@ -355,7 +355,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>Task of Application</returns>
         System.Threading.Tasks.Task<Application> GetApplicationByIDAsync (long? applicationId);
@@ -366,7 +366,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>Task of ApiResponse (Application)</returns>
         System.Threading.Tasks.Task<ApiResponse<Application>> GetApplicationByIDAsyncWithHttpInfo (long? applicationId);
@@ -376,7 +376,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>Task of Asset</returns>
         System.Threading.Tasks.Task<Asset> GetAssetByIDAsync (long? assetId);
@@ -387,7 +387,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>Task of ApiResponse (Asset)</returns>
         System.Threading.Tasks.Task<ApiResponse<Asset>> GetAssetByIDAsyncWithHttpInfo (long? assetId);
@@ -397,7 +397,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of BlockResponse</returns>
@@ -409,7 +409,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (BlockResponse)</returns>
@@ -420,7 +420,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of PendingTransactionsResponse</returns>
@@ -432,7 +432,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (PendingTransactionsResponse)</returns>
@@ -443,7 +443,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -456,7 +456,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -468,7 +468,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of NodeStatusResponse</returns>
         System.Threading.Tasks.Task<NodeStatusResponse> GetStatusAsync ();
 
@@ -478,7 +478,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (NodeStatusResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<NodeStatusResponse>> GetStatusAsyncWithHttpInfo ();
         /// <summary>
@@ -487,7 +487,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of SupplyResponse</returns>
         System.Threading.Tasks.Task<SupplyResponse> GetSupplyAsync ();
 
@@ -497,7 +497,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (SupplyResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SupplyResponse>> GetSupplyAsyncWithHttpInfo ();
         /// <summary>
@@ -506,7 +506,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of PendingTransactionResponse</returns>
@@ -518,7 +518,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (PendingTransactionResponse)</returns>
@@ -529,7 +529,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Task of PostTransactionsResponse</returns>
         System.Threading.Tasks.Task<PostTransactionsResponse> RawTransactionAsync (byte[] rawtxn);
@@ -540,7 +540,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Task of ApiResponse (PostTransactionsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostTransactionsResponse>> RawTransactionAsyncWithHttpInfo (byte[] rawtxn);
@@ -550,7 +550,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Task of CompileResponse</returns>
         System.Threading.Tasks.Task<CompileResponse> TealCompileAsync (byte[] source);
@@ -561,7 +561,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Task of ApiResponse (CompileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CompileResponse>> TealCompileAsyncWithHttpInfo (byte[] source);
@@ -571,7 +571,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>Task of DryrunResponse</returns>
         System.Threading.Tasks.Task<DryrunResponse> TealDryrunAsync (DryrunRequest request = null);
@@ -582,7 +582,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>Task of ApiResponse (DryrunResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DryrunResponse>> TealDryrunAsyncWithHttpInfo (DryrunRequest request = null);
@@ -592,7 +592,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of TransactionParametersResponse</returns>
         System.Threading.Tasks.Task<TransactionParametersResponse> TransactionParamsAsync ();
 
@@ -602,7 +602,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (TransactionParametersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionParametersResponse>> TransactionParamsAsyncWithHttpInfo ();
         /// <summary>
@@ -611,7 +611,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>Task of NodeStatusResponse</returns>
         System.Threading.Tasks.Task<NodeStatusResponse> WaitForBlockAsync (long? round);
@@ -622,7 +622,7 @@ namespace Algorand.V2.Algod
         /// <remarks>
         /// Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>Task of ApiResponse (NodeStatusResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<NodeStatusResponse>> WaitForBlockAsyncWithHttpInfo (long? round);
@@ -634,7 +634,7 @@ namespace Algorand.V2.Algod
     /// </summary>
     public partial class DefaultApi : IDefaultApi
     {
-        private Algorand.V2.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Algorand.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultApi"/> class.
@@ -642,9 +642,9 @@ namespace Algorand.V2.Algod
         /// <returns></returns>
         public DefaultApi(String basePath)
         {
-            this.Configuration = new Algorand.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Algorand.Client.Configuration { BasePath = basePath };
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -653,14 +653,14 @@ namespace Algorand.V2.Algod
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DefaultApi(Algorand.V2.Client.Configuration configuration = null)
+        public DefaultApi(Algorand.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Algorand.V2.Client.Configuration.Default;
+                this.Configuration = Algorand.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -686,12 +686,12 @@ namespace Algorand.V2.Algod
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Algorand.V2.Client.Configuration Configuration {get; set;}
+        public Algorand.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Algorand.V2.Client.ExceptionFactory ExceptionFactory
+        public Algorand.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -729,7 +729,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get account information. Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Account</returns>
@@ -742,7 +742,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get account information. Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of Account</returns>
@@ -805,7 +805,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get account information. Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of Account</returns>
@@ -819,7 +819,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get account information. Given a specific account public key, this call returns the accounts status, balance and spendable amounts
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (Account)</returns>
@@ -882,7 +882,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get application information. Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>Application</returns>
         public Application GetApplicationByID (long? applicationId)
@@ -894,7 +894,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get application information. Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>ApiResponse of Application</returns>
         public ApiResponse< Application > GetApplicationByIDWithHttpInfo (long? applicationId)
@@ -954,7 +954,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get application information. Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>Task of Application</returns>
         public async System.Threading.Tasks.Task<Application> GetApplicationByIDAsync (long? applicationId)
@@ -967,7 +967,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get application information. Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">An application identifier</param>
         /// <returns>Task of ApiResponse (Application)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Application>> GetApplicationByIDAsyncWithHttpInfo (long? applicationId)
@@ -1027,7 +1027,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get asset information. Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>Asset</returns>
         public Asset GetAssetByID (long? assetId)
@@ -1039,7 +1039,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get asset information. Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>ApiResponse of Asset</returns>
         public ApiResponse< Asset > GetAssetByIDWithHttpInfo (long? assetId)
@@ -1099,7 +1099,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get asset information. Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>Task of Asset</returns>
         public async System.Threading.Tasks.Task<Asset> GetAssetByIDAsync (long? assetId)
@@ -1112,7 +1112,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get asset information. Given a asset id, it returns asset information including creator, name, total supply and special addresses.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assetId">An asset identifier</param>
         /// <returns>Task of ApiResponse (Asset)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Asset>> GetAssetByIDAsyncWithHttpInfo (long? assetId)
@@ -1172,7 +1172,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the block for the given round. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>BlockResponse</returns>
@@ -1185,7 +1185,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the block for the given round. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of BlockResponse</returns>
@@ -1248,7 +1248,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the block for the given round. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of BlockResponse</returns>
@@ -1262,7 +1262,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the block for the given round. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round from which to fetch block information.</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (BlockResponse)</returns>
@@ -1325,7 +1325,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool. Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>PendingTransactionsResponse</returns>
@@ -1338,7 +1338,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool. Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of PendingTransactionsResponse</returns>
@@ -1398,7 +1398,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool. Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of PendingTransactionsResponse</returns>
@@ -1412,7 +1412,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool. Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (PendingTransactionsResponse)</returns>
@@ -1472,7 +1472,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool by address. Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -1486,7 +1486,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool by address. Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -1551,7 +1551,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool by address. Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -1566,7 +1566,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a list of unconfirmed transactions currently in the transaction pool by address. Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX &#x3D; 0, returns all pending transactions. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">An account public key</param>
         /// <param name="max">Truncated number of transactions to display. If max&#x3D;0, returns all pending txns. (optional)</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
@@ -1631,7 +1631,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current node status. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>NodeStatusResponse</returns>
         public NodeStatusResponse GetStatus ()
         {
@@ -1642,7 +1642,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current node status. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of NodeStatusResponse</returns>
         public ApiResponse< NodeStatusResponse > GetStatusWithHttpInfo ()
         {
@@ -1697,7 +1697,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current node status. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of NodeStatusResponse</returns>
         public async System.Threading.Tasks.Task<NodeStatusResponse> GetStatusAsync ()
         {
@@ -1709,7 +1709,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the current node status. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (NodeStatusResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<NodeStatusResponse>> GetStatusAsyncWithHttpInfo ()
         {
@@ -1764,7 +1764,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the current supply reported by the ledger. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>PendingTransactionsResponse2</returns>
         public SupplyResponse GetSupply ()
         {
@@ -1775,7 +1775,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the current supply reported by the ledger. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of PendingTransactionsResponse2</returns>
         public ApiResponse< SupplyResponse > GetSupplyWithHttpInfo ()
         {
@@ -1830,7 +1830,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the current supply reported by the ledger. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of PendingTransactionsResponse2</returns>
         public async System.Threading.Tasks.Task<SupplyResponse> GetSupplyAsync ()
         {
@@ -1842,7 +1842,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get the current supply reported by the ledger. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (PendingTransactionsResponse2)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<SupplyResponse>> GetSupplyAsyncWithHttpInfo ()
         {
@@ -1897,7 +1897,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a specific pending transaction. Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>PendingTransactionsResponse6</returns>
@@ -1910,7 +1910,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a specific pending transaction. Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of PendingTransactionsResponse6</returns>
@@ -1973,7 +1973,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a specific pending transaction. Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of PendingTransactionsResponse6</returns>
@@ -1987,7 +1987,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get a specific pending transaction. Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round &#x3D; 0, pool error &#x3D; \&quot;\&quot;) - transaction removed from pool due to error (committed round &#x3D; 0, pool error !&#x3D; \&quot;\&quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="txid">A transaction id</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (PendingTransactionsResponse6)</returns>
@@ -2050,7 +2050,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Broadcasts a raw transaction to the network. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>PendingTransactionsResponse3</returns>
         public PostTransactionsResponse RawTransaction (byte[] rawtxn)
@@ -2062,7 +2062,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Broadcasts a raw transaction to the network. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>ApiResponse of PendingTransactionsResponse3</returns>
         public ApiResponse< PostTransactionsResponse > RawTransactionWithHttpInfo (byte[] rawtxn)
@@ -2129,7 +2129,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Broadcasts a raw transaction to the network. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Task of PendingTransactionsResponse3</returns>
         public async System.Threading.Tasks.Task<PostTransactionsResponse> RawTransactionAsync (byte[] rawtxn)
@@ -2142,7 +2142,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Broadcasts a raw transaction to the network. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Task of ApiResponse (PendingTransactionsResponse3)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PostTransactionsResponse>> RawTransactionAsyncWithHttpInfo (byte[] rawtxn)
@@ -2209,7 +2209,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Compile TEAL source code to binary, produce its hash Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>PendingTransactionsResponse7</returns>
         public CompileResponse TealCompile (byte[] source)
@@ -2221,7 +2221,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Compile TEAL source code to binary, produce its hash Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>ApiResponse of PendingTransactionsResponse7</returns>
         public ApiResponse< CompileResponse > TealCompileWithHttpInfo (byte[] source)
@@ -2288,7 +2288,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Compile TEAL source code to binary, produce its hash Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Task of PendingTransactionsResponse7</returns>
         public async System.Threading.Tasks.Task<CompileResponse> TealCompileAsync (byte[] source)
@@ -2301,7 +2301,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Compile TEAL source code to binary, produce its hash Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Task of ApiResponse (PendingTransactionsResponse7)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CompileResponse>> TealCompileAsyncWithHttpInfo (byte[] source)
@@ -2368,7 +2368,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Provide debugging information for a transaction (or group). Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>DryrunResponse</returns>
         public DryrunResponse TealDryrun (DryrunRequest request = null)
@@ -2380,7 +2380,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Provide debugging information for a transaction (or group). Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>ApiResponse of DryrunResponse</returns>
         public ApiResponse< DryrunResponse > TealDryrunWithHttpInfo (DryrunRequest request = null)
@@ -2445,7 +2445,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Provide debugging information for a transaction (or group). Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>Task of DryrunResponse</returns>
         public async System.Threading.Tasks.Task<DryrunResponse> TealDryrunAsync (DryrunRequest request = null)
@@ -2458,7 +2458,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Provide debugging information for a transaction (or group). Executes TEAL program(s) in context and returns debugging information about the execution.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data. (optional)</param>
         /// <returns>Task of ApiResponse (DryrunResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<DryrunResponse>> TealDryrunAsyncWithHttpInfo (DryrunRequest request = null)
@@ -2523,7 +2523,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get parameters for constructing a new transaction 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>TransactionParametersResponse</returns>
         public TransactionParametersResponse TransactionParams ()
         {
@@ -2534,7 +2534,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get parameters for constructing a new transaction 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TransactionParametersResponse</returns>
         public ApiResponse< TransactionParametersResponse > TransactionParamsWithHttpInfo ()
         {
@@ -2589,7 +2589,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get parameters for constructing a new transaction 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of TransactionParametersResponse</returns>
         public async System.Threading.Tasks.Task<TransactionParametersResponse> TransactionParamsAsync ()
         {
@@ -2601,7 +2601,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Get parameters for constructing a new transaction 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (TransactionParametersResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TransactionParametersResponse>> TransactionParamsAsyncWithHttpInfo ()
         {
@@ -2656,7 +2656,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the node status after waiting for the given round. Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>NodeStatusResponse</returns>
         public NodeStatusResponse WaitForBlock (long? round)
@@ -2668,7 +2668,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the node status after waiting for the given round. Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>ApiResponse of NodeStatusResponse</returns>
         public ApiResponse< NodeStatusResponse > WaitForBlockWithHttpInfo (long? round)
@@ -2728,7 +2728,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the node status after waiting for the given round. Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>Task of NodeStatusResponse</returns>
         public async System.Threading.Tasks.Task<NodeStatusResponse> WaitForBlockAsync (long? round)
@@ -2741,7 +2741,7 @@ namespace Algorand.V2.Algod
         /// <summary>
         /// Gets the node status after waiting for the given round. Waits for a block to appear after round {round} and returns the node&#39;s status at the time.
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="round">The round to wait until returning status</param>
         /// <returns>Task of ApiResponse (NodeStatusResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<NodeStatusResponse>> WaitForBlockAsyncWithHttpInfo (long? round)

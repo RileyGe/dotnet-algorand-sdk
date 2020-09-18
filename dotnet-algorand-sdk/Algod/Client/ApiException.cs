@@ -9,7 +9,7 @@
  */
 using System;
 
-namespace Algorand.Algod.Client
+namespace Algorand.Client
 {
     /// <summary>
     /// API Exception

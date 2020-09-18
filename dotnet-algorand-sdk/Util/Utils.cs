@@ -1,5 +1,5 @@
-﻿using Algorand.Algod.Client.Api;
-using Algorand.Algod.Client.Model;
+﻿using Algorand.Algod.Api;
+using Algorand.Algod.Model;
 using System;
 using System.Text;
 
@@ -13,7 +13,7 @@ namespace Algorand
             {
                 //try {
                 //Check the pending tranactions
-                Algod.Client.Model.Transaction b3 = instance.PendingTransactionInformation(txID);
+                var b3 = instance.PendingTransactionInformation(txID);
                 //algodApiInstance.p
                 if (b3.Round != null && b3.Round > 0)
                 {

@@ -14,7 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 
-namespace Algorand.Algod.Client
+namespace Algorand.Client
 {
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.

@@ -1,6 +1,6 @@
 ﻿using Algorand;
-using Algorand.Algod.Client;
-using Algorand.Algod.Client.Api;
+using Algorand.Client;
+using Algorand.Algod.Api;
 using System;
 
 namespace sdk_examples
@@ -21,7 +21,7 @@ namespace sdk_examples
             //string DEST_ADDR2 = "OAMCXDCH7LIVYUF2HSNQLPENI2ZXCWBSOLUAOITT47E4FAMFGAMI4NFLYU";
             Account bidder = new Account(SRC_ACCOUNT);
             var algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            Algorand.Algod.Client.Model.TransactionParams transParams = null;
+            Algorand.Algod.Model.TransactionParams transParams = null;
             try
             {
                 transParams = algodApiInstance.TransactionParams();

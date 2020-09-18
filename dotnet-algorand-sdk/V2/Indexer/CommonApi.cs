@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Algorand.V2.Client;
+using Algorand.Client;
 using Algorand.V2.Model;
 
 namespace Algorand.V2.Indexer
@@ -29,7 +29,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>HealthCheck</returns>
         HealthCheck MakeHealthCheck ();
 
@@ -39,7 +39,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of HealthCheck</returns>
         ApiResponse<HealthCheck> MakeHealthCheckWithHttpInfo ();
         #endregion Synchronous Operations
@@ -50,7 +50,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of HealthCheck</returns>
         System.Threading.Tasks.Task<HealthCheck> MakeHealthCheckAsync ();
 
@@ -60,7 +60,7 @@ namespace Algorand.V2.Indexer
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (HealthCheck)</returns>
         System.Threading.Tasks.Task<ApiResponse<HealthCheck>> MakeHealthCheckAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
@@ -71,7 +71,7 @@ namespace Algorand.V2.Indexer
     /// </summary>
         public partial class CommonApi : ICommonApi
     {
-        private Algorand.V2.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Algorand.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommonApi"/> class.
@@ -79,9 +79,9 @@ namespace Algorand.V2.Indexer
         /// <returns></returns>
         public CommonApi(String basePath)
         {
-            this.Configuration = new Algorand.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Algorand.Client.Configuration { BasePath = basePath };
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -90,9 +90,9 @@ namespace Algorand.V2.Indexer
         /// <returns></returns>
         public CommonApi()
         {
-            this.Configuration = Algorand.V2.Client.Configuration.Default;
+            this.Configuration = Algorand.Client.Configuration.Default;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -101,14 +101,14 @@ namespace Algorand.V2.Indexer
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public CommonApi(Algorand.V2.Client.Configuration configuration = null)
+        public CommonApi(Algorand.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Algorand.V2.Client.Configuration.Default;
+                this.Configuration = Algorand.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Algorand.V2.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Algorand.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -134,12 +134,12 @@ namespace Algorand.V2.Indexer
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Algorand.V2.Client.Configuration Configuration {get; set;}
+        public Algorand.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Algorand.V2.Client.ExceptionFactory ExceptionFactory
+        public Algorand.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -177,7 +177,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         /// Returns 200 if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>HealthCheck</returns>
         public HealthCheck MakeHealthCheck ()
         {
@@ -188,7 +188,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         /// Returns 200 if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of HealthCheck</returns>
         public ApiResponse< HealthCheck > MakeHealthCheckWithHttpInfo ()
         {
@@ -236,7 +236,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         /// Returns 200 if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of HealthCheck</returns>
         public async System.Threading.Tasks.Task<HealthCheck> MakeHealthCheckAsync ()
         {
@@ -248,7 +248,7 @@ namespace Algorand.V2.Indexer
         /// <summary>
         /// Returns 200 if healthy. 
         /// </summary>
-        /// <exception cref="Algorand.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Algorand.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (HealthCheck)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<HealthCheck>> MakeHealthCheckAsyncWithHttpInfo ()
         {

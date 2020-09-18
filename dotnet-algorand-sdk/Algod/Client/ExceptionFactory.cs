@@ -11,7 +11,7 @@
 using System;
 using RestSharp;
 
-namespace Algorand.Algod.Client
+namespace Algorand.Client
 {
     /// <summary>
     /// A delegate to ExceptionFactory method

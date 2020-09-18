@@ -10,7 +10,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Algorand.Algod.Client
+namespace Algorand.Client
 {
     /// <summary>
     /// API Response

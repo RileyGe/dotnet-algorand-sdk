@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Algorand.V2.Client.SwaggerDateConverter;
+using SwaggerDateConverter = Algorand.Client.SwaggerDateConverter;
 
 namespace Algorand.V2.Model
 {

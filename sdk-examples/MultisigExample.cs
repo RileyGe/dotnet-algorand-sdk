@@ -1,6 +1,6 @@
 ﻿using Algorand;
-using Algorand.Algod.Client;
-using Algorand.Algod.Client.Api;
+using Algorand.Client;
+using Algorand.Algod.Api;
 using Org.BouncyCastle.Crypto.Parameters;
 using System;
 using System.Collections.Generic;

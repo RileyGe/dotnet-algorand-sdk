@@ -23,6 +23,15 @@ Fixed some bugs.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Algod\Client\**" />
+    <Compile Remove="V2\Client\**" />
+    <EmbeddedResource Remove="Algod\Client\**" />
+    <EmbeddedResource Remove="V2\Client\**" />
+    <None Remove="Algod\Client\**" />
+    <None Remove="V2\Client\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="langspec.json" />
     <None Include="..\LICENSE">
       <Pack>True</Pack>
