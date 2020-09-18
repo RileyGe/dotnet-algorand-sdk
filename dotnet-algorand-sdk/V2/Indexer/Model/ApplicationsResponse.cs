@@ -24,43 +24,45 @@ using SwaggerDateConverter = Algorand.V2.Indexer.Client.SwaggerDateConverter;
 namespace Algorand.V2.Indexer.Model
 {
     /// <summary>
-    /// InlineResponse2001
+    /// ApplicationsResponse
     /// </summary>
     [DataContract]
-        public partial class InlineResponse2001 :  IEquatable<InlineResponse2001>, IValidatableObject
+        public partial class ApplicationsResponse :  IEquatable<ApplicationsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
-        /// <param name="account">account (required).</param>
+        /// <param name="applications">applications (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        public InlineResponse2001(Account account = default(Account), int? currentRound = default(int?))
+        /// <param name="nextToken">Used for pagination, when making another request provide this token with the next parameter..</param>
+        public ApplicationsResponse(List<Application> applications = default(List<Application>), int? currentRound = default(int?), string nextToken = default(string))
         {
-            // to ensure "account" is required (not null)
-            if (account == null)
+            // to ensure "applications" is required (not null)
+            if (applications == null)
             {
-                throw new InvalidDataException("account is a required property for InlineResponse2001 and cannot be null");
+                throw new InvalidDataException("applications is a required property for ApplicationsResponse and cannot be null");
             }
             else
             {
-                this.Account = account;
+                this.Applications = applications;
             }
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
             {
-                throw new InvalidDataException("currentRound is a required property for InlineResponse2001 and cannot be null");
+                throw new InvalidDataException("currentRound is a required property for ApplicationsResponse and cannot be null");
             }
             else
             {
                 this.CurrentRound = currentRound;
             }
+            this.NextToken = nextToken;
         }
         
         /// <summary>
-        /// Gets or Sets Account
+        /// Gets or Sets Applications
         /// </summary>
-        [DataMember(Name="account", EmitDefaultValue=false)]
-        public Account Account { get; set; }
+        [DataMember(Name="applications", EmitDefaultValue=false)]
+        public List<Application> Applications { get; set; }
 
         /// <summary>
         /// Round at which the results were computed.
@@ -70,15 +72,23 @@ namespace Algorand.V2.Indexer.Model
         public int? CurrentRound { get; set; }
 
         /// <summary>
+        /// Used for pagination, when making another request provide this token with the next parameter.
+        /// </summary>
+        /// <value>Used for pagination, when making another request provide this token with the next parameter.</value>
+        [DataMember(Name="next-token", EmitDefaultValue=false)]
+        public string NextToken { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2001 {\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
+            sb.Append("class ApplicationsResponse {\n");
+            sb.Append("  Applications: ").Append(Applications).Append("\n");
             sb.Append("  CurrentRound: ").Append(CurrentRound).Append("\n");
+            sb.Append("  NextToken: ").Append(NextToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,29 +109,35 @@ namespace Algorand.V2.Indexer.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2001);
+            return this.Equals(input as ApplicationsResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2001 instances are equal
+        /// Returns true if ApplicationsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2001 to be compared</param>
+        /// <param name="input">Instance of ApplicationsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2001 input)
+        public bool Equals(ApplicationsResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
+                    this.Applications == input.Applications ||
+                    this.Applications != null &&
+                    input.Applications != null &&
+                    this.Applications.SequenceEqual(input.Applications)
                 ) && 
                 (
                     this.CurrentRound == input.CurrentRound ||
                     (this.CurrentRound != null &&
                     this.CurrentRound.Equals(input.CurrentRound))
+                ) && 
+                (
+                    this.NextToken == input.NextToken ||
+                    (this.NextToken != null &&
+                    this.NextToken.Equals(input.NextToken))
                 );
         }
 
@@ -134,10 +150,12 @@ namespace Algorand.V2.Indexer.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                if (this.Applications != null)
+                    hashCode = hashCode * 59 + this.Applications.GetHashCode();
                 if (this.CurrentRound != null)
                     hashCode = hashCode * 59 + this.CurrentRound.GetHashCode();
+                if (this.NextToken != null)
+                    hashCode = hashCode * 59 + this.NextToken.GetHashCode();
                 return hashCode;
             }
         }

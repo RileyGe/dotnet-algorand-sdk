@@ -38,8 +38,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 SearchForAccounts (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
+        /// <returns>AccountsResponse</returns>
+        AccountsResponse SearchForAccounts (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
 
         /// <summary>
         /// 
@@ -56,8 +56,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> SearchForAccountsWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
+        /// <returns>ApiResponse of AccountsResponse</returns>
+        ApiResponse<AccountsResponse> SearchForAccountsWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
         /// <summary>
         /// 
         /// </summary>
@@ -68,8 +68,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 SearchForApplications (int? applicationId = null, int? limit = null, string next = null);
+        /// <returns>ApplicationsResponse</returns>
+        ApplicationsResponse SearchForApplications (int? applicationId = null, int? limit = null, string next = null);
 
         /// <summary>
         /// 
@@ -81,8 +81,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> SearchForApplicationsWithHttpInfo (int? applicationId = null, int? limit = null, string next = null);
+        /// <returns>ApiResponse of ApplicationsResponse</returns>
+        ApiResponse<ApplicationsResponse> SearchForApplicationsWithHttpInfo (int? applicationId = null, int? limit = null, string next = null);
         /// <summary>
         /// 
         /// </summary>
@@ -96,8 +96,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 SearchForAssets (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
+        /// <returns>AssetsResponse</returns>
+        AssetsResponse SearchForAssets (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
 
         /// <summary>
         /// 
@@ -112,8 +112,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> SearchForAssetsWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
+        /// <returns>ApiResponse of AssetsResponse</returns>
+        ApiResponse<AssetsResponse> SearchForAssetsWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
         /// <summary>
         /// 
         /// </summary>
@@ -140,8 +140,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 SearchForTransactions (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
+        /// <returns>TransactionsResponse</returns>
+        TransactionsResponse SearchForTransactions (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
 
         /// <summary>
         /// 
@@ -169,8 +169,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> SearchForTransactionsWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
+        /// <returns>ApiResponse of TransactionsResponse</returns>
+        ApiResponse<TransactionsResponse> SearchForTransactionsWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -188,8 +188,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> SearchForAccountsAsync (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
+        /// <returns>Task of AccountsResponse</returns>
+        System.Threading.Tasks.Task<AccountsResponse> SearchForAccountsAsync (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
 
         /// <summary>
         /// 
@@ -206,8 +206,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> SearchForAccountsAsyncWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
+        /// <returns>Task of ApiResponse (AccountsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AccountsResponse>> SearchForAccountsAsyncWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null);
         /// <summary>
         /// 
         /// </summary>
@@ -218,8 +218,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> SearchForApplicationsAsync (int? applicationId = null, int? limit = null, string next = null);
+        /// <returns>Task of ApplicationsResponse</returns>
+        System.Threading.Tasks.Task<ApplicationsResponse> SearchForApplicationsAsync (int? applicationId = null, int? limit = null, string next = null);
 
         /// <summary>
         /// 
@@ -231,8 +231,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> SearchForApplicationsAsyncWithHttpInfo (int? applicationId = null, int? limit = null, string next = null);
+        /// <returns>Task of ApiResponse (ApplicationsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationsResponse>> SearchForApplicationsAsyncWithHttpInfo (int? applicationId = null, int? limit = null, string next = null);
         /// <summary>
         /// 
         /// </summary>
@@ -246,8 +246,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> SearchForAssetsAsync (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
+        /// <returns>Task of AssetsResponse</returns>
+        System.Threading.Tasks.Task<AssetsResponse> SearchForAssetsAsync (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
 
         /// <summary>
         /// 
@@ -262,8 +262,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchForAssetsAsyncWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
+        /// <returns>Task of ApiResponse (AssetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AssetsResponse>> SearchForAssetsAsyncWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null);
         /// <summary>
         /// 
         /// </summary>
@@ -290,8 +290,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> SearchForTransactionsAsync (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
+        /// <returns>Task of TransactionsResponse</returns>
+        System.Threading.Tasks.Task<TransactionsResponse> SearchForTransactionsAsync (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
 
         /// <summary>
         /// 
@@ -319,8 +319,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> SearchForTransactionsAsyncWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
+        /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> SearchForTransactionsAsyncWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null);
         #endregion Asynchronous Operations
     }
 
@@ -444,10 +444,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 SearchForAccounts (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
+        /// <returns>AccountsResponse</returns>
+        public AccountsResponse SearchForAccounts (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = SearchForAccountsWithHttpInfo(assetId, limit, next, currencyGreaterThan, currencyLessThan, authAddr, round, applicationId);
+             ApiResponse<AccountsResponse> localVarResponse = SearchForAccountsWithHttpInfo(assetId, limit, next, currencyGreaterThan, currencyLessThan, authAddr, round, applicationId);
              return localVarResponse.Data;
         }
 
@@ -463,8 +463,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > SearchForAccountsWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
+        /// <returns>ApiResponse of AccountsResponse</returns>
+        public ApiResponse< AccountsResponse > SearchForAccountsWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
         {
 
             var localVarPath = "/v2/accounts";
@@ -510,9 +510,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<AccountsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+                (AccountsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AccountsResponse)));
         }
 
         /// <summary>
@@ -527,10 +527,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> SearchForAccountsAsync (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
+        /// <returns>Task of AccountsResponse</returns>
+        public async System.Threading.Tasks.Task<AccountsResponse> SearchForAccountsAsync (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = await SearchForAccountsAsyncWithHttpInfo(assetId, limit, next, currencyGreaterThan, currencyLessThan, authAddr, round, applicationId);
+             ApiResponse<AccountsResponse> localVarResponse = await SearchForAccountsAsyncWithHttpInfo(assetId, limit, next, currencyGreaterThan, currencyLessThan, authAddr, round, applicationId);
              return localVarResponse.Data;
 
         }
@@ -547,8 +547,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="authAddr">Include accounts configured to use this spending key. (optional)</param>
         /// <param name="round">Include results for the specified round. For performance reasons, this parameter may be disabled on some configurations. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> SearchForAccountsAsyncWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
+        /// <returns>Task of ApiResponse (AccountsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AccountsResponse>> SearchForAccountsAsyncWithHttpInfo (int? assetId = null, int? limit = null, string next = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string authAddr = null, int? round = null, int? applicationId = null)
         {
 
             var localVarPath = "/v2/accounts";
@@ -594,9 +594,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<AccountsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+                (AccountsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AccountsResponse)));
         }
 
         /// <summary>
@@ -606,10 +606,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 SearchForApplications (int? applicationId = null, int? limit = null, string next = null)
+        /// <returns>ApplicationsResponse</returns>
+        public ApplicationsResponse SearchForApplications (int? applicationId = null, int? limit = null, string next = null)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = SearchForApplicationsWithHttpInfo(applicationId, limit, next);
+             ApiResponse<ApplicationsResponse> localVarResponse = SearchForApplicationsWithHttpInfo(applicationId, limit, next);
              return localVarResponse.Data;
         }
 
@@ -620,8 +620,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > SearchForApplicationsWithHttpInfo (int? applicationId = null, int? limit = null, string next = null)
+        /// <returns>ApiResponse of ApplicationsResponse</returns>
+        public ApiResponse< ApplicationsResponse > SearchForApplicationsWithHttpInfo (int? applicationId = null, int? limit = null, string next = null)
         {
 
             var localVarPath = "/v2/applications";
@@ -662,9 +662,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<ApplicationsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+                (ApplicationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationsResponse)));
         }
 
         /// <summary>
@@ -674,10 +674,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> SearchForApplicationsAsync (int? applicationId = null, int? limit = null, string next = null)
+        /// <returns>Task of ApplicationsResponse</returns>
+        public async System.Threading.Tasks.Task<ApplicationsResponse> SearchForApplicationsAsync (int? applicationId = null, int? limit = null, string next = null)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = await SearchForApplicationsAsyncWithHttpInfo(applicationId, limit, next);
+             ApiResponse<ApplicationsResponse> localVarResponse = await SearchForApplicationsAsyncWithHttpInfo(applicationId, limit, next);
              return localVarResponse.Data;
 
         }
@@ -689,8 +689,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="applicationId">Application ID (optional)</param>
         /// <param name="limit">Maximum number of results to return. (optional)</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> SearchForApplicationsAsyncWithHttpInfo (int? applicationId = null, int? limit = null, string next = null)
+        /// <returns>Task of ApiResponse (ApplicationsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationsResponse>> SearchForApplicationsAsyncWithHttpInfo (int? applicationId = null, int? limit = null, string next = null)
         {
 
             var localVarPath = "/v2/applications";
@@ -731,9 +731,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<ApplicationsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+                (ApplicationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationsResponse)));
         }
 
         /// <summary>
@@ -746,10 +746,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 SearchForAssets (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
+        /// <returns>AssetsResponse</returns>
+        public AssetsResponse SearchForAssets (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
         {
-             ApiResponse<InlineResponse2005> localVarResponse = SearchForAssetsWithHttpInfo(limit, next, creator, name, unit, assetId);
+             ApiResponse<AssetsResponse> localVarResponse = SearchForAssetsWithHttpInfo(limit, next, creator, name, unit, assetId);
              return localVarResponse.Data;
         }
 
@@ -763,8 +763,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse< InlineResponse2005 > SearchForAssetsWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
+        /// <returns>ApiResponse of AssetsResponse</returns>
+        public ApiResponse< AssetsResponse > SearchForAssetsWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
         {
 
             var localVarPath = "/v2/assets";
@@ -808,9 +808,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<AssetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+                (AssetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetsResponse)));
         }
 
         /// <summary>
@@ -823,10 +823,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> SearchForAssetsAsync (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
+        /// <returns>Task of AssetsResponse</returns>
+        public async System.Threading.Tasks.Task<AssetsResponse> SearchForAssetsAsync (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
         {
-             ApiResponse<InlineResponse2005> localVarResponse = await SearchForAssetsAsyncWithHttpInfo(limit, next, creator, name, unit, assetId);
+             ApiResponse<AssetsResponse> localVarResponse = await SearchForAssetsAsyncWithHttpInfo(limit, next, creator, name, unit, assetId);
              return localVarResponse.Data;
 
         }
@@ -841,8 +841,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="name">Filter just assets with the given name. (optional)</param>
         /// <param name="unit">Filter just assets with the given unit. (optional)</param>
         /// <param name="assetId">Asset ID (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchForAssetsAsyncWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
+        /// <returns>Task of ApiResponse (AssetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AssetsResponse>> SearchForAssetsAsyncWithHttpInfo (int? limit = null, string next = null, string creator = null, string name = null, string unit = null, int? assetId = null)
         {
 
             var localVarPath = "/v2/assets";
@@ -886,9 +886,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<AssetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+                (AssetsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetsResponse)));
         }
 
         /// <summary>
@@ -914,10 +914,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 SearchForTransactions (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
+        /// <returns>TransactionsResponse</returns>
+        public TransactionsResponse SearchForTransactions (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
         {
-             ApiResponse<InlineResponse2002> localVarResponse = SearchForTransactionsWithHttpInfo(limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, assetId, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, address, addressRole, excludeCloseTo, rekeyTo, applicationId);
+             ApiResponse<TransactionsResponse> localVarResponse = SearchForTransactionsWithHttpInfo(limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, assetId, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, address, addressRole, excludeCloseTo, rekeyTo, applicationId);
              return localVarResponse.Data;
         }
 
@@ -944,8 +944,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse< InlineResponse2002 > SearchForTransactionsWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
+        /// <returns>ApiResponse of TransactionsResponse</returns>
+        public ApiResponse<TransactionsResponse> SearchForTransactionsWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
         {
 
             var localVarPath = "/v2/transactions";
@@ -1002,9 +1002,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<TransactionsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2002) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002)));
+                (TransactionsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TransactionsResponse)));
         }
 
         /// <summary>
@@ -1030,10 +1030,10 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> SearchForTransactionsAsync (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
+        /// <returns>Task of TransactionsResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionsResponse> SearchForTransactionsAsync (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
         {
-             ApiResponse<InlineResponse2002> localVarResponse = await SearchForTransactionsAsyncWithHttpInfo(limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, assetId, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, address, addressRole, excludeCloseTo, rekeyTo, applicationId);
+             ApiResponse<TransactionsResponse> localVarResponse = await SearchForTransactionsAsyncWithHttpInfo(limit, next, notePrefix, txType, sigType, txid, round, minRound, maxRound, assetId, beforeTime, afterTime, currencyGreaterThan, currencyLessThan, address, addressRole, excludeCloseTo, rekeyTo, applicationId);
              return localVarResponse.Data;
 
         }
@@ -1061,8 +1061,8 @@ namespace Algorand.V2.Indexer.Api
         /// <param name="excludeCloseTo">Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</param>
         /// <param name="rekeyTo">Include results which include the rekey-to field. (optional)</param>
         /// <param name="applicationId">Application ID (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> SearchForTransactionsAsyncWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
+        /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> SearchForTransactionsAsyncWithHttpInfo (int? limit = null, string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, int? round = null, int? minRound = null, int? maxRound = null, int? assetId = null, DateTime? beforeTime = null, DateTime? afterTime = null, int? currencyGreaterThan = null, int? currencyLessThan = null, string address = null, string addressRole = null, bool? excludeCloseTo = null, bool? rekeyTo = null, int? applicationId = null)
         {
 
             var localVarPath = "/v2/transactions";
@@ -1119,9 +1119,9 @@ namespace Algorand.V2.Indexer.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<TransactionsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2002) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002)));
+                (TransactionsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TransactionsResponse)));
         }
 
     }

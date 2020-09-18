@@ -24,44 +24,38 @@ using SwaggerDateConverter = Algorand.V2.Indexer.Client.SwaggerDateConverter;
 namespace Algorand.V2.Indexer.Model
 {
     /// <summary>
-    /// InlineResponse2006
+    /// TransactionResponse
     /// </summary>
     [DataContract]
-        public partial class InlineResponse2006 :  IEquatable<InlineResponse2006>, IValidatableObject
+        public partial class TransactionResponse :  IEquatable<TransactionResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2006" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2008" /> class.
         /// </summary>
-        /// <param name="asset">asset (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        public InlineResponse2006(Asset asset = default(Asset), int? currentRound = default(int?))
+        /// <param name="transaction">transaction (required).</param>
+        public TransactionResponse(int? currentRound = default(int?), Transaction transaction = default(Transaction))
         {
-            // to ensure "asset" is required (not null)
-            if (asset == null)
-            {
-                throw new InvalidDataException("asset is a required property for InlineResponse2006 and cannot be null");
-            }
-            else
-            {
-                this.Asset = asset;
-            }
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
             {
-                throw new InvalidDataException("currentRound is a required property for InlineResponse2006 and cannot be null");
+                throw new InvalidDataException("currentRound is a required property for TransactionResponse and cannot be null");
             }
             else
             {
                 this.CurrentRound = currentRound;
             }
+            // to ensure "transaction" is required (not null)
+            if (transaction == null)
+            {
+                throw new InvalidDataException("transaction is a required property for TransactionResponse and cannot be null");
+            }
+            else
+            {
+                this.Transaction = transaction;
+            }
         }
         
-        /// <summary>
-        /// Gets or Sets Asset
-        /// </summary>
-        [DataMember(Name="asset", EmitDefaultValue=false)]
-        public Asset Asset { get; set; }
-
         /// <summary>
         /// Round at which the results were computed.
         /// </summary>
@@ -70,15 +64,21 @@ namespace Algorand.V2.Indexer.Model
         public int? CurrentRound { get; set; }
 
         /// <summary>
+        /// Gets or Sets Transaction
+        /// </summary>
+        [DataMember(Name="transaction", EmitDefaultValue=false)]
+        public Transaction Transaction { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2006 {\n");
-            sb.Append("  Asset: ").Append(Asset).Append("\n");
+            sb.Append("class TransactionResponse {\n");
             sb.Append("  CurrentRound: ").Append(CurrentRound).Append("\n");
+            sb.Append("  Transaction: ").Append(Transaction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,29 +99,29 @@ namespace Algorand.V2.Indexer.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2006);
+            return this.Equals(input as TransactionResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2006 instances are equal
+        /// Returns true if TransactionResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2006 to be compared</param>
+        /// <param name="input">Instance of TransactionResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2006 input)
+        public bool Equals(TransactionResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Asset == input.Asset ||
-                    (this.Asset != null &&
-                    this.Asset.Equals(input.Asset))
-                ) && 
-                (
                     this.CurrentRound == input.CurrentRound ||
                     (this.CurrentRound != null &&
                     this.CurrentRound.Equals(input.CurrentRound))
+                ) && 
+                (
+                    this.Transaction == input.Transaction ||
+                    (this.Transaction != null &&
+                    this.Transaction.Equals(input.Transaction))
                 );
         }
 
@@ -134,10 +134,10 @@ namespace Algorand.V2.Indexer.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Asset != null)
-                    hashCode = hashCode * 59 + this.Asset.GetHashCode();
                 if (this.CurrentRound != null)
                     hashCode = hashCode * 59 + this.CurrentRound.GetHashCode();
+                if (this.Transaction != null)
+                    hashCode = hashCode * 59 + this.Transaction.GetHashCode();
                 return hashCode;
             }
         }

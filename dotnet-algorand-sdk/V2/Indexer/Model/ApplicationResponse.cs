@@ -24,22 +24,22 @@ using SwaggerDateConverter = Algorand.V2.Indexer.Client.SwaggerDateConverter;
 namespace Algorand.V2.Indexer.Model
 {
     /// <summary>
-    /// InlineResponse2004
+    /// ApplicationResponse
     /// </summary>
     [DataContract]
-        public partial class InlineResponse2004 :  IEquatable<InlineResponse2004>, IValidatableObject
+        public partial class ApplicationResponse :  IEquatable<ApplicationResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2004" /> class.
         /// </summary>
         /// <param name="application">application.</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        public InlineResponse2004(Application application = default(Application), int? currentRound = default(int?))
+        public ApplicationResponse(Application application = default(Application), int? currentRound = default(int?))
         {
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
             {
-                throw new InvalidDataException("currentRound is a required property for InlineResponse2004 and cannot be null");
+                throw new InvalidDataException("currentRound is a required property for ApplicationResponse and cannot be null");
             }
             else
             {
@@ -68,7 +68,7 @@ namespace Algorand.V2.Indexer.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2004 {\n");
+            sb.Append("class ApplicationResponse {\n");
             sb.Append("  Application: ").Append(Application).Append("\n");
             sb.Append("  CurrentRound: ").Append(CurrentRound).Append("\n");
             sb.Append("}\n");
@@ -91,15 +91,15 @@ namespace Algorand.V2.Indexer.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2004);
+            return this.Equals(input as ApplicationResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2004 instances are equal
+        /// Returns true if ApplicationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2004 to be compared</param>
+        /// <param name="input">Instance of ApplicationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2004 input)
+        public bool Equals(ApplicationResponse input)
         {
             if (input == null)
                 return false;

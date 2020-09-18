@@ -24,32 +24,32 @@ using SwaggerDateConverter = Algorand.V2.Indexer.Client.SwaggerDateConverter;
 namespace Algorand.V2.Indexer.Model
 {
     /// <summary>
-    /// InlineResponse2007
+    /// AccountsResponse
     /// </summary>
     [DataContract]
-        public partial class InlineResponse2007 :  IEquatable<InlineResponse2007>, IValidatableObject
+        public partial class AccountsResponse :  IEquatable<AccountsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2007" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="balances">balances (required).</param>
+        /// <param name="accounts">accounts (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
         /// <param name="nextToken">Used for pagination, when making another request provide this token with the next parameter..</param>
-        public InlineResponse2007(List<MiniAssetHolding> balances = default(List<MiniAssetHolding>), int? currentRound = default(int?), string nextToken = default(string))
+        public AccountsResponse(List<Account> accounts = default(List<Account>), int? currentRound = default(int?), string nextToken = default(string))
         {
-            // to ensure "balances" is required (not null)
-            if (balances == null)
+            // to ensure "accounts" is required (not null)
+            if (accounts == null)
             {
-                throw new InvalidDataException("balances is a required property for InlineResponse2007 and cannot be null");
+                throw new InvalidDataException("accounts is a required property for AccountsResponse and cannot be null");
             }
             else
             {
-                this.Balances = balances;
+                this.Accounts = accounts;
             }
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
             {
-                throw new InvalidDataException("currentRound is a required property for InlineResponse2007 and cannot be null");
+                throw new InvalidDataException("currentRound is a required property for AccountsResponse and cannot be null");
             }
             else
             {
@@ -59,10 +59,10 @@ namespace Algorand.V2.Indexer.Model
         }
         
         /// <summary>
-        /// Gets or Sets Balances
+        /// Gets or Sets Accounts
         /// </summary>
-        [DataMember(Name="balances", EmitDefaultValue=false)]
-        public List<MiniAssetHolding> Balances { get; set; }
+        [DataMember(Name="accounts", EmitDefaultValue=false)]
+        public List<Account> Accounts { get; set; }
 
         /// <summary>
         /// Round at which the results were computed.
@@ -85,8 +85,8 @@ namespace Algorand.V2.Indexer.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2007 {\n");
-            sb.Append("  Balances: ").Append(Balances).Append("\n");
+            sb.Append("class AccountsResponse {\n");
+            sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  CurrentRound: ").Append(CurrentRound).Append("\n");
             sb.Append("  NextToken: ").Append(NextToken).Append("\n");
             sb.Append("}\n");
@@ -109,25 +109,25 @@ namespace Algorand.V2.Indexer.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2007);
+            return this.Equals(input as AccountsResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2007 instances are equal
+        /// Returns true if AccountsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2007 to be compared</param>
+        /// <param name="input">Instance of AccountsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2007 input)
+        public bool Equals(AccountsResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Balances == input.Balances ||
-                    this.Balances != null &&
-                    input.Balances != null &&
-                    this.Balances.SequenceEqual(input.Balances)
+                    this.Accounts == input.Accounts ||
+                    this.Accounts != null &&
+                    input.Accounts != null &&
+                    this.Accounts.SequenceEqual(input.Accounts)
                 ) && 
                 (
                     this.CurrentRound == input.CurrentRound ||
@@ -150,8 +150,8 @@ namespace Algorand.V2.Indexer.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Balances != null)
-                    hashCode = hashCode * 59 + this.Balances.GetHashCode();
+                if (this.Accounts != null)
+                    hashCode = hashCode * 59 + this.Accounts.GetHashCode();
                 if (this.CurrentRound != null)
                     hashCode = hashCode * 59 + this.CurrentRound.GetHashCode();
                 if (this.NextToken != null)

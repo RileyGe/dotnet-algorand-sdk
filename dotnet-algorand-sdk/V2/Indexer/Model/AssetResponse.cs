@@ -24,45 +24,43 @@ using SwaggerDateConverter = Algorand.V2.Indexer.Client.SwaggerDateConverter;
 namespace Algorand.V2.Indexer.Model
 {
     /// <summary>
-    /// InlineResponse2005
+    /// AssetResponse
     /// </summary>
     [DataContract]
-        public partial class InlineResponse2005 :  IEquatable<InlineResponse2005>, IValidatableObject
+        public partial class AssetResponse :  IEquatable<AssetResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2005" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2006" /> class.
         /// </summary>
-        /// <param name="assets">assets (required).</param>
+        /// <param name="asset">asset (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        /// <param name="nextToken">Used for pagination, when making another request provide this token with the next parameter..</param>
-        public InlineResponse2005(List<Asset> assets = default(List<Asset>), int? currentRound = default(int?), string nextToken = default(string))
+        public AssetResponse(Asset asset = default(Asset), int? currentRound = default(int?))
         {
-            // to ensure "assets" is required (not null)
-            if (assets == null)
+            // to ensure "asset" is required (not null)
+            if (asset == null)
             {
-                throw new InvalidDataException("assets is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("asset is a required property for AssetResponse and cannot be null");
             }
             else
             {
-                this.Assets = assets;
+                this.Asset = asset;
             }
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
             {
-                throw new InvalidDataException("currentRound is a required property for InlineResponse2005 and cannot be null");
+                throw new InvalidDataException("currentRound is a required property for AssetResponse and cannot be null");
             }
             else
             {
                 this.CurrentRound = currentRound;
             }
-            this.NextToken = nextToken;
         }
         
         /// <summary>
-        /// Gets or Sets Assets
+        /// Gets or Sets Asset
         /// </summary>
-        [DataMember(Name="assets", EmitDefaultValue=false)]
-        public List<Asset> Assets { get; set; }
+        [DataMember(Name="asset", EmitDefaultValue=false)]
+        public Asset Asset { get; set; }
 
         /// <summary>
         /// Round at which the results were computed.
@@ -72,23 +70,15 @@ namespace Algorand.V2.Indexer.Model
         public int? CurrentRound { get; set; }
 
         /// <summary>
-        /// Used for pagination, when making another request provide this token with the next parameter.
-        /// </summary>
-        /// <value>Used for pagination, when making another request provide this token with the next parameter.</value>
-        [DataMember(Name="next-token", EmitDefaultValue=false)]
-        public string NextToken { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2005 {\n");
-            sb.Append("  Assets: ").Append(Assets).Append("\n");
+            sb.Append("class AssetResponse {\n");
+            sb.Append("  Asset: ").Append(Asset).Append("\n");
             sb.Append("  CurrentRound: ").Append(CurrentRound).Append("\n");
-            sb.Append("  NextToken: ").Append(NextToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,35 +99,29 @@ namespace Algorand.V2.Indexer.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2005);
+            return this.Equals(input as AssetResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2005 instances are equal
+        /// Returns true if AssetResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2005 to be compared</param>
+        /// <param name="input">Instance of AssetResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2005 input)
+        public bool Equals(AssetResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Assets == input.Assets ||
-                    this.Assets != null &&
-                    input.Assets != null &&
-                    this.Assets.SequenceEqual(input.Assets)
+                    this.Asset == input.Asset ||
+                    (this.Asset != null &&
+                    this.Asset.Equals(input.Asset))
                 ) && 
                 (
                     this.CurrentRound == input.CurrentRound ||
                     (this.CurrentRound != null &&
                     this.CurrentRound.Equals(input.CurrentRound))
-                ) && 
-                (
-                    this.NextToken == input.NextToken ||
-                    (this.NextToken != null &&
-                    this.NextToken.Equals(input.NextToken))
                 );
         }
 
@@ -150,12 +134,10 @@ namespace Algorand.V2.Indexer.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Assets != null)
-                    hashCode = hashCode * 59 + this.Assets.GetHashCode();
+                if (this.Asset != null)
+                    hashCode = hashCode * 59 + this.Asset.GetHashCode();
                 if (this.CurrentRound != null)
                     hashCode = hashCode * 59 + this.CurrentRound.GetHashCode();
-                if (this.NextToken != null)
-                    hashCode = hashCode * 59 + this.NextToken.GetHashCode();
                 return hashCode;
             }
         }

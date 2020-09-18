@@ -24,38 +24,46 @@ using SwaggerDateConverter = Algorand.V2.Indexer.Client.SwaggerDateConverter;
 namespace Algorand.V2.Indexer.Model
 {
     /// <summary>
-    /// InlineResponse2008
+    /// AssetBalancesResponse
     /// </summary>
     [DataContract]
-        public partial class InlineResponse2008 :  IEquatable<InlineResponse2008>, IValidatableObject
+        public partial class AssetBalancesResponse :  IEquatable<AssetBalancesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2008" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2007" /> class.
         /// </summary>
+        /// <param name="balances">balances (required).</param>
         /// <param name="currentRound">Round at which the results were computed. (required).</param>
-        /// <param name="transaction">transaction (required).</param>
-        public InlineResponse2008(int? currentRound = default(int?), Transaction transaction = default(Transaction))
+        /// <param name="nextToken">Used for pagination, when making another request provide this token with the next parameter..</param>
+        public AssetBalancesResponse(List<MiniAssetHolding> balances = default(List<MiniAssetHolding>), int? currentRound = default(int?), string nextToken = default(string))
         {
+            // to ensure "balances" is required (not null)
+            if (balances == null)
+            {
+                throw new InvalidDataException("balances is a required property for AssetBalancesResponse and cannot be null");
+            }
+            else
+            {
+                this.Balances = balances;
+            }
             // to ensure "currentRound" is required (not null)
             if (currentRound == null)
             {
-                throw new InvalidDataException("currentRound is a required property for InlineResponse2008 and cannot be null");
+                throw new InvalidDataException("currentRound is a required property for AssetBalancesResponse and cannot be null");
             }
             else
             {
                 this.CurrentRound = currentRound;
             }
-            // to ensure "transaction" is required (not null)
-            if (transaction == null)
-            {
-                throw new InvalidDataException("transaction is a required property for InlineResponse2008 and cannot be null");
-            }
-            else
-            {
-                this.Transaction = transaction;
-            }
+            this.NextToken = nextToken;
         }
         
+        /// <summary>
+        /// Gets or Sets Balances
+        /// </summary>
+        [DataMember(Name="balances", EmitDefaultValue=false)]
+        public List<MiniAssetHolding> Balances { get; set; }
+
         /// <summary>
         /// Round at which the results were computed.
         /// </summary>
@@ -64,10 +72,11 @@ namespace Algorand.V2.Indexer.Model
         public int? CurrentRound { get; set; }
 
         /// <summary>
-        /// Gets or Sets Transaction
+        /// Used for pagination, when making another request provide this token with the next parameter.
         /// </summary>
-        [DataMember(Name="transaction", EmitDefaultValue=false)]
-        public Transaction Transaction { get; set; }
+        /// <value>Used for pagination, when making another request provide this token with the next parameter.</value>
+        [DataMember(Name="next-token", EmitDefaultValue=false)]
+        public string NextToken { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,9 +85,10 @@ namespace Algorand.V2.Indexer.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2008 {\n");
+            sb.Append("class AssetBalancesResponse {\n");
+            sb.Append("  Balances: ").Append(Balances).Append("\n");
             sb.Append("  CurrentRound: ").Append(CurrentRound).Append("\n");
-            sb.Append("  Transaction: ").Append(Transaction).Append("\n");
+            sb.Append("  NextToken: ").Append(NextToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,29 +109,35 @@ namespace Algorand.V2.Indexer.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2008);
+            return this.Equals(input as AssetBalancesResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2008 instances are equal
+        /// Returns true if AssetBalancesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2008 to be compared</param>
+        /// <param name="input">Instance of AssetBalancesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2008 input)
+        public bool Equals(AssetBalancesResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.Balances == input.Balances ||
+                    this.Balances != null &&
+                    input.Balances != null &&
+                    this.Balances.SequenceEqual(input.Balances)
+                ) && 
+                (
                     this.CurrentRound == input.CurrentRound ||
                     (this.CurrentRound != null &&
                     this.CurrentRound.Equals(input.CurrentRound))
                 ) && 
                 (
-                    this.Transaction == input.Transaction ||
-                    (this.Transaction != null &&
-                    this.Transaction.Equals(input.Transaction))
+                    this.NextToken == input.NextToken ||
+                    (this.NextToken != null &&
+                    this.NextToken.Equals(input.NextToken))
                 );
         }
 
@@ -134,10 +150,12 @@ namespace Algorand.V2.Indexer.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Balances != null)
+                    hashCode = hashCode * 59 + this.Balances.GetHashCode();
                 if (this.CurrentRound != null)
                     hashCode = hashCode * 59 + this.CurrentRound.GetHashCode();
-                if (this.Transaction != null)
-                    hashCode = hashCode * 59 + this.Transaction.GetHashCode();
+                if (this.NextToken != null)
+                    hashCode = hashCode * 59 + this.NextToken.GetHashCode();
                 return hashCode;
             }
         }
