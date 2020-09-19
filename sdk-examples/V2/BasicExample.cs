@@ -3,13 +3,11 @@ using Algorand.V2;
 using Algorand.Client;
 using Algorand.V2.Model;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Account = Algorand.Account;
 
 namespace sdk_examples.V2
 {
-    class BasicExamples
+    class BasicExample
     {
         public static void Main(string[] args)
         {
@@ -26,17 +24,6 @@ namespace sdk_examples.V2
                 Console.WriteLine("The address " + DEST_ADDR + " is not valid!");
             Account src = new Account(SRC_ACCOUNT);
             Console.WriteLine("My account address is:" + src.Address.ToString());
-            if (src.ToMnemonic() != SRC_ACCOUNT)
-            {
-                Console.WriteLine("ToMnemonic function is wriong!");
-            }
-
-            //sign and verify bytes function test
-            var bytes = Encoding.UTF8.GetBytes("examples");
-            var siguture = src.SignBytes(bytes);
-
-            Address srcAddr = new Address(src.Address.ToString());
-            var verifyed = srcAddr.VerifyBytes(bytes, siguture);
 
             AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
 
@@ -51,11 +38,14 @@ namespace sdk_examples.V2
                 Console.WriteLine("Exception when calling algod#getSupply:" + e.Message);
             }
 
+            var accountInfo = algodApiInstance.AccountInformation(src.Address.ToString());
+            Console.WriteLine(string.Format("Account Balance: %d microAlgos", accountInfo.Amount));
+
             try
             {
                 var trans = algodApiInstance.TransactionParams();
-                var lr = (long?)trans.LastRound;
-                var block = algodApiInstance.GetBlock((long?)trans.LastRound);
+                var lr = trans.LastRound;
+                var block = algodApiInstance.GetBlock(lr);
                 
                 Console.WriteLine("Lastround: " + trans.LastRound.ToString());
                 Console.WriteLine("Block txns: " + block.Block.ToString());
@@ -65,7 +55,7 @@ namespace sdk_examples.V2
                 Console.WriteLine("Exception when calling algod#getSupply:" + e.Message);
             }
 
-            TransactionParametersResponse transParams = null;
+            TransactionParametersResponse transParams;
             try
             {
                 transParams = algodApiInstance.TransactionParams();
@@ -75,24 +65,23 @@ namespace sdk_examples.V2
                 throw new Exception("Could not get params", e);
             }
             var amount = Utils.AlgosToMicroalgos(1);
-            //var tx = Utils.GetPaymentTransaction(src.Address, new Address(DEST_ADDR), amount, "pay message", transParams);
-            ////Transaction tx = new Transaction(src.Address, new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
-            //var signedTx = src.SignTransaction(tx);
+            var tx = Utils.GetPaymentTransaction(src.Address, new Address(DEST_ADDR), amount, "pay message", transParams);
+            var signedTx = src.SignTransaction(tx);
 
-            //Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
+            Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-            //// send the transaction to the network
-            //try
-            //{
-            //    //var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
-            //    //Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-            //    //Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
-            //}
-            //catch (ApiException e)
-            //{
-            //    // This is generally expected, but should give us an informative error message.
-            //    Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
-            //}
+            // send the transaction to the network
+            try
+            {
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                Console.WriteLine("Successfully sent tx with id: " + id.TxId);
+                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+            }
+            catch (ApiException e)
+            {
+                // This is generally expected, but should give us an informative error message.
+                Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
+            }
 
             Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
             Console.ReadKey();

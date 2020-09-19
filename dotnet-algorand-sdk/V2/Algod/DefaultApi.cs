@@ -34,7 +34,7 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Account</returns>
-        Account AccountInformation (string address, string format = null);
+        Algorand.V2.Model.Account AccountInformation (string address, string format = null);
 
         /// <summary>
         /// Get account information.
@@ -46,7 +46,7 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of Account</returns>
-        ApiResponse<Account> AccountInformationWithHttpInfo (string address, string format = null);
+        ApiResponse<Algorand.V2.Model.Account> AccountInformationWithHttpInfo (string address, string format = null);
         /// <summary>
         /// Get application information.
         /// </summary>
@@ -733,9 +733,9 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Account</returns>
-        public Account AccountInformation (string address, string format = null)
+        public Algorand.V2.Model.Account AccountInformation (string address, string format = null)
         {
-             ApiResponse<Account> localVarResponse = AccountInformationWithHttpInfo(address, format);
+             ApiResponse<Algorand.V2.Model.Account> localVarResponse = AccountInformationWithHttpInfo(address, format);
              return localVarResponse.Data;
         }
 
@@ -746,7 +746,7 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>ApiResponse of Account</returns>
-        public ApiResponse< Account > AccountInformationWithHttpInfo (string address, string format = null)
+        public ApiResponse<Algorand.V2.Model.Account> AccountInformationWithHttpInfo (string address, string format = null)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -797,9 +797,9 @@ namespace Algorand.V2.Algod
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Account>(localVarStatusCode,
+            return new ApiResponse<Algorand.V2.Model.Account>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+                (Algorand.V2.Model.Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Algorand.V2.Model.Account)));
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace Algorand
     public class Wordlist
     {
         private const string RAW_CHECKSUM = "cancel";
-        public static string[] RAW = new String[]{
+        public static string[] RAW = new string[]{
             "abandon",
             "ability",
             "able",

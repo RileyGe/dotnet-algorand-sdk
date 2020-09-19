@@ -16,7 +16,7 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
-            BasicExamples.Main(args); return;
+            BasicExample.Main(args); return;
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;

@@ -1,15 +1,15 @@
 ﻿using Algorand;
-using Algorand.Algod.Api;
-using Algorand.Algod.Model;
+using Algorand.V2;
+using Algorand.V2.Model;
 using System;
 using System.Text;
 using Account = Algorand.Account;
 
-namespace sdk_examples
+namespace sdk_examples.V2
 {
-    /**
- * Show Creating, modifying, sending and listing assets 
- */
+    /// <summary>
+    /// Show Creating, modifying, sending and listing assets 
+    /// </summary>
     class AssetExample
     {
         // Utility function for sending a raw signed transaction to the network        
@@ -55,12 +55,10 @@ namespace sdk_examples
 
             // Create the Asset
             // Total number of this asset available for circulation            
-            var ap = new AssetParams(creator: acct1.Address.ToString(), assetname: "latikum22", 
-                unitname: "LAT", defaultfrozen: false, total: 10000,
-                url: "http://this.test.com", metadatahash: Convert.ToBase64String(
-                    Encoding.ASCII.GetBytes("16efaa3924a6fd9d3a4880099a4ac65d")))
+            var ap = new AssetParams(creator: acct1.Address.ToString(), name: "latikum22", unitName: "LAT", total: 10000,
+                url: "http://this.test.com", metadataHash: Encoding.ASCII.GetBytes("16efaa3924a6fd9d3a4880099a4ac65d"))
             {
-                Managerkey = acct2.Address.ToString()
+                Manager = acct2.Address.ToString()
             };
 
             // Specified address can change reserve, freeze, clawback, and manager
@@ -72,15 +70,15 @@ namespace sdk_examples
             SignedTransaction signedTx = acct1.SignTransaction(tx);
             // send the transaction to the network and
             // wait for the transaction to be confirmed
-            ulong? assetID;
+            long? assetID = 0;
             try
             {
-                TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // Now that the transaction is confirmed we can get the assetID
-                Algorand.Algod.Model.Transaction ptx = algodApiInstance.PendingTransactionInformation(id.TxId);
-                assetID = ptx.Txresults.Createdasset;
+                var ptx = algodApiInstance.PendingTransactionInformation(id.TxId);                
+                assetID = ptx.AssetIndex;
             }
             catch (Exception e)
             {
@@ -96,7 +94,7 @@ namespace sdk_examples
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
             transParams = algodApiInstance.TransactionParams();
-            ap = algodApiInstance.AssetInformation((long?)assetID);
+            Asset ast = algodApiInstance.GetAssetByID(assetID);
 
             // Note that configuration changes must be done by
             // The manager account, which is currently acct2
@@ -104,8 +102,8 @@ namespace sdk_examples
             // creation parameters and only changing the manager
             // and transaction parameters like first and last round
             // now update the manager to acct1
-            ap.Managerkey = acct1.Address.ToString();
-            tx = Utils.GetConfigAssetTransaction(acct2.Address, assetID, ap, transParams, "config trans");
+            ast.Params.Manager = acct1.Address.ToString();
+            tx = Utils.GetConfigAssetTransaction(acct2.Address, ast, transParams, "config trans");
 
             // The transaction must be signed by the current manager account
             // We are reusing the signedTx variable from the first transaction in the example    
@@ -114,7 +112,7 @@ namespace sdk_examples
             // wait for the transaction to be confirmed
             try
             {
-                TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
             }
@@ -127,7 +125,7 @@ namespace sdk_examples
 
             // Next we will list the newly created asset
             // Get the asset information for the newly changed asset            
-            ap = algodApiInstance.AssetInformation((long?)assetID);
+            ast = algodApiInstance.GetAssetByID(assetID);
             //The manager should now be the same as the creator
             Console.WriteLine(ap);
 
@@ -143,17 +141,17 @@ namespace sdk_examples
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
             transParams = algodApiInstance.TransactionParams();
-            tx = Utils.GetActivateAssetTransaction(acct3.Address, assetID, transParams, "opt in transaction");
+            tx = Utils.GetAssetOptingInTransaction(acct3.Address, assetID, transParams, "opt in transaction");
 
             // The transaction must be signed by the current manager account
             // We are reusing the signedTx variable from the first transaction in the example    
             signedTx = acct3.SignTransaction(tx);
             // send the transaction to the network and
             // wait for the transaction to be confirmed
-            Algorand.Algod.Model.Account act = null;
+            Algorand.V2.Model.Account act = null;
             try
             {
-                TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // We can now list the account information for acct3 
@@ -163,12 +161,9 @@ namespace sdk_examples
             }
             catch (Exception e)
             {
-                //e.printStackTrace();
                 Console.WriteLine(e.Message);
                 return;
             }
-
-
 
             // Transfer the Asset:
             // Now that account3 can recieve the new asset 
@@ -189,13 +184,13 @@ namespace sdk_examples
             // wait for the transaction to be confirmed
             try
             {
-                TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // We can now list the account information for acct3 
                 // and see that it now has 5 of the new asset
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
-                Console.WriteLine(act.GetHolding(assetID).Amount);
+                Console.WriteLine(act.Assets.Find(h => h.AssetId == assetID).Amount);
             }
             catch (Exception e)
             {
@@ -203,10 +198,6 @@ namespace sdk_examples
                 Console.WriteLine(e.Message);
                 return;
             }
-
-
-
-
 
             // Freeze the Asset:
             // The asset was created and configured to allow freezing an account
@@ -229,14 +220,14 @@ namespace sdk_examples
             // wait for the transaction to be confirmed
             try
             {
-                TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // We can now list the account information for acct3 
                 // and see that it now frozen 
                 // Note--currently no getter method for frozen state
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
-                Console.WriteLine(act.GetHolding(assetID).ToString());
+                Console.WriteLine(act.Assets.Find(h => h.AssetId == assetID));
             }
             catch (Exception e)
             {
@@ -268,13 +259,13 @@ namespace sdk_examples
             // wait for the transaction to be confirmed
             try
             {
-                TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
                 Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
                 // We can now list the account information for acct3 
                 // and see that it now has 0 of the new asset
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
-                Console.WriteLine(act.GetHolding(assetID).Amount);
+                Console.WriteLine(act.Assets.Find(h => h.AssetId == assetID).Amount);
             }
             catch (Exception e)
             {
@@ -282,8 +273,6 @@ namespace sdk_examples
                 Console.WriteLine(e.Message);
                 return;
             }
-
-
 
             // Destroy the Asset:
             // All of the created assets should now be back in the creators
@@ -304,7 +293,7 @@ namespace sdk_examples
             // wait for the transaction to be confirmed
             try
             {
-                TransactionID id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
                 //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
                 //Console.ReadKey();
