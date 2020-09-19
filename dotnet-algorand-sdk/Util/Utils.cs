@@ -445,15 +445,15 @@ namespace Algorand
         //    return tx;
         //}
 
-        public static Transaction GetLogicSignatureTransaction(Address signingAcct, Address receiver, TransactionParams trans, string message = "")
-        {
-            var tx = new Transaction(signingAcct, receiver, 1, trans.LastRound, trans.LastRound + 1000,
-                trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
-            {
-                note = Encoding.UTF8.GetBytes(message)
-            };
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
-            return tx;
-        }
+        //public static Transaction GetLogicSignatureTransaction(Address signingAcct, Address receiver, TransactionParams trans, string message = "")
+        //{
+        //    var tx = new Transaction(signingAcct, receiver, 1, trans.LastRound, trans.LastRound + 1000,
+        //        trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
+        //    {
+        //        note = Encoding.UTF8.GetBytes(message)
+        //    };
+        //    Account.SetFeeByFeePerByte(tx, trans.Fee);
+        //    return tx;
+        //}
     }
 }

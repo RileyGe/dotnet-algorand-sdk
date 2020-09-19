@@ -45,9 +45,8 @@ namespace sdk_examples.V2.contract
             {
                 try
                 {
-                    SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
-                    byte[] encodedTxBytes = Encoder.EncodeToMsgPack(stx);
-                    var id = algodApiInstance.RawTransaction(encodedTxBytes);
+                    SignedTransaction signedTx = Account.SignLogicsigTransaction(lsig, tx);
+                    var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                     Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
                 }
                 catch (ApiException e)

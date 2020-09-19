@@ -38,12 +38,12 @@ namespace sdk_examples
 
             // sign the logic signaure with an account sk
             src.SignLogicsig(lsig);
-           
-            Transaction tx = Utils.GetLogicSignatureTransaction(src.Address, new Address(DEST_ADDR), transParams, "logic sig message");
+
+            Transaction tx = Utils.GetPaymentTransaction(src.Address, new Address(DEST_ADDR), 100000, "logic sig message", transParams);
             try
             {
                 //bypass verify for non-lsig
-                SignedTransaction stx = Account.SignLogicsigDelegatedTransaction(lsig, tx);
+                SignedTransaction stx = Account.SignLogicsigTransaction(lsig, tx);
                 byte[] encodedTxBytes = Encoder.EncodeToMsgPack(stx);
                 var id = algodApiInstance.RawTransaction(encodedTxBytes);
                 Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
