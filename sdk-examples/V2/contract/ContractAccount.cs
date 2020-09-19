@@ -32,9 +32,9 @@ namespace sdk_examples.V2.contract
             byte[] program = Convert.FromBase64String("ASABASI=");
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
-            Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
+            Console.WriteLine("Escrow address: " + lsig.Address.ToString());
 
-            var tx = Utils.GetPaymentTransaction(lsig.ToAddress(), src.Address, 100000, "draw algo from contract", transParams);
+            var tx = Utils.GetPaymentTransaction(lsig.Address, src.Address, 100000, "draw algo from contract", transParams);
           
             if (!lsig.Verify(tx.sender))
             {

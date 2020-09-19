@@ -98,11 +98,23 @@ namespace Algorand
             this.logic = null;
             this.args = null;
         }
-
+        /// <summary>
+        /// DEPRECATED
+        /// Please use Address property.
+        /// The address of the LogicsigSignature
+        /// </summary>
+        /// <returns>The address of the LogicsigSignature</returns>
         public Address ToAddress()
         {
-            byte[] prefixedEncoded = this.BytesToSign();
-            return new Address(Digester.Digest(prefixedEncoded));
+            return Address;
+        }
+        /// <summary>
+        /// The address of the LogicsigSignature
+        /// </summary>
+        public Address Address { 
+            get {
+                return new Address(Digester.Digest(BytesToSign()));
+            } 
         }
 
         public byte[] BytesToSign()
