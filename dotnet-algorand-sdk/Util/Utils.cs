@@ -393,6 +393,8 @@ namespace Algorand
                 asset.MetadataHash = Encoding.UTF8.GetBytes(GetRandomAssetMetaHash());//auto generate metahash by sdk
             else if (asset.MetadataHash.Length != 32)
                 throw new ArgumentException("The metadata hash should be 32 bytes.");
+
+            if (asset.DefaultFrozen is null) asset.DefaultFrozen = false;
         }
         /// <summary>
         /// 

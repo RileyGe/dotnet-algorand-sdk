@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using Algorand;
 using Account = Algorand.Account;
 using Algorand.Algod.Api;
 using Algorand.Algod.Model;
 using Algorand.Client;
-using Transaction = Algorand.Transaction;
 using System.Text;
-using Org.BouncyCastle.Crypto.Parameters;
-using sdk_examples.V2;
 
 namespace sdk_examples
 {
@@ -16,7 +12,8 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
-            BasicExample.Main(args); return;
+            //BasicExample.Main(args); return;
+            V2.AssetExample.Main(args); return;
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;

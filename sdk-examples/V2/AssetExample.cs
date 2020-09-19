@@ -56,7 +56,7 @@ namespace sdk_examples.V2
             // Create the Asset
             // Total number of this asset available for circulation            
             var ap = new AssetParams(creator: acct1.Address.ToString(), name: "latikum22", unitName: "LAT", total: 10000,
-                url: "http://this.test.com", metadataHash: Encoding.ASCII.GetBytes("16efaa3924a6fd9d3a4880099a4ac65d"))
+                decimals: 0, url: "http://this.test.com", metadataHash: Encoding.ASCII.GetBytes("16efaa3924a6fd9d3a4880099a4ac65d"))
             {
                 Manager = acct2.Address.ToString()
             };
