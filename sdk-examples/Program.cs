@@ -14,7 +14,9 @@ namespace sdk_examples
         {
             //BasicExample.Main(args); return;
             //V2.AssetExample.Main(args); return;
-            V2.AtomicTransferExample.Main(args); return;
+            //V2.AtomicTransferExample.Main(args); return;
+            //V2.contract.CompileTeal.Main(args); return;
+            V2.contract.ContractAccount.Main(args); return;
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;

@@ -1,11 +1,11 @@
 ﻿using Algorand;
 using Algorand.Client;
-using Algorand.Algod.Api;
+using Algorand.V2;
 using System;
 
-namespace sdk_examples
+namespace sdk_examples.V2.contract
 {
-    class LogicSigExample
+    class ContractAccount
     {
         public static void Main(params string[] args)
         {
@@ -17,11 +17,9 @@ namespace sdk_examples
 
             string ALGOD_API_TOKEN = args[1];
             string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
-            string DEST_ADDR = "KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU";
-            //string DEST_ADDR2 = "OAMCXDCH7LIVYUF2HSNQLPENI2ZXCWBSOLUAOITT47E4FAMFGAMI4NFLYU";
             Account src = new Account(SRC_ACCOUNT);
             var algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            Algorand.Algod.Model.TransactionParams transParams = null;
+            Algorand.V2.Model.TransactionParametersResponse transParams;
             try
             {
                 transParams = algodApiInstance.TransactionParams();
@@ -31,13 +29,13 @@ namespace sdk_examples
                 throw new Exception("Could not get params", e);
             }
             // format and send logic sig
-            byte[] program = { 0x01, 0x20, 0x01, 0x00, 0x22 };
+            byte[] program = Convert.FromBase64String("ASABASI=");
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
             Console.WriteLine("Escrow address: " + lsig.ToAddress().ToString());
 
             var tx = Utils.GetPaymentTransaction(lsig.ToAddress(), src.Address, 100000, "draw algo from contract", transParams);
-           
+          
             if (!lsig.Verify(tx.sender))
             {
                 string msg = "Verification failed";

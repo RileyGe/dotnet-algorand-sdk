@@ -42,6 +42,7 @@ namespace Algorand
                 System.Threading.Thread.Sleep(250);
             }
         }
+
         public static TransactionID SubmitTransaction(AlgodApi instance, SignedTransaction signedTx) //throws Exception
         {
             byte[] encodedTxBytes = Encoder.EncodeToMsgPack(signedTx);             
@@ -414,24 +415,36 @@ namespace Algorand
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="lsig"></param>
-        /// <param name="receiver"></param>
-        /// <param name="trans"></param>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        public static Transaction GetLogicSignatureTransaction(LogicsigSignature lsig, Address receiver, TransactionParams trans, string message = "")
-        {
-            var tx = new Transaction(lsig.ToAddress(), receiver, 1, trans.LastRound, trans.LastRound + 1000,
-                trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
-            {
-                note = Encoding.UTF8.GetBytes(message)
-            };
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
-            return tx;
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="lsig"></param>
+        ///// <param name="receiver"></param>
+        ///// <param name="trans"></param>
+        ///// <param name="message"></param>
+        ///// <returns></returns>
+        //public static Transaction GetLogicSignatureTransaction(LogicsigSignature lsig, Address receiver, TransactionParams trans, string message = "")
+        //{
+        //    var tx = new Transaction(lsig.ToAddress(), receiver, 1, trans.LastRound, trans.LastRound + 1000,
+        //        trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
+        //    {
+        //        note = Encoding.UTF8.GetBytes(message)
+        //    };
+        //    Account.SetFeeByFeePerByte(tx, trans.Fee);
+        //    return tx;
+        //}
+        //public static Transaction GetLogicSignatureTransaction(LogicsigSignature lsig, Address receiver, 
+        //    TransactionParametersResponse trans, string message = "")
+        //{
+        //    var tx = new Transaction(lsig.ToAddress(), receiver, 1, (ulong?)trans.LastRound, 
+        //        (ulong?)trans.LastRound + 1000, trans.GenesisId, new Digest(trans.GenesisHash))
+        //    {
+        //        note = Encoding.UTF8.GetBytes(message)
+        //    };
+        //    Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+        //    return tx;
+        //}
+
         public static Transaction GetLogicSignatureTransaction(Address signingAcct, Address receiver, TransactionParams trans, string message = "")
         {
             var tx = new Transaction(signingAcct, receiver, 1, trans.LastRound, trans.LastRound + 1000,
