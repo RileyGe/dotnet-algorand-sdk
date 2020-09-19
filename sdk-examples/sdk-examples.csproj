@@ -15,4 +15,10 @@
     <ProjectReference Include="..\dotnet-algorand-sdk\dotnet-algorand-sdk.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="V2\contract\sample.teal">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

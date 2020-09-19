@@ -13,7 +13,8 @@ namespace sdk_examples
         static void Main(string[] args)
         {
             //BasicExample.Main(args); return;
-            V2.AssetExample.Main(args); return;
+            //V2.AssetExample.Main(args); return;
+            V2.AtomicTransferExample.Main(args); return;
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;
