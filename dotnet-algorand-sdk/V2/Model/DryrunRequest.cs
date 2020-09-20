@@ -45,7 +45,7 @@ namespace Algorand.V2.Model
         /// <param name="round">Round is available to some TEAL scripts. Defaults to the current round on the network this algod is attached to. (required).</param>
         /// <param name="latestTimestamp">LatestTimestamp is available to some TEAL scripts. Defaults to the latest confirmed timestamp this algod is attached to. (required).</param>
         /// <param name="sources">sources (required).</param>
-        public DryrunRequest(List<string> txns = default(List<string>), List<Account> accounts = default(List<Account>), List<Application> apps = default(List<Application>), string protocolVersion = default(string), ulong? round = default(ulong?), long? latestTimestamp = default(long?), List<DryrunSource> sources = default(List<DryrunSource>))
+        public DryrunRequest(List<SignedTransaction> txns = default, List<Account> accounts = default(List<Account>), List<Application> apps = default(List<Application>), string protocolVersion = default(string), ulong? round = default(ulong?), long? latestTimestamp = default(long?), List<DryrunSource> sources = default(List<DryrunSource>))
         {
             // to ensure "txns" is required (not null)
             if (txns == null)
@@ -57,47 +57,47 @@ namespace Algorand.V2.Model
                 this.Txns = txns;
             }
             // to ensure "accounts" is required (not null)
-            if (accounts == null)
-            {
-                throw new InvalidDataException("accounts is a required property for DryrunRequest and cannot be null");
-            }
-            else
+            //if (accounts == null)
+            //{
+            //    throw new InvalidDataException("accounts is a required property for DryrunRequest and cannot be null");
+            //}
+            //else
             {
                 this.Accounts = accounts;
             }
             // to ensure "apps" is required (not null)
-            if (apps == null)
-            {
-                throw new InvalidDataException("apps is a required property for DryrunRequest and cannot be null");
-            }
-            else
+            //if (apps == null)
+            //{
+            //    throw new InvalidDataException("apps is a required property for DryrunRequest and cannot be null");
+            //}
+            //else
             {
                 this.Apps = apps;
             }
             // to ensure "protocolVersion" is required (not null)
-            if (protocolVersion == null)
-            {
-                throw new InvalidDataException("protocolVersion is a required property for DryrunRequest and cannot be null");
-            }
-            else
+            //if (protocolVersion == null)
+            //{
+            //    throw new InvalidDataException("protocolVersion is a required property for DryrunRequest and cannot be null");
+            //}
+            //else
             {
                 this.ProtocolVersion = protocolVersion;
             }
             // to ensure "round" is required (not null)
-            if (round == null)
-            {
-                throw new InvalidDataException("round is a required property for DryrunRequest and cannot be null");
-            }
-            else
+            //if (round == null)
+            //{
+            //    throw new InvalidDataException("round is a required property for DryrunRequest and cannot be null");
+            //}
+            //else
             {
                 this.Round = round;
             }
             // to ensure "latestTimestamp" is required (not null)
-            if (latestTimestamp == null)
-            {
-                throw new InvalidDataException("latestTimestamp is a required property for DryrunRequest and cannot be null");
-            }
-            else
+            //if (latestTimestamp == null)
+            //{
+            //    throw new InvalidDataException("latestTimestamp is a required property for DryrunRequest and cannot be null");
+            //}
+            //else
             {
                 this.LatestTimestamp = latestTimestamp;
             }
@@ -116,7 +116,7 @@ namespace Algorand.V2.Model
         /// Gets or Sets Txns
         /// </summary>
         [DataMember(Name="txns", EmitDefaultValue=false)]
-        public List<string> Txns { get; set; }
+        public List<SignedTransaction> Txns { get; set; }
 
         /// <summary>
         /// Gets or Sets Accounts

@@ -1,0 +1,73 @@
+﻿using Algorand;
+using Algorand.Client;
+using Algorand.V2;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+namespace sdk_examples.V2.contract
+{
+    class DryrunDedugging
+    {
+        public static void Main(params string[] args)
+        {
+            string ALGOD_API_ADDR = args[0];
+            if (ALGOD_API_ADDR.IndexOf("//") == -1)
+            {
+                ALGOD_API_ADDR = "http://" + ALGOD_API_ADDR;
+            }
+            string ALGOD_API_TOKEN = args[1];
+            //第一个账号用于给智能合约签名，并把签名发布出去
+            string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
+            Account acct1 = new Account(SRC_ACCOUNT);
+            var acct2Address = "AJNNFQN7DSR7QEY766V7JDG35OPM53ZSNF7CU264AWOOUGSZBMLMSKCRIU";
+
+            byte[] source = File.ReadAllBytes("V2\\contract\\sample.teal");
+            byte[] program = Convert.FromBase64String("ASABASI=");
+
+            LogicsigSignature lsig = new LogicsigSignature(program, null);
+
+            // sign the logic signaure with an account sk
+            acct1.SignLogicsig(lsig);
+            
+            var algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            Algorand.V2.Model.TransactionParametersResponse transParams;
+            try
+            {
+                transParams = algodApiInstance.TransactionParams();
+            }
+            catch (ApiException e)
+            {
+                throw new Exception("Could not get params", e);
+            }
+
+            Transaction tx = Utils.GetPaymentTransaction(acct1.Address, new Address(acct2Address), 1000000,
+                "tx using in dryrun", transParams);
+
+            try
+            {
+                //bypass verify for non-lsig
+                SignedTransaction signedTx = Account.SignLogicsigTransaction(lsig, tx);
+                //一切准备就绪，本可以直接发送到网络，也可使得Dryrun的方法来进行调试
+                //var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                //Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
+                // dryrun source
+                var dryrunResponse = Utils.GetDryrunResponse(algodApiInstance, signedTx, source);                
+                Console.WriteLine("Dryrun compiled repsonse : " + dryrunResponse.ToJson()); // pretty print
+
+                // dryrun logic sig transaction
+                var dryrunResponse2 = Utils.GetDryrunResponse(algodApiInstance, signedTx);                
+                Console.WriteLine("Dryrun source repsonse : " + dryrunResponse.ToJson()); // pretty print
+            }
+            catch (ApiException e)
+            {
+                // This is generally expected, but should give us an informative error message.
+                Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
+            }
+
+            Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
+            Console.ReadKey();
+        }
+    }
+}

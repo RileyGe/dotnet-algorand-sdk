@@ -2,6 +2,7 @@
 using Algorand.Algod.Model;
 using Algorand.V2.Model;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using AssetParams = Algorand.Algod.Model.AssetParams;
 
@@ -455,5 +456,25 @@ namespace Algorand
         //    Account.SetFeeByFeePerByte(tx, trans.Fee);
         //    return tx;
         //}
+
+        public static DryrunResponse GetDryrunResponse(V2.AlgodApi client, SignedTransaction stxn, byte[] source = null)
+        {
+            List<DryrunSource> sources = new List<DryrunSource>();
+            List<SignedTransaction> stxns = new List<SignedTransaction>();
+            //compiled 
+            if (source is null)
+            {
+                stxns.Add(stxn);
+            }
+            // source
+            else
+            {
+                sources.Add(new DryrunSource(fieldName: "lsig",
+                    source: Encoding.UTF8.GetString(source), txnIndex: 0));
+                stxns.Add(stxn);
+            }
+
+            return client.TealDryrun(new DryrunRequest(txns: stxns, sources: sources));
+        }
     }
 }

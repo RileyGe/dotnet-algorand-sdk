@@ -72,11 +72,11 @@ namespace Algorand.V2.Model
                 this.TxnIndex = txnIndex;
             }
             // to ensure "appIndex" is required (not null)
-            if (appIndex == null)
-            {
-                throw new InvalidDataException("appIndex is a required property for DryrunSource and cannot be null");
-            }
-            else
+            //if (appIndex == null)
+            //{
+            //    throw new InvalidDataException("appIndex is a required property for DryrunSource and cannot be null");
+            //}
+            //else
             {
                 this.AppIndex = appIndex;
             }

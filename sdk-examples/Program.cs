@@ -17,7 +17,8 @@ namespace sdk_examples
             //V2.AtomicTransferExample.Main(args); return;
             //V2.contract.CompileTeal.Main(args); return;
             //V2.contract.ContractAccount.Main(args); return;
-            V2.contract.LogicSignature.Main(args); return;
+            //V2.contract.LogicSignature.Main(args); return;
+            V2.contract.DryrunDedugging.Main(args); return;
             //AssetExample.Main(args); return;
             //BidExample.Main(args); return;
             //GroupSigExample.Main(args); return;
