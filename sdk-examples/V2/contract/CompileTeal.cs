@@ -28,7 +28,7 @@ namespace sdk_examples.V2.contract
 
             //result
             //Hash: 6Z3C3LDVWGMX23BMSYMANACQOSINPFIRF77H7N3AWJZYV6OH6GWTJKVMXY
-            //Result: ASABASI =
+            //Result: ASABASI=
         }
     }
 }

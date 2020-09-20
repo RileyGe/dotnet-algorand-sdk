@@ -110,7 +110,10 @@ namespace Algorand
         {
             byte[] prefixEncodedTx = tx.BytesToSign();
             Signature txSig = RawSignBytes(prefixEncodedTx);
-            return new SignedTransaction(tx, txSig, tx.TxID());
+            var stx = new SignedTransaction(tx, txSig, tx.TxID());
+            if (!tx.sender.Equals(this.Address))
+                stx.authAddr = this.Address;
+            return stx;
         }
         /// <summary>
         /// Sign a transaction with this account, replacing the fee with the given feePerByte.

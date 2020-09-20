@@ -978,6 +978,12 @@ namespace Algorand
         [JsonProperty(PropertyName = "lsig")]
         public LogicsigSignature lSig = new LogicsigSignature();
 
+        [JsonProperty(PropertyName = "sgnr")]
+        public Address authAddr = new Address();
+        public void SetAuthAddr(byte[] sigAddr) {
+            authAddr = new Address(sigAddr);
+        }
+
         [JsonIgnore]
         public string transactionID = "";
 
@@ -1005,12 +1011,13 @@ namespace Algorand
         public SignedTransaction() { }
 
         [JsonConstructor]
-        public SignedTransaction(Transaction tx, byte[] sig, MultisigSignature mSig, LogicsigSignature lSig)
+        public SignedTransaction(Transaction txn, byte[] sig, MultisigSignature msig, LogicsigSignature lsig, byte[] sgnr)
         {
-            if (tx != null) this.tx = tx;
+            if (txn != null) this.tx = txn;
             if (sig != null) this.sig = new Signature(sig);
-            if (mSig != null) this.mSig = mSig;
-            if (lSig != null) this.lSig = lSig;
+            if (msig != null) this.mSig = msig;
+            if (lsig != null) this.lSig = lsig;
+            if (sgnr != null) this.authAddr = new Address(sgnr);
             // don't recover the txid yet
         }
 
@@ -1021,12 +1028,10 @@ namespace Algorand
                 if (!tx.Equals(actual.tx)) return false;
                 if (!sig.Equals(actual.sig)) return false;
                 if (!lSig.Equals(actual.lSig)) return false;
+                if (!authAddr.Equals(actual.authAddr)) return false;
                 return this.mSig.Equals(actual.mSig);
             }
-            else
-            {
-                return false;
-            }
+            return false;            
         }
         public override int GetHashCode()
         {

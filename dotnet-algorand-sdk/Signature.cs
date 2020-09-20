@@ -111,6 +111,7 @@ namespace Algorand
         /// <summary>
         /// The address of the LogicsigSignature
         /// </summary>
+        [JsonIgnore]
         public Address Address { 
             get {
                 return new Address(Digester.Digest(BytesToSign()));
