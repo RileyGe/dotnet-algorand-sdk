@@ -155,30 +155,29 @@ namespace Algorand
                     {
                         return false;
                     }
+                }                
+                
+                if (this.sig != null)
+                {
+                    try
+                    {
+                        var pk = new Ed25519PublicKeyParameters(address.Bytes, 0);
+                        var signer = new Ed25519Signer();
+                        signer.Init(false, pk); //false代表用于VerifySignature
+                        signer.BlockUpdate(this.BytesToSign(), 0, this.BytesToSign().Length);
+                        return signer.VerifySignature(this.sig.Bytes);
+                    }
+                    catch (Exception err)
+                    {
+                        Console.WriteLine("Message = " + err.Message);
+                        return false;
+                    }
                 }
                 else
                 {
-                    if (this.sig != null)
-                    {
-                        try
-                        {
-                            var pk = new Ed25519PublicKeyParameters(address.Bytes, 0);
-                            var signer = new Ed25519Signer();
-                            signer.Init(true, pk);
-                            signer.BlockUpdate(this.BytesToSign(), 0, this.BytesToSign().Length);
-                            return signer.VerifySignature(this.sig.Bytes);
-                        }
-                        catch (Exception err)
-                        {
-                            Console.WriteLine("Message = " + err.Message);
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return this.msig.Verify(this.BytesToSign());
-                    }
+                    return this.msig.Verify(this.BytesToSign());
                 }
+                
             }
         }
 
