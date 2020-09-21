@@ -1,31 +1,17 @@
 # Dotnet Algorand SDK
 
-| IMPORTANT <br /> Version 0.2 modifies the namespace of algod API 1.0 compared to Version 0.1.X. Please replaces the namespaces below:
-
-Replace **Algorand.Algod.Client.Model** with **Algorand.Algod.Model**
-
-Replace **Algorand.Algod.Client.Api** with **Algorand.Algod.Api**
-
-Replace **Algorand.Kmd.Client.Model** with **Algorand.Algod.Model**
-
-Replace **Algorand.Kmd.Client.Api** with **Algorand.Kmd.Api**
-
-Replace **Algorand.Algod.Client** with **Algorand.Client**
-
-Replace **Algorand.Kmd.Client** with **Algorand.Client**
-
-Everything else remains the same.|
+| IMPORTANT <br /> Version 0.2 modifies the namespace of algod API 1.0 compared to Version 0.1.X. Please replaces the namespaces below:<br />Replace **Algorand.Algod.Client.Model** with **Algorand.Algod.Model**<br />Replace **Algorand.Algod.Client.Api** with **Algorand.Algod.Api**<br />Replace **Algorand.Kmd.Client.Model** with **Algorand.Algod.Model**<br />Replace **Algorand.Kmd.Client.Api** with **Algorand.Kmd.Api**<br />Replace **Algorand.Algod.Client** with **Algorand.Client**<br />Replace **Algorand.Kmd.Client** with **Algorand.Client**<br />Everything else remains the same.|
 |---|
 
 The SDK already update to version 0.2 and add the support of Algorand Api 2.0 and the Indexer Api.
 
 dotnet-algorand-skd is a dotnet library for communicating and interacting with the Algorand network. It contains a REST client for accessing algod instances over the web, and also exposes functionality for generating keypairs, mnemonics, creating transactions, signing transactions, and serializing data across the network.
 
-1. Prerequisites
+## 1. Prerequisites
 
 This library is compliant to .Net Standard 2.0.
 
-2. How to Install
+## 2. How to Install
 
 Open the NuGet command line and type:
 
@@ -33,7 +19,7 @@ Open the NuGet command line and type:
 Install-Package Algorand
 ```
 
-3. Quick Start for algod API 1.0
+## 3. Quick Start for algod API 1.0
 
 ```csharp
 string ALGOD_API_ADDR = "your algod api address"; //find in algod.net
@@ -107,7 +93,7 @@ catch (ApiException e)
 
 That's all? Yes, this is a complete example, you can find more examples in the sdk-examples project.
 
-4. Quick Start for algod API 2.0
+## 4. Quick Start for algod API 2.0
 
 Algod API 2.0 has a lot of good features, such as dryrun debugging and teal compile. So it is highly recommended to use the API 2.0 to build your program.
 
@@ -144,11 +130,11 @@ It's very difficult to tell the difference between API 1.0 and API 2.0 besides t
 
 You can find more examples in the **sdk-examples** project.
 
-4. Quick Start for Indexer
+## 5. Quick Start for Indexer
 
 As we all know blockchain has a chain data struct, so it's very different for us to search the data. So algorand retrieve the blockchain data from a PostgreSQL compatible database. Then we can search for the blockchain very easily.
 
-**add a pic**
+![Algorand Indexer](indexerv2.png)
 
 The indexer has 12 methods to search the blockchain and some of these methods have a lot of variables to control the result. Let's try some code.
 
@@ -188,3 +174,5 @@ System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
 var assetInfo = indexer.LookupAssetByID(assetIndex);
 Console.WriteLine("Look up asset by id:" + assetInfo.ToJson());
 ```
+
+Please enjoy!!!
