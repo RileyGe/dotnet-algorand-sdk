@@ -58,7 +58,7 @@ namespace sdk_examples.V2
             TransactionParametersResponse transParams;
             try
             {
-                transParams = algodApiInstance.TransactionParams();
+                transParams = algodApiInstance.TransactionParams();                
             }
             catch (ApiException e)
             {
