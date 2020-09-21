@@ -1,5 +1,9 @@
 # Dotnet Algorand SDK
 
+The SDK already update to version 0.2 and add the support of Algorand Api 2.0 and the Indexer Api.
+
+
+
 Finally, the dotnet algorand sdk is ready for use, give it a try!
 
 1. Prerequisites

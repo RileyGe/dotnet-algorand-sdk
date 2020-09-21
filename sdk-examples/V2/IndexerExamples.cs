@@ -1,8 +1,5 @@
 ﻿using Algorand.V2;
-using Org.BouncyCastle.Asn1.X509;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace sdk_examples.V2
 {
@@ -12,12 +9,6 @@ namespace sdk_examples.V2
         {
             string ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/idx2";
             string ALGOD_API_TOKEN = "GeHdp7CCGt7ApLuPNppXN4LtrW07Mm1kaFNJ5Ovr";
-            //string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
-            //string DEST_ADDR = "KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU";
-            //if (!Address.IsValid(DEST_ADDR))
-            //    Console.WriteLine("The address " + DEST_ADDR + " is not valid!");
-            //Account src = new Account(SRC_ACCOUNT);
-            //Console.WriteLine("My account address is:" + src.Address.ToString());
 
             IndexerApi indexer = new IndexerApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
             //AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);

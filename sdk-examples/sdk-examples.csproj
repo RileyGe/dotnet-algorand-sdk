@@ -21,8 +21,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="V2\indexer\" />
-  </ItemGroup>
-
 </Project>

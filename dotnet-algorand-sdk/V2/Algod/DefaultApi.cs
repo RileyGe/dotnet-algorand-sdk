@@ -2411,7 +2411,8 @@ namespace Algorand.V2.Algod
 
             if (request != null && request.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                //localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = Encoder.EncodeToMsgPack(request);
             }
             else
             {

@@ -473,7 +473,7 @@ namespace Algorand
                     source: Encoding.UTF8.GetString(source), txnIndex: 0));
                 stxns.Add(stxn);
             }
-
+            if (sources.Count < 1) sources = null;
             return client.TealDryrun(new DryrunRequest(txns: stxns, sources: sources));
         }
     }

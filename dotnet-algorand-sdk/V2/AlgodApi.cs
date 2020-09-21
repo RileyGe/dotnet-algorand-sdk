@@ -19,7 +19,7 @@ namespace Algorand.V2
         {
             Configuration config = new Configuration
             {
-                BasePath = host
+                BasePath = host                
             };
             if (host.Contains("algorand.api.purestake.io"))
                 //config.ApiKey.Add(new KeyValuePair<string, string>("X-API-Key", apiToken)); //purestake

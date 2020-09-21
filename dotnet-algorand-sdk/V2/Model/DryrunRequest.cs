@@ -102,11 +102,11 @@ namespace Algorand.V2.Model
                 this.LatestTimestamp = latestTimestamp;
             }
             // to ensure "sources" is required (not null)
-            if (sources == null)
-            {
-                throw new InvalidDataException("sources is a required property for DryrunRequest and cannot be null");
-            }
-            else
+            //if (sources == null)
+            //{
+            //    throw new InvalidDataException("sources is a required property for DryrunRequest and cannot be null");
+            //}
+            //else
             {
                 this.Sources = sources;
             }

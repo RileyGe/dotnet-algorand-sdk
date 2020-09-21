@@ -19,11 +19,11 @@ namespace sdk_examples.V2.contract
             }
             string ALGOD_API_TOKEN = args[1];
             //第一个账号用于给智能合约签名，并把签名发布出去
-            string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
+            string SRC_ACCOUNT = "buzz genre work meat fame favorite rookie stay tennis demand panic busy hedgehog snow morning acquire ball grain grape member blur armor foil ability seminar";
             Account acct1 = new Account(SRC_ACCOUNT);
-            var acct2Address = "AJNNFQN7DSR7QEY766V7JDG35OPM53ZSNF7CU264AWOOUGSZBMLMSKCRIU";
+            var acct2Address = "QUDVUXBX4Q3Y2H5K2AG3QWEOMY374WO62YNJFFGUTMOJ7FB74CMBKY6LPQ";
 
-            byte[] source = File.ReadAllBytes("V2\\contract\\sample.teal");
+            //byte[] source = File.ReadAllBytes("V2\\contract\\sample.teal");
             byte[] program = Convert.FromBase64String("ASABASI=");
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
@@ -53,12 +53,12 @@ namespace sdk_examples.V2.contract
                 //var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 //Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
                 // dryrun source
-                var dryrunResponse = Utils.GetDryrunResponse(algodApiInstance, signedTx, source);                
-                Console.WriteLine("Dryrun compiled repsonse : " + dryrunResponse.ToJson()); // pretty print
+                //var dryrunResponse = Utils.GetDryrunResponse(algodApiInstance, signedTx, source);                
+                //Console.WriteLine("Dryrun compiled repsonse : " + dryrunResponse.ToJson()); // pretty print
 
                 // dryrun logic sig transaction
                 var dryrunResponse2 = Utils.GetDryrunResponse(algodApiInstance, signedTx);                
-                Console.WriteLine("Dryrun source repsonse : " + dryrunResponse.ToJson()); // pretty print
+                Console.WriteLine("Dryrun source repsonse : " + dryrunResponse2.ToJson()); // pretty print
             }
             catch (ApiException e)
             {
