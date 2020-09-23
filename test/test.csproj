@@ -16,4 +16,8 @@
     <ProjectReference Include="..\dotnet-algorand-sdk\dotnet-algorand-sdk.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="V2\" />
+  </ItemGroup>
+
 </Project>

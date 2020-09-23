@@ -50,7 +50,8 @@ namespace Algorand
             //    MessagePack.MessagePackSerializerOptions.Standard.
 
             MemoryStream memoryStream = new MemoryStream();
-            JsonSerializer serializer = new JsonSerializer(){
+            JsonSerializer serializer = new JsonSerializer()
+            {
                 DefaultValueHandling = DefaultValueHandling.Ignore,
                 ContractResolver = AlgorandContractResolver.Instance,
                 Formatting = Formatting.None
@@ -91,88 +92,88 @@ namespace Algorand
             return deserializedT;
         }
 
-    /**
-     * Encode an object as json.
-     * @param o object to encode
-     * @return json string
-     * @throws JsonProcessingException error
-     */
-    public static string EncodeToJson(object o)
+        /**
+         * Encode an object as json.
+         * @param o object to encode
+         * @return json string
+         * @throws JsonProcessingException error
+         */
+        public static string EncodeToJson(object o)
         {
             var settings = new JsonSerializerSettings()
             {
                 ContractResolver = AlgorandContractResolver.Instance,
                 DefaultValueHandling = DefaultValueHandling.Ignore
             };
-            var ostr = JsonConvert.SerializeObject(o, settings);            
+            var ostr = JsonConvert.SerializeObject(o, settings);
             return ostr;
         }
 
-    ///**
-    // * Convenience method for writing bytes as hex.
-    // * @param bytes input to encodeToMsgPack as hex string
-    // * @return encoded hex string
-    // */
-    //public static String encodeToHexStr(byte[] bytes)
-    //{
-    //    return Hex.encodeHexString(bytes);
-    //}
+        /// <summary>
+        /// Convenience method for writing bytes as hex.
+        /// </summary>
+        /// <param name="bytes">bytes input to encodeToMsgPack as hex string</param>
+        /// <returns>encoded hex string</returns>
+        public static string EncodeToHexStr(byte[] bytes)
+        {
+            return BitConverter.ToString(bytes, 0).Replace("-", string.Empty).ToLower();
+        }
 
-    ///**
-    // * Convenience method for decoding bytes from hex.
-    // * @param hexStr hex string to decode
-    // * @return byte array
-    // * @throws DecoderException
-    // */
-    //public static byte[] decodeFromHexStr(String hexStr) throws DecoderException
-    //{
-    //        return Hex.decodeHex(hexStr);
-    //}
+        ///**
+        // * Convenience method for decoding bytes from hex.
+        // * @param hexStr hex string to decode
+        // * @return byte array
+        // * @throws DecoderException
+        // */
+        //public static byte[] decodeFromHexStr(String hexStr) throws DecoderException
+        //{
+        //        return Hex.decodeHex(hexStr);
+        //}
 
-    /**
-     * Convenience method for writing bytes as base32
-     * @param bytes input
-     * @return base32 string with stripped whitespace
-     */
-    //public static string EncodeToBase32StripPad(byte[] bytes)
-    //{
-    //    //Base32 codec = new Base32((byte)BASE32_PAD_CHAR);            
-    //    string paddedStr = Base32.ToBase32String(bytes, true);
-    //    // strip padding
-    //    //int i = 0;
-    //    //for (; i < paddedStr.Length; i++)
-    //    //{
-    //    //    if (paddedStr[i] == BASE32_PAD_CHAR)
-    //    //    {
-    //    //        break;
-    //    //    }
-    //    //}
-    //    int i = paddedStr.IndexOf(BASE32_PAD_CHAR);
-    //    return paddedStr.Substring(0, i);
-    //}
+        /**
+         * Convenience method for writing bytes as base32
+         * @param bytes input
+         * @return base32 string with stripped whitespace
+         */
+        //public static string EncodeToBase32StripPad(byte[] bytes)
+        //{
+        //    //Base32 codec = new Base32((byte)BASE32_PAD_CHAR);            
+        //    string paddedStr = Base32.ToBase32String(bytes, true);
+        //    // strip padding
+        //    //int i = 0;
+        //    //for (; i < paddedStr.Length; i++)
+        //    //{
+        //    //    if (paddedStr[i] == BASE32_PAD_CHAR)
+        //    //    {
+        //    //        break;
+        //    //    }
+        //    //}
+        //    int i = paddedStr.IndexOf(BASE32_PAD_CHAR);
+        //    return paddedStr.Substring(0, i);
+        //}
 
-    ///**
-    // * Encode to base64 string. Does not strip padding.
-    // * @param bytes input
-    // * @return base64 string with appropriate padding
-    // */
-    //public static String encodeToBase64(byte[] bytes)
-    //{
-    //    Base64 codec = new Base64();
-    //    return codec.encodeToString(bytes);
-    //}
+        ///**
+        // * Encode to base64 string. Does not strip padding.
+        // * @param bytes input
+        // * @return base64 string with appropriate padding
+        // */
+        //public static String encodeToBase64(byte[] bytes)
+        //{
+        //    Base64 codec = new Base64();
+        //    return codec.encodeToString(bytes);
+        //}
 
-    ///**
-    // * Decode from base64 string.
-    // * @param str input
-    // * @return decoded bytes
-    // */
-    //public static byte[] decodeFromBase64(String str)
-    //{
-    //    Base64 codec = new Base64();
-    //    return codec.decode(str);
-    //}
-}
+        ///**
+        // * Decode from base64 string.
+        // * @param str input
+        // * @return decoded bytes
+        // */
+        //public static byte[] decodeFromBase64(String str)
+        //{
+        //    Base64 codec = new Base64();
+        //    return codec.decode(str);
+        //}
+    }
 
     public class AlgorandContractResolver : DefaultContractResolver
     {

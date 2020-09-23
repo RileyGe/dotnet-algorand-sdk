@@ -76,7 +76,7 @@ namespace Algorand
         [JsonConstructor]
         public LogicsigSignature(
             [JsonProperty("l")] byte[] logic,
-            [JsonProperty("arg")] List<byte[]> args,
+            [JsonProperty("arg")] List<byte[]> args = null,
             [JsonProperty("sig")] byte[] sig = null,
             [JsonProperty("msig")] MultisigSignature msig = null)
         {
