@@ -1,11 +1,26 @@
 # Dotnet Algorand SDK
 
-| IMPORTANT <br /> Version 0.2 modifies the namespace of algod API 1.0 compared to Version 0.1.X. Please replaces the namespaces below:<br />Replace **Algorand.Algod.Client.Model** with **Algorand.Algod.Model**<br />Replace **Algorand.Algod.Client.Api** with **Algorand.Algod.Api**<br />Replace **Algorand.Kmd.Client.Model** with **Algorand.Algod.Model**<br />Replace **Algorand.Kmd.Client.Api** with **Algorand.Kmd.Api**<br />Replace **Algorand.Algod.Client** with **Algorand.Client**<br />Replace **Algorand.Kmd.Client** with **Algorand.Client**<br />Everything else remains the same.|
-|---|
+> ### **IMPORTANT **
+>
+> Dotnet-algorand-sdk Version 0.2.X modifies the namespace of algod API 1.0 compared to  dotnet-algorand-sdk Version 0.1.X. Please replaces the namespaces below:
+>
+> Replace **Algorand.Algod.Client.Model** with **Algorand.Algod.Model**
+>
+> Replace **Algorand.Algod.Client.Api** with **Algorand.Algod.Api**
+>
+> Replace **Algorand.Kmd.Client.Model** with **Algorand.Algod.Model**
+>
+> Replace **Algorand.Kmd.Client.Api** with **Algorand.Kmd.Api**
+>
+> Replace **Algorand.Algod.Client** with **Algorand.Client**
+>
+> Replace **Algorand.Kmd.Client** with **Algorand.Client**
+>
+> Everything else remains the same.
 
-The SDK already update to version 0.2 and add the support of Algorand Api 2.0 and the Indexer Api.
+The SDK version 0.2 add the support of Algorand Api 2.0 and the Indexer Api.
 
-dotnet-algorand-skd is a dotnet library for communicating and interacting with the Algorand network. It contains a REST client for accessing algod instances over the web, and also exposes functionality for generating keypairs, mnemonics, creating transactions, signing transactions, and serializing data across the network.
+dotnet-algorand-skd is a dotnet library for communicating and interacting with the Algorand network. It contains a REST client for accessing algod instances over the web, and also exposes functionality for mnemonics, creating transactions, signing transactions, and serializing data across the network.
 
 ## 1. Prerequisites
 
