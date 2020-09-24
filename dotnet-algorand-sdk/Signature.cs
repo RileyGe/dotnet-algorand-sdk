@@ -283,9 +283,8 @@ namespace Algorand
                             try
                             {
                                 var pk = subsig.key;
-
                                 var signer = new Ed25519Signer();
-                                signer.Init(true, pk);
+                                signer.Init(false, pk); //for verify
                                 signer.BlockUpdate(message, 0, message.Length);
                                 bool verified = signer.VerifySignature(subsig.sig.Bytes);
                                 if (verified)
