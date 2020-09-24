@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/dotnet-algorand-sdk/json1.json
+/dotnet-algorand-sdk/json2.json

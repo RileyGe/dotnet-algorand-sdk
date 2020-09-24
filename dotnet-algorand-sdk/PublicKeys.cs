@@ -15,7 +15,7 @@ namespace Algorand
         {
             if (bytes != null)
             {
-                if (bytes.Length != 32)
+                if (bytes.Length != KEY_LEN_BYTES)
                 {
                     throw new ArgumentException("participation key wrong length");
                 }
@@ -23,12 +23,13 @@ namespace Algorand
                 {
                     this.Bytes = bytes;
                 }
-            }
+            }else this.Bytes = new byte[KEY_LEN_BYTES];
+
         }
 
         public ParticipationPublicKey()
         {
-            this.Bytes = new byte[32];
+            this.Bytes = new byte[KEY_LEN_BYTES];
         }
 
         public override bool Equals(object obj)
@@ -52,7 +53,7 @@ namespace Algorand
         {
             if (bytes != null)
             {
-                if (bytes.Length != 32)
+                if (bytes.Length != KEY_LEN_BYTES)
                 {
                     throw new ArgumentException("vrf key wrong length");
                 }
@@ -61,11 +62,13 @@ namespace Algorand
                     this.Bytes = bytes;
                 }
             }
+            else
+                Bytes = new byte[KEY_LEN_BYTES];
         }
 
         public VRFPublicKey()
         {
-            Bytes = new byte[32];
+            Bytes = new byte[KEY_LEN_BYTES];
         }
         public override bool Equals(Object obj)
         {

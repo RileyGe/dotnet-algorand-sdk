@@ -39,6 +39,7 @@ namespace Algorand
         {
             if (bytes == null)
             {
+                this.Bytes = new byte[LEN_BYTES];
                 return;
             }
             if (bytes.Length != LEN_BYTES)

@@ -21,6 +21,7 @@ namespace Algorand
         {
             if (bytes == null)
             {
+                Bytes = new byte[DIG_LEN_BYTES];
                 return;
             }
             if (bytes.Length != DIG_LEN_BYTES)

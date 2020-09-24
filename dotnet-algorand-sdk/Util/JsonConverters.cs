@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Parameters;
-using System;
 using System.Collections.Generic;
 using System.Text;
+using System;
 
 namespace Algorand
 {
@@ -25,7 +25,8 @@ namespace Algorand
             if (objectType == typeof(Address))
             {
                 var bytes = (byte[])reader.Value;
-                return new Address(bytes);
+                if (bytes != null && bytes.Length > 0) return new Address(bytes);
+                else return new Address();
             } else
                 return new object();
             //throw new NotImplementedException();
@@ -67,18 +68,20 @@ namespace Algorand
     public class Type2StringConverter : JsonConverter
     {
         //是否开启自定义反序列化，值为true时，反序列化时会走ReadJson方法，值为false时，不走ReadJson方法，而是默认的反序列化
-        public override bool CanRead => false;
+        public override bool CanRead => true;
         //是否开启自定义序列化，值为true时，序列化时会走WriteJson方法，值为false时，不走WriteJson方法，而是默认的序列化
         public override bool CanWrite => true;
 
         public override bool CanConvert(Type objectType)
         {
-            return (typeof(Type) == objectType);
+            return (typeof(Transaction.Type) == objectType);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            if (typeof(Transaction.Type) == objectType)
+                return new Transaction.Type(reader.Value.ToString());
+            return new object();
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

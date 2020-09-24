@@ -249,6 +249,14 @@ namespace Algorand
                         return !st.sig.Equals(new Signature());
                     };
                 }
+                else if (property.PropertyType == typeof(Address) && property.PropertyName == "sgnr")
+                {
+                    property.ShouldSerialize = instance =>
+                    {
+                        var st = instance as SignedTransaction;
+                        return !st.authAddr.Equals(new Address());
+                    };
+                }
             }
             else if(property.DeclaringType == typeof(Transaction))
             {

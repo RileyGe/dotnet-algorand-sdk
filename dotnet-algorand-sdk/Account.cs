@@ -313,8 +313,8 @@ namespace Algorand
         /// <returns>merged multisignature transaction inclukding our signature</returns>
         public byte[] AppendMultisigTransactionBytes(MultisigAddress from, byte[] txBytes)
         {
-
             SignedTransaction inTx = Encoder.DecodeFromMsgPack<SignedTransaction>(txBytes);
+            string abc = Encoder.EncodeToJson(inTx);
             SignedTransaction appended = this.AppendMultisigTransaction(from, inTx);
             return Encoder.EncodeToMsgPack(appended);
         }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Algorand
 {
@@ -427,14 +428,15 @@ namespace Algorand
                             [JsonProperty(PropertyName = "faid")] ulong? assetFreezeID,
                             [JsonProperty(PropertyName = "afrz")] bool freezeState) : this(
                                 type, new Address(sender), fee, firstValid, lastValid, note,
-                 genesisID, new Digest(genesisHash), lease, new Digest(group),               // payment fields
-                 amount, new Address(receiver), new Address(closeRemainderTo),               // keyreg fields
-                 new ParticipationPublicKey(votePK), new VRFPublicKey(vrfPK),
-                 voteFirst, voteLast, voteKeyDilution,
-                 // asset creation and configuration
-                 assetParams, assetIndex,                // asset transfer fields
-                 xferAsset, assetAmount, new Address(assetSender), new Address(assetReceiver),
-                 new Address(assetCloseTo), new Address(freezeTarget), assetFreezeID, freezeState)
+                                genesisID, new Digest(genesisHash), lease, new Digest(group),               // payment fields
+                                amount, new Address(receiver), new Address(closeRemainderTo),               // keyreg fields
+                                new ParticipationPublicKey(votePK), new VRFPublicKey(vrfPK),
+                                voteFirst, voteLast, voteKeyDilution,
+                                // asset creation and configuration
+                                assetParams, assetIndex,
+                                // asset transfer fields
+                                xferAsset, assetAmount, new Address(assetSender), new Address(assetReceiver),
+                                new Address(assetCloseTo), new Address(freezeTarget), assetFreezeID, freezeState)
         { }
 
         /**
@@ -458,30 +460,55 @@ namespace Algorand
         {
             this.type = type;
             if (sender != null) this.sender = sender;
+            else this.sender = new Address();
+
             if (fee != null) this.fee = fee;
             if (firstValid != null) this.firstValid = firstValid;
             if (lastValid != null) this.lastValid = lastValid;
             if (note != null) this.note = note;
             if (genesisID != null) this.genesisID = genesisID;
             if (genesisHash != null) this.genesisHash = genesisHash;
+            else this.genesisHash = new Digest();
+
             if (lease != null) this.lease = lease;
+
             if (group != null) this.group = group;
+            else this.group = new Digest();
+
             if (amount != null) this.amount = amount;
             if (receiver != null) this.receiver = receiver;
+            else this.receiver = new Address();
+
             if (closeRemainderTo != null) this.closeRemainderTo = closeRemainderTo;
+            else this.closeRemainderTo = new Address();
+
             if (votePK != null) this.votePK = votePK;
+            else this.votePK = new ParticipationPublicKey();
+
             if (vrfPK != null) this.selectionPK = vrfPK;
+            else this.selectionPK = new VRFPublicKey();
+
             if (voteFirst != null) this.voteFirst = voteFirst;
             if (voteLast != null) this.voteLast = voteLast;
             if (voteKeyDilution != null) this.voteKeyDilution = voteKeyDilution;
             if (assetParams != null) this.assetParams = assetParams;
+            else this.assetParams = new AssetParams();
+
             if (assetIndex != null) this.assetIndex = assetIndex;
             if (xferAsset != null) this.xferAsset = xferAsset;
             if (assetAmount != null) this.assetAmount = assetAmount;
             if (assetSender != null) this.assetSender = assetSender;
+            else this.assetSender = new Address();
+
             if (assetReceiver != null) this.assetReceiver = assetReceiver;
+            else this.assetReceiver = new Address();
+
             if (assetCloseTo != null) this.assetCloseTo = assetCloseTo;
+            else this.assetCloseTo = new Address();
+
             if (freezeTarget != null) this.freezeTarget = freezeTarget;
+            else this.freezeTarget = new Address();
+
             if (assetFreezeID != null) this.assetFreezeID = assetFreezeID;
             this.freezeState = freezeState;
         }
@@ -761,6 +788,13 @@ namespace Algorand
                 }
                 return null;
             }
+            public override bool Equals(object obj)
+            {
+                if (obj is Type tp)
+                    return this.type == tp.type;
+                else
+                    return false;
+            }
         }
         /// <summary>
         /// Return encoded representation of the transaction with a prefix
@@ -802,15 +836,25 @@ namespace Algorand
             if (this == o) return true;
             if (o == null || !(o is Transaction)) return false;
             Transaction that = o as Transaction;
-            return type == that.type &&
+            bool noteEqual, leaseEqual;
+            if (note is null && that.note is null) { noteEqual = true; }
+            else if (note is null || that.note is null) return false;
+            else noteEqual = Enumerable.SequenceEqual(note, that.note);
+
+            if (lease is null && that.lease is null) { leaseEqual = true; }
+            else if (note is null || that.note is null) return false;
+            else leaseEqual = Enumerable.SequenceEqual(lease, that.lease);
+
+
+            return type.Equals(that.type) &&
                     sender.Equals(that.sender) &&
                     fee == that.fee &&
                     firstValid == that.firstValid &&
                     lastValid == that.lastValid &&
-                    Enumerable.SequenceEqual(note, that.note) &&
+                    noteEqual &&
                     genesisID.Equals(that.genesisID) &&
                     genesisHash.Equals(that.genesisHash) &&
-                    Enumerable.SequenceEqual(lease, that.lease) &&
+                    leaseEqual &&
                     group.Equals(that.group) &&
                     amount == that.amount &&
                     receiver.Equals(that.receiver) &&
