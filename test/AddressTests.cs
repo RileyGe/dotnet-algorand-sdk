@@ -40,19 +40,8 @@ namespace test
         public void testAddressSerializable()
         {
             Address a = new Address("VKM6KSCTDHEM6KGEAMSYCNEGIPFJMHDSEMIRAQLK76CJDIRMMDHKAIRMFQ");
-            MemoryStream ms = new MemoryStream();
-            //创建序列化的实例
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(ms, a);//序列化对象，写入ms流中  
-            byte[] outBytes = ms.GetBuffer();
-
-            ms = new MemoryStream(outBytes)
-            {
-                Position = 0
-            };
-            formatter = new BinaryFormatter();
-            Address o = (Address)formatter.Deserialize(ms);//把内存流反序列成对象
-            
+            byte[] outBytes = Encoder.EncodeToMsgPack(a);
+            Address o = Encoder.DecodeFromMsgPack<Address>(outBytes);//把内存流反序列成对象            
             Assert.AreEqual(o, a);
             Assert.AreEqual("VKM6KSCTDHEM6KGEAMSYCNEGIPFJMHDSEMIRAQLK76CJDIRMMDHKAIRMFQ", o.EncodeAsString());
         }

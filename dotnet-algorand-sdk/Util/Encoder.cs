@@ -85,11 +85,25 @@ namespace Algorand
             //    objectMapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
             //    return objectMapper.readValue(input, tClass);
             // deserialize product from MessagePack
-            MemoryStream memoryStream = new MemoryStream();
-            JsonSerializer serializer = new JsonSerializer();
-            MessagePackReader reader = new MessagePackReader(memoryStream);
-            T deserializedT = serializer.Deserialize<T>(reader);
-            return deserializedT;
+            MemoryStream st = new MemoryStream(input);
+            //memoryStream.Write(input, 0, input.Length);
+            //memoryStream.Seek(0, SeekOrigin.Begin);
+            JsonSerializer serializer = new JsonSerializer()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                ContractResolver = AlgorandContractResolver.Instance,
+                Formatting = Formatting.None
+            };
+            MessagePackReader reader = new MessagePackReader(st);
+            return serializer.Deserialize<T>(reader);
+
+
+            //MemoryStream st = new MemoryStream(Convert.FromBase64String(bs64));
+            //JsonSerializer ser = new JsonSerializer();
+            //// deserialize product from MessagePack
+            //MessagePackReader reader = new MessagePackReader(st);
+            //Product deserializedProduct = ser.Deserialize<Product>(reader);
+
         }
 
         /**
@@ -107,6 +121,11 @@ namespace Algorand
             };
             var ostr = JsonConvert.SerializeObject(o, settings);
             return ostr;
+        }
+
+        public static T DecodeFromJson<T>(string json)
+        {
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
         /// <summary>
@@ -212,7 +231,7 @@ namespace Algorand
                     {
                         var st = instance as SignedTransaction;
                         return !st.mSig.Equals(new MultisigSignature());
-                    };
+                    };                    
                 }
                 else if (property.PropertyType == typeof(Transaction) && property.PropertyName == "txn")
                 {

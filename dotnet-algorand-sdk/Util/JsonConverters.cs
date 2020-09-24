@@ -9,7 +9,7 @@ namespace Algorand
     public class BytesConverter : JsonConverter
     {
         //是否开启自定义反序列化，值为true时，反序列化时会走ReadJson方法，值为false时，不走ReadJson方法，而是默认的反序列化
-        public override bool CanRead => false;
+        public override bool CanRead => true;
         //是否开启自定义序列化，值为true时，序列化时会走WriteJson方法，值为false时，不走WriteJson方法，而是默认的序列化
         public override bool CanWrite => true;
 
@@ -22,7 +22,13 @@ namespace Algorand
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            if (objectType == typeof(Address))
+            {
+                var bytes = (byte[])reader.Value;
+                return new Address(bytes);
+            } else
+                return new object();
+            //throw new NotImplementedException();
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
