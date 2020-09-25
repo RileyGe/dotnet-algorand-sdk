@@ -135,7 +135,7 @@ namespace test
             args.Add(arg);
 
             var ex = Assert.Throws<ArgumentException>(() => { Logic.ReadProgram(program, args); });
-            StringAssert.Contains("program too long", ex.Message);
+            Assert.AreEqual("program too long", ex.Message);
         }
 
         [Test]
@@ -151,7 +151,7 @@ namespace test
             JavaHelper<byte>.SyatemArrayCopy(int1, 0, program2, program.Length, int1.Length);
 
             var ex = Assert.Throws<ArgumentException>(() => { Logic.CheckProgram(program2, args); });
-            StringAssert.Contains("program too long", ex.Message);
+            Assert.AreEqual("program too long", ex.Message);
         }
 
         [Test]
@@ -161,7 +161,7 @@ namespace test
             List<byte[]> args = new List<byte[]>();
 
             var ex = Assert.Throws<ArgumentException>(() => { Logic.CheckProgram(program, args); });
-            StringAssert.Contains("invalid instruction: 129", ex.Message);
+            Assert.AreEqual("invalid instruction: 129", ex.Message);
         }
 
         [Test]
