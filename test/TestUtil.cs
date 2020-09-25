@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using Encoder = Algorand.Encoder;
 
@@ -54,6 +55,17 @@ namespace test
             {
                 Assert.Fail("Should not have thrown an exception.", e);
             }
+        }
+        
+        public static void ContainsExactlyElementsOf<T>(List<T> superList, List<T> subList)
+        {
+            CollectionAssert.IsSubsetOf(subList, superList);
+            List<int> orderList = new List<int>();
+            foreach(var item in subList)
+            {
+                orderList.Add(superList.IndexOf(item));
+            }
+            CollectionAssert.IsOrdered(orderList);
         }
     }
 }
