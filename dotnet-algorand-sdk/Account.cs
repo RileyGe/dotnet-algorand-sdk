@@ -163,7 +163,8 @@ namespace Algorand
         public static int EstimatedEncodedSize(Transaction tx)
         {
             Account acc = new Account();
-            return Encoder.EncodeToMsgPack(acc.SignTransaction(tx)).Length;
+            return Encoder.EncodeToMsgPack(
+                new SignedTransaction(tx, acc.RawSignBytes(tx.BytesToSign()), tx.TxID())).Length;
         }
         /// <summary>
         /// Sign the given bytes, and wrap in Signature.
@@ -314,7 +315,6 @@ namespace Algorand
         public byte[] AppendMultisigTransactionBytes(MultisigAddress from, byte[] txBytes)
         {
             SignedTransaction inTx = Encoder.DecodeFromMsgPack<SignedTransaction>(txBytes);
-            string abc = Encoder.EncodeToJson(inTx);
             SignedTransaction appended = this.AppendMultisigTransaction(from, inTx);
             return Encoder.EncodeToMsgPack(appended);
         }

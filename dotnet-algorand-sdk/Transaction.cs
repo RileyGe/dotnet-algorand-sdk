@@ -164,8 +164,8 @@ namespace Algorand
 
         public Transaction(Address fromAddr, Address toAddr, ulong? fee, ulong? amount, ulong? firstRound, ulong? lastRound,
                            string genesisID, Digest genesisHash) : this(fromAddr, fee, firstRound, lastRound, null, amount,
-                               toAddr, genesisID, genesisHash)
-        { }
+                               toAddr, genesisID, genesisHash) { }
+        public Transaction() { }
         /// <summary>
         /// Create a payment transaction. Make sure to sign with a suggested fee.
         /// </summary>
@@ -176,13 +176,12 @@ namespace Algorand
         /// <param name="lastRound">last valid round</param>
         /// <param name="genesisID">genesis id</param>
         /// <param name="genesisHash">genesis hash</param>
-        public Transaction(Address fromAddr, Address toAddr, ulong? amount, ulong? firstRound, ulong? lastRound,
-            string genesisID, Digest genesisHash) : this(fromAddr, 0, firstRound, lastRound, null, amount, toAddr, genesisID, genesisHash) { }
+        public Transaction(Address fromAddr, Address toAddr, ulong? amount, ulong? firstRound, ulong? lastRound, string genesisID, Digest genesisHash) : 
+            this(fromAddr, 0, firstRound, lastRound, null, amount, toAddr, genesisID, genesisHash) { }
 
         public Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note, ulong? amount,
             Address receiver, string genesisID, Digest genesisHash) : this(sender, fee, firstValid, lastValid, note,
-                genesisID, genesisHash, amount, receiver, new Address())
-        { }
+                genesisID, genesisHash, amount, receiver, new Address()) { }
 
         public Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note, String genesisID, Digest genesisHash,
                            ulong? amount, Address receiver, Address closeRemainderTo)
@@ -270,40 +269,32 @@ namespace Algorand
             if (genesisHash != null) this.genesisHash = genesisHash;
 
             this.assetParams = new AssetParams(assetTotal, assetDecimals, defaultFrozen, assetUnitName, assetName, url, metadataHash, manager, reserve, freeze, clawback);
-        }
-        /// <summary>
-        /// Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-        /// </summary>
-        /// <param name="sender">source address</param>
-        /// <param name="fee">transaction fee</param>
-        /// <param name="firstValid">first valid round</param>
-        /// <param name="lastValid">last valid round</param>
-        /// <param name="note">optional note field (can be null)</param>
-        /// <param name="genesisID"></param>
-        /// <param name="genesisHash"></param>
-        /// <param name="assetTotal">total asset issuance</param>
-        /// <param name="assetDecimals">asset decimal precision</param>
-        /// <param name="defaultFrozen">whether accounts have this asset frozen by default</param>
-        /// <param name="assetUnitName">name of unit of the asset</param>
-        /// <param name="assetName">name of the asset</param>
-        /// <param name="url">where more information about the asset can be retrieved</param>
-        /// <param name="metadataHash">specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application</param>
-        /// <param name="manager">account which can reconfigure the asset</param>
-        /// <param name="reserve">account whose asset holdings count as non-minted</param>
-        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
-        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
-        /// <returns></returns>
-        public static Transaction CreateAssetCreateTransaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
-                           string genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
-                           string assetUnitName, string assetName, string url, byte[] metadataHash,
-                           Address manager, Address reserve, Address freeze, Address clawback)
-        {
-            return new Transaction(
-                    sender, fee, firstValid, lastValid, note,
-                    genesisID, genesisHash, assetTotal, assetDecimals, defaultFrozen,
-                    assetUnitName, assetName, url, metadataHash,
-                    manager, reserve, freeze, clawback);
         }        
+        /// <summary>
+        /// Base constructor with flat fee for asset xfer/freeze/destroy transactions.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="flatFee">the transaction flat fee</param>
+        /// <param name="firstRound">the first round this txn is valid (txn semantics unrelated to asset management)</param>
+        /// <param name="lastRound">the last round this txn is valid</param>
+        /// <param name="note"></param>
+        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis of the network</param>
+        private Transaction(
+                Type type,
+                ulong? flatFee,
+                ulong? firstRound,
+                ulong? lastRound,
+                byte[] note,
+                Digest genesisHash)
+        {
+
+            this.type = type;
+            if (flatFee != null) this.fee = flatFee;
+            if (firstRound != null) this.firstValid = firstRound;
+            if (lastRound != null) this.lastValid = lastRound;
+            if (note != null) this.note = note;
+            if (genesisHash != null) this.genesisHash = genesisHash;
+        }
         /// <summary>
         /// Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
         /// </summary>
@@ -335,61 +326,6 @@ namespace Algorand
             this.assetParams = new AssetParams(0, 0, false, "", "", "", null, manager, reserve, freeze, clawback);
             assetIndex = index;
         }
-        /// <summary>
-        /// Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
-        /// </summary>
-        /// <param name="sender">source address</param>
-        /// <param name="fee">transaction fee</param>
-        /// <param name="firstValid">first valid round</param>
-        /// <param name="lastValid">last valid round</param>
-        /// <param name="note">optional note field (can be null)</param>
-        /// <param name="genesisID">corresponds to the id of the network</param>
-        /// <param name="genesisHash"></param>
-        /// <param name="index">asset index</param>
-        /// <param name="manager">account which can reconfigure the asset</param>
-        /// <param name="reserve">account whose asset holdings count as non-minted</param>
-        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
-        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
-        /// <param name="strictEmptyAddressChecking">if true, disallow empty admin accounts from being set (preventing accidental disable of admin features)</param>
-        /// <returns>the asset configure transaction</returns>
-        public static Transaction CreateAssetConfigureTransaction(
-                Address sender,
-                ulong? fee,
-                ulong? firstValid,
-                ulong? lastValid,
-                byte[] note,
-                string genesisID,
-                Digest genesisHash,
-                ulong? index,
-                Address manager,
-                Address reserve,
-                Address freeze,
-                Address clawback,
-                bool strictEmptyAddressChecking)
-        {
-            Address defaultAddr = new Address();
-            if (strictEmptyAddressChecking && (
-                    (manager == null || manager.Equals(defaultAddr)) || (reserve == null || reserve.Equals(defaultAddr)) ||
-                    (freeze == null || freeze.Equals(defaultAddr)) || (clawback == null || clawback.Equals(defaultAddr))))
-            {
-                throw new Exception("strict empty address checking requested but "
-                        + "empty or default address supplied to one or more manager addresses");
-            }
-            return new Transaction(
-                    sender,
-                    fee,
-                    firstValid,
-                    lastValid,
-                    note,
-                    genesisID,
-                    genesisHash,
-                    index,
-                    manager,
-                    reserve,
-                    freeze,
-                    clawback);
-        }
-
         // workaround for nested JsonValue classes
         // @JsonCreator
         [JsonConstructor]
@@ -512,33 +448,100 @@ namespace Algorand
             if (assetFreezeID != null) this.assetFreezeID = assetFreezeID;
             this.freezeState = freezeState;
         }
-
-        public Transaction() { }
         /// <summary>
-        /// Base constructor with flat fee for asset xfer/freeze/destroy transactions.
+        /// Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="flatFee">the transaction flat fee</param>
-        /// <param name="firstRound">the first round this txn is valid (txn semantics unrelated to asset management)</param>
-        /// <param name="lastRound">the last round this txn is valid</param>
-        /// <param name="note"></param>
-        /// <param name="genesisHash">corresponds to the base64-encoded hash of the genesis of the network</param>
-        private Transaction(
-                Type type,
-                ulong? flatFee,
-                ulong? firstRound,
-                ulong? lastRound,
-                byte[] note,
-                Digest genesisHash)
+        /// <param name="sender">source address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="firstValid">first valid round</param>
+        /// <param name="lastValid">last valid round</param>
+        /// <param name="note">optional note field (can be null)</param>
+        /// <param name="genesisID"></param>
+        /// <param name="genesisHash"></param>
+        /// <param name="assetTotal">total asset issuance</param>
+        /// <param name="assetDecimals">asset decimal precision</param>
+        /// <param name="defaultFrozen">whether accounts have this asset frozen by default</param>
+        /// <param name="assetUnitName">name of unit of the asset</param>
+        /// <param name="assetName">name of the asset</param>
+        /// <param name="url">where more information about the asset can be retrieved</param>
+        /// <param name="metadataHash">specifies a commitment to some unspecified asset metadata. The format of this metadata is up to the application</param>
+        /// <param name="manager">account which can reconfigure the asset</param>
+        /// <param name="reserve">account whose asset holdings count as non-minted</param>
+        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
+        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
+        /// <returns></returns>
+        public static Transaction CreateAssetCreateTransaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
+                           string genesisID, Digest genesisHash, ulong? assetTotal, int assetDecimals, bool defaultFrozen,
+                           string assetUnitName, string assetName, string url, byte[] metadataHash,
+                           Address manager, Address reserve, Address freeze, Address clawback)
         {
-
-            this.type = type;
-            if (flatFee != null) this.fee = flatFee;
-            if (firstRound != null) this.firstValid = firstRound;
-            if (lastRound != null) this.lastValid = lastRound;
-            if (note != null) this.note = note;
-            if (genesisHash != null) this.genesisHash = genesisHash;
+            var tx = new Transaction(
+                    sender, fee, firstValid, lastValid, note,
+                    genesisID, genesisHash, assetTotal, assetDecimals, defaultFrozen,
+                    assetUnitName, assetName, url, metadataHash,
+                    manager, reserve, freeze, clawback);
+            Account.SetFeeByFeePerByte(tx, fee);
+            return tx;
         }        
+        
+        /// <summary>
+        /// Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
+        /// </summary>
+        /// <param name="sender">source address</param>
+        /// <param name="fee">transaction fee</param>
+        /// <param name="firstValid">first valid round</param>
+        /// <param name="lastValid">last valid round</param>
+        /// <param name="note">optional note field (can be null)</param>
+        /// <param name="genesisID">corresponds to the id of the network</param>
+        /// <param name="genesisHash"></param>
+        /// <param name="index">asset index</param>
+        /// <param name="manager">account which can reconfigure the asset</param>
+        /// <param name="reserve">account whose asset holdings count as non-minted</param>
+        /// <param name="freeze">account which can freeze or unfreeze holder accounts</param>
+        /// <param name="clawback">account which can issue clawbacks against holder accounts</param>
+        /// <param name="strictEmptyAddressChecking">if true, disallow empty admin accounts from being set (preventing accidental disable of admin features)</param>
+        /// <returns>the asset configure transaction</returns>
+        public static Transaction CreateAssetConfigureTransaction(
+                Address sender,
+                ulong? fee,
+                ulong? firstValid,
+                ulong? lastValid,
+                byte[] note,
+                string genesisID,
+                Digest genesisHash,
+                ulong? index,
+                Address manager,
+                Address reserve,
+                Address freeze,
+                Address clawback,
+                bool strictEmptyAddressChecking)
+        {
+            Address defaultAddr = new Address();
+            if (strictEmptyAddressChecking && (
+                    (manager == null || manager.Equals(defaultAddr)) || (reserve == null || reserve.Equals(defaultAddr)) ||
+                    (freeze == null || freeze.Equals(defaultAddr)) || (clawback == null || clawback.Equals(defaultAddr))))
+            {
+                throw new Exception("strict empty address checking requested but "
+                        + "empty or default address supplied to one or more manager addresses");
+            }
+            var tx = new Transaction(
+                    sender,
+                    fee,
+                    firstValid,
+                    lastValid,
+                    note,
+                    genesisID,
+                    genesisHash,
+                    index,
+                    manager,
+                    reserve,
+                    freeze,
+                    clawback);
+            Account.SetFeeByFeePerByte(tx, fee);
+            return tx;
+        }
+
+        
         /// <summary>
         /// Creates a tx to mark the account as willing to accept the asset.
         /// </summary>
@@ -954,14 +957,47 @@ namespace Algorand
                 if (assetTotal != null) this.assetTotal = assetTotal;
                 this.assetDecimals = assetDecimals;
                 this.assetDefaultFrozen = defaultFrozen;
-                if (assetUnitName != null) this.assetUnitName = assetUnitName;
-                if (assetName != null) this.assetName = assetName;
-                if (url != null) this.url = url;
-                if (metadataHash != null) this.metadataHash = metadataHash;
+                //if (assetUnitName != null) this.assetUnitName = assetUnitName;
+                //if (assetName != null) this.assetName = assetName;
+                //if (url != null) this.url = url;
+                //if (metadataHash != null) this.metadataHash = metadataHash;
                 if (manager != null) this.assetManager = manager;
                 if (reserve != null) this.assetReserve = reserve;
                 if (freeze != null) this.assetFreeze = freeze;
                 if (clawback != null) this.assetClawback = clawback;
+                if (assetDecimals < 0 || assetDecimals > 19) throw new ArgumentException("assetDecimals cannot be less than 0 or greater than 19");
+
+                if (assetUnitName != null)
+                {
+                    if (assetUnitName.Length > 8) throw new ArgumentException("assetUnitName cannot be greater than 8 characters");
+                    this.assetUnitName = assetUnitName;
+                }
+
+                if (assetName != null)
+                {
+                    if (assetName.Length > 32) throw new ArgumentException("assetName cannot be greater than 32 characters");
+                    this.assetName = assetName;
+                }
+
+                if (url != null)
+                {
+                    if (url.Length > 32) throw new ArgumentException("asset url cannot be greater than 32 characters");
+                    this.url = url;
+                }
+
+                if (metadataHash != null)
+                {
+                    if (metadataHash.Length > 32) throw new ArgumentException("asset metadataHash cannot be greater than 32 bytes");
+                    try
+                    {
+                        Convert.FromBase64String(Encoding.UTF8.GetString(metadataHash));
+                    }
+                    catch (Exception)
+                    {
+                        throw new ArgumentException("asset metadataHash '" + Encoding.UTF8.GetString(metadataHash) + "' is not base64 encoded");
+                    }
+                    this.metadataHash = metadataHash;
+                }
             }
 
             public AssetParams() { }
