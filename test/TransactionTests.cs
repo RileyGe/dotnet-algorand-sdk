@@ -318,7 +318,7 @@ namespace test
             ulong amountToSend = 1000;
             byte[] note = Convert.FromBase64String("6gAVR0Nsv5Y=");
             string genesisID = "devnet-v33.0";
-            Digest genesisHash = new Digest(Convert.FromBase64String("JgsgCaCTqIaLeVhyL6XlRu3n7Rfk2FxMeK+wRSaQ7dI="));
+            Digest genesisHash = new Digest("JgsgCaCTqIaLeVhyL6XlRu3n7Rfk2FxMeK+wRSaQ7dI=");
 
             var tx = new Transaction(fromAddr, 4, firstValidRound, lastValidRound,
                     note, amountToSend, toAddr, genesisID, genesisHash);
@@ -381,7 +381,7 @@ namespace test
             ulong fee = 1000;
             ulong amount = 2000;
             string genesisID = "devnet-v1.0";
-            Digest genesisHash = new Digest(Convert.FromBase64String("sC3P7e2SdbqKJK0tbiCdK9tdSpbe6XeCGKdoNzmlj0E="));
+            Digest genesisHash = new Digest("sC3P7e2SdbqKJK0tbiCdK9tdSpbe6XeCGKdoNzmlj0E=");
             ulong firstRound1 = 710399;
             byte[] note1 = Convert.FromBase64String("wRKw5cJ0CMo=");
 
@@ -597,7 +597,7 @@ namespace test
 
             var txn = new Transaction(account1.Address, 1000 * 10, 12345, 12346,
                     null, 5000, addr1,
-                    null, new Digest(Convert.FromBase64String("f4OxZX/x/FO5LcGBSKHWXfwtSx+j1ncoSt3SABJtkGk=")))
+                    null, new Digest("f4OxZX/x/FO5LcGBSKHWXfwtSx+j1ncoSt3SABJtkGk="))
             {
                 closeRemainderTo = addr2,
                 lease = Convert.FromBase64String(lease)
@@ -641,7 +641,7 @@ namespace test
             ulong amountToSend = 1000;
             byte[] note = Convert.FromBase64String("6gAVR0Nsv5Y=");
             string genesisID = "devnet-v33.0";
-            Digest genesisHash = new Digest(Convert.FromBase64String("JgsgCaCTqIaLeVhyL6XlRu3n7Rfk2FxMeK+wRSaQ7dI="));
+            Digest genesisHash = new Digest("JgsgCaCTqIaLeVhyL6XlRu3n7Rfk2FxMeK+wRSaQ7dI=");
             byte[] lease = { 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4 };
 
             var tx = new Transaction(fromAddr, 4, firstValidRound, lastValidRound, note, amountToSend,

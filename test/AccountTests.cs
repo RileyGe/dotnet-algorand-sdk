@@ -251,7 +251,7 @@ namespace test
             ulong fee = 1000;
             ulong amount = 2000;
             string genesisID = "devnet-v1.0";
-            Digest genesisHash = new Digest(Convert.FromBase64String("sC3P7e2SdbqKJK0tbiCdK9tdSpbe6XeCGKdoNzmlj0E="));
+            Digest genesisHash = new Digest("sC3P7e2SdbqKJK0tbiCdK9tdSpbe6XeCGKdoNzmlj0E=");
             ulong firstRound = 2063137;
             byte[] note = Convert.FromBase64String("8xMCTuLQ810=");
 

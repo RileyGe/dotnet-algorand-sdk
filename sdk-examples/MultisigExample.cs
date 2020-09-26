@@ -74,7 +74,7 @@ namespace sdk_examples
             
             //var tx = Utils.GetPaymentTransaction(new Address(msa.ToString()), new Address(DEST_ADDR), amount, "this is a multisig trans", transParams);
             //Transaction tx = new Transaction(new Address(msa.ToString()), transParams.Fee, transParams.LastRound, transParams.LastRound + 1000,
-            //        notes, amount, new Address(DEST_ADDR), transParams.GenesisID, new Digest(Convert.FromBase64String(transParams.Genesishashb64)));
+            //        notes, amount, new Address(DEST_ADDR), transParams.GenesisID, new Digest(transParams.Genesishashb64));
             // Sign the Transaction for two accounts
             SignedTransaction signedTx = act1.SignMultisigTransaction(msa, tx);
             SignedTransaction completeTx = act2.AppendMultisigTransaction(msa, signedTx);

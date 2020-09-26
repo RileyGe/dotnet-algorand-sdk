@@ -82,7 +82,7 @@ namespace Algorand
         {
             var notes = Encoding.UTF8.GetBytes(message);
             var tx = new Transaction(from, fee, lastRound, lastRound + 1000,
-                    notes, amount, to, genesisId, new Digest(Convert.FromBase64String(genesishashb64)));
+                    notes, amount, to, genesisId, new Digest(genesishashb64));
             Account.SetFeeByFeePerByte(tx, fee);
             return tx;
         }
@@ -133,7 +133,7 @@ namespace Algorand
             ValidateAsset(asset);
             // assetDecimals is not exist in api, so set as zero in this version
             var tx = Transaction.CreateAssetCreateTransaction(new Address(asset.Creator), trans.Fee, trans.LastRound, trans.LastRound + 1000,
-                Encoding.UTF8.GetBytes(message), trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)),
+                Encoding.UTF8.GetBytes(message), trans.GenesisID, new Digest(trans.Genesishashb64),
                 asset.Total, decimals, (bool)asset.Defaultfrozen, asset.Unitname, asset.Assetname, asset.Url,
                 Convert.FromBase64String(asset.Metadatahash), new Address(asset.Managerkey), new Address(asset.Reserveaddr),
                 new Address(asset.Freezeaddr), new Address(asset.Clawbackaddr));
@@ -180,7 +180,7 @@ namespace Algorand
             //sender must be manager
             var tx = Transaction.CreateAssetConfigureTransaction(sender, 1,
                 trans.LastRound, trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID,
-                new Digest(Convert.FromBase64String(trans.Genesishashb64)), assetId, new Address(asset.Managerkey), 
+                new Digest(trans.Genesishashb64), assetId, new Address(asset.Managerkey), 
                 new Address(asset.Reserveaddr), new Address(asset.Freezeaddr), new Address(asset.Clawbackaddr), false);
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
@@ -226,7 +226,7 @@ namespace Algorand
         {
             var tx = Transaction.CreateAssetAcceptTransaction(sender, 1, trans.LastRound,
                 trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID,
-                new Digest(Convert.FromBase64String(trans.Genesishashb64)), assetId);
+                new Digest(trans.Genesishashb64), assetId);
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
@@ -243,7 +243,7 @@ namespace Algorand
             Address closeTo = null, string message = "") {
             var tx = Transaction.CreateAssetTransferTransaction(from, to, closeTo, amount, 1,
                 trans.LastRound, trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID, 
-                new Digest(Convert.FromBase64String(trans.Genesishashb64)), assetId);
+                new Digest(trans.Genesishashb64), assetId);
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
@@ -271,7 +271,7 @@ namespace Algorand
             TransactionParams trans, string message = "")
         {
             var tx = Transaction.CreateAssetFreezeTransaction(sender, toFreeze, freezeState, 1, trans.LastRound,
-                trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), new Digest(Convert.FromBase64String(trans.Genesishashb64)), assetId);
+                trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), new Digest(trans.Genesishashb64), assetId);
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
@@ -300,7 +300,7 @@ namespace Algorand
         {
             var tx = Transaction.CreateAssetRevokeTransaction(reserve, revokedFrom, receiver, amount, 1, trans.LastRound,
                 trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID, 
-                new Digest(Convert.FromBase64String(trans.Genesishashb64)), assetId);
+                new Digest(trans.Genesishashb64), assetId);
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
@@ -326,7 +326,7 @@ namespace Algorand
         public static Transaction GetDestroyAssetTransaction(Address manager, ulong? assetId, TransactionParams trans, string message = "")
         {
             var tx = Transaction.CreateAssetDestroyTransaction(manager, 1, trans.LastRound, trans.LastRound + 1000, 
-                Encoding.UTF8.GetBytes(message), new Digest(Convert.FromBase64String(trans.Genesishashb64)), assetId);
+                Encoding.UTF8.GetBytes(message), new Digest(trans.Genesishashb64), assetId);
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
@@ -409,7 +409,7 @@ namespace Algorand
         public static Transaction GetBidTransaction(Address bidder, Address auction, SignedBid signedBid, TransactionParams trans)
         {
             var tx = new Transaction(bidder, auction, 0, trans.LastRound, trans.LastRound + 1000,
-                trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
+                trans.GenesisID, new Digest(trans.Genesishashb64))
             {
                 note = Encoder.EncodeToMsgPack(signedBid)
             };
@@ -427,7 +427,7 @@ namespace Algorand
         //public static Transaction GetLogicSignatureTransaction(LogicsigSignature lsig, Address receiver, TransactionParams trans, string message = "")
         //{
         //    var tx = new Transaction(lsig.ToAddress(), receiver, 1, trans.LastRound, trans.LastRound + 1000,
-        //        trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
+        //        trans.GenesisID, new Digest(trans.Genesishashb64))
         //    {
         //        note = Encoding.UTF8.GetBytes(message)
         //    };
@@ -449,7 +449,7 @@ namespace Algorand
         //public static Transaction GetLogicSignatureTransaction(Address signingAcct, Address receiver, TransactionParams trans, string message = "")
         //{
         //    var tx = new Transaction(signingAcct, receiver, 1, trans.LastRound, trans.LastRound + 1000,
-        //        trans.GenesisID, new Digest(Convert.FromBase64String(trans.Genesishashb64)))
+        //        trans.GenesisID, new Digest(trans.Genesishashb64))
         //    {
         //        note = Encoding.UTF8.GetBytes(message)
         //    };
