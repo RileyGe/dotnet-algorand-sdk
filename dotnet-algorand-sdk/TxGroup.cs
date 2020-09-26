@@ -19,23 +19,29 @@ namespace Algorand
         /// <returns>Digest</returns>
         public static Digest ComputeGroupID(params Transaction[] txns)
         {
-            if (txns != null && txns.Length != 0)
+            if (txns != null && txns.Length > 0)
             {
+                if (txns.Length > MAX_TX_GROUP_SIZE)                
+                    throw new ArgumentException("max group size is " + MAX_TX_GROUP_SIZE);
+                
                 Digest[] txIDs = new Digest[txns.Length];
-
-                for (int i = 0; i < txns.Length; ++i)
-                {
+                for (int i = 0; i < txns.Length; ++i)                
                     txIDs[i] = txns[i].RawTxID();
-                }
+                
 
                 TxGroup txgroup = new TxGroup(txIDs);
-                byte[] gid = Digester.Digest(txgroup.BytesToSign());
-                return new Digest(gid);
+                try
+                {
+                    byte[] gid = Digester.Digest(txgroup.BytesToSign());
+                    return new Digest(gid);
+                }
+                catch (Exception e)
+                {
+                    throw new ArgumentException("tx computation failed", e);
+                }
             }
-            else
-            {
-                throw new ArgumentException("empty transaction list");
-            }
+            else            
+                throw new ArgumentException("empty transaction list");            
         }
 
         /// <summary>

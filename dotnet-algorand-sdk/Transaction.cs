@@ -41,8 +41,20 @@ namespace Algorand
         [DefaultValue(0)]
         public ulong? lastValid = 0;
         //@JsonProperty("note")
+        [JsonIgnore]
+        private byte[] _note;
         [JsonProperty(PropertyName = "note")]
-        public byte[] note;
+        public byte[] note {
+            get
+            {
+                return _note;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                    _note = value;
+            }
+        }
         //@JsonProperty("gen")
         [JsonProperty(PropertyName = "gen")]
         [DefaultValue("")]
@@ -54,8 +66,21 @@ namespace Algorand
         [JsonProperty(PropertyName = "grp")]
         public Digest group = new Digest();
         //@JsonProperty("lx")
+        [JsonIgnore]
+        private byte[] _lease;
         [JsonProperty(PropertyName = "lx")]
-        public byte[] lease;
+        public byte[] lease
+        {
+            get
+            {
+                return _lease;
+            }
+            set
+            {
+                if (value != null && value.Length > 0)
+                    _lease = value;
+            }
+        }
 
         /* payment fields  *********************************************************/
         //@JsonProperty("amt")
@@ -191,7 +216,7 @@ namespace Algorand
             if (fee != null) this.fee = fee;
             if (firstValid != null) this.firstValid = firstValid;
             if (lastValid != null) this.lastValid = lastValid;
-            if (note != null) this.note = note;
+            if (note != null && note.Length > 0) this.note = note;
             if (genesisID != null) this.genesisID = genesisID;
             if (genesisHash != null) this.genesisHash = genesisHash;
             if (amount != null) this.amount = amount;
@@ -224,7 +249,7 @@ namespace Algorand
             if (fee != null) this.fee = fee;
             if (firstValid != null) this.firstValid = firstValid;
             if (lastValid != null) this.lastValid = lastValid;
-            if (note != null) this.note = note;
+            if (note != null && note.Length > 0) this.note = note;
             if (genesisID != null) this.genesisID = genesisID;
             if (genesisHash != null) this.genesisHash = genesisHash;
             if (votePK != null) this.votePK = votePK;
@@ -264,7 +289,7 @@ namespace Algorand
             if (fee != null) this.fee = fee;
             if (firstValid != null) this.firstValid = firstValid;
             if (lastValid != null) this.lastValid = lastValid;
-            if (note != null) this.note = note;
+            if (note != null && note.Length > 0) this.note = note;
             if (genesisID != null) this.genesisID = genesisID;
             if (genesisHash != null) this.genesisHash = genesisHash;
 
@@ -292,7 +317,7 @@ namespace Algorand
             if (flatFee != null) this.fee = flatFee;
             if (firstRound != null) this.firstValid = firstRound;
             if (lastRound != null) this.lastValid = lastRound;
-            if (note != null) this.note = note;
+            if (note != null && note.Length > 0) this.note = note;
             if (genesisHash != null) this.genesisHash = genesisHash;
         }
         /// <summary>
@@ -320,7 +345,7 @@ namespace Algorand
             if (fee != null) this.fee = fee;
             if (firstValid != null) this.firstValid = firstValid;
             if (lastValid != null) this.lastValid = lastValid;
-            if (note != null) this.note = note;
+            if (note != null && note.Length > 0) this.note = note;
             if (genesisID != null) this.genesisID = genesisID;
             if (genesisHash != null) this.genesisHash = genesisHash;
             this.assetParams = new AssetParams(0, 0, false, "", "", "", null, manager, reserve, freeze, clawback);
@@ -401,12 +426,12 @@ namespace Algorand
             if (fee != null) this.fee = fee;
             if (firstValid != null) this.firstValid = firstValid;
             if (lastValid != null) this.lastValid = lastValid;
-            if (note != null) this.note = note;
+            if (note != null && note.Length > 0) this.note = note;
             if (genesisID != null) this.genesisID = genesisID;
             if (genesisHash != null) this.genesisHash = genesisHash;
             else this.genesisHash = new Digest();
 
-            if (lease != null) this.lease = lease;
+            if (lease != null && lease.Length > 0) this.lease = lease;
 
             if (group != null) this.group = group;
             else this.group = new Digest();
@@ -521,7 +546,7 @@ namespace Algorand
                     (manager == null || manager.Equals(defaultAddr)) || (reserve == null || reserve.Equals(defaultAddr)) ||
                     (freeze == null || freeze.Equals(defaultAddr)) || (clawback == null || clawback.Equals(defaultAddr))))
             {
-                throw new Exception("strict empty address checking requested but "
+                throw new ArgumentException("strict empty address checking requested but "
                         + "empty or default address supplied to one or more manager addresses");
             }
             var tx = new Transaction(
@@ -577,7 +602,7 @@ namespace Algorand
                     genesisID,
                     genesisHash,
                     assetIndex);
-
+            //Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
         }
         /// <summary>
@@ -610,6 +635,7 @@ namespace Algorand
 
             if (assetIndex != null) tx.assetIndex = assetIndex;
             if (senderAccount != null) tx.sender = senderAccount;
+            Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
         }
         /// <summary>
@@ -648,6 +674,7 @@ namespace Algorand
             if (accountToFreeze != null) tx.freezeTarget = accountToFreeze;
             if (assetIndex != null) tx.assetFreezeID = assetIndex;
             tx.freezeState = freezeState;
+            Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
         }        
         /// <summary>
@@ -693,6 +720,7 @@ namespace Algorand
                 sender = transactionSender // snd
             }; // gh
             if (assetIndex != null) tx.xferAsset = assetIndex;
+            Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
         }        
         /// <summary>
@@ -740,6 +768,7 @@ namespace Algorand
                 sender = assetSender // snd
             }; // gh
             if (assetIndex != null) tx.xferAsset = assetIndex;
+            Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
         }
         ///
@@ -845,7 +874,7 @@ namespace Algorand
             else noteEqual = Enumerable.SequenceEqual(note, that.note);
 
             if (lease is null && that.lease is null) { leaseEqual = true; }
-            else if (note is null || that.note is null) return false;
+            else if (lease is null || that.lease is null) return false;
             else leaseEqual = Enumerable.SequenceEqual(lease, that.lease);
 
 
@@ -985,7 +1014,7 @@ namespace Algorand
                     this.url = url;
                 }
 
-                if (metadataHash != null)
+                if (metadataHash != null && metadataHash.Length > 0)
                 {
                     if (metadataHash.Length > 32) throw new ArgumentException("asset metadataHash cannot be greater than 32 bytes");
                     try
