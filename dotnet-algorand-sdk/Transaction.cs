@@ -771,6 +771,55 @@ namespace Algorand
             Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
         }
+
+        /// <summary>
+        /// Create a key registration transaction.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="fee"></param>
+        /// <param name="firstValid"></param>
+        /// <param name="lastValid"></param>
+        /// <param name="note"></param>
+        /// <param name="genesisID"></param>
+        /// <param name="genesisHash"></param>
+        /// <param name="votePK"></param>
+        /// <param name="vrfPK"></param>
+        /// <param name="voteFirst"></param>
+        /// <param name="voteLast"></param>
+        /// <param name="voteKeyDilution"></param>
+        /// <returns></returns>
+        public static Transaction CreateKeyRegistrationTransaction(Address sender, ulong? fee, ulong? firstValid,
+            ulong? lastValid, byte[] note, string genesisID, Digest genesisHash, ParticipationPublicKey votePK,
+            VRFPublicKey vrfPK, ulong voteFirst, ulong voteLast, ulong voteKeyDilution)
+        {
+            JavaHelper<Address>.RequireNotNull(sender, "sender is required");
+            JavaHelper<ulong?>.RequireNotNull(firstValid, "firstValid is required");
+            JavaHelper<ulong?>.RequireNotNull(lastValid, "lastValid is required");
+            JavaHelper<Digest>.RequireNotNull(genesisHash, "genesisHash is required");
+            /*
+            Objects.requireNonNull(votePK, "votePK is required");
+            Objects.requireNonNull(vrfPK, "vrfPK is required");
+            Objects.requireNonNull(voteFirst, "voteFirst is required");
+            Objects.requireNonNull(voteLast, "voteLast is required");
+            Objects.requireNonNull(voteKeyDilution, "voteKeyDilution is required");
+             */
+
+            return new Transaction(Type.KeyRegistration,
+                    //header fields
+                    sender, fee, firstValid, lastValid, note, genesisID, genesisHash, null, null,
+                    // payment fields
+                    null, null, null,
+                    // keyreg fields
+                    votePK, vrfPK, voteFirst, voteLast,
+                    // voteKeyDilution
+                    voteKeyDilution,
+                    // asset creation and configuration
+                    null, null,
+                    // asset transfer fields
+                    null, null, null, null, null, null, null,
+                    false /*default value which wont be included in the serialized object.*/);
+        }
+
         ///
         /// TxType represents a transaction type.
         ///
