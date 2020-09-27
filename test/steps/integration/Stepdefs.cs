@@ -20,7 +20,7 @@ namespace test
 
         Algorand.Algod.Model.TransactionParams transParams;
         SignedTransaction stx;
-        //    SignedTransaction[] stxs;
+        SignedTransaction[] stxs;
         //    byte[] stxBytes;
         Transaction txn;
         //    TransactionBuilder txnBuilder;
@@ -56,14 +56,14 @@ namespace test
         List<string> addresses;
         ulong? lastRound;
         bool err;
-        //    ulong microalgos;
-        //    string mnemonic;
-        //    byte[] mdk;
-        //    string oldAddr;
+        ulong microalgos;
+        string mnemonic;
+        byte[] mdk;
+        string oldAddr;
         //    Bid bid;
         //    SignedBid oldBid;
         //    SignedBid sbid;
-        //    ulong paramsFee;
+        ulong paramsFee;
         ParticipationPublicKey votepk;
         VRFPublicKey vrfpk;
         ulong votefst;
@@ -192,7 +192,7 @@ namespace test
         //req.setWalletHandleToken(handle);
         //req.setWalletPassword(walletPswd);
         //byte[] mdk = kcl.exportMasterKey(req).getMasterDerivationKey();
-        //Assert.AreEqual(mdk.length).isGreaterThan(0);
+        //Assert.AreEqual(mdk.Length).isGreaterThan(0);
         //    }
 
         //    [When]("I rename the wallet")
@@ -381,8 +381,8 @@ namespace test
             versions = acl.GetVersion().Versions;
         }
 
-        [Then("v1 should be in the versions")] 
-            public void v1InVersions()
+        [Then("v1 should be in the versions")]
+        public void v1InVersions()
         {
             CollectionAssert.Contains(versions, "v1");
         }
@@ -406,10 +406,10 @@ namespace test
             statusAfter = acl.WaitForBlock((long?)status.LastRound);
         }
 
-        [Then("I can get the block info")] 
-        public void block() 
+        [Then("I can get the block info")]
+        public void block()
         {
-            acl.GetBlock((long?)status.LastRound+1);
+            acl.GetBlock((long?)status.LastRound + 1);
         }
 
         //[When("I import the multisig")]
@@ -456,7 +456,7 @@ namespace test
         //    bool eq = true;
         //    for (int x = 0; x < msig.publicKeys.Count; x++)
         //    {
-        //        if (!Convert.ToBase64String(msig.publicKeys.get(x).getBytes()).Equals(Convert.ToBase64String(pks.get(x))))
+        //        if (!Convert.ToBase64String(msig.publicKeys[x).getBytes()).Equals(Convert.ToBase64String(pks[x))))
         //        {
         //            eq = false;
         //        }
@@ -644,7 +644,7 @@ namespace test
         //    pk = getAddress(0);
         //}
 
-        [Given(@"default transaction with parameters (\d+) (.*)")] 
+        [Given(@"default transaction with parameters (\d+) (.*)")]
         public void defaultTxn(int amt, string note)
         {
             getParams();
@@ -664,7 +664,7 @@ namespace test
             //        .receiver(getAddress(1));
             //txn = txnBuilder.build();
 
-            txn = Utils.GetPaymentTransaction(getAddress(0), getAddress(1), (ulong?)amt, 
+            txn = Utils.GetPaymentTransaction(getAddress(0), getAddress(1), (ulong?)amt,
                 Encoding.UTF8.GetString(this.note), transParams);
             pk = getAddress(0);
         }
@@ -682,7 +682,7 @@ namespace test
                 this.note = Convert.FromBase64String(note);
             }
             List<Ed25519PublicKeyParameters> addrlist = new List<Ed25519PublicKeyParameters>();
-            for (int i = 0;i < addrlist.Count;i++)
+            for (int i = 0; i < addrlist.Count; i++)
             {
                 addrlist.Add(new Ed25519PublicKeyParameters(getAddress(i).Bytes, 0));
                 //addrlist[x] = new Ed25519PublicKey((getAddress(x)).getBytes());
@@ -701,7 +701,7 @@ namespace test
         }
 
         [When("I send the transaction")]
-        public void sendTxn() 
+        public void sendTxn()
         {
             txid = acl.RawTransaction(Encoder.EncodeToMsgPack(stx)).TxId;
         }
@@ -719,712 +719,706 @@ namespace test
             }
         }
 
-    //    [Then]("the transaction should go through")
-    //    public void checkTxn() throws ApiException, InterruptedException{
-    //        string ans = acl.pendingTransactionInformation(txid).getFrom();
-    //Assert.AreEqual(this.txn.sender.ToString(), ans);
-    //acl.waitForBlock(lastRound.add(2)));
-    //string senderFromResponse = acl.transactionInformation(txn.sender.ToString(), txid).getFrom();
-    //Assert.AreEqual(senderFromResponse, txn.sender.ToString());
-    //Assert.AreEqual(acl.transaction(txid).getFrom(), senderFromResponse);
-    //    }
-
-    //    [Then]("I can get the transaction by ID")
-    //    public void txnbyID() throws ApiException, InterruptedException{
-    //        acl.waitForBlock(lastRound.add(2)));
-    //Assert.AreEqual(acl.transaction(txid).getFrom(), pk.ToString());
-    //    }
-
-    //    [Then]("the transaction should not go through")
-    //    public void txnFail()
-    //{
-    //    Assert.AreEqual(err).isTrue();
-    //}
-
-    //[When]("I sign the transaction with kmd")
-    //    public void signKmd() throws JsonProcessingException, com.algorand.algosdk.kmd.client.ApiException, NoSuchAlgorithmException{
-    //        SignTransactionRequest req = new SignTransactionRequest();
-    //req.setTransaction(Encoder.EncodeToMsgPack(txn));
-    //req.setWalletHandleToken(handle);
-    //req.setWalletPassword(walletPswd);
-    //stxBytes = kcl.signTransaction(req).getSignedTransaction();
-    //    }
-    //    [Then]("the signed transaction should equal the kmd signed transaction")
-    //    public void signBothEqual() throws JsonProcessingException
-    //{
-    //    Assert.AreEqual(Convert.ToBase64String(stxBytes), Convert.ToBase64String(Encoder.EncodeToMsgPack(stx)));
-    //}
-
-    //[When]("I sign the multisig transaction with kmd")
-    //    public void signMsigKmd() throws JsonProcessingException, com.algorand.algosdk.kmd.client.ApiException, IOException{
-    //        ImportMultisigRequest importReq = new ImportMultisigRequest();
-    //importReq.setMultisigVersion(msig.version);
-    //importReq.setThreshold(msig.threshold);
-    //importReq.setWalletHandleToken(handle);
-    //importReq.setPks(msig.publicKeys);
-    //kcl.importMultisig(importReq);
-
-    //SignMultisigRequest req = new SignMultisigRequest();
-    //req.setTransaction(Encoder.EncodeToMsgPack(txn));
-    //req.setWalletHandleToken(handle);
-    //req.setWalletPassword(walletPswd);
-    //req.setPublicKey(pk.getBytes());
-    //stxBytes = kcl.signMultisigTransaction(req).getMultisig();
-    //    }
-
-    //    [Then]("the multisig transaction should equal the kmd signed multisig transaction")
-    //    public void signMsigBothEqual() throws JsonProcessingException, com.algorand.algosdk.kmd.client.ApiException {
-    //        Assert.AreEqual(Convert.ToBase64String(stxBytes), Convert.ToBase64String(Encoder.EncodeToMsgPack(stx.mSig)));
-    //DeleteMultisigRequest req = new DeleteMultisigRequest();
-    //req.setAddress(msig.ToString());
-    //req.setWalletHandleToken(handle);
-    //req.setWalletPassword(walletPswd);
-    //kcl.deleteMultisig(req);
-    //    }
-
-    //    [When]("I read a transaction (.*) from file (.*)")
-    //    public void readTxn(string encodedTxn, string num) throws IOException
-    //{
-    //    string path = System.getProperty("user.dir");
-    //    Path p = Paths.get(path);
-    //    this.num = num;
-    //    path = p.getParent() + "/temp/raw" + this.num + ".tx";
-    //    FileInputStream inputStream = new FileInputStream(path);
-    //    File file = new File(path);
-    //    byte[] data = new byte[(int)file.length()];
-    //    inputStream.read(data);
-    //    stx = Encoder.decodeFromMsgPack(data, SignedTransaction.class);
-    //inputStream.close();
-    //    }
-
-    //    [When]("I write the transaction to file")
-    //    public void writeTxn() throws JsonProcessingException, IOException{
-    //        string path = System.getProperty("user.dir");
-    //Path p = Paths.get(path);
-    //path = p.getParent() + "/temp/raw" + this.num + ".tx";
-    //byte[] data = Encoder.EncodeToMsgPack(stx);
-    //FileOutputStream out = new FileOutputStream(path);
-    //        out.write(data);
-    //        out.close();
-    //    }
-
-    //    [Then]("the transaction should still be the same")
-    //    public void checkEnc() throws IOException
-    //{
-    //    string path = System.getProperty("user.dir");
-    //    Path p = Paths.get(path);
-    //    path = p.getParent() + "/temp/raw" + this.num + ".tx";
-    //    FileInputStream inputStream = new FileInputStream(path);
-    //    File file = new File(path);
-    //    byte[] data = new byte[(int)file.length()];
-    //    inputStream.read(data);
-    //    SignedTransaction stxnew = Encoder.decodeFromMsgPack(data, SignedTransaction.class);
-    //inputStream.close();
-
-    //path = p.getParent() + "/temp/old" + this.num + ".tx";
-    //inputStream = new FileInputStream(path);
-    //file = new File(path);
-    //data = new byte[(int)file.length()];
-    //inputStream.read(data);
-    //SignedTransaction stxold = Encoder.decodeFromMsgPack(data, SignedTransaction.class);
-    //inputStream.close();
-    //Assert.AreEqual(stxnew, stxold);
-    //    }
-
-    //    [Then]("I do my part")
-    //    public void signSaveTxn() throws IOException, JsonProcessingException, NoSuchAlgorithmException, com.algorand.algosdk.kmd.client.ApiException, Exception{
-    //        string path = System.getProperty("user.dir");
-    //Path p = Paths.get(path);
-    //path = p.getParent() + "/temp/txn.tx";
-    //FileInputStream inputStream = new FileInputStream(path);
-    //File file = new File(path);
-    //byte[] data = new byte[(int)file.length()];
-    //inputStream.read(data);
-    //inputStream.close();
-
-    //txn = Encoder.decodeFromMsgPack(data, Transaction.class);
-    //exportKeyAndSetAccount(txn.sender);
-
-    //stx = account.signTransaction(txn);
-    //data = Encoder.EncodeToMsgPack(stx);
-    //FileOutputStream out = new FileOutputStream(path);
-    //        out.write(data);
-    //        out.close();
-    //    }
-
-    //    [Then]("the node should be healthy")
-    //    public void nodeHealth() throws ApiException
-    //{
-    //    acl.healthCheck();
-    //}
-
-    //[Then]("I get the ledger supply")
-    //    public void getLedger() throws ApiException
-    //{
-    //    acl.getSupply();
-    //}
-
-    //[Then]("I get transactions by address and round")
-    //    public void txnsByAddrRound() throws ApiException
-    //{
-    //    Assert.AreEqual(acl.transactions(addresses.get(0), 1), acl.getStatus().LastRound, null, null, 10)).getTransactions())
-    //                .isInstanceOf(List.class);
-    //        //Assert.assertTrue(acl.transactions(addresses.get(0), 1), acl.getStatus().LastRound, null, null, 10)).getTransactions() instanceof List<?>);
-    //    }
-
-    //    [Then]("I get transactions by address only")
-    //    public void txnsByAddrOnly() throws ApiException
-    //{
-    //    Assert.AreEqual(acl.transactions(addresses.get(0), null, null, null, null, 10)).getTransactions())
-    //                .isInstanceOf(List.class);
-    //        //Assert.assertTrue(acl.transactions(addresses.get(0), null, null, null, null, 10)).getTransactions() instanceof List<?>);
-    //    }
-
-    //    [Then]("I get transactions by address and date")
-    //    public void txnsByAddrDate() throws ApiException
-    //{
-    //    Assert.AreEqual(acl.transactions(addresses.get(0), null, null, LocalDate.now(), LocalDate.now(), 10)).getTransactions())
-    //                .isInstanceOf(List.class);
-    //        //Assert.assertTrue(acl.transactions(addresses.get(0), null, null, LocalDate.now(), LocalDate.now(), 10)).getTransactions() instanceof List<?>);
-    //    }
-
-    //    [Then]("I get pending transactions")
-    //    public void pendingTxns() throws ApiException
-    //{
-    //    Assert.AreEqual(acl.getPendingTransactions(10)).getTruncatedTxns())
-    //            .isInstanceOf(TransactionList.class);
-    //        //Assert.assertTrue(acl.getPendingTransactions(10)).getTruncatedTxns() instanceof TransactionList);
-    //    }
-
-    //    [When]("I get the suggested params")
-    //    public void suggestedParams() throws ApiException
-    //{
-    //    paramsFee = acl.TransactionParams().getFee();
-    //}
-
-    //[When]("I get the suggested fee")
-    //    public void suggestedFee() throws ApiException
-    //{
-    //    fee = acl.suggestedFee().getFee();
-    //}
-
-    //[Then]("the fee in the suggested params should equal the suggested fee")
-    //    public void checkSuggested()
-    //{
-    //    Assert.AreEqual(paramsFee, fee);
-    //}
-
-    //[When]("I create a bid")
-    //    public void createBid() throws NoSuchAlgorithmException
-    //{
-    //    account = new Account();
-    //pk = account.Address;
-    //address = pk.ToString();
-    //bid = new Bid(pk, pk, 1L), 2L), 3L), 4L));
-    //    }
-
-    //    [When]("I encode and decode the bid")
-    //    public void encDecBid() throws JsonProcessingException, IOException{
-    //        sbid = Encoder.decodeFromMsgPack(Encoder.EncodeToMsgPack(sbid), SignedBid.class);
-    //    }
-
-    //    [When]("I sign the bid")
-    //    public void signBid() throws NoSuchAlgorithmException
-    //{
-    //    sbid = account.signBid(bid);
-    //    oldBid = account.signBid(bid);
-    //}
-
-    //[Then]("the bid should still be the same")
-    //    public void checkBid()
-    //{
-    //    Assert.AreEqual(sbid, oldBid);
-    //}
-
-    //[When]("I decode the address")
-    //    public void decAddr() throws NoSuchAlgorithmException
-    //{
-    //    pk = new Address(address);
-    //oldAddr = address;
-    //    }
-
-    //    [When]("I encode the address")
-    //    public void encAddr()
-    //{
-    //    address = pk.ToString();
-    //}
-
-    //[Then]("the address should still be the same")
-    //    public void checkAddr()
-    //{
-    //    Assert.AreEqual(address, oldAddr);
-    //}
-
-    //[When]("I convert the private key back to a mnemonic")
-    //    public void skToMn()
-    //{
-    //    mnemonic = account.toMnemonic();
-    //}
-
-    //[Then]("the mnemonic should still be the same as (.*)")
-    //    public void checkMn(string mn)
-    //{
-    //    Assert.AreEqual(mnemonic, mn);
-    //}
-
-    //[Given]("mnemonic for master derivation key (.*)")
-    //    public void mnforMdk(string mn) throws GeneralSecurityException
-    //{
-    //    mdk = Mnemonic.toKey(mn);
-    //}
-
-    //[When]("I convert the master derivation key back to a mnemonic")
-    //    public void mdkToMn()
-    //{
-    //    mnemonic = Mnemonic.fromKey(mdk);
-    //}
-
-    //[When]("I create the flat fee payment transaction")
-    //    public void createPaytxnFlat() throws NoSuchAlgorithmException
-    //{
-    //    txn = Transaction.PaymentTransactionBuilder()
-    //                .sender(pk)
-    //                .flatFee(fee)
-    //                .firstValid(fv)
-    //                .lastValid(lv)
-    //                .note(note)
-    //                .genesisID(gen)
-    //                .genesisHash(gh)
-    //                .amount(amt)
-    //                .receiver(to)
-    //                .closeRemainderTo(close)
-    //                .build();
-    //}
-
-    //[Given]("encoded multisig transaction (.*)")
-    //    public void encMsigTxn(string encTxn) throws IOException
-    //{
-    //    stx = Encoder.decodeFromMsgPack(Convert.FromBase64String(encTxn), SignedTransaction.class);
-    //Ed25519PublicKey[] addrlist = new Ed25519PublicKey[stx.mSig.subsigs.Count];
-    //for (int x = 0; x < addrlist.length; x++)
-    //{
-    //    addrlist[x] = stx.mSig.subsigs.get(x).key;
-    //}
-    //msig = new MultisigAddress(stx.mSig.version, stx.mSig.threshold, Arrays.asList(addrlist));
-    //    }
-
-    //    [When]("I append a signature to the multisig transaction")
-    //    public void appendMsig() throws NoSuchAlgorithmException
-    //{
-    //    stx = account.appendMultisigTransaction(msig, stx);
-    //}
-
-    //[Given]("encoded multisig transactions (.*)")
-    //    public void encMsigTxns(string encTxns) throws IOException
-    //{
-    //    string []
-    //    txnArray = encTxns.split(" ");
-    //    stxs = new SignedTransaction[txnArray.length];
-    //for (int t = 0; t < txnArray.length; t++)
-    //{
-    //    stxs[t] = Encoder.decodeFromMsgPack(Convert.FromBase64String(txnArray[t]), SignedTransaction.class);
-    //        }
-    //    }
-
-    //    [When]("I merge the multisig transactions")
-    //    public void mergeMsig()
-    //{
-    //    stx = Account.mergeMultisigTransactions(stxs);
-    //}
-
-    //[When]("I convert {long} microalgos to algos and back")
-    //    public void microToAlgo(long ma)
-    //{
-    //    microalgos = ma);
-    //    BigDecimal algos = AlgoConverter.toAlgos(microalgos);
-    //    microalgos = AlgoConverter.toMicroAlgos(algos);
-    //}
-
-    //[Then]("it should still be the same amount of microalgos {long}")
-    //    public void checkMicro(long ma)
-    //{
-    //    Assert.AreEqual(microalgos, ma));
-    //}
-
-    //[Then]("I get account information")
-    //    public void accInfo() throws ApiException
-    //{
-    //    acl.accountInformation(addresses.get(0));
-    //    }
-
-    //    [Then]("I can get account information")
-    //    public void newAccInfo() throws ApiException, NoSuchAlgorithmException, com.algorand.algosdk.kmd.client.ApiException {
-    //        acl.accountInformation(pk.encodeAsString());
-    //DeleteKeyRequest req = new DeleteKeyRequest();
-    //req.setAddress(pk.encodeAsString());
-    //req.setWalletHandleToken(handle);
-    //req.setWalletPassword(walletPswd);
-    //kcl.deleteKey(req);
-    //    }
-
-    //    [When]("I get recent transactions, limited by (\d+) transactions")
-    //    public void i_get_recent_transactions_limited_by_count(int cnt) throws ApiException
-    //{
-    //    Assert.AreEqual(acl.transactions(addresses.get(0), null, null, null, null, cnt)).getTransactions())
-    //                .isInstanceOf(List.class);
-    //        //Assert.assertTrue(acl.transactions(addresses.get(0), null, null, null, null, cnt)).getTransactions() instanceof List<?>);
-    //    }
-
-    //    [Given]("asset test fixture")
-    //    public void asset_test_fixture()
-    //{
-    //    // Implemented by the construction of Stepdefs;
-    //}
-
-    //[Given]("default asset creation transaction with total issuance (\d+)")
-    //    public void default_asset_creation_transaction_with_total_issuance(int assetTotal) throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetCreateTransactionBuilder()
-    //        .sender(getAddress(0))
-    //        .suggestedParams(transParams)
-    //        .note(this.note)
-    //        .assetTotal(assetTotal)
-    //        .assetDecimals(0)
-    //        .assetName(this.assetName)
-    //        .assetUnitName(this.assetUnitName)
-    //        .manager(getAddress(0))
-    //        .reserve(getAddress(0))
-    //        .clawback(getAddress(0))
-    //        .freeze(getAddress(0))
-    //        .build();
-
-    //this.creator = addresses.get(0);
-    //this.txn = tx;
-    //this.expectedParams = tx.assetParams;
-    //    }
-
-    //    [When]("I get the asset info")
-    //    public void i_get_the_asset_info() throws ApiException
-    //{
-    //        this.queriedParams = acl.assetInformation(this.assetID);
-    //}
-
-    //[Then]("the asset info should match the expected asset info")
-    //    public void the_asset_info_should_match_the_expected_asset_info() throws JsonProcessingException, NoSuchAlgorithmException {
-    //        // Can't use a regular assertj call because 'compareTo' isn't a regular comparator.
-    //        Assert.AreEqual(this.expectedParams.assetManager.compareTo(this.queriedParams.getManagerkey())).isTrue();
-    //Assert.AreEqual(this.expectedParams.assetReserve.compareTo(this.queriedParams.getReserveaddr())).isTrue();
-    //Assert.AreEqual(this.expectedParams.assetFreeze.compareTo(this.queriedParams.getFreezeaddr())).isTrue();
-    //Assert.AreEqual(this.expectedParams.assetClawback.compareTo(this.queriedParams.getClawbackaddr())).isTrue();
-    //    }
-
-    //    [When]("I create a no-managers asset reconfigure transaction")
-    //    public void i_create_a_no_managers_asset_reconfigure_transaction() throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetConfigureTransactionBuilder()
-    //        .sender(this.creator)
-    //        .suggestedParams(transParams)
-    //        .note(this.note)
-    //        .assetIndex(this.assetID)
-    //        .manager(this.creator)
-    //        .strictEmptyAddressChecking(false)
-    //        .build();
-    //this.txn = tx;
-    //this.expectedParams = tx.assetParams;
-    //    }
-
-    //    [When]("I create an asset destroy transaction")
-    //    public void i_create_an_asset_destroy_transaction() throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetDestroyTransactionBuilder()
-    //        .sender(this.creator)
-    //        .suggestedParams(this.transParams)
-    //        .note(this.note)
-    //        .assetIndex(this.assetID)
-    //        .build();
-    //this.txn = tx;
-    //this.expectedParams = tx.assetParams;
-    //    }
-
-    //    [Then]("I should be unable to get the asset info")
-    //    public void i_should_be_unable_to_get_the_asset_info()
-    //{
-    //    bool exists = true;
-    //    try
-    //    {
-    //        this.i_get_the_asset_info();
-    //    }
-    //    catch (ApiException e)
-    //    {
-    //        exists = false;
-    //    }
-    //    Assert.AreEqual(exists).isFalse();
-    //}
-
-    //[When]("I create a transaction transferring (\d+) assets from creator to a second account")
-    //    public void i_create_a_transaction_transferring_assets_from_creator_to_a_second_account(int int1) throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetTransferTransactionBuilder()
-    //        .sender(this.creator)
-    //        .assetReceiver(getAddress(1))
-    //        .assetAmount(int1)
-    //        .suggestedParams(this.transParams)
-    //        .note(this.note)
-    //        .assetIndex(this.assetID)
-    //        .build();
-    //this.txn = tx;
-    //this.pk = getAddress(0);
-    //    }
-
-    //    [Then]("the creator should have (\d+) assets remaining")
-    //    public void the_creator_should_have_assets_remaining(int expectedBal) throws ApiException
-    //{
-    //    com.algorand.algosdk.algod.client.model.Account accountResp =
-    //                this.acl.accountInformation(this.creator);
-    //    AssetHolding holding = accountResp.getHolding(this.assetID);
-    //    Assert.AreEqual(holding.getAmount(), expectedBal));
-    //}
-
-    //[Then]("I update the asset index")
-    //    public void i_update_the_asset_index() throws ApiException
-    //{
-    //    com.algorand.algosdk.algod.client.model.Account accountResp = acl.accountInformation(this.creator);
-    //    Set<java.math.BigInteger> keys = accountResp.getThisassettotal().keySet();
-    //        this.assetID = Collections.max(keys);
-    //}
-
-    //[When]("I send the bogus kmd-signed transaction")
-    //    public void i_send_the_bogus_kmd_signed_transaction()
-    //{
-    //    try
-    //    {
-    //        txid = acl.rawTransaction(this.stxBytes).getTxId();
-    //    }
-    //    catch (ApiException e)
-    //    {
-    //        this.err = true;
-    //    }
-    //}
-
-    //[Then]("I create a transaction for a second account, signalling asset acceptance")
-    //    public void i_create_a_transaction_for_a_second_account_signalling_asset_acceptance() throws ApiException, NoSuchAlgorithmException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetAcceptTransactionBuilder()
-    //        .acceptingAccount(getAddress(1))
-    //        .suggestedParams(this.transParams)
-    //        .note(this.note)
-    //        .assetIndex(this.assetID)
-    //        .build();
-    //this.txn = tx;
-    //this.pk = getAddress(1);
-    //    }
-
-    //    [Then]("I send the kmd-signed transaction")
-    //    public void i_send_the_kmd_signed_transaction() throws ApiException
-    //{
-    //    txid = acl.rawTransaction(this.stxBytes).getTxId();
-    //}
-
-    //[When]("I create a freeze transaction targeting the second account")
-    //    public void i_create_a_freeze_transaction_targeting_the_second_account() throws NoSuchAlgorithmException, ApiException, com.algorand.algosdk.kmd.client.ApiException {
-    //        this.renewHandle(); // to avoid handle expired error
-    //getParams();
-
-    //Transaction tx = Transaction.AssetFreezeTransactionBuilder()
-    //        .sender(getAddress(0))
-    //        .freezeTarget(getAddress(1))
-    //        .freezeState(true)
-    //        .assetIndex(this.assetID)
-    //        .note(this.note)
-    //        .suggestedParams(this.transParams)
-    //        .build();
-    //this.txn = tx;
-    //this.pk = getAddress(0);
-    //    }
-
-    //    [When]("I create a transaction transferring (\d+) assets from a second account to creator")
-    //    public void i_create_a_transaction_transferring_assets_from_a_second_account_to_creator(int int1) throws ApiException, NoSuchAlgorithmException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetTransferTransactionBuilder()
-    //        .sender(getAddress(1))
-    //        .assetReceiver(this.creator)
-    //        .assetAmount(int1)
-    //        .note(this.note)
-    //        .assetIndex(this.assetID)
-    //        .suggestedParams(this.transParams)
-    //        .build();
-    //this.txn = tx;
-    //this.pk = getAddress(1);
-    //    }
-
-    //    [When]("I create an un-freeze transaction targeting the second account")
-    //    public void i_create_an_un_freeze_transaction_targeting_the_second_account() throws ApiException, NoSuchAlgorithmException, com.algorand.algosdk.kmd.client.ApiException  {
-    //        this.renewHandle(); // to avoid handle expired error
-    //getParams();
-
-    //Transaction tx = Transaction.AssetFreezeTransactionBuilder()
-    //        .sender(getAddress(0))
-    //        .freezeTarget(getAddress(1))
-    //        .freezeState(false)
-    //        .assetIndex(this.assetID)
-    //        .note(this.note)
-    //        .suggestedParams(this.transParams)
-    //        .build();
-    //this.txn = tx;
-    //this.pk = getAddress(0);
-    //    }
-
-    //    [Given]("default-frozen asset creation transaction with total issuance (\d+)")
-    //    public void default_frozen_asset_creation_transaction_with_total_issuance(int int1) throws ApiException, NoSuchAlgorithmException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetCreateTransactionBuilder()
-    //        .sender(getAddress(0))
-    //        .suggestedParams(this.transParams)
-    //        .note(this.note)
-    //        .assetTotal(int1)
-    //        .assetDecimals(0)
-    //        .defaultFrozen(true)
-    //        .assetName(this.assetName)
-    //        .assetUnitName(this.assetUnitName)
-    //        .manager(getAddress(0))
-    //        .reserve(getAddress(0))
-    //        .freeze(getAddress(0))
-    //        .clawback(getAddress(0))
-    //        .build();
-    //Account.setFeeByFeePerByte(tx, tx.fee);
-    //this.creator = addresses.get(0);
-    //this.txn = tx;
-    //this.expectedParams = tx.assetParams;
-    //    }
-
-    //    [When]("I create a transaction revoking (\d+) assets from a second account to creator")
-    //    public void i_create_a_transaction_revoking_assets_from_a_second_account_to_creator(int int1) throws ApiException, NoSuchAlgorithmException {
-    //        getParams();
-
-    //Transaction tx = Transaction.AssetClawbackTransactionBuilder()
-    //        .sender(getAddress(0))
-    //        .assetClawbackFrom(getAddress(1))
-    //        .assetReceiver(getAddress(0))
-    //        .assetAmount(int1)
-    //        .assetIndex(this.assetID)
-    //        .note(this.note)
-    //        .suggestedParams(this.transParams)
-    //        .build();
-    //this.txn = tx;
-    //this.pk = getAddress(0);
-    //    }
-
-    //    [When]("I add a rekeyTo field with address (.*)")
-    //    public void i_add_a_rekeyTo_field_with_address(string string)
-    //{
-    //    txnBuilder.rekey(string);
-    //    txn = txnBuilder.build();
-    //}
-
-    //[When]("I add a rekeyTo field with the private key algorand address")
-    //    public void i_add_a_rekeyTo_field_with_the_private_key_algorand_address()
-    //{
-    //    txnBuilder.rekey(this.pk.ToString());
-    //    txn = txnBuilder.build();
-    //}
-
-    //[When]("I compile a teal program (.*)")
-    //    public void i_compile_teal_program(string path) throws Exception
-    //{
-    //        byte[]
-    //    source = loadResource(path);
-    //    compileResponse = aclv2.TealCompile().source(source).execute();
-    //}
-
-    //[Then]("it is compiled with (\d+) and (.*) and (.*)")
-    //    public void it_is_compiled_with(int status, string result, string hash)
-    //{
-    //    Assert.AreEqual(compileResponse.code(), status);
-    //    CompileResponse body = compileResponse.body();
-    //    if (body != null)
-    //    {
-    //        Assert.AreEqual(compileResponse.isSuccessful()).isTrue();
-    //        Assert.AreEqual(body.result, result);
-    //        Assert.AreEqual(body.hash, hash);
-    //    }
-    //    else
-    //    {
-    //        Assert.AreEqual(compileResponse.isSuccessful()).isFalse();
-    //    }
-    //}
-
-    //[When]("I dryrun a (.*) program (.*)")
-    //    public void i_dryrun_a_program(string kind, string path) throws Exception
-    //{
-    //        byte[]
-    //    data = loadResource(path);
-    //    List<DryrunSource> sources = new ArrayList<DryrunSource>();
-    //List<SignedTransaction> stxns = new ArrayList<SignedTransaction>();
-    //Account account = new Account();
-    //Address pk = account.Address;
-    //Digest gh = new Digest(Convert.FromBase64String("ZIkPs8pTDxbRJsFB1yJ7gvnpDu0Q85FRkl2NCkEAQLU="));
-    //Transaction txn = Transaction.PaymentTransactionBuilder()
-    //    .sender(pk)
-    //    .fee(1000)
-    //    .firstValid(1)
-    //    .lastValid(100)
-    //    .amount(1000)
-    //    .genesisHash(gh)
-    //    .receiver(pk)
-    //    .build();
-
-    //if (kind.Equals("compiled"))
-    //{
-    //    LogicsigSignature lsig = new LogicsigSignature(data);
-    //    SignedTransaction stxn = new SignedTransaction(txn, lsig);
-    //    stxns.add(stxn);
-    //}
-    //else if (kind.Equals("source"))
-    //{
-    //    DryrunSource drs = new DryrunSource();
-    //    drs.fieldName = "lsig";
-    //    drs.source = new String(data);
-    //    drs.txnIndex = 0l;
-    //    sources.add(drs);
-    //    SignedTransaction stxn = new SignedTransaction(txn, new Signature());
-    //    stxns.add(stxn);
-    //}
-    //else
-    //{
-    //    fail("kind " + kind + " not in (compiled, source)");
-    //}
-
-    //DryrunRequest dr = new DryrunRequest();
-    //dr.txns = stxns;
-    //dr.sources = sources;
-    //dryrunResponse = aclv2.TealDryrun().request(dr).execute();
-    //    }
-
-    //    [When]("I get execution result (.*)")
-    //    public void i_get_execution_result(string result) throws Exception
-    //{
-    //    DryrunResponse ddr = dryrunResponse.body();
-    //    Assert.AreEqual(ddr).isNotNull();
-    //    Assert.AreEqual(ddr.txns).isNotNull();
-    //    Assert.AreEqual(ddr.txns.Count).isGreaterThan(0);
-    //    List<String> msgs = new ArrayList<String>();
-    //if (ddr.txns.get(0).appCallMessages.Count > 0)
-    //{
-    //    msgs = ddr.txns.get(0).appCallMessages;
-    //}
-    //else if (ddr.txns.get(0).logicSigMessages.Count > 0)
-    //{
-    //    msgs = ddr.txns.get(0).logicSigMessages;
-    //}
-    //Assert.AreEqual(msgs.Count).isGreaterThan(0);
-    //Assert.AreEqual(msgs.get(msgs.Count - 1), result);
-    //    }
-}
+        [Then("the transaction should go through")]
+        public void checkTxn()
+        {
+            string ans = acl.PendingTransactionInformation(txid).From;
+            Assert.AreEqual(this.txn.sender.ToString(), ans);
+            acl.WaitForBlock((long?)lastRound + 2);
+            string senderFromResponse = acl.TransactionInformation(txn.sender.ToString(), txid).From;
+            Assert.AreEqual(senderFromResponse, txn.sender.ToString());
+            Assert.AreEqual(acl.Transaction(txid).From, senderFromResponse);
+        }
+
+        [Then("I can get the transaction by ID")]
+        public void txnbyID()
+        {
+            acl.WaitForBlock((long?)lastRound + 2);
+            Assert.AreEqual(acl.Transaction(txid).From, pk.ToString());
+        }
+
+        [Then("the transaction should not go through")]
+        public void txnFail()
+        {
+            Assert.IsTrue(err);
+        }
+
+        //[When]("I sign the transaction with kmd")
+        //    public void signKmd() throws JsonProcessingException, com.algorand.algosdk.kmd.client.ApiException, NoSuchAlgorithmException{
+        //        SignTransactionRequest req = new SignTransactionRequest();
+        //req.setTransaction(Encoder.EncodeToMsgPack(txn));
+        //req.setWalletHandleToken(handle);
+        //req.setWalletPassword(walletPswd);
+        //stxBytes = kcl.signTransaction(req).getSignedTransaction();
+        //    }
+        //    [Then]("the signed transaction should equal the kmd signed transaction")
+        //    public void signBothEqual() throws JsonProcessingException
+        //{
+        //    Assert.AreEqual(Convert.ToBase64String(stxBytes), Convert.ToBase64String(Encoder.EncodeToMsgPack(stx)));
+        //}
+
+        //[When]("I sign the multisig transaction with kmd")
+        //    public void signMsigKmd() throws JsonProcessingException, com.algorand.algosdk.kmd.client.ApiException, IOException{
+        //        ImportMultisigRequest importReq = new ImportMultisigRequest();
+        //importReq.setMultisigVersion(msig.version);
+        //importReq.setThreshold(msig.threshold);
+        //importReq.setWalletHandleToken(handle);
+        //importReq.setPks(msig.publicKeys);
+        //kcl.importMultisig(importReq);
+
+        //SignMultisigRequest req = new SignMultisigRequest();
+        //req.setTransaction(Encoder.EncodeToMsgPack(txn));
+        //req.setWalletHandleToken(handle);
+        //req.setWalletPassword(walletPswd);
+        //req.setPublicKey(pk.getBytes());
+        //stxBytes = kcl.signMultisigTransaction(req).getMultisig();
+        //    }
+
+        //    [Then]("the multisig transaction should equal the kmd signed multisig transaction")
+        //    public void signMsigBothEqual() throws JsonProcessingException, com.algorand.algosdk.kmd.client.ApiException {
+        //        Assert.AreEqual(Convert.ToBase64String(stxBytes), Convert.ToBase64String(Encoder.EncodeToMsgPack(stx.mSig)));
+        //DeleteMultisigRequest req = new DeleteMultisigRequest();
+        //req.setAddress(msig.ToString());
+        //req.setWalletHandleToken(handle);
+        //req.setWalletPassword(walletPswd);
+        //kcl.deleteMultisig(req);
+        //    }
+
+        //        [When("I read a transaction (.*) from file (.*)")] 
+        //        public void readTxn(string encodedTxn, string num) 
+
+        //        {
+        //        string path = System.getProperty("user.dir");
+        //        Path p = Paths[path);
+        //        this.num = num;
+        //        path = p.getParent() + "/temp/raw" + this.num + ".tx";
+        //        FileInputStream inputStream = new FileInputStream(path);
+        //        File file = new File(path);
+        //        byte[] data = new byte[(int)file.Length()];
+        //        inputStream.read(data);
+        //        stx = Encoder.DecodeFromMsgPack<>(dataSignedTransaction);
+        //    inputStream.close();
+        //        }
+
+        //    [When("I write the transaction to file")] 
+        //        public void writeTxn()
+        //    {
+        //            string path = System.getProperty("user.dir");
+        //    Path p = Paths[path);
+        //    path = p.getParent() + "/temp/raw" + this.num + ".tx";
+        //    byte[] data = Encoder.EncodeToMsgPack(stx);
+        //    FileOutputStream out = new FileOutputStream(path);
+        //            out.write(data);
+        //            out.close();
+        //        }
+
+        //    [Then("the transaction should still be the same")] 
+        //        public void checkEnc()
+        //    {
+        //        string path = System.getProperty("user.dir");
+        //        Path p = Paths[path);
+        //        path = p.getParent() + "/temp/raw" + this.num + ".tx";
+        //        FileInputStream inputStream = new FileInputStream(path);
+        //        File file = new File(path);
+        //        byte[] data = new byte[(int)file.Length()];
+        //        inputStream.read(data);
+        //        SignedTransaction stxnew = Encoder.DecodeFromMsgPack<>(dataSignedTransaction);
+        //    inputStream.close();
+
+        //    path = p.getParent() + "/temp/old" + this.num + ".tx";
+        //    inputStream = new FileInputStream(path);
+        //    file = new File(path);
+        //    data = new byte[(int)file.Length()];
+        //    inputStream.read(data);
+        //    SignedTransaction stxold = Encoder.DecodeFromMsgPack<>(dataSignedTransaction);
+        //    inputStream.close();
+        //    Assert.AreEqual(stxnew, stxold);
+        //        }
+
+        //[Then("I do my part")]
+        //        public void signSaveTxn() 
+        //{
+        //            string path = System.getProperty("user.dir");
+        //Path p = Paths[path);
+        //path = p.getParent() + "/temp/txn.tx";
+        //FileInputStream inputStream = new FileInputStream(path);
+        //File file = new File(path);
+        //byte[] data = new byte[(int)file.Length()];
+        //inputStream.read(data);
+        //inputStream.close();
+
+        //txn = Encoder.DecodeFromMsgPack<>(data, Transaction.class);
+        //exportKeyAndSetAccount(txn.sender);
+
+        //stx = account.signTransaction(txn);
+        //data = Encoder.EncodeToMsgPack(stx);
+        //FileOutputStream out = new FileOutputStream(path);
+        //            out.write(data);
+        //            out.close();
+        //        }
+
+        [Then("the node should be healthy")]
+        public void nodeHealth()
+        {
+            acl.HealthCheck();
+
+        }
+
+        [Then("I get the ledger supply")]
+        public void getLedger()
+        {
+            acl.GetSupply();
+        }
+
+        [Then("I get transactions by address and round")]
+        public void txnsByAddrRound()
+        {
+            Assert.IsInstanceOf<List>(acl.Transactions(addresses[0], 1, (long?)acl.GetStatus().LastRound, null, null, 10).Transactions);
+            //Assert.assertTrue(acl.transactions(addresses[0), 1), acl.getStatus().LastRound, null, null, 10)).getTransactions() instanceof List<?>);
+        }
+
+        [Then("I get transactions by address only")]
+        public void txnsByAddrOnly()
+        {
+            Assert.IsInstanceOf<List>(acl.Transactions(addresses[0], null, null, null, null, 10).Transactions);
+            //Assert.assertTrue(acl.transactions(addresses[0), null, null, null, null, 10)).getTransactions() instanceof List<?>);
+        }
+
+        [Then("I get transactions by address and date")]
+        public void txnsByAddrDate()
+        {
+            Assert.IsInstanceOf<List>(acl.Transactions(addresses[0], null, null, DateTime.Now, DateTime.Now, 10).Transactions);
+            //Assert.assertTrue(acl.transactions(addresses[0), null, null, LocalDate.now(), LocalDate.now(), 10)).getTransactions() instanceof List<?>);
+        }
+
+        [Then("I get pending transactions")]
+        public void pendingTxns()
+        {
+            Assert.IsInstanceOf<Algorand.Algod.Model.TransactionList>(acl.GetPendingTransactions(10).TruncatedTxns);
+            //Assert.assertTrue(acl.getPendingTransactions(10)).getTruncatedTxns() instanceof TransactionList);
+        }
+
+        [When("I get the suggested params")]
+        public void suggestedParams()
+        {
+            paramsFee = (ulong)acl.TransactionParams().Fee;
+        }
+
+        [When("I get the suggested fee")]
+        public void suggestedFee()
+        {
+            fee = (ulong)acl.SuggestedFee().Fee;
+        }
+
+        [Then("the fee in the suggested params should equal the suggested fee")]
+        public void checkSuggested()
+        {
+            Assert.AreEqual(paramsFee, fee);
+        }
+
+        //[When]("I create a bid")
+        //    public void createBid() throws NoSuchAlgorithmException
+        //{
+        //    account = new Account();
+        //pk = account.Address;
+        //address = pk.ToString();
+        //bid = new Bid(pk, pk, 1L), 2L), 3L), 4L));
+        //    }
+
+        //    [When]("I encode and decode the bid")
+        //    public void encDecBid() throws JsonProcessingException, IOException{
+        //        sbid = Encoder.DecodeFromMsgPack<>(Encoder.EncodeToMsgPack(sbid), SignedBid.class);
+        //    }
+
+        //    [When]("I sign the bid")
+        //    public void signBid() throws NoSuchAlgorithmException
+        //{
+        //    sbid = account.signBid(bid);
+        //    oldBid = account.signBid(bid);
+        //}
+
+        //[Then]("the bid should still be the same")
+        //    public void checkBid()
+        //{
+        //    Assert.AreEqual(sbid, oldBid);
+        //}
+
+        [When("I decode the address")]
+        public void decAddr()
+        {
+            pk = new Address(address);
+            oldAddr = address;
+        }
+
+        [When("I encode the address")]
+        public void encAddr()
+        {
+            address = pk.ToString();
+        }
+
+        [Then("the address should still be the same")] 
+        public void checkAddr()
+        {
+            Assert.AreEqual(address, oldAddr);
+        }
+
+        [When("I convert the private key back to a mnemonic")]
+        public void skToMn()
+        {
+            mnemonic = account.ToMnemonic();
+        }
+
+        [Then("the mnemonic should still be the same as (.*)")]
+        public void checkMn(string mn)
+        {
+            Assert.AreEqual(mnemonic, mn);
+        }
+
+        [Given("mnemonic for master derivation key (.*)")]
+        public void mnforMdk(string mn)
+        {
+            mdk = Mnemonic.ToKey(mn);
+        }
+
+        [When("I convert the master derivation key back to a mnemonic")] 
+        public void mdkToMn()
+        {
+            mnemonic = Mnemonic.FromKey(mdk);
+        }
+
+        [When("I create the flat fee payment transaction")]
+        public void createPaytxnFlat()
+        {
+            txn = new Transaction(pk, fee, fv, lv, note, amt, to, gen, gh)
+            {
+                closeRemainderTo = close,
+            };
+        }
+
+        [Given("encoded multisig transaction (.*)")]
+        public void encMsigTxn(string encTxn)
+        {
+            stx = Encoder.DecodeFromMsgPack<SignedTransaction>(Convert.FromBase64String(encTxn));
+
+            List<Ed25519PublicKeyParameters> addrlist = new List<Ed25519PublicKeyParameters>();
+            for (int x = 0; x < addrlist.Count; x++)
+            {
+                addrlist[x] = stx.mSig.subsigs[x].key;
+            }
+            msig = new MultisigAddress(stx.mSig.version, stx.mSig.threshold, addrlist);
+        }
+
+        [When("I append a signature to the multisig transaction")]
+        public void appendMsig()
+        {
+            stx = account.AppendMultisigTransaction(msig, stx);
+        }
+
+        [Given("encoded multisig transactions (.*)")]
+        public void encMsigTxns(string encTxns)
+        {
+            string[] txnArray = encTxns.Split(" ");
+            stxs = new SignedTransaction[txnArray.Length];
+            for (int t = 0; t < txnArray.Length; t++)
+            {
+                stxs[t] = Encoder.DecodeFromMsgPack<SignedTransaction>(Convert.FromBase64String(txnArray[t]));
+            }
+        }
+
+        [When("I merge the multisig transactions")] 
+        public void mergeMsig()
+        {
+            stx = Account.MergeMultisigTransactions(stxs);
+        }
+
+        [When("I convert {long} microalgos to algos and back")]
+        public void microToAlgo(ulong ma)
+        {
+            microalgos = ma;
+            double algos = Utils.MicroalgosToAlgos(microalgos);
+            microalgos = Utils.AlgosToMicroalgos(algos);
+        }
+
+        [Then("it should still be the same amount of microalgos {long}")]
+        public void checkMicro(ulong ma)
+        {
+            Assert.AreEqual(microalgos, ma);
+        }
+
+        //[Then]("I get account information")
+        //    public void accInfo() throws ApiException
+        //{
+        //    acl.accountInformation(addresses[0));
+        //    }
+
+        //    [Then]("I can get account information")
+        //    public void newAccInfo() throws ApiException, NoSuchAlgorithmException, com.algorand.algosdk.kmd.client.ApiException {
+        //        acl.accountInformation(pk.encodeAsString());
+        //DeleteKeyRequest req = new DeleteKeyRequest();
+        //req.setAddress(pk.encodeAsString());
+        //req.setWalletHandleToken(handle);
+        //req.setWalletPassword(walletPswd);
+        //kcl.deleteKey(req);
+        //    }
+
+        //    [When]("I get recent transactions, limited by (\d+) transactions")
+        //    public void i_get_recent_transactions_limited_by_count(int cnt) throws ApiException
+        //{
+        //    Assert.AreEqual(acl.transactions(addresses[0), null, null, null, null, cnt)).getTransactions())
+        //                .isInstanceOf(List.class);
+        //        //Assert.assertTrue(acl.transactions(addresses[0), null, null, null, null, cnt)).getTransactions() instanceof List<?>);
+        //    }
+
+        //    [Given]("asset test fixture")
+        //    public void asset_test_fixture()
+        //{
+        //    // Implemented by the construction of Stepdefs;
+        //}
+
+        //[Given]("default asset creation transaction with total issuance (\d+)")
+        //    public void default_asset_creation_transaction_with_total_issuance(int assetTotal) throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetCreateTransactionBuilder()
+        //        .sender(getAddress(0))
+        //        .suggestedParams(transParams)
+        //        .note(this.note)
+        //        .assetTotal(assetTotal)
+        //        .assetDecimals(0)
+        //        .assetName(this.assetName)
+        //        .assetUnitName(this.assetUnitName)
+        //        .manager(getAddress(0))
+        //        .reserve(getAddress(0))
+        //        .clawback(getAddress(0))
+        //        .freeze(getAddress(0))
+        //        .build();
+
+        //this.creator = addresses[0);
+        //this.txn = tx;
+        //this.expectedParams = tx.assetParams;
+        //    }
+
+        //    [When]("I get the asset info")
+        //    public void i_get_the_asset_info() throws ApiException
+        //{
+        //        this.queriedParams = acl.assetInformation(this.assetID);
+        //}
+
+        //[Then]("the asset info should match the expected asset info")
+        //    public void the_asset_info_should_match_the_expected_asset_info() throws JsonProcessingException, NoSuchAlgorithmException {
+        //        // Can't use a regular assertj call because 'compareTo' isn't a regular comparator.
+        //        Assert.AreEqual(this.expectedParams.assetManager.compareTo(this.queriedParams.getManagerkey())).isTrue();
+        //Assert.AreEqual(this.expectedParams.assetReserve.compareTo(this.queriedParams.getReserveaddr())).isTrue();
+        //Assert.AreEqual(this.expectedParams.assetFreeze.compareTo(this.queriedParams.getFreezeaddr())).isTrue();
+        //Assert.AreEqual(this.expectedParams.assetClawback.compareTo(this.queriedParams.getClawbackaddr())).isTrue();
+        //    }
+
+        //    [When]("I create a no-managers asset reconfigure transaction")
+        //    public void i_create_a_no_managers_asset_reconfigure_transaction() throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetConfigureTransactionBuilder()
+        //        .sender(this.creator)
+        //        .suggestedParams(transParams)
+        //        .note(this.note)
+        //        .assetIndex(this.assetID)
+        //        .manager(this.creator)
+        //        .strictEmptyAddressChecking(false)
+        //        .build();
+        //this.txn = tx;
+        //this.expectedParams = tx.assetParams;
+        //    }
+
+        //    [When]("I create an asset destroy transaction")
+        //    public void i_create_an_asset_destroy_transaction() throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetDestroyTransactionBuilder()
+        //        .sender(this.creator)
+        //        .suggestedParams(this.transParams)
+        //        .note(this.note)
+        //        .assetIndex(this.assetID)
+        //        .build();
+        //this.txn = tx;
+        //this.expectedParams = tx.assetParams;
+        //    }
+
+        //    [Then]("I should be unable to get the asset info")
+        //    public void i_should_be_unable_to_get_the_asset_info()
+        //{
+        //    bool exists = true;
+        //    try
+        //    {
+        //        this.i_get_the_asset_info();
+        //    }
+        //    catch (ApiException e)
+        //    {
+        //        exists = false;
+        //    }
+        //    Assert.AreEqual(exists).isFalse();
+        //}
+
+        //[When]("I create a transaction transferring (\d+) assets from creator to a second account")
+        //    public void i_create_a_transaction_transferring_assets_from_creator_to_a_second_account(int int1) throws NoSuchAlgorithmException, ApiException, InvalidKeySpecException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetTransferTransactionBuilder()
+        //        .sender(this.creator)
+        //        .assetReceiver(getAddress(1))
+        //        .assetAmount(int1)
+        //        .suggestedParams(this.transParams)
+        //        .note(this.note)
+        //        .assetIndex(this.assetID)
+        //        .build();
+        //this.txn = tx;
+        //this.pk = getAddress(0);
+        //    }
+
+        //    [Then]("the creator should have (\d+) assets remaining")
+        //    public void the_creator_should_have_assets_remaining(int expectedBal) throws ApiException
+        //{
+        //    com.algorand.algosdk.algod.client.model.Account accountResp =
+        //                this.acl.accountInformation(this.creator);
+        //    AssetHolding holding = accountResp.getHolding(this.assetID);
+        //    Assert.AreEqual(holding.getAmount(), expectedBal));
+        //}
+
+        //[Then]("I update the asset index")
+        //    public void i_update_the_asset_index() throws ApiException
+        //{
+        //    com.algorand.algosdk.algod.client.model.Account accountResp = acl.accountInformation(this.creator);
+        //    Set<java.math.BigInteger> keys = accountResp.getThisassettotal().keySet();
+        //        this.assetID = Collections.max(keys);
+        //}
+
+        //[When]("I send the bogus kmd-signed transaction")
+        //    public void i_send_the_bogus_kmd_signed_transaction()
+        //{
+        //    try
+        //    {
+        //        txid = acl.rawTransaction(this.stxBytes).getTxId();
+        //    }
+        //    catch (ApiException e)
+        //    {
+        //        this.err = true;
+        //    }
+        //}
+
+        //[Then]("I create a transaction for a second account, signalling asset acceptance")
+        //    public void i_create_a_transaction_for_a_second_account_signalling_asset_acceptance() throws ApiException, NoSuchAlgorithmException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetAcceptTransactionBuilder()
+        //        .acceptingAccount(getAddress(1))
+        //        .suggestedParams(this.transParams)
+        //        .note(this.note)
+        //        .assetIndex(this.assetID)
+        //        .build();
+        //this.txn = tx;
+        //this.pk = getAddress(1);
+        //    }
+
+        //    [Then]("I send the kmd-signed transaction")
+        //    public void i_send_the_kmd_signed_transaction() throws ApiException
+        //{
+        //    txid = acl.rawTransaction(this.stxBytes).getTxId();
+        //}
+
+        //[When]("I create a freeze transaction targeting the second account")
+        //    public void i_create_a_freeze_transaction_targeting_the_second_account() throws NoSuchAlgorithmException, ApiException, com.algorand.algosdk.kmd.client.ApiException {
+        //        this.renewHandle(); // to avoid handle expired error
+        //getParams();
+
+        //Transaction tx = Transaction.AssetFreezeTransactionBuilder()
+        //        .sender(getAddress(0))
+        //        .freezeTarget(getAddress(1))
+        //        .freezeState(true)
+        //        .assetIndex(this.assetID)
+        //        .note(this.note)
+        //        .suggestedParams(this.transParams)
+        //        .build();
+        //this.txn = tx;
+        //this.pk = getAddress(0);
+        //    }
+
+        //    [When]("I create a transaction transferring (\d+) assets from a second account to creator")
+        //    public void i_create_a_transaction_transferring_assets_from_a_second_account_to_creator(int int1) throws ApiException, NoSuchAlgorithmException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetTransferTransactionBuilder()
+        //        .sender(getAddress(1))
+        //        .assetReceiver(this.creator)
+        //        .assetAmount(int1)
+        //        .note(this.note)
+        //        .assetIndex(this.assetID)
+        //        .suggestedParams(this.transParams)
+        //        .build();
+        //this.txn = tx;
+        //this.pk = getAddress(1);
+        //    }
+
+        //    [When]("I create an un-freeze transaction targeting the second account")
+        //    public void i_create_an_un_freeze_transaction_targeting_the_second_account() throws ApiException, NoSuchAlgorithmException, com.algorand.algosdk.kmd.client.ApiException  {
+        //        this.renewHandle(); // to avoid handle expired error
+        //getParams();
+
+        //Transaction tx = Transaction.AssetFreezeTransactionBuilder()
+        //        .sender(getAddress(0))
+        //        .freezeTarget(getAddress(1))
+        //        .freezeState(false)
+        //        .assetIndex(this.assetID)
+        //        .note(this.note)
+        //        .suggestedParams(this.transParams)
+        //        .build();
+        //this.txn = tx;
+        //this.pk = getAddress(0);
+        //    }
+
+        //    [Given]("default-frozen asset creation transaction with total issuance (\d+)")
+        //    public void default_frozen_asset_creation_transaction_with_total_issuance(int int1) throws ApiException, NoSuchAlgorithmException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetCreateTransactionBuilder()
+        //        .sender(getAddress(0))
+        //        .suggestedParams(this.transParams)
+        //        .note(this.note)
+        //        .assetTotal(int1)
+        //        .assetDecimals(0)
+        //        .defaultFrozen(true)
+        //        .assetName(this.assetName)
+        //        .assetUnitName(this.assetUnitName)
+        //        .manager(getAddress(0))
+        //        .reserve(getAddress(0))
+        //        .freeze(getAddress(0))
+        //        .clawback(getAddress(0))
+        //        .build();
+        //Account.setFeeByFeePerByte(tx, tx.fee);
+        //this.creator = addresses[0);
+        //this.txn = tx;
+        //this.expectedParams = tx.assetParams;
+        //    }
+
+        //    [When]("I create a transaction revoking (\d+) assets from a second account to creator")
+        //    public void i_create_a_transaction_revoking_assets_from_a_second_account_to_creator(int int1) throws ApiException, NoSuchAlgorithmException {
+        //        getParams();
+
+        //Transaction tx = Transaction.AssetClawbackTransactionBuilder()
+        //        .sender(getAddress(0))
+        //        .assetClawbackFrom(getAddress(1))
+        //        .assetReceiver(getAddress(0))
+        //        .assetAmount(int1)
+        //        .assetIndex(this.assetID)
+        //        .note(this.note)
+        //        .suggestedParams(this.transParams)
+        //        .build();
+        //this.txn = tx;
+        //this.pk = getAddress(0);
+        //    }
+
+        //[When("I add a rekeyTo field with address (.*)")] 
+        //    public void i_add_a_rekeyTo_field_with_address(string string)
+        //{
+        //    txnBuilder.rekey(string);
+        //    txn = txnBuilder.build();
+        //}
+
+        //[When]("I add a rekeyTo field with the private key algorand address")
+        //    public void i_add_a_rekeyTo_field_with_the_private_key_algorand_address()
+        //{
+        //    txnBuilder.rekey(this.pk.ToString());
+        //    txn = txnBuilder.build();
+        //}
+
+        //[When]("I compile a teal program (.*)")
+        //    public void i_compile_teal_program(string path) throws Exception
+        //{
+        //        byte[]
+        //    source = loadResource(path);
+        //    compileResponse = aclv2.TealCompile().source(source).execute();
+        //}
+
+        //[Then]("it is compiled with (\d+) and (.*) and (.*)")
+        //    public void it_is_compiled_with(int status, string result, string hash)
+        //{
+        //    Assert.AreEqual(compileResponse.code(), status);
+        //    CompileResponse body = compileResponse.body();
+        //    if (body != null)
+        //    {
+        //        Assert.AreEqual(compileResponse.isSuccessful()).isTrue();
+        //        Assert.AreEqual(body.result, result);
+        //        Assert.AreEqual(body.hash, hash);
+        //    }
+        //    else
+        //    {
+        //        Assert.AreEqual(compileResponse.isSuccessful()).isFalse();
+        //    }
+        //}
+
+        //[When]("I dryrun a (.*) program (.*)")
+        //    public void i_dryrun_a_program(string kind, string path) throws Exception
+        //{
+        //        byte[]
+        //    data = loadResource(path);
+        //    List<DryrunSource> sources = new ArrayList<DryrunSource>();
+        //List<SignedTransaction> stxns = new ArrayList<SignedTransaction>();
+        //Account account = new Account();
+        //Address pk = account.Address;
+        //Digest gh = new Digest(Convert.FromBase64String("ZIkPs8pTDxbRJsFB1yJ7gvnpDu0Q85FRkl2NCkEAQLU="));
+        //Transaction txn = Transaction.PaymentTransactionBuilder()
+        //    .sender(pk)
+        //    .fee(1000)
+        //    .firstValid(1)
+        //    .lastValid(100)
+        //    .amount(1000)
+        //    .genesisHash(gh)
+        //    .receiver(pk)
+        //    .build();
+
+        //if (kind.Equals("compiled"))
+        //{
+        //    LogicsigSignature lsig = new LogicsigSignature(data);
+        //    SignedTransaction stxn = new SignedTransaction(txn, lsig);
+        //    stxns.add(stxn);
+        //}
+        //else if (kind.Equals("source"))
+        //{
+        //    DryrunSource drs = new DryrunSource();
+        //    drs.fieldName = "lsig";
+        //    drs.source = new String(data);
+        //    drs.txnIndex = 0l;
+        //    sources.add(drs);
+        //    SignedTransaction stxn = new SignedTransaction(txn, new Signature());
+        //    stxns.add(stxn);
+        //}
+        //else
+        //{
+        //    fail("kind " + kind + " not in (compiled, source)");
+        //}
+
+        //DryrunRequest dr = new DryrunRequest();
+        //dr.txns = stxns;
+        //dr.sources = sources;
+        //dryrunResponse = aclv2.TealDryrun().request(dr).execute();
+        //    }
+
+        //    [When]("I get execution result (.*)")
+        //    public void i_get_execution_result(string result) throws Exception
+        //{
+        //    DryrunResponse ddr = dryrunResponse.body();
+        //    Assert.AreEqual(ddr).isNotNull();
+        //    Assert.AreEqual(ddr.txns).isNotNull();
+        //    Assert.AreEqual(ddr.txns.Count).isGreaterThan(0);
+        //    List<String> msgs = new ArrayList<String>();
+        //if (ddr.txns[0).appCallMessages.Count > 0)
+        //{
+        //    msgs = ddr.txns[0).appCallMessages;
+        //}
+        //else if (ddr.txns[0).logicSigMessages.Count > 0)
+        //{
+        //    msgs = ddr.txns[0).logicSigMessages;
+        //}
+        //Assert.AreEqual(msgs.Count).isGreaterThan(0);
+        //Assert.AreEqual(msgs[msgs.Count - 1), result);
+        //    }
+    }
 }
