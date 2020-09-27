@@ -14,8 +14,8 @@ namespace test
     public class Stepdefs
     {
 
-        //    public static string token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-        //    public static int algodPort = 60000;
+        public static string token = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        public static string algodAddress = "http://localhost:60000";
         //    public static int kmdPort = 60001;
 
         Algorand.Algod.Model.TransactionParams transParams;
@@ -24,11 +24,11 @@ namespace test
         //    byte[] stxBytes;
         Transaction txn;
         //    TransactionBuilder txnBuilder;
-        //    string txid;
+        string txid;
         Account account;
         Address pk;
         string address;
-        //    byte[] sk;
+        byte[] sk;
         ulong fee;
         ulong fv;
         ulong lv;
@@ -47,15 +47,15 @@ namespace test
         //    AlgodClient algodClient;
         //KmdApi kcl;
         //    KmdClient kmdClient;
-        //    com.algorand.algosdk.v2.client.common.AlgodClient aclv2;
+        Algorand.V2.AlgodApi aclv2;
         //    string handle;
         List<string> versions;
-        //    Algorand.Algod.Model.NodeStatus status;
-        //    Algorand.Algod.Model.NodeStatus statusAfter;
+        Algorand.Algod.Model.NodeStatus status;
+        Algorand.Algod.Model.NodeStatus statusAfter;
         //    List<byte[]> pks;
         List<string> addresses;
         ulong? lastRound;
-        //    bool err;
+        bool err;
         //    ulong microalgos;
         //    string mnemonic;
         //    byte[] mdk;
@@ -393,312 +393,331 @@ namespace test
         //    versions = kcl.GetVersion().Versions;
         //}
 
-    //[When]("I get the status")
-    //    public void status() throws ApiException
-    //{
-    //    status = acl.getStatus();
-    //}
+        [When("I get the status")]
+        public void testStatus()
+        {
+            status = acl.GetStatus();
+        }
 
-    //[When]("I get status after this block")
-    //    public void statusBlock() throws ApiException, InterruptedException {
-    //        Thread.sleep(4000);
-    //statusAfter = acl.waitForBlock(status.LastRound);
-    //    }
+        [When("I get status after this block")]
+        public void statusBlock()
+        {
+            System.Threading.Thread.Sleep(4000);
+            statusAfter = acl.WaitForBlock((long?)status.LastRound);
+        }
 
-    //    [Then]("I can get the block info")
-    //    public void block() throws ApiException
-    //{
-    //    acl.getBlock(status.LastRound.add(1)));
-    //    }
+        [Then("I can get the block info")] 
+        public void block() 
+        {
+            acl.GetBlock((long?)status.LastRound+1);
+        }
 
-    //    [When]("I import the multisig")
-    //    public void importMsig() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ImportMultisigRequest req = new ImportMultisigRequest();
-    //req.setMultisigVersion(msig.version);
-    //req.setThreshold(msig.threshold);
-    //req.setWalletHandleToken(handle);
-    //req.setPks(msig.publicKeys);
-    //kcl.importMultisig(req);
-    //    }
+        //[When("I import the multisig")]
+        //public void importMsig()
+        //{
+        //    ImportMultisigRequest req = new ImportMultisigRequest();
+        //    req.setMultisigVersion(msig.version);
+        //    req.setThreshold(msig.threshold);
+        //    req.setWalletHandleToken(handle);
+        //    req.setPks(msig.publicKeys);
+        //    kcl.importMultisig(req);
+        //}
 
-    //    [Then]("the multisig should be in the wallet")
-    //    public void msigInWallet() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ListMultisigRequest req = new ListMultisigRequest();
-    //req.setWalletHandleToken(handle);
-    //List<String> msigs = kcl.listMultisig(req).getAddresses();
-    //bool exists = false;
-    //for (string m : msigs)
-    //{
-    //    if (m.Equals(msig.ToString()))
-    //    {
-    //        exists = true;
-    //    }
-    //}
-    //Assert.AreEqual(exists).isTrue();
-    //    }
+        //    [Then]("the multisig should be in the wallet")
+        //    public void msigInWallet()
+        //{
+        //    ListMultisigRequest req = new ListMultisigRequest();
+        //req.setWalletHandleToken(handle);
+        //List<String> msigs = kcl.listMultisig(req).getAddresses();
+        //bool exists = false;
+        //for (string m : msigs)
+        //{
+        //    if (m.Equals(msig.ToString()))
+        //    {
+        //        exists = true;
+        //    }
+        //}
+        //Assert.AreEqual(exists).isTrue();
+        //    }
 
-    //    [When]("I export the multisig")
-    //    public void expMsig() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ExportMultisigRequest req = new ExportMultisigRequest();
-    //req.setAddress(msig.ToString());
-    //req.setWalletHandleToken(handle);
-    //pks = kcl.exportMultisig(req).getPks();
+        //    [When]("I export the multisig")
+        //    public void expMsig() 
+        //{
+        //    ExportMultisigRequest req = new ExportMultisigRequest();
+        //req.setAddress(msig.ToString());
+        //req.setWalletHandleToken(handle);
+        //pks = kcl.exportMultisig(req).getPks();
 
-    //    }
+        //    }
 
-    //    [Then]("the multisig should equal the exported multisig")
-    //    public void msigEq()
-    //{
-    //    bool eq = true;
-    //    for (int x = 0; x < msig.publicKeys.Count; x++)
-    //    {
-    //        if (!Convert.ToBase64String(msig.publicKeys.get(x).getBytes()).Equals(Convert.ToBase64String(pks.get(x))))
-    //        {
-    //            eq = false;
-    //        }
-    //    }
-    //    Assert.AreEqual(eq).isTrue();
-    //}
-    //[When]("I delete the multisig")
-    //    public void deleteMsig() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    DeleteMultisigRequest req = new DeleteMultisigRequest();
-    //req.setAddress(msig.ToString());
-    //req.setWalletHandleToken(handle);
-    //req.setWalletPassword(walletPswd);
-    //kcl.deleteMultisig(req);
-    //    }
+        //    [Then]("the multisig should equal the exported multisig")
+        //    public void msigEq()
+        //{
+        //    bool eq = true;
+        //    for (int x = 0; x < msig.publicKeys.Count; x++)
+        //    {
+        //        if (!Convert.ToBase64String(msig.publicKeys.get(x).getBytes()).Equals(Convert.ToBase64String(pks.get(x))))
+        //        {
+        //            eq = false;
+        //        }
+        //    }
+        //    Assert.AreEqual(eq).isTrue();
+        //}
+        //[When]("I delete the multisig")
+        //    public void deleteMsig() 
+        //{
+        //    DeleteMultisigRequest req = new DeleteMultisigRequest();
+        //req.setAddress(msig.ToString());
+        //req.setWalletHandleToken(handle);
+        //req.setWalletPassword(walletPswd);
+        //kcl.deleteMultisig(req);
+        //    }
 
-    //    [Then]("the multisig should not be in the wallet")
-    //    public void msigNotInWallet()throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ListMultisigRequest req = new ListMultisigRequest();
-    //req.setWalletHandleToken(handle);
-    //List<String> msigs = kcl.listMultisig(req).getAddresses();
-    //bool exists = false;
-    //if (msigs != null)
-    //{
-    //    for (string m : msigs)
-    //    {
-    //        if (m.Equals(msig.ToString()))
-    //        {
-    //            exists = true;
-    //        }
-    //    }
-    //}
-    //Assert.AreEqual(exists).isFalse();
-    //    }
+        //    [Then]("the multisig should not be in the wallet")
+        //    public void msigNotInWallet()
+        //{
+        //    ListMultisigRequest req = new ListMultisigRequest();
+        //req.setWalletHandleToken(handle);
+        //List<String> msigs = kcl.listMultisig(req).getAddresses();
+        //bool exists = false;
+        //if (msigs != null)
+        //{
+        //    for (string m : msigs)
+        //    {
+        //        if (m.Equals(msig.ToString()))
+        //        {
+        //            exists = true;
+        //        }
+        //    }
+        //}
+        //Assert.AreEqual(exists).isFalse();
+        //    }
 
-    //    [When]("I generate a key using kmd")
-    //    public void genKeyKmd() throws com.algorand.algosdk.kmd.client.ApiException, NoSuchAlgorithmException{
-    //    GenerateKeyRequest req = new GenerateKeyRequest();
-    //    req.setDisplayMnemonic(false);
-    //    req.setWalletHandleToken(handle);
-    //    pk = new Address(kcl.generateKey(req).Address);
-    //}
+        //    [When]("I generate a key using kmd")
+        //    public void genKeyKmd() throws com.algorand.algosdk.kmd.client.ApiException, NoSuchAlgorithmException{
+        //    GenerateKeyRequest req = new GenerateKeyRequest();
+        //    req.setDisplayMnemonic(false);
+        //    req.setWalletHandleToken(handle);
+        //    pk = new Address(kcl.generateKey(req).Address);
+        //}
 
-    //[Then]("the key should be in the wallet")
-    //    public void keyInWallet() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ListKeysRequest req = new ListKeysRequest();
-    //req.setWalletHandleToken(handle);
-    //List<String> keys = kcl.listKeysInWallet(req).getAddresses();
-    //bool exists = false;
-    //for (string k : keys)
-    //{
-    //    if (k.Equals(pk.ToString()))
-    //    {
-    //        exists = true;
-    //    }
-    //}
-    //Assert.AreEqual(exists).isTrue();
-    //    }
+        //[Then]("the key should be in the wallet")
+        //    public void keyInWallet() throws com.algorand.algosdk.kmd.client.ApiException
+        //{
+        //    ListKeysRequest req = new ListKeysRequest();
+        //req.setWalletHandleToken(handle);
+        //List<String> keys = kcl.listKeysInWallet(req).getAddresses();
+        //bool exists = false;
+        //for (string k : keys)
+        //{
+        //    if (k.Equals(pk.ToString()))
+        //    {
+        //        exists = true;
+        //    }
+        //}
+        //Assert.AreEqual(exists).isTrue();
+        //    }
 
-    //    [When]("I delete the key")
-    //    public void deleteKey() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    DeleteKeyRequest req = new DeleteKeyRequest();
-    //req.setAddress(pk.ToString());
-    //req.setWalletHandleToken(handle);
-    //req.setWalletPassword(walletPswd);
-    //kcl.deleteKey(req);
-    //    }
+        //    [When]("I delete the key")
+        //    public void deleteKey() throws com.algorand.algosdk.kmd.client.ApiException
+        //{
+        //    DeleteKeyRequest req = new DeleteKeyRequest();
+        //req.setAddress(pk.ToString());
+        //req.setWalletHandleToken(handle);
+        //req.setWalletPassword(walletPswd);
+        //kcl.deleteKey(req);
+        //    }
 
-    //    [Then]("the key should not be in the wallet")
-    //    public void keyNotInWallet() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ListKeysRequest req = new ListKeysRequest();
-    //req.setWalletHandleToken(handle);
-    //List<String> keys = kcl.listKeysInWallet(req).getAddresses();
-    //bool exists = false;
-    //for (string k : keys)
-    //{
-    //    if (k.Equals(pk.ToString()))
-    //    {
-    //        exists = true;
-    //    }
-    //}
-    //Assert.AreEqual(exists).isFalse();
-    //    }
+        //    [Then]("the key should not be in the wallet")
+        //    public void keyNotInWallet() throws com.algorand.algosdk.kmd.client.ApiException
+        //{
+        //    ListKeysRequest req = new ListKeysRequest();
+        //req.setWalletHandleToken(handle);
+        //List<String> keys = kcl.listKeysInWallet(req).getAddresses();
+        //bool exists = false;
+        //for (string k : keys)
+        //{
+        //    if (k.Equals(pk.ToString()))
+        //    {
+        //        exists = true;
+        //    }
+        //}
+        //Assert.AreEqual(exists).isFalse();
+        //    }
 
-    //    [When]("I generate a key")
-    //    public void genKey()throws NoSuchAlgorithmException, GeneralSecurityException{
-    //        account = new Account();
-    //pk = account.Address;
-    //address = pk.ToString();
-    //sk = Mnemonic.toKey(account.toMnemonic());
-    //    }
+        [When("I generate a key")]
+        public void genKey()
+        {
+            account = new Account();
+            pk = account.Address;
+            address = pk.ToString();
+            sk = Mnemonic.ToKey(account.ToMnemonic());
+        }
 
-    //    [When]("I import the key")
-    //    public void importKey() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ImportKeyRequest req = new ImportKeyRequest();
-    //req.setWalletHandleToken(handle);
-    //req.setPrivateKey(sk);
-    //kcl.importKey(req);
-    //    }
+        //    [When]("I import the key")
+        //    public void importKey() throws com.algorand.algosdk.kmd.client.ApiException
+        //{
+        //    ImportKeyRequest req = new ImportKeyRequest();
+        //req.setWalletHandleToken(handle);
+        //req.setPrivateKey(sk);
+        //kcl.importKey(req);
+        //    }
 
-    //    [When]("I get the private key")
-    //    public void getSk() throws com.algorand.algosdk.kmd.client.ApiException, GeneralSecurityException{
-    //    ExportKeyRequest req = new ExportKeyRequest();
-    //    req.setAddress(pk.ToString());
-    //    req.setWalletHandleToken(handle);
-    //    req.setWalletPassword(walletPswd);
-    //    sk = kcl.exportKey(req).getPrivateKey();
-    //    account = new Account(Arrays.copyOfRange(sk, 0, 32));
-    //}
+        //    [When]("I get the private key")
+        //    public void getSk() throws com.algorand.algosdk.kmd.client.ApiException, GeneralSecurityException{
+        //    ExportKeyRequest req = new ExportKeyRequest();
+        //    req.setAddress(pk.ToString());
+        //    req.setWalletHandleToken(handle);
+        //    req.setWalletPassword(walletPswd);
+        //    sk = kcl.exportKey(req).getPrivateKey();
+        //    account = new Account(Arrays.copyOfRange(sk, 0, 32));
+        //}
 
-    //[Then]("the private key should be equal to the exported private key")
-    //    public void expSkEq() throws com.algorand.algosdk.kmd.client.ApiException
-    //{
-    //    ExportKeyRequest req = new ExportKeyRequest();
-    //req.setAddress(pk.ToString());
-    //req.setWalletHandleToken(handle);
-    //req.setWalletPassword(walletPswd);
-    //byte[] exported = Arrays.copyOfRange(kcl.exportKey(req).getPrivateKey(), 0, 32);
-    //Assert.AreEqual(Convert.ToBase64String(sk), Convert.ToBase64String(exported));
-    //DeleteKeyRequest deleteReq = new DeleteKeyRequest();
-    //deleteReq.setAddress(pk.ToString());
-    //deleteReq.setWalletHandleToken(handle);
-    //deleteReq.setWalletPassword(walletPswd);
-    //kcl.deleteKey(deleteReq);
-    //    }
+        //[Then]("the private key should be equal to the exported private key")
+        //    public void expSkEq() throws com.algorand.algosdk.kmd.client.ApiException
+        //{
+        //    ExportKeyRequest req = new ExportKeyRequest();
+        //req.setAddress(pk.ToString());
+        //req.setWalletHandleToken(handle);
+        //req.setWalletPassword(walletPswd);
+        //byte[] exported = Arrays.copyOfRange(kcl.exportKey(req).getPrivateKey(), 0, 32);
+        //Assert.AreEqual(Convert.ToBase64String(sk), Convert.ToBase64String(exported));
+        //DeleteKeyRequest deleteReq = new DeleteKeyRequest();
+        //deleteReq.setAddress(pk.ToString());
+        //deleteReq.setWalletHandleToken(handle);
+        //deleteReq.setWalletPassword(walletPswd);
+        //kcl.deleteKey(deleteReq);
+        //    }
 
-    //    [Given]("a kmd client")
-    //    public void kClient() throws FileNotFoundException, IOException, NoSuchAlgorithmException{
-    //        kmdClient = new KmdClient();
-    //kmdClient.setConnectTimeout(30000);
-    //kmdClient.setReadTimeout(30000);
-    //kmdClient.setWriteTimeout(30000);
-    //kmdClient.setApiKey(token);
-    //kmdClient.setBasePath("http://localhost:" + kmdPort);
-    //kcl = new KmdApi(kmdClient);
-    //    }
+        //    [Given]("a kmd client")
+        //    public void kClient() throws FileNotFoundException, IOException, NoSuchAlgorithmException{
+        //        kmdClient = new KmdClient();
+        //kmdClient.setConnectTimeout(30000);
+        //kmdClient.setReadTimeout(30000);
+        //kmdClient.setWriteTimeout(30000);
+        //kmdClient.setApiKey(token);
+        //kmdClient.setBasePath("http://localhost:" + kmdPort);
+        //kcl = new KmdApi(kmdClient);
+        //    }
 
-    //    [Given]("an algod client")
-    //    public void aClient() throws FileNotFoundException, IOException{
-    //        algodClient = new AlgodClient();
-    //algodClient.setConnectTimeout(30000);
-    //algodClient.setReadTimeout(30000);
-    //algodClient.setWriteTimeout(30000);
-    //algodClient.setApiKey(token);
-    //algodClient.setBasePath("http://localhost:" + algodPort);
-    //acl = new AlgodApi(algodClient);
-    //    }
-    //    [Given]("an algod v2 client")
-    //    public void aClientv2() throws FileNotFoundException, IOException{
-    //        aclv2 = new com.algorand.algosdk.v2.client.common.AlgodClient(
-    //            "http://localhost", algodPort, token
-    //        );
-    //    }
+        [Given("an algod client")]
+        public void aClient()
+        {
+            acl = new Algorand.Algod.Api.AlgodApi(algodAddress, token, 30000);
 
-    //    [Given]("wallet information")
-    //    public void walletInfo() throws com.algorand.algosdk.kmd.client.ApiException, NoSuchAlgorithmException{
-    //    walletName = "unencrypted-default-wallet";
-    //    walletPswd = "";
-    //    List<APIV1Wallet> wallets = kcl.listWallets().getWallets();
-    //    for (APIV1Wallet w: wallets)
-    //    {
-    //        if (w.getName().Equals(walletName))
-    //        {
-    //            walletID = w.getId();
-    //        }
-    //    }
-    //    InitWalletHandleTokenRequest tokenreq = new InitWalletHandleTokenRequest();
-    //    tokenreq.setWalletId(walletID);
-    //    tokenreq.setWalletPassword(walletPswd);
-    //    handle = kcl.initWalletHandleToken(tokenreq).getWalletHandleToken();
-    //    ListKeysRequest req = new ListKeysRequest();
-    //    req.setWalletHandleToken(handle);
-    //    addresses = kcl.listKeysInWallet(req).getAddresses();
-    //    pk = getAddress(0);
-    //}
+            //algodClient = new AlgodClient();
+            //algodClient.setConnectTimeout(30000);
+            //algodClient.setReadTimeout(30000);
+            //algodClient.setWriteTimeout(30000);
+            //algodClient.setApiKey(token);
+            //algodClient.setBasePath("http://localhost:" + algodPort);
+            //acl = new AlgodApi(algodClient);
+        }
+        [Given("an algod v2 client")]
+        public void aClientv2()
+        {
+            aclv2 = new Algorand.V2.AlgodApi(algodAddress, token);
+            //aclv2 = new com.algorand.algosdk.v2.client.common.AlgodClient(
+            //    "http://localhost", algodPort, token
+            //);
+        }
 
-    //[Given]("default transaction with parameters (\d+) (.*)")
-    //    public void defaultTxn(int amt, string note) throws ApiException, NoSuchAlgorithmException{
-    //        getParams();
-    //if (note.Equals("none"))
-    //{
-    //    this.note = null;
-    //}
-    //else
-    //{
-    //    this.note = Convert.FromBase64String(note);
-    //}
-    //txnBuilder = Transaction.PaymentTransactionBuilder()
-    //        .sender(getAddress(0))
-    //        .suggestedParams(transParams)
-    //        .note(this.note)
-    //        .amount(amt)
-    //        .receiver(getAddress(1));
-    //txn = txnBuilder.build();
-    //pk = getAddress(0);
-    //    }
+        //    [Given]("wallet information")
+        //    public void walletInfo() throws com.algorand.algosdk.kmd.client.ApiException, NoSuchAlgorithmException{
+        //    walletName = "unencrypted-default-wallet";
+        //    walletPswd = "";
+        //    List<APIV1Wallet> wallets = kcl.listWallets().getWallets();
+        //    for (APIV1Wallet w: wallets)
+        //    {
+        //        if (w.getName().Equals(walletName))
+        //        {
+        //            walletID = w.getId();
+        //        }
+        //    }
+        //    InitWalletHandleTokenRequest tokenreq = new InitWalletHandleTokenRequest();
+        //    tokenreq.setWalletId(walletID);
+        //    tokenreq.setWalletPassword(walletPswd);
+        //    handle = kcl.initWalletHandleToken(tokenreq).getWalletHandleToken();
+        //    ListKeysRequest req = new ListKeysRequest();
+        //    req.setWalletHandleToken(handle);
+        //    addresses = kcl.listKeysInWallet(req).getAddresses();
+        //    pk = getAddress(0);
+        //}
 
-    //    [Given]("default multisig transaction with parameters (\d+) (.*)")
-    //    public void defaultMsigTxn(int amt, string note) throws ApiException, NoSuchAlgorithmException{
-    //        getParams();
-    //if (note.Equals("none"))
-    //{
-    //    this.note = null;
-    //}
-    //else
-    //{
-    //    this.note = Convert.FromBase64String(note);
-    //}
-    //Ed25519PublicKey[] addrlist = new Ed25519PublicKey[addresses.Count];
-    //for (int x = 0; x < addresses.Count; x++)
-    //{
-    //    addrlist[x] = new Ed25519PublicKey((getAddress(x)).getBytes());
-    //}
-    //msig = new MultisigAddress(1, 1, Arrays.asList(addrlist));
-    //txn = Transaction.PaymentTransactionBuilder()
-    //        .sender(msig.ToString())
-    //        .suggestedParams(transParams)
-    //        .note(this.note)
-    //        .amount(amt)
-    //        .receiver(getAddress(1))
-    //        .build();
-    //pk = getAddress(0);
-    //    }
+        [Given(@"default transaction with parameters (\d+) (.*)")] 
+        public void defaultTxn(int amt, string note)
+        {
+            getParams();
+            if (note.Equals("none"))
+            {
+                this.note = null;
+            }
+            else
+            {
+                this.note = Convert.FromBase64String(note);
+            }
+            //txnBuilder = Transaction.PaymentTransactionBuilder()
+            //        .sender(getAddress(0))
+            //        .suggestedParams(transParams)
+            //        .note(this.note)
+            //        .amount(amt)
+            //        .receiver(getAddress(1));
+            //txn = txnBuilder.build();
 
-    //    [When]("I send the transaction")
-    //    public void sendTxn() throws JsonProcessingException, ApiException{
-    //        txid = acl.rawTransaction(Encoder.EncodeToMsgPack(stx)).getTxId();
-    //    }
+            txn = Utils.GetPaymentTransaction(getAddress(0), getAddress(1), (ulong?)amt, 
+                Encoding.UTF8.GetString(this.note), transParams);
+            pk = getAddress(0);
+        }
 
-    //    [When]("I send the multisig transaction")
-    //    public void sendMsigTxn() throws JsonProcessingException, ApiException{
-    //        try{
-    //            acl.rawTransaction(Encoder.EncodeToMsgPack(stx));
-    //        } catch (Exception e)
-    //{
-    //    err = true;
-    //}
-    //    }
+        [Given(@"default multisig transaction with parameters (\d+) (.*)")]
+        public void defaultMsigTxn(int amt, string note)
+        {
+            getParams();
+            if (note.Equals("none"))
+            {
+                this.note = null;
+            }
+            else
+            {
+                this.note = Convert.FromBase64String(note);
+            }
+            List<Ed25519PublicKeyParameters> addrlist = new List<Ed25519PublicKeyParameters>();
+            for (int i = 0;i < addrlist.Count;i++)
+            {
+                addrlist.Add(new Ed25519PublicKeyParameters(getAddress(i).Bytes, 0));
+                //addrlist[x] = new Ed25519PublicKey((getAddress(x)).getBytes());
+            }
+            msig = new MultisigAddress(1, 1, addrlist);
+            //txn = Transaction.PaymentTransactionBuilder()
+            //        .sender(msig.ToString())
+            //        .suggestedParams(transParams)
+            //        .note(this.note)
+            //        .amount(amt)
+            //        .receiver(getAddress(1))
+            //        .build();
+            txn = Utils.GetPaymentTransaction(msig.ToAddress(), getAddress(1), (ulong?)amt,
+                Encoding.UTF8.GetString(this.note), transParams);
+            pk = getAddress(0);
+        }
+
+        [When("I send the transaction")]
+        public void sendTxn() 
+        {
+            txid = acl.RawTransaction(Encoder.EncodeToMsgPack(stx)).TxId;
+        }
+
+        [When("I send the multisig transaction")]
+        public void sendMsigTxn()
+        {
+            try
+            {
+                acl.RawTransaction(Encoder.EncodeToMsgPack(stx));
+            }
+            catch (Exception)
+            {
+                err = true;
+            }
+        }
 
     //    [Then]("the transaction should go through")
     //    public void checkTxn() throws ApiException, InterruptedException{
