@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Algorand
 {
-    public static class Base32
+    internal static class Base32
     {
         /// <summary>
         /// The different characters allowed in Base32 encoding.
@@ -25,7 +25,7 @@ namespace Algorand
         /// https://github.com/google/google-authenticator/wiki/Key-Uri-Format indicates that padding SHOULD be omitted.
         /// To meet both requirements, you can omit padding when required.
         /// </remarks>
-        public static string EncodeToString(this byte[] input, bool addPadding = true)
+        internal static string EncodeToString(this byte[] input, bool addPadding = true)
         {
             if (input == null || input.Length == 0)
             {
@@ -57,7 +57,7 @@ namespace Algorand
         /// </summary>
         /// <param name="input"></param>
         /// <returns>A byte array containing the properly encoded bytes.</returns>
-        public static byte[] DecodeFromString(this string input)
+        internal static byte[] DecodeFromString(this string input)
         {
             if (string.IsNullOrEmpty(input))
             {

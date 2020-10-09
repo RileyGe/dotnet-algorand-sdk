@@ -13,9 +13,9 @@ using System.Linq;
 
 namespace Algorand
 {
-    ///
+    /// <summary>
     /// Create and manage secrets, and perform account-based work such as signing transactions.
-    ///
+    /// </summary>
     public class Account
     {
         private AsymmetricCipherKeyPair privateKeyPair;

@@ -8,9 +8,9 @@ using System.Collections.Generic;
 
 namespace Algorand
 {
-    /// 
+    /// <summary>
     /// Address represents a serializable 32-byte length Algorand address.
-    /// 
+    /// </summary>
     [JsonConverter(typeof(BytesConverter))]
     public class Address
     {

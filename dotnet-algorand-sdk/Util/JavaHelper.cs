@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Algorand
 {
-    public class JavaHelper<T>
+    internal class JavaHelper<T>
     {
-        public static T[] ArrayCopyRange(T[] original, int from, int to)
+        internal static T[] ArrayCopyRange(T[] original, int from, int to)
         {
             T[] ret = new T[to - from];
             for (int i = from; i < to; i++)
@@ -15,7 +15,7 @@ namespace Algorand
             }
             return ret;
         }
-        public static T[] ArrayCopyOf(T[] source, int length)
+        internal static T[] ArrayCopyOf(T[] source, int length)
         {
             T[] ret = new T[length];
             for (int i = 0; i < length && i < source.Length; i++)
@@ -26,7 +26,7 @@ namespace Algorand
             //source.CopyTo(ret, 0);
             return ret;
         }
-        public static void SyatemArrayCopy(T[] src, int srcPos, T[] dest, int destPos, int length)
+        internal static void SyatemArrayCopy(T[] src, int srcPos, T[] dest, int destPos, int length)
         {
             if(src.Length < srcPos + length || dest.Length < destPos + length)
             {
@@ -37,7 +37,7 @@ namespace Algorand
                 dest[destPos + i] = src[srcPos + i];
             }
         }
-        public static string ArrayToString(T[] array)
+        internal static string ArrayToString(T[] array)
         {
             string ret = "[";
             foreach(var item in array)
@@ -46,7 +46,7 @@ namespace Algorand
             }
             return ret.Substring(0, ret.Length - 2) + "]";
         }
-        public static T RequireNotNull(object o, string message)
+        internal static T RequireNotNull(object o, string message)
         {            
             if (o == null)
                 throw new NullReferenceException(message);

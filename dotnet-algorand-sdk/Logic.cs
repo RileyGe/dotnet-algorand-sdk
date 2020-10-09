@@ -6,6 +6,9 @@ using System.Reflection;
 
 namespace Algorand
 {
+    /// <summary>
+    /// Logic class provides static checkProgram function that can be used for client-side program validation for size and execution cost.
+    /// </summary>
     public class Logic
     {
         private static int MAX_COST = 20000;

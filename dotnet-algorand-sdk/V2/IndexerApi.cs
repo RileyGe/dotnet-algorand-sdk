@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Algorand.V2
 {
+    /// <summary>
+    /// an IndexerClient for communicating with the REST API.
+    /// </summary>
     public class IndexerApi
     {
         /// <summary>

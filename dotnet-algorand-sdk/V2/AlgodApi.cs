@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Algorand.V2
 {
     /// <summary>
-    /// 
+    /// an AlgodClient for communicating with the REST API.
     /// </summary>
     public class AlgodApi: DefaultApi
     {

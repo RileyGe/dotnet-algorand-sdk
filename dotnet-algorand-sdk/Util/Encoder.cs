@@ -10,14 +10,16 @@ using Org.BouncyCastle.Crypto.Parameters;
 
 namespace Algorand
 {
+    /// <summary>
+    /// Convenience method for serializing and deserializing arbitrary objects to json or msgpack.
+    /// </summary>
     public class Encoder
-    {
-        //private static char BASE32_PAD_CHAR = '=';
-        /**
-         * Convenience method for serializing arbitrary objects.
-         * @return serialized object
-         * @throws JsonProcessingException if serialization failed
-         */
+    {        
+        /// <summary>
+        /// Convenience method for serializing arbitrary objects.
+        /// </summary>
+        /// <param name="o">the object to serializing</param>
+        /// <returns>serialized object</returns>
         public static byte[] EncodeToMsgPack(object o)
         {
             //ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
@@ -68,14 +70,12 @@ namespace Algorand
             return bytes;
         }
 
-        /**
-         * Convenience method for deserializing arbitrary objects encoded with canonical msg-pack
-         * @param input byte array representing canonical msg-pack encoding
-         * @param tClass class of type of object to deserialize as
-         * @param <T> object type
-         * @return deserialized object
-         * @throws IOException if decoding failed
-         */
+        /// <summary>
+        /// Convenience method for deserializing arbitrary objects encoded with canonical msg-pack
+        /// </summary>
+        /// <typeparam name="T">object type</typeparam>
+        /// <param name="input">input byte array representing canonical msg-pack encoding</param>
+        /// <returns>deserialized object</returns>
         public static T DecodeFromMsgPack<T>(byte[] input)
         {
             // See encodedToMsgPack for explanation of settings, and how this makes msgpack canonical
@@ -105,13 +105,12 @@ namespace Algorand
             //Product deserializedProduct = ser.Deserialize<Product>(reader);
 
         }
-
-        /**
-         * Encode an object as json.
-         * @param o object to encode
-         * @return json string
-         * @throws JsonProcessingException error
-         */
+        
+        /// <summary>
+        /// Encode an object as json.
+        /// </summary>
+        /// <param name="o">object to encode</param>
+        /// <returns>json string</returns>
         public static string EncodeToJson(object o)
         {
             var settings = new JsonSerializerSettings()
@@ -122,7 +121,12 @@ namespace Algorand
             var ostr = JsonConvert.SerializeObject(o, settings);
             return ostr;
         }
-
+        /// <summary>
+        /// Decode a json string to an object.
+        /// </summary>
+        /// <typeparam name="T">object type</typeparam>
+        /// <param name="json">json string</param>
+        /// <returns>object</returns>
         public static T DecodeFromJson<T>(string json)
         {
             return JsonConvert.DeserializeObject<T>(json);
@@ -194,7 +198,7 @@ namespace Algorand
         //}
     }
 
-    public class AlgorandContractResolver : DefaultContractResolver
+    internal class AlgorandContractResolver : DefaultContractResolver
     {
         public static readonly AlgorandContractResolver Instance = new AlgorandContractResolver();
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
