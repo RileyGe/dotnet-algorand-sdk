@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "D:/git/dotnet-algorand-sdk/doc",
+  "source_base_path": "D:/git/dotnet-algorand-sdk/doc-generator",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -2613,7 +2613,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "tbygaDsU0Adw9ANzBnzzHQ=="
+          "hash": "Exo7yoeS66iRRMIqC5Z4HA=="
         }
       },
       "is_incremental": false,
@@ -2637,7 +2637,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "i+DAi+SI3hY3bDUJB1kcKQ=="
+          "hash": "w9W7KHZ2hYfuIrYzk0NBsQ=="
         }
       },
       "is_incremental": false,
@@ -2652,7 +2652,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/quick_start.html",
-          "hash": "kG/j+6I4moK8k9V59MKLOg=="
+          "hash": "1EabWdi6NvFULKy4273jSw=="
         }
       },
       "is_incremental": false,
@@ -2676,7 +2676,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "/ANOu/YoJ/e+Qi6SDq0P8A=="
+          "hash": "YrSqk1pdb+APn/L1eCxdfw=="
         }
       },
       "is_incremental": false,

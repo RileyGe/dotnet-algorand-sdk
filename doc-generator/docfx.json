@@ -45,11 +45,11 @@
         ],
         "exclude": [
           "obj/**",
-          "site/**"
+          "../docs/**"
         ]
       }
     ],
-    "dest": "site",
+    "dest": "../docs",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
