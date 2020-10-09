@@ -1,0 +1,1187 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Block
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Block
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Algorand.Algod.Model.Block">
+  
+  
+  <h1 id="Algorand_Algod_Model_Block" data-uid="Algorand.Algod.Model.Block" class="text-break">Class Block
+  </h1>
+  <div class="markdown level0 summary"><p>Block contains a block information</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Block</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Algorand.Algod.Model.Block.html">Block</a>&gt;</div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Algorand.Algod.Model.html">Algorand.Algod.Model</a></h6>
+  <h6><strong>Assembly</strong>: Algorand.dll</h6>
+  <h5 id="Algorand_Algod_Model_Block_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class Block : IEquatable&lt;Block&gt;, IValidatableObject</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block__ctor_System_String_System_Nullable_System_UInt64__System_String_System_String_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_String_System_String_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_String_System_Nullable_System_Int64__System_String_Algorand_Algod_Model_TransactionList_System_Nullable_System_Boolean__System_String_.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.%23ctor(System.String%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CAlgorand.Algod.Model.TransactionList%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L54">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block__ctor_" data-uid="Algorand.Algod.Model.Block.#ctor*"></a>
+  <h4 id="Algorand_Algod_Model_Block__ctor_System_String_System_Nullable_System_UInt64__System_String_System_String_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_String_System_String_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_String_System_Nullable_System_Int64__System_String_Algorand_Algod_Model_TransactionList_System_Nullable_System_Boolean__System_String_" data-uid="Algorand.Algod.Model.Block.#ctor(System.String,System.Nullable{System.UInt64},System.String,System.String,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.String,System.String,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.String,System.Nullable{System.Int64},System.String,Algorand.Algod.Model.TransactionList,System.Nullable{System.Boolean},System.String)">Block(String, Nullable&lt;UInt64&gt;, String, String, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, String, String, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, String, Nullable&lt;Int64&gt;, String, TransactionList, Nullable&lt;Boolean&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Algorand.Algod.Model.Block.html">Block</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Block(string currentProtocol = null, ulong? frac = default(ulong? ), string hash = null, string nextProtocol = null, ulong? nextProtocolApprovals = default(ulong? ), ulong? nextProtocolSwitchOn = default(ulong? ), ulong? nextProtocolVoteBefore = default(ulong? ), ulong? period = default(ulong? ), string previousBlockHash = null, string proposer = null, ulong? rate = default(ulong? ), ulong? reward = default(ulong? ), ulong? round = default(ulong? ), string seed = null, long? timestamp = default(long? ), string txnRoot = null, TransactionList txns = null, bool? upgradeApprove = default(bool? ), string upgradePropose = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">currentProtocol</span></td>
+        <td><p>CurrentProtocol is a string that represents the current protocol (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">frac</span></td>
+        <td><p>The number of leftover MicroAlgos after the distribution of RewardsRate/rewardUnits MicroAlgos for every reward unit in the next round..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">hash</span></td>
+        <td><p>Hash is the current block hash (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">nextProtocol</span></td>
+        <td><p>NextProtocol is a string that represents the next proposed protocol (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">nextProtocolApprovals</span></td>
+        <td><p>NextProtocolApprovals is the number of blocks which approved the protocol upgrade (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">nextProtocolSwitchOn</span></td>
+        <td><p>NextProtocolSwitchOn is the round on which the protocol upgrade will take effect (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">nextProtocolVoteBefore</span></td>
+        <td><p>NextProtocolVoteBefore is the deadline round for this protocol upgrade (No votes will be consider after this round) (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">period</span></td>
+        <td><p>Period is the period on which the block was confirmed (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">previousBlockHash</span></td>
+        <td><p>PreviousBlockHash is the previous block hash (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">proposer</span></td>
+        <td><p>Proposer is the address of this block proposer (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">rate</span></td>
+        <td><p>The number of new MicroAlgos added to the participation stake from rewards at the next round..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">reward</span></td>
+        <td><p>RewardsLevel specifies how many rewards, in MicroAlgos, have been distributed to each config.Protocol.RewardUnit of MicroAlgos since genesis..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Round is the current round on which this block was appended to the chain (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">seed</span></td>
+        <td><p>Seed is the sortition seed (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">timestamp</span></td>
+        <td><p>TimeStamp in seconds since epoch (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txnRoot</span></td>
+        <td><p>TransactionsRoot authenticates the set of transactions appearing in the block. More specifically, it's the root of a merkle tree whose leaves are the block's Txids, in lexicographic order. For the empty block, it's 0. Note that the TxnRoot does not authenticate the signatures on the transactions, only the transactions themselves. Two blocks with the same transactions but in a different order and with different signatures will have the same TxnRoot. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.Algod.Model.TransactionList.html">TransactionList</a></td>
+        <td><span class="parametername">txns</span></td>
+        <td><p>txns.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">upgradeApprove</span></td>
+        <td><p>UpgradeApprove indicates a yes vote for the current proposal (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">upgradePropose</span></td>
+        <td><p>UpgradePropose indicates a proposed upgrade (required).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_CurrentProtocol.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.CurrentProtocol%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L201">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_CurrentProtocol_" data-uid="Algorand.Algod.Model.Block.CurrentProtocol*"></a>
+  <h4 id="Algorand_Algod_Model_Block_CurrentProtocol" data-uid="Algorand.Algod.Model.Block.CurrentProtocol">CurrentProtocol</h4>
+  <div class="markdown level1 summary"><p>CurrentProtocol is a string that represents the current protocol</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;currentProtocol&quot;, EmitDefaultValue = false)]
+public string CurrentProtocol { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>CurrentProtocol is a string that represents the current protocol</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Frac.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Frac%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L208">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Frac_" data-uid="Algorand.Algod.Model.Block.Frac*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Frac" data-uid="Algorand.Algod.Model.Block.Frac">Frac</h4>
+  <div class="markdown level1 summary"><p>The number of leftover MicroAlgos after the distribution of RewardsRate/rewardUnits MicroAlgos for every reward unit in the next round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;frac&quot;, EmitDefaultValue = false)]
+public ulong? Frac { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>The number of leftover MicroAlgos after the distribution of RewardsRate/rewardUnits MicroAlgos for every reward unit in the next round.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Hash.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Hash%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L215">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Hash_" data-uid="Algorand.Algod.Model.Block.Hash*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Hash" data-uid="Algorand.Algod.Model.Block.Hash">Hash</h4>
+  <div class="markdown level1 summary"><p>Hash is the current block hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;hash&quot;, EmitDefaultValue = false)]
+public string Hash { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Hash is the current block hash</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_NextProtocol.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.NextProtocol%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L222">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_NextProtocol_" data-uid="Algorand.Algod.Model.Block.NextProtocol*"></a>
+  <h4 id="Algorand_Algod_Model_Block_NextProtocol" data-uid="Algorand.Algod.Model.Block.NextProtocol">NextProtocol</h4>
+  <div class="markdown level1 summary"><p>NextProtocol is a string that represents the next proposed protocol</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;nextProtocol&quot;, EmitDefaultValue = false)]
+public string NextProtocol { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>NextProtocol is a string that represents the next proposed protocol</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_NextProtocolApprovals.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.NextProtocolApprovals%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L229">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_NextProtocolApprovals_" data-uid="Algorand.Algod.Model.Block.NextProtocolApprovals*"></a>
+  <h4 id="Algorand_Algod_Model_Block_NextProtocolApprovals" data-uid="Algorand.Algod.Model.Block.NextProtocolApprovals">NextProtocolApprovals</h4>
+  <div class="markdown level1 summary"><p>NextProtocolApprovals is the number of blocks which approved the protocol upgrade</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;nextProtocolApprovals&quot;, EmitDefaultValue = false)]
+public ulong? NextProtocolApprovals { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>NextProtocolApprovals is the number of blocks which approved the protocol upgrade</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_NextProtocolSwitchOn.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.NextProtocolSwitchOn%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L236">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_NextProtocolSwitchOn_" data-uid="Algorand.Algod.Model.Block.NextProtocolSwitchOn*"></a>
+  <h4 id="Algorand_Algod_Model_Block_NextProtocolSwitchOn" data-uid="Algorand.Algod.Model.Block.NextProtocolSwitchOn">NextProtocolSwitchOn</h4>
+  <div class="markdown level1 summary"><p>NextProtocolSwitchOn is the round on which the protocol upgrade will take effect</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;nextProtocolSwitchOn&quot;, EmitDefaultValue = false)]
+public ulong? NextProtocolSwitchOn { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>NextProtocolSwitchOn is the round on which the protocol upgrade will take effect</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_NextProtocolVoteBefore.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.NextProtocolVoteBefore%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L243">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_NextProtocolVoteBefore_" data-uid="Algorand.Algod.Model.Block.NextProtocolVoteBefore*"></a>
+  <h4 id="Algorand_Algod_Model_Block_NextProtocolVoteBefore" data-uid="Algorand.Algod.Model.Block.NextProtocolVoteBefore">NextProtocolVoteBefore</h4>
+  <div class="markdown level1 summary"><p>NextProtocolVoteBefore is the deadline round for this protocol upgrade (No votes will be consider after this round)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;nextProtocolVoteBefore&quot;, EmitDefaultValue = false)]
+public ulong? NextProtocolVoteBefore { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>NextProtocolVoteBefore is the deadline round for this protocol upgrade (No votes will be consider after this round)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Period.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Period%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L250">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Period_" data-uid="Algorand.Algod.Model.Block.Period*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Period" data-uid="Algorand.Algod.Model.Block.Period">Period</h4>
+  <div class="markdown level1 summary"><p>Period is the period on which the block was confirmed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;period&quot;, EmitDefaultValue = false)]
+public ulong? Period { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>Period is the period on which the block was confirmed</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_PreviousBlockHash.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.PreviousBlockHash%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L257">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_PreviousBlockHash_" data-uid="Algorand.Algod.Model.Block.PreviousBlockHash*"></a>
+  <h4 id="Algorand_Algod_Model_Block_PreviousBlockHash" data-uid="Algorand.Algod.Model.Block.PreviousBlockHash">PreviousBlockHash</h4>
+  <div class="markdown level1 summary"><p>PreviousBlockHash is the previous block hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;previousBlockHash&quot;, EmitDefaultValue = false)]
+public string PreviousBlockHash { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>PreviousBlockHash is the previous block hash</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Proposer.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Proposer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L264">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Proposer_" data-uid="Algorand.Algod.Model.Block.Proposer*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Proposer" data-uid="Algorand.Algod.Model.Block.Proposer">Proposer</h4>
+  <div class="markdown level1 summary"><p>Proposer is the address of this block proposer</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;proposer&quot;, EmitDefaultValue = false)]
+public string Proposer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Proposer is the address of this block proposer</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Rate.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Rate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L271">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Rate_" data-uid="Algorand.Algod.Model.Block.Rate*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Rate" data-uid="Algorand.Algod.Model.Block.Rate">Rate</h4>
+  <div class="markdown level1 summary"><p>The number of new MicroAlgos added to the participation stake from rewards at the next round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;rate&quot;, EmitDefaultValue = false)]
+public ulong? Rate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>The number of new MicroAlgos added to the participation stake from rewards at the next round.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Reward.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Reward%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L278">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Reward_" data-uid="Algorand.Algod.Model.Block.Reward*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Reward" data-uid="Algorand.Algod.Model.Block.Reward">Reward</h4>
+  <div class="markdown level1 summary"><p>RewardsLevel specifies how many rewards, in MicroAlgos, have been distributed to each config.Protocol.RewardUnit of MicroAlgos since genesis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;reward&quot;, EmitDefaultValue = false)]
+public ulong? Reward { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>RewardsLevel specifies how many rewards, in MicroAlgos, have been distributed to each config.Protocol.RewardUnit of MicroAlgos since genesis.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Round.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Round%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L285">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Round_" data-uid="Algorand.Algod.Model.Block.Round*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Round" data-uid="Algorand.Algod.Model.Block.Round">Round</h4>
+  <div class="markdown level1 summary"><p>Round is the current round on which this block was appended to the chain</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;round&quot;, EmitDefaultValue = false)]
+public ulong? Round { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>Round is the current round on which this block was appended to the chain</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Seed.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Seed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L292">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Seed_" data-uid="Algorand.Algod.Model.Block.Seed*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Seed" data-uid="Algorand.Algod.Model.Block.Seed">Seed</h4>
+  <div class="markdown level1 summary"><p>Seed is the sortition seed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;seed&quot;, EmitDefaultValue = false)]
+public string Seed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Seed is the sortition seed</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Timestamp.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Timestamp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L299">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Timestamp_" data-uid="Algorand.Algod.Model.Block.Timestamp*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Timestamp" data-uid="Algorand.Algod.Model.Block.Timestamp">Timestamp</h4>
+  <div class="markdown level1 summary"><p>TimeStamp in seconds since epoch</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;timestamp&quot;, EmitDefaultValue = false)]
+public long? Timestamp { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>TimeStamp in seconds since epoch</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_TxnRoot.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.TxnRoot%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L306">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_TxnRoot_" data-uid="Algorand.Algod.Model.Block.TxnRoot*"></a>
+  <h4 id="Algorand_Algod_Model_Block_TxnRoot" data-uid="Algorand.Algod.Model.Block.TxnRoot">TxnRoot</h4>
+  <div class="markdown level1 summary"><p>TransactionsRoot authenticates the set of transactions appearing in the block. More specifically, it's the root of a merkle tree whose leaves are the block's Txids, in lexicographic order. For the empty block, it's 0. Note that the TxnRoot does not authenticate the signatures on the transactions, only the transactions themselves. Two blocks with the same transactions but in a different order and with different signatures will have the same TxnRoot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;txnRoot&quot;, EmitDefaultValue = false)]
+public string TxnRoot { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>TransactionsRoot authenticates the set of transactions appearing in the block. More specifically, it's the root of a merkle tree whose leaves are the block's Txids, in lexicographic order. For the empty block, it's 0. Note that the TxnRoot does not authenticate the signatures on the transactions, only the transactions themselves. Two blocks with the same transactions but in a different order and with different signatures will have the same TxnRoot.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Txns.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Txns%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L312">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Txns_" data-uid="Algorand.Algod.Model.Block.Txns*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Txns" data-uid="Algorand.Algod.Model.Block.Txns">Txns</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets Txns</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;txns&quot;, EmitDefaultValue = false)]
+public TransactionList Txns { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Algod.Model.TransactionList.html">TransactionList</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_UpgradeApprove.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.UpgradeApprove%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L319">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_UpgradeApprove_" data-uid="Algorand.Algod.Model.Block.UpgradeApprove*"></a>
+  <h4 id="Algorand_Algod_Model_Block_UpgradeApprove" data-uid="Algorand.Algod.Model.Block.UpgradeApprove">UpgradeApprove</h4>
+  <div class="markdown level1 summary"><p>UpgradeApprove indicates a yes vote for the current proposal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;upgradeApprove&quot;, EmitDefaultValue = false)]
+public bool? UpgradeApprove { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><p>UpgradeApprove indicates a yes vote for the current proposal</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_UpgradePropose.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.UpgradePropose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L326">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_UpgradePropose_" data-uid="Algorand.Algod.Model.Block.UpgradePropose*"></a>
+  <h4 id="Algorand_Algod_Model_Block_UpgradePropose" data-uid="Algorand.Algod.Model.Block.UpgradePropose">UpgradePropose</h4>
+  <div class="markdown level1 summary"><p>UpgradePropose indicates a proposed upgrade</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;upgradePropose&quot;, EmitDefaultValue = false)]
+public string UpgradePropose { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>UpgradePropose indicates a proposed upgrade</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Equals_Algorand_Algod_Model_Block_.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Equals(Algorand.Algod.Model.Block)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L384">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Equals_" data-uid="Algorand.Algod.Model.Block.Equals*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Equals_Algorand_Algod_Model_Block_" data-uid="Algorand.Algod.Model.Block.Equals(Algorand.Algod.Model.Block)">Equals(Block)</h4>
+  <div class="markdown level1 summary"><p>Returns true if Block instances are equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Block input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Algod.Model.Block.html">Block</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Instance of Block to be compared</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L374">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_Equals_" data-uid="Algorand.Algod.Model.Block.Equals*"></a>
+  <h4 id="Algorand_Algod_Model_Block_Equals_System_Object_" data-uid="Algorand.Algod.Model.Block.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Returns true if objects are equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Object to be compared</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_GetHashCode.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L491">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_GetHashCode_" data-uid="Algorand.Algod.Model.Block.GetHashCode*"></a>
+  <h4 id="Algorand_Algod_Model_Block_GetHashCode" data-uid="Algorand.Algod.Model.Block.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Gets the hash code</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Hash code</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_ToJson.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.ToJson%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L364">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_ToJson_" data-uid="Algorand.Algod.Model.Block.ToJson*"></a>
+  <h4 id="Algorand_Algod_Model_Block_ToJson" data-uid="Algorand.Algod.Model.Block.ToJson">ToJson()</h4>
+  <div class="markdown level1 summary"><p>Returns the JSON string presentation of the object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ToJson()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>JSON string presentation of the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_ToString.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L333">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_ToString_" data-uid="Algorand.Algod.Model.Block.ToString*"></a>
+  <h4 id="Algorand_Algod_Model_Block_ToString" data-uid="Algorand.Algod.Model.Block.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns the string presentation of the object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>String presentation of the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_System_ComponentModel_DataAnnotations_ValidationContext_.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block.System%23ComponentModel%23DataAnnotations%23IValidatableObject%23Validate(System.ComponentModel.DataAnnotations.ValidationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L543">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Block_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_" data-uid="Algorand.Algod.Model.Block.System#ComponentModel#DataAnnotations#IValidatableObject#Validate*"></a>
+  <h4 id="Algorand_Algod_Model_Block_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_System_ComponentModel_DataAnnotations_ValidationContext_" data-uid="Algorand.Algod.Model.Block.System#ComponentModel#DataAnnotations#IValidatableObject#Validate(System.ComponentModel.DataAnnotations.ValidationContext)">IValidatableObject.Validate(ValidationContext)</h4>
+  <div class="markdown level1 summary"><p>To validate all properties of the instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;ValidationResult&gt; IValidatableObject.Validate(ValidationContext validationContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationContext</span></td>
+        <td><span class="parametername">validationContext</span></td>
+        <td><p>Validation context</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span>&gt;</td>
+        <td><p>Validation Result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Block.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Block%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Model/Block.cs/#L29" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

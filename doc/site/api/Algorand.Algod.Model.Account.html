@@ -1,0 +1,883 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Account
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Account
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Algorand.Algod.Model.Account">
+  
+  
+  <h1 id="Algorand_Algod_Model_Account" data-uid="Algorand.Algod.Model.Account" class="text-break">Class Account
+  </h1>
+  <div class="markdown level0 summary"><p>Account Description</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Account</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Algorand.Algod.Model.Account.html">Account</a>&gt;</div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Algorand.Algod.Model.html">Algorand.Algod.Model</a></h6>
+  <h6><strong>Assembly</strong>: Algorand.dll</h6>
+  <h5 id="Algorand_Algod_Model_Account_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class Account : IEquatable&lt;Account&gt;, IValidatableObject</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account__ctor_System_String_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Collections_Generic_Dictionary_System_Nullable_System_UInt64__Algorand_Algod_Model_AssetHolding__Algorand_Algod_Model_Participation_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_String_System_Collections_Generic_Dictionary_System_Nullable_System_UInt64__Algorand_Algod_Model_AssetParams__.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.%23ctor(System.String%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Collections.Generic.Dictionary%7BSystem.Nullable%7BSystem.UInt64%7D%2CAlgorand.Algod.Model.AssetHolding%7D%2CAlgorand.Algod.Model.Participation%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.Nullable%7BSystem.UInt64%7D%2CSystem.String%2CSystem.Collections.Generic.Dictionary%7BSystem.Nullable%7BSystem.UInt64%7D%2CAlgorand.Algod.Model.AssetParams%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L45">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account__ctor_" data-uid="Algorand.Algod.Model.Account.#ctor*"></a>
+  <h4 id="Algorand_Algod_Model_Account__ctor_System_String_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Collections_Generic_Dictionary_System_Nullable_System_UInt64__Algorand_Algod_Model_AssetHolding__Algorand_Algod_Model_Participation_System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_Nullable_System_UInt64__System_String_System_Collections_Generic_Dictionary_System_Nullable_System_UInt64__Algorand_Algod_Model_AssetParams__" data-uid="Algorand.Algod.Model.Account.#ctor(System.String,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Collections.Generic.Dictionary{System.Nullable{System.UInt64},Algorand.Algod.Model.AssetHolding},Algorand.Algod.Model.Participation,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.String,System.Collections.Generic.Dictionary{System.Nullable{System.UInt64},Algorand.Algod.Model.AssetParams})">Account(String, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, Dictionary&lt;Nullable&lt;UInt64&gt;, AssetHolding&gt;, Participation, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, Nullable&lt;UInt64&gt;, String, Dictionary&lt;Nullable&lt;UInt64&gt;, AssetParams&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Algorand.Algod.Model.Account.html">Account</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Account(string address = null, ulong? amount = default(ulong? ), ulong? amountwithoutpendingrewards = default(ulong? ), Dictionary&lt;ulong?, AssetHolding&gt; assets = null, Participation participation = null, ulong? pendingrewards = default(ulong? ), ulong? rewards = default(ulong? ), ulong? round = default(ulong? ), string status = null, Dictionary&lt;ulong?, AssetParams&gt; thisassettotal = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>Address indicates the account public key (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">amount</span></td>
+        <td><p>Amount indicates the total number of MicroAlgos in the account (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">amountwithoutpendingrewards</span></td>
+        <td><p>AmountWithoutPendingRewards specifies the amount of MicroAlgos in the account, without the pending rewards. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;, <a class="xref" href="Algorand.Algod.Model.AssetHolding.html">AssetHolding</a>&gt;</td>
+        <td><span class="parametername">assets</span></td>
+        <td><p>Assets specifies the holdings of assets by this account, indexed by the asset ID..</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.Algod.Model.Participation.html">Participation</a></td>
+        <td><span class="parametername">participation</span></td>
+        <td><p>participation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">pendingrewards</span></td>
+        <td><p>PendingRewards specifies the amount of MicroAlgos of pending rewards in this account. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">rewards</span></td>
+        <td><p>Rewards indicates the total rewards of MicroAlgos the account has received, including pending rewards. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Round indicates the round for which this information is relevant (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">status</span></td>
+        <td><p>Status indicates the delegation status of the account's MicroAlgos Offline - indicates that the associated account is delegated. Online  - indicates that the associated account used as part of the delegation pool. NotParticipating - indicates that the associated account is neither a delegator nor a delegate. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;, <a class="xref" href="Algorand.Algod.Model.AssetParams.html">AssetParams</a>&gt;</td>
+        <td><span class="parametername">thisassettotal</span></td>
+        <td><p>AssetParams specifies the parameters of assets created by this account..</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Address.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Address%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L119">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Address_" data-uid="Algorand.Algod.Model.Account.Address*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Address" data-uid="Algorand.Algod.Model.Account.Address">Address</h4>
+  <div class="markdown level1 summary"><p>Address indicates the account public key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;address&quot;, EmitDefaultValue = false)]
+public string Address { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Address indicates the account public key</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Amount.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Amount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L126">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Amount_" data-uid="Algorand.Algod.Model.Account.Amount*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Amount" data-uid="Algorand.Algod.Model.Account.Amount">Amount</h4>
+  <div class="markdown level1 summary"><p>Amount indicates the total number of MicroAlgos in the account</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;amount&quot;, EmitDefaultValue = false)]
+public ulong? Amount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>Amount indicates the total number of MicroAlgos in the account</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Amountwithoutpendingrewards.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Amountwithoutpendingrewards%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L133">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Amountwithoutpendingrewards_" data-uid="Algorand.Algod.Model.Account.Amountwithoutpendingrewards*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Amountwithoutpendingrewards" data-uid="Algorand.Algod.Model.Account.Amountwithoutpendingrewards">Amountwithoutpendingrewards</h4>
+  <div class="markdown level1 summary"><p>AmountWithoutPendingRewards specifies the amount of MicroAlgos in the account, without the pending rewards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;amountwithoutpendingrewards&quot;, EmitDefaultValue = false)]
+public ulong? Amountwithoutpendingrewards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>AmountWithoutPendingRewards specifies the amount of MicroAlgos in the account, without the pending rewards.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Assets.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Assets%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L141">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Assets_" data-uid="Algorand.Algod.Model.Account.Assets*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Assets" data-uid="Algorand.Algod.Model.Account.Assets">Assets</h4>
+  <div class="markdown level1 summary"><p>Assets specifies the holdings of assets by this account, indexed by the asset ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;assets&quot;, EmitDefaultValue = false)]
+public Dictionary&lt;ulong?, AssetHolding&gt; Assets { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;, <a class="xref" href="Algorand.Algod.Model.AssetHolding.html">AssetHolding</a>&gt;</td>
+        <td><p>Assets specifies the holdings of assets by this account, indexed by the asset ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Participation.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Participation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L162">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Participation_" data-uid="Algorand.Algod.Model.Account.Participation*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Participation" data-uid="Algorand.Algod.Model.Account.Participation">Participation</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets Participation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;participation&quot;, EmitDefaultValue = false)]
+public Participation Participation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Algod.Model.Participation.html">Participation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Pendingrewards.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Pendingrewards%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L169">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Pendingrewards_" data-uid="Algorand.Algod.Model.Account.Pendingrewards*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Pendingrewards" data-uid="Algorand.Algod.Model.Account.Pendingrewards">Pendingrewards</h4>
+  <div class="markdown level1 summary"><p>PendingRewards specifies the amount of MicroAlgos of pending rewards in this account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;pendingrewards&quot;, EmitDefaultValue = false)]
+public ulong? Pendingrewards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>PendingRewards specifies the amount of MicroAlgos of pending rewards in this account.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Rewards.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Rewards%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L176">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Rewards_" data-uid="Algorand.Algod.Model.Account.Rewards*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Rewards" data-uid="Algorand.Algod.Model.Account.Rewards">Rewards</h4>
+  <div class="markdown level1 summary"><p>Rewards indicates the total rewards of MicroAlgos the account has received, including pending rewards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;rewards&quot;, EmitDefaultValue = false)]
+public ulong? Rewards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>Rewards indicates the total rewards of MicroAlgos the account has received, including pending rewards.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Round.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Round%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L183">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Round_" data-uid="Algorand.Algod.Model.Account.Round*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Round" data-uid="Algorand.Algod.Model.Account.Round">Round</h4>
+  <div class="markdown level1 summary"><p>Round indicates the round for which this information is relevant</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;round&quot;, EmitDefaultValue = false)]
+public ulong? Round { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><p>Round indicates the round for which this information is relevant</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Status.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Status%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L190">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Status_" data-uid="Algorand.Algod.Model.Account.Status*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Status" data-uid="Algorand.Algod.Model.Account.Status">Status</h4>
+  <div class="markdown level1 summary"><p>Status indicates the delegation status of the account's MicroAlgos Offline - indicates that the associated account is delegated. Online  - indicates that the associated account used as part of the delegation pool. NotParticipating - indicates that the associated account is neither a delegator nor a delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;status&quot;, EmitDefaultValue = false)]
+public string Status { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Status indicates the delegation status of the account's MicroAlgos Offline - indicates that the associated account is delegated. Online  - indicates that the associated account used as part of the delegation pool. NotParticipating - indicates that the associated account is neither a delegator nor a delegate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Thisassettotal.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Thisassettotal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L148">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Thisassettotal_" data-uid="Algorand.Algod.Model.Account.Thisassettotal*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Thisassettotal" data-uid="Algorand.Algod.Model.Account.Thisassettotal">Thisassettotal</h4>
+  <div class="markdown level1 summary"><p>AssetParams specifies the parameters of assets created by this account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;thisassettotal&quot;, EmitDefaultValue = false)]
+public Dictionary&lt;ulong?, AssetParams&gt; Thisassettotal { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;, <a class="xref" href="Algorand.Algod.Model.AssetParams.html">AssetParams</a>&gt;</td>
+        <td><p>AssetParams specifies the parameters of assets created by this account.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Equals_Algorand_Algod_Model_Account_.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Equals(Algorand.Algod.Model.Account)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L239">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Equals_" data-uid="Algorand.Algod.Model.Account.Equals*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Equals_Algorand_Algod_Model_Account_" data-uid="Algorand.Algod.Model.Account.Equals(Algorand.Algod.Model.Account)">Equals(Account)</h4>
+  <div class="markdown level1 summary"><p>Returns true if Account instances are equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Account input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Algod.Model.Account.html">Account</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Instance of Account to be compared</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L229">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_Equals_" data-uid="Algorand.Algod.Model.Account.Equals*"></a>
+  <h4 id="Algorand_Algod_Model_Account_Equals_System_Object_" data-uid="Algorand.Algod.Model.Account.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Returns true if objects are equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Object to be compared</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_GetHashCode.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L301">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_GetHashCode_" data-uid="Algorand.Algod.Model.Account.GetHashCode*"></a>
+  <h4 id="Algorand_Algod_Model_Account_GetHashCode" data-uid="Algorand.Algod.Model.Account.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Gets the hash code</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Hash code</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_GetHolding_System_Nullable_System_UInt64__.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.GetHolding(System.Nullable%7BSystem.UInt64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L151">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_GetHolding_" data-uid="Algorand.Algod.Model.Account.GetHolding*"></a>
+  <h4 id="Algorand_Algod_Model_Account_GetHolding_System_Nullable_System_UInt64__" data-uid="Algorand.Algod.Model.Account.GetHolding(System.Nullable{System.UInt64})">GetHolding(Nullable&lt;UInt64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetHolding GetHolding(ulong? assetIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt64</span>&gt;</td>
+        <td><span class="parametername">assetIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Algod.Model.AssetHolding.html">AssetHolding</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_ToJson.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.ToJson%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L219">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_ToJson_" data-uid="Algorand.Algod.Model.Account.ToJson*"></a>
+  <h4 id="Algorand_Algod_Model_Account_ToJson" data-uid="Algorand.Algod.Model.Account.ToJson">ToJson()</h4>
+  <div class="markdown level1 summary"><p>Returns the JSON string presentation of the object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ToJson()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>JSON string presentation of the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_ToString.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L197">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_ToString_" data-uid="Algorand.Algod.Model.Account.ToString*"></a>
+  <h4 id="Algorand_Algod_Model_Account_ToString" data-uid="Algorand.Algod.Model.Account.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns the string presentation of the object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>String presentation of the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_System_ComponentModel_DataAnnotations_ValidationContext_.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account.System%23ComponentModel%23DataAnnotations%23IValidatableObject%23Validate(System.ComponentModel.DataAnnotations.ValidationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L335">View Source</a>
+  </span>
+  <a id="Algorand_Algod_Model_Account_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_" data-uid="Algorand.Algod.Model.Account.System#ComponentModel#DataAnnotations#IValidatableObject#Validate*"></a>
+  <h4 id="Algorand_Algod_Model_Account_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_System_ComponentModel_DataAnnotations_ValidationContext_" data-uid="Algorand.Algod.Model.Account.System#ComponentModel#DataAnnotations#IValidatableObject#Validate(System.ComponentModel.DataAnnotations.ValidationContext)">IValidatableObject.Validate(ValidationContext)</h4>
+  <div class="markdown level1 summary"><p>To validate all properties of the instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;ValidationResult&gt; IValidatableObject.Validate(ValidationContext validationContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationContext</span></td>
+        <td><span class="parametername">validationContext</span></td>
+        <td><p>Validation context</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span>&gt;</td>
+        <td><p>Validation Result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_Algod_Model_Account.md&amp;value=---%0Auid%3A%20Algorand.Algod.Model.Account%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Algod/Manual/Account.cs/#L29" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

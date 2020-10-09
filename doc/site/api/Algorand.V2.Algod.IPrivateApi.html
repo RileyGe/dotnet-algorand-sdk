@@ -1,0 +1,1332 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IPrivateApi
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IPrivateApi
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Algorand.V2.Algod.IPrivateApi">
+  
+  
+  <h1 id="Algorand_V2_Algod_IPrivateApi" data-uid="Algorand.V2.Algod.IPrivateApi" class="text-break">Interface IPrivateApi
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a collection of functions to interact with the API endpoints</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_Configuration">IApiAccessor.Configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_GetBasePath">IApiAccessor.GetBasePath()</a>
+    </div>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_ExceptionFactory">IApiAccessor.ExceptionFactory</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Algorand.V2.Algod.html">Algorand.V2.Algod</a></h6>
+  <h6><strong>Assembly</strong>: Algorand.dll</h6>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPrivateApi : IApiAccessor</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_AbortCatchup_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.AbortCatchup(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L36">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_AbortCatchup_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchup*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_AbortCatchup_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchup(System.String)">AbortCatchup(String)</h4>
+  <div class="markdown level1 summary"><p>Aborts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CatchpointAbortResponse AbortCatchup(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.CatchpointAbortResponse.html">CatchpointAbortResponse</a></td>
+        <td><p>CatchpointAbortResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_AbortCatchup_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it aborts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_AbortCatchupAsync_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.AbortCatchupAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L130">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_AbortCatchupAsync_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchupAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_AbortCatchupAsync_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchupAsync(System.String)">AbortCatchupAsync(String)</h4>
+  <div class="markdown level1 summary"><p>Aborts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CatchpointAbortResponse&gt; AbortCatchupAsync(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.CatchpointAbortResponse.html">CatchpointAbortResponse</a>&gt;</td>
+        <td><p>Task of CatchpointAbortResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_AbortCatchupAsync_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it aborts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_AbortCatchupAsyncWithHttpInfo_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.AbortCatchupAsyncWithHttpInfo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L141">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_AbortCatchupAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchupAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_AbortCatchupAsyncWithHttpInfo_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchupAsyncWithHttpInfo(System.String)">AbortCatchupAsyncWithHttpInfo(String)</h4>
+  <div class="markdown level1 summary"><p>Aborts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;CatchpointAbortResponse&gt;&gt; AbortCatchupAsyncWithHttpInfo(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.CatchpointAbortResponse.html">CatchpointAbortResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (CatchpointAbortResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_AbortCatchupAsyncWithHttpInfo_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it aborts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_AbortCatchupWithHttpInfo_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.AbortCatchupWithHttpInfo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L47">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_AbortCatchupWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchupWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_AbortCatchupWithHttpInfo_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.AbortCatchupWithHttpInfo(System.String)">AbortCatchupWithHttpInfo(String)</h4>
+  <div class="markdown level1 summary"><p>Aborts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;CatchpointAbortResponse&gt; AbortCatchupWithHttpInfo(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.CatchpointAbortResponse.html">CatchpointAbortResponse</a>&gt;</td>
+        <td><p>ApiResponse of CatchpointAbortResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_AbortCatchupWithHttpInfo_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it aborts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeys_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeys(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L61">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeys_" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeys*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeys_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeys(System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">RegisterParticipationKeys(String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PostTransactionsResponse RegisterParticipationKeys(string address, long? fee = default(long? ), long? keyDilution = default(long? ), long? roundLastValid = default(long? ), bool? noWait = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>The <code>account-id</code> to update, or <code>all</code> to update all accounts.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">fee</span></td>
+        <td><p>The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">keyDilution</span></td>
+        <td><p>value to use for two-level participation key. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundLastValid</span></td>
+        <td><p>The last round for which the generated participation keys will be valid. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">noWait</span></td>
+        <td><p>Don't wait for transaction to commit before returning response. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a></td>
+        <td><p>PostTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeys_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Generate (or renew) and register participation keys on the node for a given account address.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsync_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysAsync(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L155">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsync_" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsync_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysAsync(System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">RegisterParticipationKeysAsync(String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;PostTransactionsResponse&gt; RegisterParticipationKeysAsync(string address, long? fee = default(long? ), long? keyDilution = default(long? ), long? roundLastValid = default(long? ), bool? noWait = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>The <code>account-id</code> to update, or <code>all</code> to update all accounts.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">fee</span></td>
+        <td><p>The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">keyDilution</span></td>
+        <td><p>value to use for two-level participation key. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundLastValid</span></td>
+        <td><p>The last round for which the generated participation keys will be valid. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">noWait</span></td>
+        <td><p>Don't wait for transaction to commit before returning response. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a>&gt;</td>
+        <td><p>Task of PostTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsync_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Generate (or renew) and register participation keys on the node for a given account address.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysAsyncWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L170">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysAsyncWithHttpInfo(System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">RegisterParticipationKeysAsyncWithHttpInfo(String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;PostTransactionsResponse&gt;&gt; RegisterParticipationKeysAsyncWithHttpInfo(string address, long? fee = default(long? ), long? keyDilution = default(long? ), long? roundLastValid = default(long? ), bool? noWait = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>The <code>account-id</code> to update, or <code>all</code> to update all accounts.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">fee</span></td>
+        <td><p>The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">keyDilution</span></td>
+        <td><p>value to use for two-level participation key. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundLastValid</span></td>
+        <td><p>The last round for which the generated participation keys will be valid. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">noWait</span></td>
+        <td><p>Don't wait for transaction to commit before returning response. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (PostTransactionsResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Generate (or renew) and register participation keys on the node for a given account address.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysWithHttpInfo_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L76">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysWithHttpInfo_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Algod.IPrivateApi.RegisterParticipationKeysWithHttpInfo(System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">RegisterParticipationKeysWithHttpInfo(String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;PostTransactionsResponse&gt; RegisterParticipationKeysWithHttpInfo(string address, long? fee = default(long? ), long? keyDilution = default(long? ), long? roundLastValid = default(long? ), bool? noWait = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>The <code>account-id</code> to update, or <code>all</code> to update all accounts.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">fee</span></td>
+        <td><p>The fee to use when submitting key registration transactions. Defaults to the suggested fee. (optional, default to 1000)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">keyDilution</span></td>
+        <td><p>value to use for two-level participation key. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundLastValid</span></td>
+        <td><p>The last round for which the generated participation keys will be valid. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">noWait</span></td>
+        <td><p>Don't wait for transaction to commit before returning response. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a>&gt;</td>
+        <td><p>ApiResponse of PostTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_RegisterParticipationKeysWithHttpInfo_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Generate (or renew) and register participation keys on the node for a given account address.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_ShutdownNode_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.ShutdownNode(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L86">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_ShutdownNode_" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNode*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_ShutdownNode_System_Nullable_System_Int32__" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNode(System.Nullable{System.Int32})">ShutdownNode(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object ShutdownNode(int? timeout = default(int? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>(optional, default to 0)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>Object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_ShutdownNode_System_Nullable_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsync_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.ShutdownNodeAsync(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L180">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsync_" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNodeAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsync_System_Nullable_System_Int32__" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNodeAsync(System.Nullable{System.Int32})">ShutdownNodeAsync(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;object&gt; ShutdownNodeAsync(int? timeout = default(int? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>(optional, default to 0)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><p>Task of Object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsync_System_Nullable_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsyncWithHttpInfo_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.ShutdownNodeAsyncWithHttpInfo(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L191">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNodeAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsyncWithHttpInfo_System_Nullable_System_Int32__" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNodeAsyncWithHttpInfo(System.Nullable{System.Int32})">ShutdownNodeAsyncWithHttpInfo(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;object&gt;&gt; ShutdownNodeAsyncWithHttpInfo(int? timeout = default(int? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>(optional, default to 0)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (Object)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeAsyncWithHttpInfo_System_Nullable_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_ShutdownNodeWithHttpInfo_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.ShutdownNodeWithHttpInfo(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L97">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNodeWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeWithHttpInfo_System_Nullable_System_Int32__" data-uid="Algorand.V2.Algod.IPrivateApi.ShutdownNodeWithHttpInfo(System.Nullable{System.Int32})">ShutdownNodeWithHttpInfo(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;object&gt; ShutdownNodeWithHttpInfo(int? timeout = default(int? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>(optional, default to 0)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><p>ApiResponse of Object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_ShutdownNodeWithHttpInfo_System_Nullable_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Special management endpoint to shutdown the node. Optionally provide a timeout parameter to indicate that the node should begin shutting down after a number of seconds.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_StartCatchup_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.StartCatchup(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L107">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_StartCatchup_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchup*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_StartCatchup_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchup(System.String)">StartCatchup(String)</h4>
+  <div class="markdown level1 summary"><p>Starts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CatchpointStartResponse StartCatchup(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.CatchpointStartResponse.html">CatchpointStartResponse</a></td>
+        <td><p>CatchpointStartResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_StartCatchup_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it starts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_StartCatchupAsync_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.StartCatchupAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L201">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_StartCatchupAsync_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchupAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_StartCatchupAsync_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchupAsync(System.String)">StartCatchupAsync(String)</h4>
+  <div class="markdown level1 summary"><p>Starts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CatchpointStartResponse&gt; StartCatchupAsync(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.CatchpointStartResponse.html">CatchpointStartResponse</a>&gt;</td>
+        <td><p>Task of CatchpointStartResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_StartCatchupAsync_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it starts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_StartCatchupAsyncWithHttpInfo_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.StartCatchupAsyncWithHttpInfo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L212">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_StartCatchupAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchupAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_StartCatchupAsyncWithHttpInfo_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchupAsyncWithHttpInfo(System.String)">StartCatchupAsyncWithHttpInfo(String)</h4>
+  <div class="markdown level1 summary"><p>Starts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;CatchpointStartResponse&gt;&gt; StartCatchupAsyncWithHttpInfo(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.CatchpointStartResponse.html">CatchpointStartResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (CatchpointStartResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_StartCatchupAsyncWithHttpInfo_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it starts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi_StartCatchupWithHttpInfo_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi.StartCatchupWithHttpInfo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L118">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IPrivateApi_StartCatchupWithHttpInfo_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchupWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IPrivateApi_StartCatchupWithHttpInfo_System_String_" data-uid="Algorand.V2.Algod.IPrivateApi.StartCatchupWithHttpInfo(System.String)">StartCatchupWithHttpInfo(String)</h4>
+  <div class="markdown level1 summary"><p>Starts a catchpoint catchup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;CatchpointStartResponse&gt; StartCatchupWithHttpInfo(string catchpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">catchpoint</span></td>
+        <td><p>A catch point</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.CatchpointStartResponse.html">CatchpointStartResponse</a>&gt;</td>
+        <td><p>ApiResponse of CatchpointStartResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IPrivateApi_StartCatchupWithHttpInfo_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a catchpoint, it starts catching up to this catchpoint</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IPrivateApi.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IPrivateApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/PrivateApi.cs/#L24" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

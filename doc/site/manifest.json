@@ -1,0 +1,2747 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/git/dotnet-algorand-sdk/doc",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Account.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Account.html",
+          "hash": "AnZztxaz7zb6sqN4CgTJ5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Address.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Address.html",
+          "hash": "9a3ls6KqU+YlqfJsKEHZMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Api.AlgodApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Api.AlgodApi.html",
+          "hash": "5tEsujZDksOafq0TcC0kDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Api.DefaultApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Api.DefaultApi.html",
+          "hash": "jschKxHQ08ifnZM0HyoV/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Api.IDefaultApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Api.IDefaultApi.html",
+          "hash": "e+zBnZfBdciapZrPOdYhqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Api.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Api.html",
+          "hash": "mkivTGaTPiuaFtJyMLv6Cg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.Account.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.Account.html",
+          "hash": "dxlyx80xB0JxotzrBynpow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.Asset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.Asset.html",
+          "hash": "4KljHT1tY0C2P4kmf2PBEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.AssetConfigTransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.AssetConfigTransactionType.html",
+          "hash": "bKXaAMV2GJ7rbAlYOf/vbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.AssetFreezeTransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.AssetFreezeTransactionType.html",
+          "hash": "QxzXzdRxA6iSkl6e189oWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.AssetHolding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.AssetHolding.html",
+          "hash": "WhBUbBy6kImej04t1731cg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.AssetList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.AssetList.html",
+          "hash": "JH/ix+lDnSvNZEVh9+VwsA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.AssetParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.AssetParams.html",
+          "hash": "5XzDMIo/PaGgGuK1DwDjmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.AssetTransferTransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.AssetTransferTransactionType.html",
+          "hash": "WMauL5EfcecOG5Mq51zJGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.Block.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.Block.html",
+          "hash": "M6ucy9PbXxcId3reOiaYnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.BuildVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.BuildVersion.html",
+          "hash": "73Rdg2RKBSP4vvj6AXfxGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.KeyregTransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.KeyregTransactionType.html",
+          "hash": "/jwETaBlhBaLp7p6oV/++A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.NodeStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.NodeStatus.html",
+          "hash": "ADNt7mSSBjsJd4rT3z540A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.Participation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.Participation.html",
+          "hash": "fWBDV03uk0mzXTKlGl0jBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.PaymentTransactionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.PaymentTransactionType.html",
+          "hash": "KDKwmRbe/s7+p9+0LylL1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.PendingTransactions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.PendingTransactions.html",
+          "hash": "LmOcnw4A0cMSbzGNn+v/Hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.Supply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.Supply.html",
+          "hash": "1rnhtzprY2X2KG43z1+3ig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.Transaction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.Transaction.html",
+          "hash": "ZjWt9AsIw7Iex8GyvaFXjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.TransactionFee.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.TransactionFee.html",
+          "hash": "WYitFnFPj6Ep40cZ4DSnXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.TransactionID.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.TransactionID.html",
+          "hash": "SJMDUm2YeWgKfFyvmA+PxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.TransactionList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.TransactionList.html",
+          "hash": "2yPI8QcU00sHmGmpNQNh5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.TransactionParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.TransactionParams.html",
+          "hash": "m0OZw3vGA5hNv6ltBLGJ4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.TransactionResults.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.TransactionResults.html",
+          "hash": "DJ0DLER1tBeFAzteO+1vuw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.Version.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.Version.html",
+          "hash": "pNmRZQgkP/HN2l+LM3BVew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Algod.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Algod.Model.html",
+          "hash": "BgrOJC8zWHcG93BHXfwfpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.AlgorandContractResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.AlgorandContractResolver.html",
+          "hash": "u2o9SK9qo84LS8UUbOe2/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Base32.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Base32.html",
+          "hash": "t9096qWz2UGiTfU6zqpMiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Bid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Bid.html",
+          "hash": "TVhUDslh4S9lfNz8SbHdxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.ByteConstBlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.ByteConstBlock.html",
+          "hash": "iqGn7OKvl2/A0hfLRL7YDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.BytesConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.BytesConverter.html",
+          "hash": "YUNPF/U28+9tfK4q6gOaDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.ApiClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.ApiClient.html",
+          "hash": "ph8YRC0FqMgr0a8bCQK33A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.ApiException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.ApiException.html",
+          "hash": "2UHWJrlsEBb6CQpSuhietA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.ApiResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.ApiResponse-1.html",
+          "hash": "Rp5yoZxy55pBJGsVdXwpiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.Configuration.html",
+          "hash": "0rGArNeDWm+dW5AWSwxOFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.ExceptionFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.ExceptionFactory.html",
+          "hash": "raca2/TOmpK6VG7/rmeO0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.GlobalConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.GlobalConfiguration.html",
+          "hash": "wwwuNJjjKKtyfmAdkW/JQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.IApiAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.IApiAccessor.html",
+          "hash": "Xus+M78A9LL64ZJKXAb/7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.IReadableConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.IReadableConfiguration.html",
+          "hash": "EGErhEICIPTBFCp5cS6GbA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.SwaggerDateConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.SwaggerDateConverter.html",
+          "hash": "pHJ5aixK5yNCyXveHXfnQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Client.html",
+          "hash": "ndEoypoC77j8YJvipg/veA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Digest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Digest.html",
+          "hash": "I/AilzbWpaownD1nExpf5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Digester.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Digester.html",
+          "hash": "9xfjjwKy9ey9WIBw4MUJiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Encoder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Encoder.html",
+          "hash": "GNChXiTTxkWWSYyGHyHwlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.IntConstBlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.IntConstBlock.html",
+          "hash": "oSN0okv/AYYoveNBWX0+Zw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.JavaHelper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.JavaHelper-1.html",
+          "hash": "y3LxRyVolRYLOsAV980cCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Api.DefaultApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Api.DefaultApi.html",
+          "hash": "6TD9V7JzwEUYIkYPk/33og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Api.IDefaultApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Api.IDefaultApi.html",
+          "hash": "UWruBUhoiSKxukGpbBTDgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Api.KmdApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Api.KmdApi.html",
+          "hash": "U+syk4SFuPXMU1/BGcXqDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Api.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Api.html",
+          "hash": "WgStzAgrMLmkRXsIJ0wiWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1DELETEKeyResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1DELETEKeyResponse.html",
+          "hash": "co6Kw/STTYikCgha2N3Caw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1GETWalletsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1GETWalletsResponse.html",
+          "hash": "vM1Dyi3DUNJPUsx7HkgXTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeyExportResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeyExportResponse.html",
+          "hash": "3J1un0h/NMaMF7YBsNSLoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeyImportResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeyImportResponse.html",
+          "hash": "drfJuQ4Y/fg4a2nWHNBL9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeyResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeyResponse.html",
+          "hash": "ifXDb2cs64ziVmNNr/0/Jw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeysListResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTKeysListResponse.html",
+          "hash": "aatx94m1Ahug/ba5aG9Lkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTMasterKeyExportResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTMasterKeyExportResponse.html",
+          "hash": "JQH95bIzPJMlTdoARMLxpQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigDeleteResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigDeleteResponse.html",
+          "hash": "9kxwY3uytWkXqNnbaVfL4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigExportResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigExportResponse.html",
+          "hash": "jS/DHngSgkXtVS4O22VCdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigImportResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigImportResponse.html",
+          "hash": "r92fSBCutvh0Ps/S7zYTnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigListResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigListResponse.html",
+          "hash": "lP/XLCuO4/Yu32BvZC2LRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigTransactionSignResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTMultisigTransactionSignResponse.html",
+          "hash": "v/yvN8pvo1vereOo3z14Ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTTransactionSignResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTTransactionSignResponse.html",
+          "hash": "DAFdy4gDBKWKeXLw49RyvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletInfoResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletInfoResponse.html",
+          "hash": "NKc+REwhzgqHknxjGOSA/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletInitResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletInitResponse.html",
+          "hash": "zZJsXuk1+FfOTSZ0k6J/IQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletReleaseResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletReleaseResponse.html",
+          "hash": "QoewmxsAOWwQAhhAgtyV2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletRenameResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletRenameResponse.html",
+          "hash": "JkNSAaCxfMTJLjwc2nFPhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletRenewResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletRenewResponse.html",
+          "hash": "EaM6nGB8U6HfIXBuKcGmgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1POSTWalletResponse.html",
+          "hash": "HFbynHUyKYGpT0M83BqI5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1Request.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1Request.html",
+          "hash": "/WqkwkzSPrspHL/pob96hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1RequestEnvelope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1RequestEnvelope.html",
+          "hash": "oPMsfOoD2v8/wDfAwTBcZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1Wallet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1Wallet.html",
+          "hash": "py1jrwjnuoWQGcjYZqPjLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.APIV1WalletHandle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.APIV1WalletHandle.html",
+          "hash": "JB6MxiL3C+li51pioaAn6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.Address.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.Address.html",
+          "hash": "MHm7DfJ6UG+4xrRcveNOHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.CreateWalletRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.CreateWalletRequest.html",
+          "hash": "Zy+cz85xhRormX4kq+aVCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.DeleteKeyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.DeleteKeyRequest.html",
+          "hash": "3BEsFK2jNTexXPI6n4zkAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.DeleteMultisigRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.DeleteMultisigRequest.html",
+          "hash": "eF88Y8VpqKb1dBWJqLg9fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.Digest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.Digest.html",
+          "hash": "o++2Qq0EjtzyzO4VOga+Gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.Ed25519PrivateKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.Ed25519PrivateKey.html",
+          "hash": "/uIidFnVXbzjWjwmVUZ/eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.Ed25519PublicKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.Ed25519PublicKey.html",
+          "hash": "fVkiyHkMiK9+STKlZBAl5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.Ed25519Signature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.Ed25519Signature.html",
+          "hash": "srDfT9HQfj7/+4h/nnkC/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ExportKeyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ExportKeyRequest.html",
+          "hash": "LbWABBR052VmBrRqXvjyFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ExportMasterKeyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ExportMasterKeyRequest.html",
+          "hash": "3U92wTBgyFc6L6I4zsyn2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ExportMultisigRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ExportMultisigRequest.html",
+          "hash": "IuqZt+ZXwybhjncaoSvIQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.GenerateKeyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.GenerateKeyRequest.html",
+          "hash": "Ua5cNLL6fh9QtpdEnNsyjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ImportKeyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ImportKeyRequest.html",
+          "hash": "WIdAkm4+paKiWEInpDnRDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ImportMultisigRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ImportMultisigRequest.html",
+          "hash": "ZMPfDjbBzXOOrTptVs5G/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.InitWalletHandleTokenRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.InitWalletHandleTokenRequest.html",
+          "hash": "dHH53C+avhW4EsTUas6+oA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ListKeysRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ListKeysRequest.html",
+          "hash": "g2vGf+Nl2HaRhCvwp5wDJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ListMultisigRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ListMultisigRequest.html",
+          "hash": "3Ns9tpVKD6GOgaYquWkp7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ListWalletsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ListWalletsRequest.html",
+          "hash": "8zH3tFH0WII/iI01AYJqeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.MasterDerivationKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.MasterDerivationKey.html",
+          "hash": "N1Uw62Q8+Wufa7ZwzTHldg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.MultisigSig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.MultisigSig.html",
+          "hash": "rr66P2R4lceNtDKhIi1Jxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.MultisigSubsig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.MultisigSubsig.html",
+          "hash": "F/jdTTeQWz5V7YgdTfvemg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.PrivateKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.PrivateKey.html",
+          "hash": "L85ubtNA5PiC+sw7owpJNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.PublicKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.PublicKey.html",
+          "hash": "RiAihfpS4UDiDlEyqT9+Sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.ReleaseWalletHandleTokenRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.ReleaseWalletHandleTokenRequest.html",
+          "hash": "jBRj+Qkwb1SXzwTn7gC/7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.RenameWalletRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.RenameWalletRequest.html",
+          "hash": "Ko574bRErOS7nmhldWApcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.RenewWalletHandleTokenRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.RenewWalletHandleTokenRequest.html",
+          "hash": "h05GI14mSzI8tAjqrW8lDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.SignMultisigRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.SignMultisigRequest.html",
+          "hash": "H7fsPOatr62g+9BTC8swfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.SignTransactionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.SignTransactionRequest.html",
+          "hash": "97yLlxG4P6rDX4eM3dxhQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.Signature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.Signature.html",
+          "hash": "qbtpQOcAAVuYik18HlIdNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.TxType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.TxType.html",
+          "hash": "ZSB2LOgWx5jAvi14guACRA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.VersionsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.VersionsRequest.html",
+          "hash": "XwqWsq+4xwSOvRH/O8PrVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.VersionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.VersionsResponse.html",
+          "hash": "bfneyEMRIgD/ITAvbSmkfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.WalletInfoRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.WalletInfoRequest.html",
+          "hash": "K7ddBCCUiUHkWacl8Pra2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Kmd.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Kmd.Model.html",
+          "hash": "mCZ2Yet9X9PPrvog9m+GyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Logic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Logic.html",
+          "hash": "UHcI2ssek4zRigS4BaF3mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.LogicsigSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.LogicsigSignature.html",
+          "hash": "XDJOUvQPV0ejQRdx9IvuzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Mnemonic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Mnemonic.html",
+          "hash": "Ra9a5c9O7cJ31vTaAgqyBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.MultisigAddress.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.MultisigAddress.html",
+          "hash": "XrF7YaMbW7+mCD08L+Rk6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.MultisigAddressConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.MultisigAddressConverter.html",
+          "hash": "HJpr0BgSkCvRZXU8xsT4HA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.MultisigSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.MultisigSignature.html",
+          "hash": "XmOBXVWQNfbfdlgIZ6ldOA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.MultisigSubsig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.MultisigSubsig.html",
+          "hash": "BYOAxAlS3dZ3Nqkft1Ki1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.ParticipationPublicKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.ParticipationPublicKey.html",
+          "hash": "7zBY3VC3Sn2KPkgOF6HjbA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.ProgramData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.ProgramData.html",
+          "hash": "AcigUo1eYoR14AplxzElAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Signature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Signature.html",
+          "hash": "zUR1+o95VtQGAWU6CebBuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.SignedBid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.SignedBid.html",
+          "hash": "df46ZMO+Vt4UK6m1y1FC5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.SignedTransaction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.SignedTransaction.html",
+          "hash": "3BVtNooO5qMi1/JTAP5lUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.TEALProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.TEALProgram.html",
+          "hash": "EDg/4avLDSLcqOLTQQN5AA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Transaction.AssetParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Transaction.AssetParams.html",
+          "hash": "tZDpJRWOtD4UD7Wp6V6nxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Transaction.Type.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Transaction.Type.html",
+          "hash": "CtSuvj3WFFkPDABXdc494Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Transaction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Transaction.html",
+          "hash": "pXqV8fAd1FI+hABAHBBBKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.TxGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.TxGroup.html",
+          "hash": "pftBtho3DMEvDZ/E2lhykw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Type2StringConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Type2StringConverter.html",
+          "hash": "SZnuTdZFNQoFu53qAAuN/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Utils.html",
+          "hash": "uVYf01dVFKQjE9LJ1KcxRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Uvarint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Uvarint.html",
+          "hash": "rPnGQvSU/QAFWDpK1qVcgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Algod.CommonApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Algod.CommonApi.html",
+          "hash": "nseBYmnUBRHiJ98GOuCFhQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Algod.DefaultApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Algod.DefaultApi.html",
+          "hash": "bacEdBqv4o3Rm8I8VREoIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Algod.ICommonApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Algod.ICommonApi.html",
+          "hash": "hfq1ce120OIcseK+rslLwg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Algod.IDefaultApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Algod.IDefaultApi.html",
+          "hash": "yciYvWnzbAl5ggOpiC02zQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Algod.IPrivateApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Algod.IPrivateApi.html",
+          "hash": "3yWNb3cw0NssFUlDqdlUmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Algod.PrivateApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Algod.PrivateApi.html",
+          "hash": "EvPocIHtNnK3iW/ArJlusg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Algod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Algod.html",
+          "hash": "vWxf4rdjvx2kal4CPhkGJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.AlgodApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.AlgodApi.html",
+          "hash": "pIuop+8PuDjm8LFRajD24g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Indexer.CommonApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Indexer.CommonApi.html",
+          "hash": "QhI2V9s89UhH9bXeo5//Sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Indexer.ICommonApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Indexer.ICommonApi.html",
+          "hash": "4bFZsmvs1d8/bzMuDJfxpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Indexer.ILookupApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Indexer.ILookupApi.html",
+          "hash": "Yz2cIT9lmSv+21kO/6F7zQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Indexer.ISearchApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Indexer.ISearchApi.html",
+          "hash": "ywZF2ID/K6R9zIYhBfX49w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Indexer.LookupApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Indexer.LookupApi.html",
+          "hash": "hS68zD0RdrJ/zb3GyLw8rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Indexer.SearchApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Indexer.SearchApi.html",
+          "hash": "rvObfpWVzMb/8FbSEs//uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Indexer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Indexer.html",
+          "hash": "qoTDmHF7cVaRK6mztbfDKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.IndexerApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.IndexerApi.html",
+          "hash": "Pd8XtaAhGMM5/olpEbYRSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Account.SigTypeEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Account.SigTypeEnum.html",
+          "hash": "8EaaoWwSkXwXihVypUpfxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Account.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Account.html",
+          "hash": "fAeGUkqhFQUBzTv6kKhhfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AccountParticipation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AccountParticipation.html",
+          "hash": "OTDh/4HZowNELxKFobcn1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AccountResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AccountResponse.html",
+          "hash": "XezBS2zVBRpTzJzJitSoJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AccountStateDelta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AccountStateDelta.html",
+          "hash": "ZiTfCxrLetQp5oJbqQ8JyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AccountsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AccountsResponse.html",
+          "hash": "mZxnXwykSYpQG4SVDNcIgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Application.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Application.html",
+          "hash": "cMYVDI1kTfs/4FD0wZC/eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.ApplicationLocalState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.ApplicationLocalState.html",
+          "hash": "6rkDiP7knzSEvloj5mqiQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.ApplicationParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.ApplicationParams.html",
+          "hash": "B64Nnv+/7mnWhRJrD7r/fQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.ApplicationResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.ApplicationResponse.html",
+          "hash": "ZdC5uu247eO7fFyJx3fouA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.ApplicationStateSchema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.ApplicationStateSchema.html",
+          "hash": "N8UyxeH5asWWkHgL78IMsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.ApplicationsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.ApplicationsResponse.html",
+          "hash": "G+LqEu3uxZ2/6a4XaJqacA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Asset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Asset.html",
+          "hash": "Iphiu0tP4PxmkGwJhsJ7bg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AssetBalancesResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AssetBalancesResponse.html",
+          "hash": "6ExQswFlnsGdiAb8WF8VKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AssetHolding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AssetHolding.html",
+          "hash": "mrLd31VvRuUcJWqcgzOP9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AssetParams.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AssetParams.html",
+          "hash": "5h80eaFjuPnFCiCwqqCV0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AssetResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AssetResponse.html",
+          "hash": "gMnwJf+Dbp7Qht/js176JA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.AssetsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.AssetsResponse.html",
+          "hash": "6pRbaLbeIbG+4Es9iGbLAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Block.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Block.html",
+          "hash": "ER1JHzUlZqoSw8lxl+CqQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.BlockResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.BlockResponse.html",
+          "hash": "CNET68R8GZ3pU95HqnaDUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.BlockRewards.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.BlockRewards.html",
+          "hash": "3HuYfwO8MGynnfLksHpGEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.BlockUpgradeState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.BlockUpgradeState.html",
+          "hash": "2RMC4XwSBAcbKOmmNega8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.BlockUpgradeVote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.BlockUpgradeVote.html",
+          "hash": "h1uG0+z5Pt5H0CBTzFehGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.BuildVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.BuildVersion.html",
+          "hash": "gGaM4bvuIIQqNtf1o9XH6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.CatchpointAbortResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.CatchpointAbortResponse.html",
+          "hash": "DHodIWMKeHmXZWGhBTJ4aA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.CatchpointStartResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.CatchpointStartResponse.html",
+          "hash": "LuglVHm/Mye9894lBBXeZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.CompileResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.CompileResponse.html",
+          "hash": "Y0xiTFaQDsmhPQ0zrFB+bA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.DryrunRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.DryrunRequest.html",
+          "hash": "SBrQMmH+YR6yeqrZtiOCxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.DryrunResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.DryrunResponse.html",
+          "hash": "XaRiDqwgPTIxygORSEytEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.DryrunSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.DryrunSource.html",
+          "hash": "nsaVZowzLInm72COwcX+HQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.DryrunState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.DryrunState.html",
+          "hash": "ZGOX16lu6MFuzUhCq61k4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.DryrunTxnResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.DryrunTxnResult.html",
+          "hash": "8Jm4JDlUmq0k+x2qmt2oVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.ErrorResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.ErrorResponse.html",
+          "hash": "KPu/lhG4tGGMhmm39OtIvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.EvalDelta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.EvalDelta.html",
+          "hash": "gWDODP6Try9aKOmCTKvByg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.EvalDeltaKeyValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.EvalDeltaKeyValue.html",
+          "hash": "mG7HHcPp/7fWU7RAbNQ7kw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.HealthCheck.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.HealthCheck.html",
+          "hash": "lHtjsIYZKso5guK9XftlYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.MiniAssetHolding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.MiniAssetHolding.html",
+          "hash": "Hok/xZry8rtYiFLz8bkUYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.NodeStatusResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.NodeStatusResponse.html",
+          "hash": "OH/H0yTkDNxp2UsvzyhGMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.OnCompletion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.OnCompletion.html",
+          "hash": "8G7A1Kd542yHB3sQNukp2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.PendingTransactionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.PendingTransactionResponse.html",
+          "hash": "6O5YM/JZG7i1P+SUBx/wIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.PendingTransactionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.PendingTransactionsResponse.html",
+          "hash": "GUdxC5GZeoTcS9EryBMYYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.PostTransactionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.PostTransactionsResponse.html",
+          "hash": "UE1Fs5ZQV1JsqQmkNs8Sew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.StateDelta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.StateDelta.html",
+          "hash": "2rgAR9EnAEhOUPlvpXvNHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.StateSchema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.StateSchema.html",
+          "hash": "PPX7NpWCKQpVxz5ob1ZTMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.SupplyResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.SupplyResponse.html",
+          "hash": "dhqorEfm71fgeEURWH58GA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TealKeyValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TealKeyValue.html",
+          "hash": "vFltqNLFyCtjfOKPfs4yRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TealKeyValueStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TealKeyValueStore.html",
+          "hash": "xUXHJT+v6vNnnyolB+dUTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TealValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TealValue.html",
+          "hash": "JoHZypJ9EPVduM1A4Au72g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Transaction.TxTypeEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Transaction.TxTypeEnum.html",
+          "hash": "6/varl1AK1V8YeKwj2h7PA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Transaction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Transaction.html",
+          "hash": "r5SWjFxrUnVlIw+6UMMZxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionApplication.html",
+          "hash": "ET+iVNQNvcx1P6LbHoEgWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionAssetConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionAssetConfig.html",
+          "hash": "WP/6TdPnofpuEEOjwo8xCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionAssetFreeze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionAssetFreeze.html",
+          "hash": "ncUotizg71r09nwi51v39A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionAssetTransfer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionAssetTransfer.html",
+          "hash": "l+QRsEhN0SVEUL+I/RF6tQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionKeyreg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionKeyreg.html",
+          "hash": "1Br10YbFa+cY9AmMV69fNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionParametersResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionParametersResponse.html",
+          "hash": "S2oBJSWBuNOXKfud18Ddhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionPayment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionPayment.html",
+          "hash": "I1TObQFsMtjfUqxKwgi8MA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionResponse.html",
+          "hash": "VKsKyWp8+03JiD8Mx8wasw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionSignature.html",
+          "hash": "W1NmIxfrDqkZRxV5GxyAlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionSignatureLogicsig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionSignatureLogicsig.html",
+          "hash": "eJg/u8xo3kKgwWboXvv8ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionSignatureMultisig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionSignatureMultisig.html",
+          "hash": "YGUwKkoRy67JjYawK+0cyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionSignatureMultisigSubsignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionSignatureMultisigSubsignature.html",
+          "hash": "18BIGKC4O6HwIttSQEVawQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.TransactionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.TransactionsResponse.html",
+          "hash": "rlzgbw4hG0mf4GfL2pkJaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.Version.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.Version.html",
+          "hash": "w9OfFNRTqrHKmyK+aKy+eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.Model.html",
+          "hash": "H5MpIAvAxLIwPGgEtv22Yg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.V2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.V2.html",
+          "hash": "BjjIqEfYOOGYAUSSv5MShQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.VRFPublicKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.VRFPublicKey.html",
+          "hash": "AAEdS4g9zEzWxuExHOq4QA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.VarintResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.VarintResult.html",
+          "hash": "0zXOWKIiXl746EdkNOylxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Wordlist.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Wordlist.html",
+          "hash": "GRpNC61RpdSbezbshqMMHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.html",
+          "hash": "t2UiaLpIysQXFj3h1vFPlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "tbygaDsU0Adw9ANzBnzzHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "EaSMP3d63s+d8NmwKlT2zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "i+DAi+SI3hY3bDUJB1kcKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/quick_start.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/quick_start.html",
+          "hash": "kG/j+6I4moK8k9V59MKLOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "+tIhHFwe9Aol0xju6liZvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "/ANOu/YoJ/e+Qi6SDq0P8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "ForceRebuild"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 217,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,1648 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Transaction
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Transaction
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Algorand.V2.Model.Transaction">
+  
+  
+  <h1 id="Algorand_V2_Model_Transaction" data-uid="Algorand.V2.Model.Transaction" class="text-break">Class Transaction
+  </h1>
+  <div class="markdown level0 summary"><p>Contains all fields common to all transactions and serves as an envelope to all transactions type.  Definition: data/transactions/signedtxn.go : SignedTxn data/transactions/transaction.go : Transaction</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Transaction</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Algorand.V2.Model.Transaction.html">Transaction</a>&gt;</div>
+    <div><span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Algorand.V2.Model.html">Algorand.V2.Model</a></h6>
+  <h6><strong>Assembly</strong>: Algorand.dll</h6>
+  <h5 id="Algorand_V2_Model_Transaction_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class Transaction : IEquatable&lt;Transaction&gt;, IValidatableObject</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction__ctor_Algorand_V2_Model_TransactionApplication_Algorand_V2_Model_TransactionAssetConfig_Algorand_V2_Model_TransactionAssetFreeze_Algorand_V2_Model_TransactionAssetTransfer_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Byte___System_String_Algorand_V2_Model_StateDelta_System_Byte___System_String_System_Nullable_System_Int64__Algorand_V2_Model_TransactionKeyreg_System_Nullable_System_Int64__System_Byte___System_Collections_Generic_List_Algorand_V2_Model_AccountStateDelta__System_Byte___Algorand_V2_Model_TransactionPayment_System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__Algorand_V2_Model_TransactionSignature_Algorand_V2_Model_Transaction_TxTypeEnum_.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.%23ctor(Algorand.V2.Model.TransactionApplication%2CAlgorand.V2.Model.TransactionAssetConfig%2CAlgorand.V2.Model.TransactionAssetFreeze%2CAlgorand.V2.Model.TransactionAssetTransfer%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Byte%5B%5D%2CSystem.String%2CAlgorand.V2.Model.StateDelta%2CSystem.Byte%5B%5D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CAlgorand.V2.Model.TransactionKeyreg%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Byte%5B%5D%2CSystem.Collections.Generic.List%7BAlgorand.V2.Model.AccountStateDelta%7D%2CSystem.Byte%5B%5D%2CAlgorand.V2.Model.TransactionPayment%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CAlgorand.V2.Model.TransactionSignature%2CAlgorand.V2.Model.Transaction.TxTypeEnum)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L109">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction__ctor_" data-uid="Algorand.V2.Model.Transaction.#ctor*"></a>
+  <h4 id="Algorand_V2_Model_Transaction__ctor_Algorand_V2_Model_TransactionApplication_Algorand_V2_Model_TransactionAssetConfig_Algorand_V2_Model_TransactionAssetFreeze_Algorand_V2_Model_TransactionAssetTransfer_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Byte___System_String_Algorand_V2_Model_StateDelta_System_Byte___System_String_System_Nullable_System_Int64__Algorand_V2_Model_TransactionKeyreg_System_Nullable_System_Int64__System_Byte___System_Collections_Generic_List_Algorand_V2_Model_AccountStateDelta__System_Byte___Algorand_V2_Model_TransactionPayment_System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__Algorand_V2_Model_TransactionSignature_Algorand_V2_Model_Transaction_TxTypeEnum_" data-uid="Algorand.V2.Model.Transaction.#ctor(Algorand.V2.Model.TransactionApplication,Algorand.V2.Model.TransactionAssetConfig,Algorand.V2.Model.TransactionAssetFreeze,Algorand.V2.Model.TransactionAssetTransfer,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Byte[],System.String,Algorand.V2.Model.StateDelta,System.Byte[],System.String,System.Nullable{System.Int64},Algorand.V2.Model.TransactionKeyreg,System.Nullable{System.Int64},System.Byte[],System.Collections.Generic.List{Algorand.V2.Model.AccountStateDelta},System.Byte[],Algorand.V2.Model.TransactionPayment,System.Nullable{System.Int64},System.String,System.Nullable{System.Int64},System.String,System.Nullable{System.Int64},Algorand.V2.Model.TransactionSignature,Algorand.V2.Model.Transaction.TxTypeEnum)">Transaction(TransactionApplication, TransactionAssetConfig, TransactionAssetFreeze, TransactionAssetTransfer, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Byte[], String, StateDelta, Byte[], String, Nullable&lt;Int64&gt;, TransactionKeyreg, Nullable&lt;Int64&gt;, Byte[], List&lt;AccountStateDelta&gt;, Byte[], TransactionPayment, Nullable&lt;Int64&gt;, String, Nullable&lt;Int64&gt;, String, Nullable&lt;Int64&gt;, TransactionSignature, Transaction.TxTypeEnum)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Algorand.V2.Model.Transaction.html">Transaction</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transaction(TransactionApplication applicationTransaction = null, TransactionAssetConfig assetConfigTransaction = null, TransactionAssetFreeze assetFreezeTransaction = null, TransactionAssetTransfer assetTransferTransaction = null, string authAddr = null, long? closeRewards = default(long? ), long? closingAmount = default(long? ), long? confirmedRound = default(long? ), long? createdApplicationIndex = default(long? ), long? createdAssetIndex = default(long? ), long? fee = default(long? ), long? firstValid = default(long? ), byte[] genesisHash = null, string genesisId = null, StateDelta globalStateDelta = null, byte[] group = null, string id = null, long? intraRoundOffset = default(long? ), TransactionKeyreg keyregTransaction = null, long? lastValid = default(long? ), byte[] lease = null, List&lt;AccountStateDelta&gt; localStateDelta = null, byte[] note = null, TransactionPayment paymentTransaction = null, long? receiverRewards = default(long? ), string rekeyTo = null, long? roundTime = default(long? ), string sender = null, long? senderRewards = default(long? ), TransactionSignature signature = null, Transaction.TxTypeEnum txType = (Transaction.TxTypeEnum)0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionApplication.html">TransactionApplication</a></td>
+        <td><span class="parametername">applicationTransaction</span></td>
+        <td><p>applicationTransaction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionAssetConfig.html">TransactionAssetConfig</a></td>
+        <td><span class="parametername">assetConfigTransaction</span></td>
+        <td><p>assetConfigTransaction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionAssetFreeze.html">TransactionAssetFreeze</a></td>
+        <td><span class="parametername">assetFreezeTransaction</span></td>
+        <td><p>assetFreezeTransaction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionAssetTransfer.html">TransactionAssetTransfer</a></td>
+        <td><span class="parametername">assetTransferTransaction</span></td>
+        <td><p>assetTransferTransaction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">authAddr</span></td>
+        <td><p>\[sgnr\] The address used to sign the transaction. This is used for rekeyed accounts to indicate that the sender address did not sign the transaction..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">closeRewards</span></td>
+        <td><p>\[rc\] rewards applied to close-remainder-to account..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">closingAmount</span></td>
+        <td><p>\[ca\] closing amount for transaction..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">confirmedRound</span></td>
+        <td><p>Round when the transaction was confirmed..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">createdApplicationIndex</span></td>
+        <td><p>Specifies an application index (ID) if an application was created with this transaction..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">createdAssetIndex</span></td>
+        <td><p>Specifies an asset index (ID) if an asset was created with this transaction..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">fee</span></td>
+        <td><p>\[fee\] Transaction fee. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">firstValid</span></td>
+        <td><p>\[fv\] First valid round for this transaction. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">genesisHash</span></td>
+        <td><p>\[gh\] Hash of genesis block..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">genesisId</span></td>
+        <td><p>\[gen\] genesis block ID..</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.StateDelta.html">StateDelta</a></td>
+        <td><span class="parametername">globalStateDelta</span></td>
+        <td><p>globalStateDelta.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">group</span></td>
+        <td><p>\[grp\] Base64 encoded byte array of a sha512/256 digest. When present indicates that this transaction is part of a transaction group and the value is the sha512/256 hash of the transactions in that group..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Transaction ID (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">intraRoundOffset</span></td>
+        <td><p>Offset into the round where this transaction was confirmed..</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionKeyreg.html">TransactionKeyreg</a></td>
+        <td><span class="parametername">keyregTransaction</span></td>
+        <td><p>keyregTransaction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">lastValid</span></td>
+        <td><p>\[lv\] Last valid round for this transaction. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">lease</span></td>
+        <td><p>\[lx\] Base64 encoded 32-byte array. Lease enforces mutual exclusion of transactions.  If this field is nonzero, then once the transaction is confirmed, it acquires the lease identified by the (Sender, Lease) pair of the transaction until the LastValid round passes.  While this transaction possesses the lease, no other transaction specifying this lease can be confirmed..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Algorand.V2.Model.AccountStateDelta.html">AccountStateDelta</a>&gt;</td>
+        <td><span class="parametername">localStateDelta</span></td>
+        <td><p>\[ld\] Local state key/value changes for the application being executed by this transaction..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">note</span></td>
+        <td><p>\[note\] Free form data..</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionPayment.html">TransactionPayment</a></td>
+        <td><span class="parametername">paymentTransaction</span></td>
+        <td><p>paymentTransaction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">receiverRewards</span></td>
+        <td><p>\[rr\] rewards applied to receiver account..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>\[rekey\] when included in a valid transaction, the accounts auth addr will be updated with this value and future signatures must be signed with the key represented by this address..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundTime</span></td>
+        <td><p>Time when the block this transaction is in was confirmed..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sender</span></td>
+        <td><p>\[snd\] Sender's address. (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">senderRewards</span></td>
+        <td><p>\[rs\] rewards applied to sender account..</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionSignature.html">TransactionSignature</a></td>
+        <td><span class="parametername">signature</span></td>
+        <td><p>signature (required).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.Transaction.TxTypeEnum.html">Transaction.TxTypeEnum</a></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>\[type\] Indicates what type of transaction this is. Different types have different fields.  Valid types, and where their fields are stored: * \[pay\] payment-transaction * \[keyreg\] keyreg-transaction * \[acfg\] asset-config-transaction * \[axfer\] asset-transfer-transaction * \[afrz\] asset-freeze-transaction * \[appl\] application-transaction (required).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_ApplicationTransaction.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.ApplicationTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L203">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_ApplicationTransaction_" data-uid="Algorand.V2.Model.Transaction.ApplicationTransaction*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_ApplicationTransaction" data-uid="Algorand.V2.Model.Transaction.ApplicationTransaction">ApplicationTransaction</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets ApplicationTransaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;application-transaction&quot;, EmitDefaultValue = false)]
+public TransactionApplication ApplicationTransaction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionApplication.html">TransactionApplication</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_AssetConfigTransaction.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.AssetConfigTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L209">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_AssetConfigTransaction_" data-uid="Algorand.V2.Model.Transaction.AssetConfigTransaction*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_AssetConfigTransaction" data-uid="Algorand.V2.Model.Transaction.AssetConfigTransaction">AssetConfigTransaction</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets AssetConfigTransaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;asset-config-transaction&quot;, EmitDefaultValue = false)]
+public TransactionAssetConfig AssetConfigTransaction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionAssetConfig.html">TransactionAssetConfig</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_AssetFreezeTransaction.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.AssetFreezeTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L215">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_AssetFreezeTransaction_" data-uid="Algorand.V2.Model.Transaction.AssetFreezeTransaction*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_AssetFreezeTransaction" data-uid="Algorand.V2.Model.Transaction.AssetFreezeTransaction">AssetFreezeTransaction</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets AssetFreezeTransaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;asset-freeze-transaction&quot;, EmitDefaultValue = false)]
+public TransactionAssetFreeze AssetFreezeTransaction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionAssetFreeze.html">TransactionAssetFreeze</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_AssetTransferTransaction.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.AssetTransferTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L221">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_AssetTransferTransaction_" data-uid="Algorand.V2.Model.Transaction.AssetTransferTransaction*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_AssetTransferTransaction" data-uid="Algorand.V2.Model.Transaction.AssetTransferTransaction">AssetTransferTransaction</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets AssetTransferTransaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;asset-transfer-transaction&quot;, EmitDefaultValue = false)]
+public TransactionAssetTransfer AssetTransferTransaction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionAssetTransfer.html">TransactionAssetTransfer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_AuthAddr.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.AuthAddr%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L228">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_AuthAddr_" data-uid="Algorand.V2.Model.Transaction.AuthAddr*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_AuthAddr" data-uid="Algorand.V2.Model.Transaction.AuthAddr">AuthAddr</h4>
+  <div class="markdown level1 summary"><p>\[sgnr\] The address used to sign the transaction. This is used for rekeyed accounts to indicate that the sender address did not sign the transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;auth-addr&quot;, EmitDefaultValue = false)]
+public string AuthAddr { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>\[sgnr\] The address used to sign the transaction. This is used for rekeyed accounts to indicate that the sender address did not sign the transaction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_CloseRewards.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.CloseRewards%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L235">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_CloseRewards_" data-uid="Algorand.V2.Model.Transaction.CloseRewards*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_CloseRewards" data-uid="Algorand.V2.Model.Transaction.CloseRewards">CloseRewards</h4>
+  <div class="markdown level1 summary"><p>\[rc\] rewards applied to close-remainder-to account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;close-rewards&quot;, EmitDefaultValue = false)]
+public long? CloseRewards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>\[rc\] rewards applied to close-remainder-to account.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_ClosingAmount.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.ClosingAmount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L242">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_ClosingAmount_" data-uid="Algorand.V2.Model.Transaction.ClosingAmount*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_ClosingAmount" data-uid="Algorand.V2.Model.Transaction.ClosingAmount">ClosingAmount</h4>
+  <div class="markdown level1 summary"><p>\[ca\] closing amount for transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;closing-amount&quot;, EmitDefaultValue = false)]
+public long? ClosingAmount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>\[ca\] closing amount for transaction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_ConfirmedRound.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.ConfirmedRound%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L249">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_ConfirmedRound_" data-uid="Algorand.V2.Model.Transaction.ConfirmedRound*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_ConfirmedRound" data-uid="Algorand.V2.Model.Transaction.ConfirmedRound">ConfirmedRound</h4>
+  <div class="markdown level1 summary"><p>Round when the transaction was confirmed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;confirmed-round&quot;, EmitDefaultValue = false)]
+public long? ConfirmedRound { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>Round when the transaction was confirmed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_CreatedApplicationIndex.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.CreatedApplicationIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L256">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_CreatedApplicationIndex_" data-uid="Algorand.V2.Model.Transaction.CreatedApplicationIndex*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_CreatedApplicationIndex" data-uid="Algorand.V2.Model.Transaction.CreatedApplicationIndex">CreatedApplicationIndex</h4>
+  <div class="markdown level1 summary"><p>Specifies an application index (ID) if an application was created with this transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;created-application-index&quot;, EmitDefaultValue = false)]
+public long? CreatedApplicationIndex { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>Specifies an application index (ID) if an application was created with this transaction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_CreatedAssetIndex.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.CreatedAssetIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L263">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_CreatedAssetIndex_" data-uid="Algorand.V2.Model.Transaction.CreatedAssetIndex*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_CreatedAssetIndex" data-uid="Algorand.V2.Model.Transaction.CreatedAssetIndex">CreatedAssetIndex</h4>
+  <div class="markdown level1 summary"><p>Specifies an asset index (ID) if an asset was created with this transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;created-asset-index&quot;, EmitDefaultValue = false)]
+public long? CreatedAssetIndex { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>Specifies an asset index (ID) if an asset was created with this transaction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Fee.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Fee%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L270">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Fee_" data-uid="Algorand.V2.Model.Transaction.Fee*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Fee" data-uid="Algorand.V2.Model.Transaction.Fee">Fee</h4>
+  <div class="markdown level1 summary"><p>\[fee\] Transaction fee.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fee&quot;, EmitDefaultValue = false)]
+public long? Fee { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>\[fee\] Transaction fee.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_FirstValid.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.FirstValid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L277">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_FirstValid_" data-uid="Algorand.V2.Model.Transaction.FirstValid*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_FirstValid" data-uid="Algorand.V2.Model.Transaction.FirstValid">FirstValid</h4>
+  <div class="markdown level1 summary"><p>\[fv\] First valid round for this transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;first-valid&quot;, EmitDefaultValue = false)]
+public long? FirstValid { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>\[fv\] First valid round for this transaction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_GenesisHash.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.GenesisHash%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L284">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_GenesisHash_" data-uid="Algorand.V2.Model.Transaction.GenesisHash*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_GenesisHash" data-uid="Algorand.V2.Model.Transaction.GenesisHash">GenesisHash</h4>
+  <div class="markdown level1 summary"><p>\[gh\] Hash of genesis block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;genesis-hash&quot;, EmitDefaultValue = false)]
+public byte[] GenesisHash { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>\[gh\] Hash of genesis block.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_GenesisId.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.GenesisId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L291">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_GenesisId_" data-uid="Algorand.V2.Model.Transaction.GenesisId*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_GenesisId" data-uid="Algorand.V2.Model.Transaction.GenesisId">GenesisId</h4>
+  <div class="markdown level1 summary"><p>\[gen\] genesis block ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;genesis-id&quot;, EmitDefaultValue = false)]
+public string GenesisId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>\[gen\] genesis block ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_GlobalStateDelta.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.GlobalStateDelta%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L297">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_GlobalStateDelta_" data-uid="Algorand.V2.Model.Transaction.GlobalStateDelta*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_GlobalStateDelta" data-uid="Algorand.V2.Model.Transaction.GlobalStateDelta">GlobalStateDelta</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets GlobalStateDelta</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;global-state-delta&quot;, EmitDefaultValue = false)]
+public StateDelta GlobalStateDelta { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.StateDelta.html">StateDelta</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Group.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Group%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L304">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Group_" data-uid="Algorand.V2.Model.Transaction.Group*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Group" data-uid="Algorand.V2.Model.Transaction.Group">Group</h4>
+  <div class="markdown level1 summary"><p>\[grp\] Base64 encoded byte array of a sha512/256 digest. When present indicates that this transaction is part of a transaction group and the value is the sha512/256 hash of the transactions in that group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;group&quot;, EmitDefaultValue = false)]
+public byte[] Group { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>\[grp\] Base64 encoded byte array of a sha512/256 digest. When present indicates that this transaction is part of a transaction group and the value is the sha512/256 hash of the transactions in that group.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Id.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L311">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Id_" data-uid="Algorand.V2.Model.Transaction.Id*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Id" data-uid="Algorand.V2.Model.Transaction.Id">Id</h4>
+  <div class="markdown level1 summary"><p>Transaction ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;id&quot;, EmitDefaultValue = false)]
+public string Id { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Transaction ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_IntraRoundOffset.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.IntraRoundOffset%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L318">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_IntraRoundOffset_" data-uid="Algorand.V2.Model.Transaction.IntraRoundOffset*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_IntraRoundOffset" data-uid="Algorand.V2.Model.Transaction.IntraRoundOffset">IntraRoundOffset</h4>
+  <div class="markdown level1 summary"><p>Offset into the round where this transaction was confirmed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;intra-round-offset&quot;, EmitDefaultValue = false)]
+public long? IntraRoundOffset { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>Offset into the round where this transaction was confirmed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_KeyregTransaction.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.KeyregTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L324">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_KeyregTransaction_" data-uid="Algorand.V2.Model.Transaction.KeyregTransaction*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_KeyregTransaction" data-uid="Algorand.V2.Model.Transaction.KeyregTransaction">KeyregTransaction</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets KeyregTransaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;keyreg-transaction&quot;, EmitDefaultValue = false)]
+public TransactionKeyreg KeyregTransaction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionKeyreg.html">TransactionKeyreg</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_LastValid.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.LastValid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L331">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_LastValid_" data-uid="Algorand.V2.Model.Transaction.LastValid*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_LastValid" data-uid="Algorand.V2.Model.Transaction.LastValid">LastValid</h4>
+  <div class="markdown level1 summary"><p>\[lv\] Last valid round for this transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;last-valid&quot;, EmitDefaultValue = false)]
+public long? LastValid { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>\[lv\] Last valid round for this transaction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Lease.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Lease%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L338">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Lease_" data-uid="Algorand.V2.Model.Transaction.Lease*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Lease" data-uid="Algorand.V2.Model.Transaction.Lease">Lease</h4>
+  <div class="markdown level1 summary"><p>\[lx\] Base64 encoded 32-byte array. Lease enforces mutual exclusion of transactions.  If this field is nonzero, then once the transaction is confirmed, it acquires the lease identified by the (Sender, Lease) pair of the transaction until the LastValid round passes.  While this transaction possesses the lease, no other transaction specifying this lease can be confirmed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;lease&quot;, EmitDefaultValue = false)]
+public byte[] Lease { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>\[lx\] Base64 encoded 32-byte array. Lease enforces mutual exclusion of transactions.  If this field is nonzero, then once the transaction is confirmed, it acquires the lease identified by the (Sender, Lease) pair of the transaction until the LastValid round passes.  While this transaction possesses the lease, no other transaction specifying this lease can be confirmed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_LocalStateDelta.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.LocalStateDelta%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L345">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_LocalStateDelta_" data-uid="Algorand.V2.Model.Transaction.LocalStateDelta*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_LocalStateDelta" data-uid="Algorand.V2.Model.Transaction.LocalStateDelta">LocalStateDelta</h4>
+  <div class="markdown level1 summary"><p>\[ld\] Local state key/value changes for the application being executed by this transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;local-state-delta&quot;, EmitDefaultValue = false)]
+public List&lt;AccountStateDelta&gt; LocalStateDelta { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Algorand.V2.Model.AccountStateDelta.html">AccountStateDelta</a>&gt;</td>
+        <td><p>\[ld\] Local state key/value changes for the application being executed by this transaction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Note.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Note%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L352">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Note_" data-uid="Algorand.V2.Model.Transaction.Note*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Note" data-uid="Algorand.V2.Model.Transaction.Note">Note</h4>
+  <div class="markdown level1 summary"><p>\[note\] Free form data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;note&quot;, EmitDefaultValue = false)]
+public byte[] Note { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><p>\[note\] Free form data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_PaymentTransaction.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.PaymentTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L358">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_PaymentTransaction_" data-uid="Algorand.V2.Model.Transaction.PaymentTransaction*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_PaymentTransaction" data-uid="Algorand.V2.Model.Transaction.PaymentTransaction">PaymentTransaction</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets PaymentTransaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;payment-transaction&quot;, EmitDefaultValue = false)]
+public TransactionPayment PaymentTransaction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionPayment.html">TransactionPayment</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_ReceiverRewards.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.ReceiverRewards%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L365">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_ReceiverRewards_" data-uid="Algorand.V2.Model.Transaction.ReceiverRewards*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_ReceiverRewards" data-uid="Algorand.V2.Model.Transaction.ReceiverRewards">ReceiverRewards</h4>
+  <div class="markdown level1 summary"><p>\[rr\] rewards applied to receiver account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;receiver-rewards&quot;, EmitDefaultValue = false)]
+public long? ReceiverRewards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>\[rr\] rewards applied to receiver account.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_RekeyTo.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.RekeyTo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L372">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_RekeyTo_" data-uid="Algorand.V2.Model.Transaction.RekeyTo*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_RekeyTo" data-uid="Algorand.V2.Model.Transaction.RekeyTo">RekeyTo</h4>
+  <div class="markdown level1 summary"><p>\[rekey\] when included in a valid transaction, the accounts auth addr will be updated with this value and future signatures must be signed with the key represented by this address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;rekey-to&quot;, EmitDefaultValue = false)]
+public string RekeyTo { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>\[rekey\] when included in a valid transaction, the accounts auth addr will be updated with this value and future signatures must be signed with the key represented by this address.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_RoundTime.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.RoundTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L379">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_RoundTime_" data-uid="Algorand.V2.Model.Transaction.RoundTime*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_RoundTime" data-uid="Algorand.V2.Model.Transaction.RoundTime">RoundTime</h4>
+  <div class="markdown level1 summary"><p>Time when the block this transaction is in was confirmed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;round-time&quot;, EmitDefaultValue = false)]
+public long? RoundTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>Time when the block this transaction is in was confirmed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Sender.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Sender%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L386">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Sender_" data-uid="Algorand.V2.Model.Transaction.Sender*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Sender" data-uid="Algorand.V2.Model.Transaction.Sender">Sender</h4>
+  <div class="markdown level1 summary"><p>\[snd\] Sender's address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;sender&quot;, EmitDefaultValue = false)]
+public string Sender { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>\[snd\] Sender's address.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_SenderRewards.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.SenderRewards%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L393">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_SenderRewards_" data-uid="Algorand.V2.Model.Transaction.SenderRewards*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_SenderRewards" data-uid="Algorand.V2.Model.Transaction.SenderRewards">SenderRewards</h4>
+  <div class="markdown level1 summary"><p>\[rs\] rewards applied to sender account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;sender-rewards&quot;, EmitDefaultValue = false)]
+public long? SenderRewards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><p>\[rs\] rewards applied to sender account.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Signature.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Signature%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L399">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Signature_" data-uid="Algorand.V2.Model.Transaction.Signature*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Signature" data-uid="Algorand.V2.Model.Transaction.Signature">Signature</h4>
+  <div class="markdown level1 summary"><p>Gets or Sets Signature</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;signature&quot;, EmitDefaultValue = false)]
+public TransactionSignature Signature { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionSignature.html">TransactionSignature</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_TxType.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.TxType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L73">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_TxType_" data-uid="Algorand.V2.Model.Transaction.TxType*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_TxType" data-uid="Algorand.V2.Model.Transaction.TxType">TxType</h4>
+  <div class="markdown level1 summary"><p>\[type\] Indicates what type of transaction this is. Different types have different fields.  Valid types, and where their fields are stored: * \[pay\] payment-transaction * \[keyreg\] keyreg-transaction * \[acfg\] asset-config-transaction * \[axfer\] asset-transfer-transaction * \[afrz\] asset-freeze-transaction * \[appl\] application-transaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;tx-type&quot;, EmitDefaultValue = false)]
+public Transaction.TxTypeEnum TxType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.Transaction.TxTypeEnum.html">Transaction.TxTypeEnum</a></td>
+        <td><p>\[type\] Indicates what type of transaction this is. Different types have different fields.  Valid types, and where their fields are stored: * \[pay\] payment-transaction * \[keyreg\] keyreg-transaction * \[acfg\] asset-config-transaction * \[axfer\] asset-transfer-transaction * \[afrz\] asset-freeze-transaction * \[appl\] application-transaction</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Equals_Algorand_V2_Model_Transaction_.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Equals(Algorand.V2.Model.Transaction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L470">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Equals_" data-uid="Algorand.V2.Model.Transaction.Equals*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Equals_Algorand_V2_Model_Transaction_" data-uid="Algorand.V2.Model.Transaction.Equals(Algorand.V2.Model.Transaction)">Equals(Transaction)</h4>
+  <div class="markdown level1 summary"><p>Returns true if Transaction instances are equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Transaction input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.Transaction.html">Transaction</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Instance of Transaction to be compared</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L460">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_Equals_" data-uid="Algorand.V2.Model.Transaction.Equals*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_Equals_System_Object_" data-uid="Algorand.V2.Model.Transaction.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Returns true if objects are equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>Object to be compared</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_GetHashCode.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L638">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_GetHashCode_" data-uid="Algorand.V2.Model.Transaction.GetHashCode*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_GetHashCode" data-uid="Algorand.V2.Model.Transaction.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Gets the hash code</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Hash code</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_ToJson.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.ToJson%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L450">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_ToJson_" data-uid="Algorand.V2.Model.Transaction.ToJson*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_ToJson" data-uid="Algorand.V2.Model.Transaction.ToJson">ToJson()</h4>
+  <div class="markdown level1 summary"><p>Returns the JSON string presentation of the object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ToJson()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>JSON string presentation of the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_ToString.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L407">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_ToString_" data-uid="Algorand.V2.Model.Transaction.ToString*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_ToString" data-uid="Algorand.V2.Model.Transaction.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns the string presentation of the object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>String presentation of the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_System_ComponentModel_DataAnnotations_ValidationContext_.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction.System%23ComponentModel%23DataAnnotations%23IValidatableObject%23Validate(System.ComponentModel.DataAnnotations.ValidationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L714">View Source</a>
+  </span>
+  <a id="Algorand_V2_Model_Transaction_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_" data-uid="Algorand.V2.Model.Transaction.System#ComponentModel#DataAnnotations#IValidatableObject#Validate*"></a>
+  <h4 id="Algorand_V2_Model_Transaction_System_ComponentModel_DataAnnotations_IValidatableObject_Validate_System_ComponentModel_DataAnnotations_ValidationContext_" data-uid="Algorand.V2.Model.Transaction.System#ComponentModel#DataAnnotations#IValidatableObject#Validate(System.ComponentModel.DataAnnotations.ValidationContext)">IValidatableObject.Validate(ValidationContext)</h4>
+  <div class="markdown level1 summary"><p>To validate all properties of the instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;ValidationResult&gt; IValidatableObject.Validate(ValidationContext validationContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationContext</span></td>
+        <td><span class="parametername">validationContext</span></td>
+        <td><p>Validation context</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span>&gt;</td>
+        <td><p>Validation Result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.DataAnnotations.IValidatableObject</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Model_Transaction.md&amp;value=---%0Auid%3A%20Algorand.V2.Model.Transaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Model/Transaction.cs/#L29" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

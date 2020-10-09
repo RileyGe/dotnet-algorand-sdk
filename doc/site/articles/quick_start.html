@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Dotnet Algorand SDK </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Dotnet Algorand SDK ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="dotnet-algorand-sdk">Dotnet Algorand SDK</h1>
+
+<blockquote>
+<h3 id="important-">**IMPORTANT **</h3>
+<p>Dotnet-algorand-sdk Version 0.2.X modifies the namespace of algod API 1.0 compared to  dotnet-algorand-sdk Version 0.1.X. Please replaces the namespaces below:</p>
+<p>Replace <strong>Algorand.Algod.Client.Model</strong> with <strong>Algorand.Algod.Model</strong></p>
+<p>Replace <strong>Algorand.Algod.Client.Api</strong> with <strong>Algorand.Algod.Api</strong></p>
+<p>Replace <strong>Algorand.Kmd.Client.Model</strong> with <strong>Algorand.Algod.Model</strong></p>
+<p>Replace <strong>Algorand.Kmd.Client.Api</strong> with <strong>Algorand.Kmd.Api</strong></p>
+<p>Replace <strong>Algorand.Algod.Client</strong> with <strong>Algorand.Client</strong></p>
+<p>Replace <strong>Algorand.Kmd.Client</strong> with <strong>Algorand.Client</strong></p>
+<p>Everything else remains the same.</p>
+</blockquote>
+<p>The SDK version 0.2 add the support of Algorand Api 2.0 and the Indexer Api.</p>
+<p>dotnet-algorand-skd is a dotnet library for communicating and interacting with the Algorand network. It contains a REST client for accessing algod instances over the web, and also exposes functionality for mnemonics, creating transactions, signing transactions, and serializing data across the network.</p>
+<h2 id="1-prerequisites">1. Prerequisites</h2>
+<p>This library is compliant to .Net Standard 2.0.</p>
+<h2 id="2-how-to-install">2. How to Install</h2>
+<p>Open the NuGet command line and type:</p>
+<pre><code class="lang-powershell">Install-Package Algorand
+</code></pre>
+<h2 id="3-quick-start-for-algod-api-10">3. Quick Start for algod API 1.0</h2>
+<pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;; //find in algod.net
+string ALGOD_API_TOKEN = &quot;your algod api token&quot;; //find in algod.token
+AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+</code></pre>
+<p>dotnet-algorand-sdk has good support for PureStake, you can connect to PureStake by replacing the ALGOD_API_TOKEN use PureStake API KEY.</p>
+<p>Get information from algorand blockchain:</p>
+<pre><code class="lang-csharp">try
+{
+    Supply supply = algodApiInstance.GetSupply();
+    Console.WriteLine(&quot;Total Algorand Supply: &quot; + supply.TotalMoney);
+    Console.WriteLine(&quot;Online Algorand Supply: &quot; + supply.OnlineMoney);
+}
+catch (ApiException e)
+{
+    Console.WriteLine(&quot;Exception when calling algod#getSupply: &quot; + e.Message);
+}
+ulong? feePerByte;
+string genesisID;
+Digest genesisHash;
+ulong? firstRound = 0;
+try
+{
+    TransactionParams transParams = algodApiInstance.TransactionParams();
+    feePerByte = transParams.Fee;
+    genesisHash = new Digest(Convert.FromBase64String(transParams.Genesishashb64));
+    genesisID = transParams.GenesisID;
+    Console.WriteLine(&quot;Suggested Fee: &quot; + feePerByte);
+    NodeStatus s = algodApiInstance.GetStatus();
+    firstRound = s.LastRound;
+    Console.WriteLine(&quot;Current Round: &quot; + firstRound);
+}
+catch (ApiException e)
+{
+    throw new Exception(&quot;Could not get params&quot;, e);
+}
+</code></pre>
+<p>If you want to go further, you should have an account.  You can use <code>Account acc = new Account();</code> to generate a random account. Surely you can use mnemonic to create an account. The example below using mnemonics to create an account and send some algos to another address.</p>
+<pre><code class="lang-csharp">ulong? amount = 100000;
+ulong? lastRound = firstRound + 1000; // 1000 is the max tx window
+string SRC_ACCOUNT = &quot;typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup&quot;;
+Account src = new Account(SRC_ACCOUNT);
+Console.WriteLine(&quot;My account address is:&quot; + src.Address.ToString());
+string DEST_ADDR = &quot;KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU&quot;;
+Transaction tx = new Transaction(src.Address, new Address(DEST_ADDR), amount, firstRound, lastRound, genesisID, genesisHash);
+//sign the transaction before send it to the blockchain
+SignedTransaction signedTx = src.SignTransactionWithFeePerByte(tx, feePerByte);
+Console.WriteLine(&quot;Signed transaction with txid: &quot; + signedTx.transactionID);
+// send the transaction to the network
+try
+{
+    //encode to msg-pack
+    var encodedMsg = Algorand.Encoder.EncodeToMsgPack(signedTx);
+    TransactionID id = algodApiInstance.RawTransaction(encodedMsg);
+    Console.WriteLine(&quot;Successfully sent tx with id: &quot; + id.TxId);
+}
+catch (ApiException e)
+{
+    // This is generally expected, but should give us an informative error message.
+    Console.WriteLine(&quot;Exception when calling algod#rawTransaction: &quot; + e.Message);
+}
+</code></pre>
+<p>That's all? Yes, this is a complete example, you can find more examples in the sdk-examples project.</p>
+<h2 id="4-quick-start-for-algod-api-20">4. Quick Start for algod API 2.0</h2>
+<p>Algod API 2.0 has a lot of good features, such as dryrun debugging and teal compile. So it is highly recommended to use the API 2.0 to build your program.</p>
+<p>In dotnet-algorand-sdk, the algod API 2.0 is almost the same as API 1.0. The most important change is using the namespace <strong>Algorand.V2</strong>. Let's try some code.</p>
+<pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;; //find in algod.net
+string ALGOD_API_TOKEN = &quot;your algod api token&quot;; //find in algod.token
+AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+
+try
+{
+    var supply = algodApiInstance.GetSupply();
+    Console.WriteLine(&quot;Total Algorand Supply: &quot; + supply.TotalMoney);
+    Console.WriteLine(&quot;Online Algorand Supply: &quot; + supply.OnlineMoney);
+}
+catch (ApiException e)
+{
+    Console.WriteLine(&quot;Exception when calling algod#getSupply: &quot; + e.Message);
+}
+
+try
+{
+    var transParams = algodApiInstance.TransactionParams();
+    Console.WriteLine(&quot;Transaction Params: &quot; + transParams.ToJson());
+}
+catch (ApiException e)
+{
+    throw new Exception(&quot;Could not get params&quot;, e);
+}
+</code></pre>
+<p>It's very difficult to tell the difference between API 1.0 and API 2.0 besides the namespace is different. So if you are familiar with API 1.0, it's very easy to use API 2.0.</p>
+<p>You can find more examples in the <strong>sdk-examples</strong> project.</p>
+<h2 id="5-quick-start-for-indexer">5. Quick Start for Indexer</h2>
+<p>As we all know blockchain has a chain data struct, so it's very different for us to search the data. So algorand retrieve the blockchain data from a PostgreSQL compatible database. Then we can search for the blockchain very easily.</p>
+<p><img src="indexerv2.png" alt="Algorand Indexer"></p>
+<p>The indexer has 12 methods to search the blockchain and some of these methods have a lot of variables to control the result. Let's try some code.</p>
+<pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;;
+string ALGOD_API_TOKEN = &quot;your algod api token&quot;;
+
+IndexerApi indexer = new IndexerApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+//AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+var health = indexer.MakeHealthCheck();
+Console.WriteLine(&quot;Make Health Check: &quot; + health.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var address = &quot;KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU&quot;;
+var acctInfo = indexer.LookupAccountByID(address);
+Console.WriteLine(&quot;Look up account by id: &quot; + acctInfo.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var transInfos = indexer.LookupAccountTransactions(address, 10);
+Console.WriteLine(&quot;Look up account transactions(limit 10): &quot; + transInfos.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var appsInfo = indexer.SearchForApplications(limit: 10);
+Console.WriteLine(&quot;Search for application(limit 10): &quot; + appsInfo.ToJson());
+
+var appIndex = appsInfo.Applications[0].Id;
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var appInfo = indexer.LookupApplicationByID(appIndex);
+Console.WriteLine(&quot;Look up application by id: &quot; + appInfo.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var assetsInfo = indexer.SearchForAssets(limit: 10, unit: &quot;LAT&quot;);
+Console.WriteLine(&quot;Search for assets&quot; + assetsInfo.ToJson());
+
+var assetIndex = assetsInfo.Assets[0].Index;
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var assetInfo = indexer.LookupAssetByID(assetIndex);
+Console.WriteLine(&quot;Look up asset by id:&quot; + assetInfo.ToJson());
+</code></pre>
+<p>Please enjoy!!!</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/doc/articles/quick_start.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

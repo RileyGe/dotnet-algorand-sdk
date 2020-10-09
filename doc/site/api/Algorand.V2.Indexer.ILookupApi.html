@@ -1,0 +1,3208 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface ILookupApi
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface ILookupApi
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Algorand.V2.Indexer.ILookupApi">
+  
+  
+  <h1 id="Algorand_V2_Indexer_ILookupApi" data-uid="Algorand.V2.Indexer.ILookupApi" class="text-break">Interface ILookupApi
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a collection of functions to interact with the API endpoints</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_Configuration">IApiAccessor.Configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_GetBasePath">IApiAccessor.GetBasePath()</a>
+    </div>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_ExceptionFactory">IApiAccessor.ExceptionFactory</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Algorand.V2.Indexer.html">Algorand.V2.Indexer</a></h6>
+  <h6><strong>Assembly</strong>: Algorand.dll</h6>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ILookupApi : IApiAccessor</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountByID_System_String_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountByID(System.String%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L36">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountByID_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByID*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByID_System_String_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByID(System.String,System.Nullable{System.Int64})">LookupAccountByID(String, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AccountResponse LookupAccountByID(string accountId, long? round = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.AccountResponse.html">AccountResponse</a></td>
+        <td><p>AccountResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByID_System_String_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsync_System_String_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountByIDAsync(System.String%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L282">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByIDAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsync_System_String_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByIDAsync(System.String,System.Nullable{System.Int64})">LookupAccountByIDAsync(String, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;AccountResponse&gt; LookupAccountByIDAsync(string accountId, long? round = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.AccountResponse.html">AccountResponse</a>&gt;</td>
+        <td><p>Task of AccountResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsync_System_String_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountByIDAsyncWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L294">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByIDAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByIDAsyncWithHttpInfo(System.String,System.Nullable{System.Int64})">LookupAccountByIDAsyncWithHttpInfo(String, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;AccountResponse&gt;&gt; LookupAccountByIDAsyncWithHttpInfo(string accountId, long? round = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.AccountResponse.html">AccountResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (AccountResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDAsyncWithHttpInfo_System_String_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountByIDWithHttpInfo_System_String_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountByIDWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L48">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByIDWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDWithHttpInfo_System_String_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountByIDWithHttpInfo(System.String,System.Nullable{System.Int64})">LookupAccountByIDWithHttpInfo(String, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;AccountResponse&gt; LookupAccountByIDWithHttpInfo(string accountId, long? round = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.AccountResponse.html">AccountResponse</a>&gt;</td>
+        <td><p>ApiResponse of AccountResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountByIDWithHttpInfo_System_String_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountTransactions_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountTransactions(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L73">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactions_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactions*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactions_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactions(System.String,System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">LookupAccountTransactions(String, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TransactionsResponse LookupAccountTransactions(string accountId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), long? assetId = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>Asset ID (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a></td>
+        <td><p>TransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactions_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsync_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsAsync(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L319">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsync_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsAsync(System.String,System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">LookupAccountTransactionsAsync(String, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;TransactionsResponse&gt; LookupAccountTransactionsAsync(string accountId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), long? assetId = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>Asset ID (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a>&gt;</td>
+        <td><p>Task of TransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsync_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsAsyncWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L345">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsAsyncWithHttpInfo(System.String,System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">LookupAccountTransactionsAsyncWithHttpInfo(String, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;TransactionsResponse&gt;&gt; LookupAccountTransactionsAsyncWithHttpInfo(string accountId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), long? assetId = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>Asset ID (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (TransactionsResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L99">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAccountTransactionsWithHttpInfo(System.String,System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Boolean})">LookupAccountTransactionsWithHttpInfo(String, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;TransactionsResponse&gt; LookupAccountTransactionsWithHttpInfo(string accountId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), long? assetId = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accountId</span></td>
+        <td><p>account string</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>Asset ID (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a>&gt;</td>
+        <td><p>ApiResponse of TransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAccountTransactionsWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup account transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupApplicationByID_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupApplicationByID(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L109">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByID_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByID*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByID_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByID(System.Nullable{System.Int64})">LookupApplicationByID(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApplicationResponse LookupApplicationByID(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.ApplicationResponse.html">ApplicationResponse</a></td>
+        <td><p>ApplicationResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByID_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup application.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsync_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDAsync(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L355">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsync_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDAsync(System.Nullable{System.Int64})">LookupApplicationByIDAsync(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApplicationResponse&gt; LookupApplicationByIDAsync(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.ApplicationResponse.html">ApplicationResponse</a>&gt;</td>
+        <td><p>Task of ApplicationResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsync_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup application.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsyncWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L366">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsyncWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDAsyncWithHttpInfo(System.Nullable{System.Int64})">LookupApplicationByIDAsyncWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;ApplicationResponse&gt;&gt; LookupApplicationByIDAsyncWithHttpInfo(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.ApplicationResponse.html">ApplicationResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (ApplicationResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDAsyncWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup application.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L120">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupApplicationByIDWithHttpInfo(System.Nullable{System.Int64})">LookupApplicationByIDWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;ApplicationResponse&gt; LookupApplicationByIDWithHttpInfo(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.ApplicationResponse.html">ApplicationResponse</a>&gt;</td>
+        <td><p>ApiResponse of ApplicationResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupApplicationByIDWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup application.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetBalances_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetBalances(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L135">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalances_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalances*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalances_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalances(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">LookupAssetBalances(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AssetBalancesResponse LookupAssetBalances(long? assetId, long? limit = default(long? ), string next = null, long? round = default(long? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.AssetBalancesResponse.html">AssetBalancesResponse</a></td>
+        <td><p>AssetBalancesResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalances_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup the list of accounts who hold this asset</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsync_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesAsync(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L381">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsync_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesAsync(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">LookupAssetBalancesAsync(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;AssetBalancesResponse&gt; LookupAssetBalancesAsync(long? assetId, long? limit = default(long? ), string next = null, long? round = default(long? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.AssetBalancesResponse.html">AssetBalancesResponse</a>&gt;</td>
+        <td><p>Task of AssetBalancesResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsync_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup the list of accounts who hold this asset</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsyncWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L397">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsyncWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesAsyncWithHttpInfo(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">LookupAssetBalancesAsyncWithHttpInfo(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;AssetBalancesResponse&gt;&gt; LookupAssetBalancesAsyncWithHttpInfo(long? assetId, long? limit = default(long? ), string next = null, long? round = default(long? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.AssetBalancesResponse.html">AssetBalancesResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (AssetBalancesResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesAsyncWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup the list of accounts who hold this asset</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L151">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetBalancesWithHttpInfo(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">LookupAssetBalancesWithHttpInfo(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;AssetBalancesResponse&gt; LookupAssetBalancesWithHttpInfo(long? assetId, long? limit = default(long? ), string next = null, long? round = default(long? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.AssetBalancesResponse.html">AssetBalancesResponse</a>&gt;</td>
+        <td><p>ApiResponse of AssetBalancesResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetBalancesWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup the list of accounts who hold this asset</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetByID_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetByID(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L161">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetByID_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByID*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByID_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByID(System.Nullable{System.Int64})">LookupAssetByID(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AssetResponse LookupAssetByID(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.AssetResponse.html">AssetResponse</a></td>
+        <td><p>AssetResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByID_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup asset information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsync_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetByIDAsync(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L407">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByIDAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsync_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByIDAsync(System.Nullable{System.Int64})">LookupAssetByIDAsync(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;AssetResponse&gt; LookupAssetByIDAsync(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.AssetResponse.html">AssetResponse</a>&gt;</td>
+        <td><p>Task of AssetResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsync_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup asset information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsyncWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetByIDAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L418">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByIDAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsyncWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByIDAsyncWithHttpInfo(System.Nullable{System.Int64})">LookupAssetByIDAsyncWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;AssetResponse&gt;&gt; LookupAssetByIDAsyncWithHttpInfo(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.AssetResponse.html">AssetResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (AssetResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDAsyncWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup asset information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetByIDWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetByIDWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L172">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByIDWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetByIDWithHttpInfo(System.Nullable{System.Int64})">LookupAssetByIDWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;AssetResponse&gt; LookupAssetByIDWithHttpInfo(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.AssetResponse.html">AssetResponse</a>&gt;</td>
+        <td><p>ApiResponse of AssetResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetByIDWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup asset information.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetTransactions_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetTransactions(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L199">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactions_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactions*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactions_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactions(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">LookupAssetTransactions(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TransactionsResponse LookupAssetTransactions(long? assetId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), string address = null, string addressRole = null, bool? excludeCloseTo = default(bool? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>Only include transactions with this address in one of the transaction fields. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">addressRole</span></td>
+        <td><p>Combine with the address parameter to define what type of address to search for. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">excludeCloseTo</span></td>
+        <td><p>Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a></td>
+        <td><p>TransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactions_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup transactions for an asset.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsync_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsAsync(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L445">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsync_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsAsync(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">LookupAssetTransactionsAsync(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;TransactionsResponse&gt; LookupAssetTransactionsAsync(long? assetId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), string address = null, string addressRole = null, bool? excludeCloseTo = default(bool? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>Only include transactions with this address in one of the transaction fields. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">addressRole</span></td>
+        <td><p>Combine with the address parameter to define what type of address to search for. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">excludeCloseTo</span></td>
+        <td><p>Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a>&gt;</td>
+        <td><p>Task of TransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsync_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup transactions for an asset.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsyncWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L473">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsyncWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsAsyncWithHttpInfo(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">LookupAssetTransactionsAsyncWithHttpInfo(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;TransactionsResponse&gt;&gt; LookupAssetTransactionsAsyncWithHttpInfo(long? assetId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), string address = null, string addressRole = null, bool? excludeCloseTo = default(bool? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>Only include transactions with this address in one of the transaction fields. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">addressRole</span></td>
+        <td><p>Combine with the address parameter to define what type of address to search for. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">excludeCloseTo</span></td>
+        <td><p>Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (TransactionsResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsAsyncWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup transactions for an asset.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L227">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupAssetTransactionsWithHttpInfo(System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">LookupAssetTransactionsWithHttpInfo(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, String, String, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;DateTime&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, String, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;TransactionsResponse&gt; LookupAssetTransactionsWithHttpInfo(long? assetId, long? limit = default(long? ), string next = null, string notePrefix = null, string txType = null, string sigType = null, string txid = null, long? round = default(long? ), long? minRound = default(long? ), long? maxRound = default(long? ), DateTime? beforeTime = default(DateTime? ), DateTime? afterTime = default(DateTime? ), long? currencyGreaterThan = default(long? ), long? currencyLessThan = default(long? ), string address = null, string addressRole = null, bool? excludeCloseTo = default(bool? ), bool? rekeyTo = default(bool? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Maximum number of results to return. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next page of results. Use the next token provided by the previous results. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">notePrefix</span></td>
+        <td><p>Specifies a prefix which must be contained in the note field. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txType</span></td>
+        <td><p>(optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sigType</span></td>
+        <td><p>SigType filters just results using the specified type of signature: * sig - Standard * msig - MultiSig * lsig - LogicSig (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>Lookup the specific transaction by ID. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>Include results for the specified round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">minRound</span></td>
+        <td><p>Include results at or after the specified min-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">maxRound</span></td>
+        <td><p>Include results at or before the specified max-round. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">beforeTime</span></td>
+        <td><p>Include results before the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">afterTime</span></td>
+        <td><p>Include results after the given time. Must be an RFC 3339 formatted string. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyGreaterThan</span></td>
+        <td><p>Results should have an amount greater than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">currencyLessThan</span></td>
+        <td><p>Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>Only include transactions with this address in one of the transaction fields. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">addressRole</span></td>
+        <td><p>Combine with the address parameter to define what type of address to search for. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">excludeCloseTo</span></td>
+        <td><p>Combine with address and address-role parameters to define what type of address to search for. The close to fields are normally treated as a receiver, if you would like to exclude them set this parameter to true. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">rekeyTo</span></td>
+        <td><p>Include results which include the rekey-to field. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionsResponse.html">TransactionsResponse</a>&gt;</td>
+        <td><p>ApiResponse of TransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupAssetTransactionsWithHttpInfo_System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup transactions for an asset.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupBlock_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupBlock(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L237">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupBlock_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlock*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupBlock_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlock(System.Nullable{System.Int64})">LookupBlock(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Block LookupBlock(long? roundNumber)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundNumber</span></td>
+        <td><p>Round number</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.Block.html">Block</a></td>
+        <td><p>Block</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupBlock_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup block.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupBlockAsync_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupBlockAsync(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L483">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupBlockAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlockAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupBlockAsync_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlockAsync(System.Nullable{System.Int64})">LookupBlockAsync(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Block&gt; LookupBlockAsync(long? roundNumber)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundNumber</span></td>
+        <td><p>Round number</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.Block.html">Block</a>&gt;</td>
+        <td><p>Task of Block</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupBlockAsync_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup block.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupBlockAsyncWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupBlockAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L494">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupBlockAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlockAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupBlockAsyncWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlockAsyncWithHttpInfo(System.Nullable{System.Int64})">LookupBlockAsyncWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;Block&gt;&gt; LookupBlockAsyncWithHttpInfo(long? roundNumber)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundNumber</span></td>
+        <td><p>Round number</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.Block.html">Block</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (Block)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupBlockAsyncWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup block.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupBlockWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupBlockWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L248">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupBlockWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlockWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupBlockWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Indexer.ILookupApi.LookupBlockWithHttpInfo(System.Nullable{System.Int64})">LookupBlockWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;Block&gt; LookupBlockWithHttpInfo(long? roundNumber)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">roundNumber</span></td>
+        <td><p>Round number</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.Block.html">Block</a>&gt;</td>
+        <td><p>ApiResponse of Block</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupBlockWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup block.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupTransactions_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupTransactions(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L258">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupTransactions_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactions*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupTransactions_System_String_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactions(System.String)">LookupTransactions(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TransactionResponse LookupTransactions(string txid)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionResponse.html">TransactionResponse</a></td>
+        <td><p>TransactionResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupTransactions_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup a single transaction.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsync_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupTransactionsAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L504">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsync_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactionsAsync*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsync_System_String_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactionsAsync(System.String)">LookupTransactionsAsync(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;TransactionResponse&gt; LookupTransactionsAsync(string txid)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.TransactionResponse.html">TransactionResponse</a>&gt;</td>
+        <td><p>Task of TransactionResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsync_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup a single transaction.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsyncWithHttpInfo_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupTransactionsAsyncWithHttpInfo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L515">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsyncWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactionsAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsyncWithHttpInfo_System_String_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactionsAsyncWithHttpInfo(System.String)">LookupTransactionsAsyncWithHttpInfo(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;TransactionResponse&gt;&gt; LookupTransactionsAsyncWithHttpInfo(string txid)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionResponse.html">TransactionResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (TransactionResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsAsyncWithHttpInfo_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup a single transaction.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi_LookupTransactionsWithHttpInfo_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi.LookupTransactionsWithHttpInfo(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L269">View Source</a>
+  </span>
+  <a id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsWithHttpInfo_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactionsWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsWithHttpInfo_System_String_" data-uid="Algorand.V2.Indexer.ILookupApi.LookupTransactionsWithHttpInfo(System.String)">LookupTransactionsWithHttpInfo(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;TransactionResponse&gt; LookupTransactionsWithHttpInfo(string txid)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionResponse.html">TransactionResponse</a>&gt;</td>
+        <td><p>ApiResponse of TransactionResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Indexer_ILookupApi_LookupTransactionsWithHttpInfo_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Lookup a single transaction.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Indexer_ILookupApi.md&amp;value=---%0Auid%3A%20Algorand.V2.Indexer.ILookupApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Indexer/LookupApi.cs/#L23" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

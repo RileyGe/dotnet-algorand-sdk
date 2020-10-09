@@ -1,0 +1,3872 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IDefaultApi
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IDefaultApi
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Algorand.V2.Algod.IDefaultApi">
+  
+  
+  <h1 id="Algorand_V2_Algod_IDefaultApi" data-uid="Algorand.V2.Algod.IDefaultApi" class="text-break">Interface IDefaultApi
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a collection of functions to interact with the API endpoints</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_Configuration">IApiAccessor.Configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_GetBasePath">IApiAccessor.GetBasePath()</a>
+    </div>
+    <div>
+      <a class="xref" href="Algorand.Client.IApiAccessor.html#Algorand_Client_IApiAccessor_ExceptionFactory">IApiAccessor.ExceptionFactory</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Algorand.V2.Algod.html">Algorand.V2.Algod</a></h6>
+  <h6><strong>Assembly</strong>: Algorand.dll</h6>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDefaultApi : IApiAccessor</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_AccountInformation_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.AccountInformation(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L37">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_AccountInformation_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformation*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_AccountInformation_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformation(System.String,System.String)">AccountInformation(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get account information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Account AccountInformation(string address, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.Account.html">Account</a></td>
+        <td><p>Account</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_AccountInformation_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a specific account public key, this call returns the accounts status, balance and spendable amounts</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_AccountInformationAsync_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.AccountInformationAsync(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L339">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_AccountInformationAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformationAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_AccountInformationAsync_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformationAsync(System.String,System.String)">AccountInformationAsync(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get account information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Account&gt; AccountInformationAsync(string address, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Account.html">Account</a>&gt;</td>
+        <td><p>Task of Account</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_AccountInformationAsync_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a specific account public key, this call returns the accounts status, balance and spendable amounts</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_AccountInformationAsyncWithHttpInfo_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.AccountInformationAsyncWithHttpInfo(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L351">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_AccountInformationAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformationAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_AccountInformationAsyncWithHttpInfo_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformationAsyncWithHttpInfo(System.String,System.String)">AccountInformationAsyncWithHttpInfo(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get account information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;Account&gt;&gt; AccountInformationAsyncWithHttpInfo(string address, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.Account.html">Account</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (Account)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_AccountInformationAsyncWithHttpInfo_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a specific account public key, this call returns the accounts status, balance and spendable amounts</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_AccountInformationWithHttpInfo_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.AccountInformationWithHttpInfo(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L49">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_AccountInformationWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformationWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_AccountInformationWithHttpInfo_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.AccountInformationWithHttpInfo(System.String,System.String)">AccountInformationWithHttpInfo(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get account information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;Account&gt; AccountInformationWithHttpInfo(string address, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.Account.html">Account</a>&gt;</td>
+        <td><p>ApiResponse of Account</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_AccountInformationWithHttpInfo_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a specific account public key, this call returns the accounts status, balance and spendable amounts</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetApplicationByID_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetApplicationByID(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L59">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetApplicationByID_" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByID*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByID_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByID(System.Nullable{System.Int64})">GetApplicationByID(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get application information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Application GetApplicationByID(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td><p>An application identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.Application.html">Application</a></td>
+        <td><p>Application</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByID_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsync_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetApplicationByIDAsync(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L361">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByIDAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsync_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByIDAsync(System.Nullable{System.Int64})">GetApplicationByIDAsync(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get application information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Application&gt; GetApplicationByIDAsync(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td><p>An application identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.Application.html">Application</a>&gt;</td>
+        <td><p>Task of Application</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsync_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsyncWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetApplicationByIDAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L372">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByIDAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsyncWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByIDAsyncWithHttpInfo(System.Nullable{System.Int64})">GetApplicationByIDAsyncWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get application information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;Application&gt;&gt; GetApplicationByIDAsyncWithHttpInfo(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td><p>An application identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.Application.html">Application</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (Application)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDAsyncWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetApplicationByIDWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetApplicationByIDWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L70">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByIDWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetApplicationByIDWithHttpInfo(System.Nullable{System.Int64})">GetApplicationByIDWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get application information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;Application&gt; GetApplicationByIDWithHttpInfo(long? applicationId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">applicationId</span></td>
+        <td><p>An application identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.Application.html">Application</a>&gt;</td>
+        <td><p>ApiResponse of Application</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetApplicationByIDWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a application id, it returns application information including creator, approval and clear programs, global and local schemas, and global state.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetAssetByID_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetAssetByID(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L80">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetAssetByID_" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByID*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetAssetByID_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByID(System.Nullable{System.Int64})">GetAssetByID(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get asset information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Asset GetAssetByID(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>An asset identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.Asset.html">Asset</a></td>
+        <td><p>Asset</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetAssetByID_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a asset id, it returns asset information including creator, name, total supply and special addresses.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsync_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetAssetByIDAsync(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L382">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByIDAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsync_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByIDAsync(System.Nullable{System.Int64})">GetAssetByIDAsync(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get asset information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Asset&gt; GetAssetByIDAsync(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>An asset identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.Asset.html">Asset</a>&gt;</td>
+        <td><p>Task of Asset</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsync_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a asset id, it returns asset information including creator, name, total supply and special addresses.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsyncWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetAssetByIDAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L393">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByIDAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsyncWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByIDAsyncWithHttpInfo(System.Nullable{System.Int64})">GetAssetByIDAsyncWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get asset information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;Asset&gt;&gt; GetAssetByIDAsyncWithHttpInfo(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>An asset identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.Asset.html">Asset</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (Asset)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDAsyncWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a asset id, it returns asset information including creator, name, total supply and special addresses.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetAssetByIDWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetAssetByIDWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L91">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByIDWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.GetAssetByIDWithHttpInfo(System.Nullable{System.Int64})">GetAssetByIDWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get asset information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;Asset&gt; GetAssetByIDWithHttpInfo(long? assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>An asset identifier</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.Asset.html">Asset</a>&gt;</td>
+        <td><p>ApiResponse of Asset</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetAssetByIDWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a asset id, it returns asset information including creator, name, total supply and special addresses.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetBlock_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetBlock(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L102">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetBlock_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlock*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetBlock_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlock(System.Nullable{System.Int64},System.String)">GetBlock(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get the block for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BlockResponse GetBlock(long? round, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round from which to fetch block information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.BlockResponse.html">BlockResponse</a></td>
+        <td><p>BlockResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetBlockAsync_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetBlockAsync(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L404">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetBlockAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlockAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetBlockAsync_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlockAsync(System.Nullable{System.Int64},System.String)">GetBlockAsync(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get the block for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BlockResponse&gt; GetBlockAsync(long? round, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round from which to fetch block information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.BlockResponse.html">BlockResponse</a>&gt;</td>
+        <td><p>Task of BlockResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetBlockAsyncWithHttpInfo_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetBlockAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L416">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetBlockAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlockAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetBlockAsyncWithHttpInfo_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlockAsyncWithHttpInfo(System.Nullable{System.Int64},System.String)">GetBlockAsyncWithHttpInfo(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get the block for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;BlockResponse&gt;&gt; GetBlockAsyncWithHttpInfo(long? round, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round from which to fetch block information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.BlockResponse.html">BlockResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (BlockResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetBlockWithHttpInfo_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetBlockWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L114">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetBlockWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlockWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetBlockWithHttpInfo_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetBlockWithHttpInfo(System.Nullable{System.Int64},System.String)">GetBlockWithHttpInfo(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get the block for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;BlockResponse&gt; GetBlockWithHttpInfo(long? round, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round from which to fetch block information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.BlockResponse.html">BlockResponse</a>&gt;</td>
+        <td><p>ApiResponse of BlockResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactions_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactions(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L125">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactions_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactions*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactions_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactions(System.Nullable{System.Int64},System.String)">GetPendingTransactions(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PendingTransactionsResponse GetPendingTransactions(long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a></td>
+        <td><p>PendingTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactions_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsync_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsAsync(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L427">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsync_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsAsync(System.Nullable{System.Int64},System.String)">GetPendingTransactionsAsync(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;PendingTransactionsResponse&gt; GetPendingTransactionsAsync(long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a>&gt;</td>
+        <td><p>Task of PendingTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsync_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsyncWithHttpInfo_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L439">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsyncWithHttpInfo_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsAsyncWithHttpInfo(System.Nullable{System.Int64},System.String)">GetPendingTransactionsAsyncWithHttpInfo(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;PendingTransactionsResponse&gt;&gt; GetPendingTransactionsAsyncWithHttpInfo(long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (PendingTransactionsResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsAsyncWithHttpInfo_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddress_System_String_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddress(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L149">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddress_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddress*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddress_System_String_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddress(System.String,System.Nullable{System.Int64},System.String)">GetPendingTransactionsByAddress(String, Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool by address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PendingTransactionsResponse GetPendingTransactionsByAddress(string address, long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a></td>
+        <td><p>PendingTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddress_System_String_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsync_System_String_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressAsync(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L451">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsync_System_String_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressAsync(System.String,System.Nullable{System.Int64},System.String)">GetPendingTransactionsByAddressAsync(String, Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool by address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;PendingTransactionsResponse&gt; GetPendingTransactionsByAddressAsync(string address, long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a>&gt;</td>
+        <td><p>Task of PendingTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsync_System_String_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressAsyncWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L464">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressAsyncWithHttpInfo(System.String,System.Nullable{System.Int64},System.String)">GetPendingTransactionsByAddressAsyncWithHttpInfo(String, Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool by address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;PendingTransactionsResponse&gt;&gt; GetPendingTransactionsByAddressAsyncWithHttpInfo(string address, long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (PendingTransactionsResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressAsyncWithHttpInfo_System_String_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressWithHttpInfo(System.String%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L162">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressWithHttpInfo_System_String_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsByAddressWithHttpInfo(System.String,System.Nullable{System.Int64},System.String)">GetPendingTransactionsByAddressWithHttpInfo(String, Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool by address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;PendingTransactionsResponse&gt; GetPendingTransactionsByAddressWithHttpInfo(string address, long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>An account public key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a>&gt;</td>
+        <td><p>ApiResponse of PendingTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsByAddressWithHttpInfo_System_String_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsWithHttpInfo_System_Nullable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsWithHttpInfo(System.Nullable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L137">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsWithHttpInfo_System_Nullable_System_Int64__System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.GetPendingTransactionsWithHttpInfo(System.Nullable{System.Int64},System.String)">GetPendingTransactionsWithHttpInfo(Nullable&lt;Int64&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Get a list of unconfirmed transactions currently in the transaction pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;PendingTransactionsResponse&gt; GetPendingTransactionsWithHttpInfo(long? max = default(long? ), string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Truncated number of transactions to display. If max=0, returns all pending txns. (optional)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionsResponse.html">PendingTransactionsResponse</a>&gt;</td>
+        <td><p>ApiResponse of PendingTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_GetPendingTransactionsWithHttpInfo_System_Nullable_System_Int64__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetStatus.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetStatus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L171">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetStatus_" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatus*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetStatus" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatus">GetStatus()</h4>
+  <div class="markdown level1 summary"><p>Gets the current node status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NodeStatusResponse GetStatus()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a></td>
+        <td><p>NodeStatusResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetStatusAsync.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetStatusAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L473">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetStatusAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatusAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetStatusAsync" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatusAsync">GetStatusAsync()</h4>
+  <div class="markdown level1 summary"><p>Gets the current node status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;NodeStatusResponse&gt; GetStatusAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a>&gt;</td>
+        <td><p>Task of NodeStatusResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetStatusAsyncWithHttpInfo.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetStatusAsyncWithHttpInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L483">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetStatusAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatusAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetStatusAsyncWithHttpInfo" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatusAsyncWithHttpInfo">GetStatusAsyncWithHttpInfo()</h4>
+  <div class="markdown level1 summary"><p>Gets the current node status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;NodeStatusResponse&gt;&gt; GetStatusAsyncWithHttpInfo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (NodeStatusResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetStatusWithHttpInfo.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetStatusWithHttpInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L181">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetStatusWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatusWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetStatusWithHttpInfo" data-uid="Algorand.V2.Algod.IDefaultApi.GetStatusWithHttpInfo">GetStatusWithHttpInfo()</h4>
+  <div class="markdown level1 summary"><p>Gets the current node status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;NodeStatusResponse&gt; GetStatusWithHttpInfo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a>&gt;</td>
+        <td><p>ApiResponse of NodeStatusResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetSupply.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetSupply%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L190">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetSupply_" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupply*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetSupply" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupply">GetSupply()</h4>
+  <div class="markdown level1 summary"><p>Get the current supply reported by the ledger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SupplyResponse GetSupply()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.SupplyResponse.html">SupplyResponse</a></td>
+        <td><p>SupplyResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetSupplyAsync.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetSupplyAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L492">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetSupplyAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupplyAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetSupplyAsync" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupplyAsync">GetSupplyAsync()</h4>
+  <div class="markdown level1 summary"><p>Get the current supply reported by the ledger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SupplyResponse&gt; GetSupplyAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.SupplyResponse.html">SupplyResponse</a>&gt;</td>
+        <td><p>Task of SupplyResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetSupplyAsyncWithHttpInfo.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetSupplyAsyncWithHttpInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L502">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetSupplyAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupplyAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetSupplyAsyncWithHttpInfo" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupplyAsyncWithHttpInfo">GetSupplyAsyncWithHttpInfo()</h4>
+  <div class="markdown level1 summary"><p>Get the current supply reported by the ledger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;SupplyResponse&gt;&gt; GetSupplyAsyncWithHttpInfo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.SupplyResponse.html">SupplyResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (SupplyResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_GetSupplyWithHttpInfo.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.GetSupplyWithHttpInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L200">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_GetSupplyWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupplyWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_GetSupplyWithHttpInfo" data-uid="Algorand.V2.Algod.IDefaultApi.GetSupplyWithHttpInfo">GetSupplyWithHttpInfo()</h4>
+  <div class="markdown level1 summary"><p>Get the current supply reported by the ledger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;SupplyResponse&gt; GetSupplyWithHttpInfo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.SupplyResponse.html">SupplyResponse</a>&gt;</td>
+        <td><p>ApiResponse of SupplyResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_PendingTransactionInformation_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.PendingTransactionInformation(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L211">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformation_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformation*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformation_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformation(System.String,System.String)">PendingTransactionInformation(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get a specific pending transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PendingTransactionResponse PendingTransactionInformation(string txid, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>A transaction id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.PendingTransactionResponse.html">PendingTransactionResponse</a></td>
+        <td><p>PendingTransactionResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformation_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round = 0, pool error = &amp;quot;&amp;quot;) - transaction removed from pool due to error (committed round = 0, pool error != &amp;quot;&amp;quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsync_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationAsync(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L513">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsync_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationAsync(System.String,System.String)">PendingTransactionInformationAsync(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get a specific pending transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;PendingTransactionResponse&gt; PendingTransactionInformationAsync(string txid, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>A transaction id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionResponse.html">PendingTransactionResponse</a>&gt;</td>
+        <td><p>Task of PendingTransactionResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsync_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round = 0, pool error = &amp;quot;&amp;quot;) - transaction removed from pool due to error (committed round = 0, pool error != &amp;quot;&amp;quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsyncWithHttpInfo_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationAsyncWithHttpInfo(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L525">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsyncWithHttpInfo_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationAsyncWithHttpInfo(System.String,System.String)">PendingTransactionInformationAsyncWithHttpInfo(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get a specific pending transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;PendingTransactionResponse&gt;&gt; PendingTransactionInformationAsyncWithHttpInfo(string txid, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>A transaction id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionResponse.html">PendingTransactionResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (PendingTransactionResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationAsyncWithHttpInfo_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round = 0, pool error = &amp;quot;&amp;quot;) - transaction removed from pool due to error (committed round = 0, pool error != &amp;quot;&amp;quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationWithHttpInfo_System_String_System_String_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationWithHttpInfo(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L223">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationWithHttpInfo_System_String_System_String_" data-uid="Algorand.V2.Algod.IDefaultApi.PendingTransactionInformationWithHttpInfo(System.String,System.String)">PendingTransactionInformationWithHttpInfo(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get a specific pending transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;PendingTransactionResponse&gt; PendingTransactionInformationWithHttpInfo(string txid, string format = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">txid</span></td>
+        <td><p>A transaction id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Configures whether the response object is JSON or MessagePack encoded. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PendingTransactionResponse.html">PendingTransactionResponse</a>&gt;</td>
+        <td><p>ApiResponse of PendingTransactionResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_PendingTransactionInformationWithHttpInfo_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given a transaction id of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed: - transaction committed (committed round &gt; 0) - transaction still in the pool (committed round = 0, pool error = &amp;quot;&amp;quot;) - transaction removed from pool due to error (committed round = 0, pool error != &amp;quot;&amp;quot;) Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_RawTransaction_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.RawTransaction(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L233">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_RawTransaction_" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransaction*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_RawTransaction_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransaction(System.Byte[])">RawTransaction(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Broadcasts a raw transaction to the network.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PostTransactionsResponse RawTransaction(byte[] rawtxn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">rawtxn</span></td>
+        <td><p>The byte encoded signed transaction to broadcast to network</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a></td>
+        <td><p>PostTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_RawTransactionAsync_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.RawTransactionAsync(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L535">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_RawTransactionAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransactionAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_RawTransactionAsync_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransactionAsync(System.Byte[])">RawTransactionAsync(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Broadcasts a raw transaction to the network.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;PostTransactionsResponse&gt; RawTransactionAsync(byte[] rawtxn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">rawtxn</span></td>
+        <td><p>The byte encoded signed transaction to broadcast to network</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a>&gt;</td>
+        <td><p>Task of PostTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_RawTransactionAsyncWithHttpInfo_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.RawTransactionAsyncWithHttpInfo(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L546">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_RawTransactionAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransactionAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_RawTransactionAsyncWithHttpInfo_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransactionAsyncWithHttpInfo(System.Byte[])">RawTransactionAsyncWithHttpInfo(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Broadcasts a raw transaction to the network.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;PostTransactionsResponse&gt;&gt; RawTransactionAsyncWithHttpInfo(byte[] rawtxn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">rawtxn</span></td>
+        <td><p>The byte encoded signed transaction to broadcast to network</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (PostTransactionsResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_RawTransactionWithHttpInfo_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.RawTransactionWithHttpInfo(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L244">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_RawTransactionWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransactionWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_RawTransactionWithHttpInfo_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.RawTransactionWithHttpInfo(System.Byte[])">RawTransactionWithHttpInfo(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Broadcasts a raw transaction to the network.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;PostTransactionsResponse&gt; RawTransactionWithHttpInfo(byte[] rawtxn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">rawtxn</span></td>
+        <td><p>The byte encoded signed transaction to broadcast to network</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.PostTransactionsResponse.html">PostTransactionsResponse</a>&gt;</td>
+        <td><p>ApiResponse of PostTransactionsResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealCompile_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealCompile(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L254">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealCompile_" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompile*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealCompile_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompile(System.Byte[])">TealCompile(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Compile TEAL source code to binary, produce its hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CompileResponse TealCompile(byte[] source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>TEAL source code to be compiled</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.CompileResponse.html">CompileResponse</a></td>
+        <td><p>CompileResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealCompile_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealCompileAsync_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealCompileAsync(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L556">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealCompileAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompileAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealCompileAsync_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompileAsync(System.Byte[])">TealCompileAsync(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Compile TEAL source code to binary, produce its hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CompileResponse&gt; TealCompileAsync(byte[] source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>TEAL source code to be compiled</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.CompileResponse.html">CompileResponse</a>&gt;</td>
+        <td><p>Task of CompileResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealCompileAsync_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealCompileAsyncWithHttpInfo_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealCompileAsyncWithHttpInfo(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L567">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealCompileAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompileAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealCompileAsyncWithHttpInfo_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompileAsyncWithHttpInfo(System.Byte[])">TealCompileAsyncWithHttpInfo(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Compile TEAL source code to binary, produce its hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;CompileResponse&gt;&gt; TealCompileAsyncWithHttpInfo(byte[] source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>TEAL source code to be compiled</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.CompileResponse.html">CompileResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (CompileResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealCompileAsyncWithHttpInfo_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealCompileWithHttpInfo_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealCompileWithHttpInfo(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L265">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealCompileWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompileWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealCompileWithHttpInfo_System_Byte___" data-uid="Algorand.V2.Algod.IDefaultApi.TealCompileWithHttpInfo(System.Byte[])">TealCompileWithHttpInfo(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Compile TEAL source code to binary, produce its hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;CompileResponse&gt; TealCompileWithHttpInfo(byte[] source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>TEAL source code to be compiled</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.CompileResponse.html">CompileResponse</a>&gt;</td>
+        <td><p>ApiResponse of CompileResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealCompileWithHttpInfo_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style).</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealDryrun_Algorand_V2_Model_DryrunRequest_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealDryrun(Algorand.V2.Model.DryrunRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L275">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealDryrun_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrun*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealDryrun_Algorand_V2_Model_DryrunRequest_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrun(Algorand.V2.Model.DryrunRequest)">TealDryrun(DryrunRequest)</h4>
+  <div class="markdown level1 summary"><p>Provide debugging information for a transaction (or group).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DryrunResponse TealDryrun(DryrunRequest request = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.DryrunRequest.html">DryrunRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>Transaction (or group) and any accompanying state-simulation data. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.DryrunResponse.html">DryrunResponse</a></td>
+        <td><p>DryrunResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealDryrun_Algorand_V2_Model_DryrunRequest__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes TEAL program(s) in context and returns debugging information about the execution.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealDryrunAsync_Algorand_V2_Model_DryrunRequest_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealDryrunAsync(Algorand.V2.Model.DryrunRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L577">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealDryrunAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrunAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealDryrunAsync_Algorand_V2_Model_DryrunRequest_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrunAsync(Algorand.V2.Model.DryrunRequest)">TealDryrunAsync(DryrunRequest)</h4>
+  <div class="markdown level1 summary"><p>Provide debugging information for a transaction (or group).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;DryrunResponse&gt; TealDryrunAsync(DryrunRequest request = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.DryrunRequest.html">DryrunRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>Transaction (or group) and any accompanying state-simulation data. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.DryrunResponse.html">DryrunResponse</a>&gt;</td>
+        <td><p>Task of DryrunResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealDryrunAsync_Algorand_V2_Model_DryrunRequest__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes TEAL program(s) in context and returns debugging information about the execution.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealDryrunAsyncWithHttpInfo_Algorand_V2_Model_DryrunRequest_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealDryrunAsyncWithHttpInfo(Algorand.V2.Model.DryrunRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L588">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealDryrunAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrunAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealDryrunAsyncWithHttpInfo_Algorand_V2_Model_DryrunRequest_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrunAsyncWithHttpInfo(Algorand.V2.Model.DryrunRequest)">TealDryrunAsyncWithHttpInfo(DryrunRequest)</h4>
+  <div class="markdown level1 summary"><p>Provide debugging information for a transaction (or group).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;DryrunResponse&gt;&gt; TealDryrunAsyncWithHttpInfo(DryrunRequest request = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.DryrunRequest.html">DryrunRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>Transaction (or group) and any accompanying state-simulation data. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.DryrunResponse.html">DryrunResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (DryrunResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealDryrunAsyncWithHttpInfo_Algorand_V2_Model_DryrunRequest__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes TEAL program(s) in context and returns debugging information about the execution.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TealDryrunWithHttpInfo_Algorand_V2_Model_DryrunRequest_.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TealDryrunWithHttpInfo(Algorand.V2.Model.DryrunRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L286">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TealDryrunWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrunWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TealDryrunWithHttpInfo_Algorand_V2_Model_DryrunRequest_" data-uid="Algorand.V2.Algod.IDefaultApi.TealDryrunWithHttpInfo(Algorand.V2.Model.DryrunRequest)">TealDryrunWithHttpInfo(DryrunRequest)</h4>
+  <div class="markdown level1 summary"><p>Provide debugging information for a transaction (or group).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;DryrunResponse&gt; TealDryrunWithHttpInfo(DryrunRequest request = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.DryrunRequest.html">DryrunRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>Transaction (or group) and any accompanying state-simulation data. (optional)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.DryrunResponse.html">DryrunResponse</a>&gt;</td>
+        <td><p>ApiResponse of DryrunResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_TealDryrunWithHttpInfo_Algorand_V2_Model_DryrunRequest__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes TEAL program(s) in context and returns debugging information about the execution.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TransactionParams.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TransactionParams%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L295">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TransactionParams_" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParams*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TransactionParams" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParams">TransactionParams()</h4>
+  <div class="markdown level1 summary"><p>Get parameters for constructing a new transaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TransactionParametersResponse TransactionParams()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.TransactionParametersResponse.html">TransactionParametersResponse</a></td>
+        <td><p>TransactionParametersResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TransactionParamsAsync.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TransactionParamsAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L597">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TransactionParamsAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParamsAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TransactionParamsAsync" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParamsAsync">TransactionParamsAsync()</h4>
+  <div class="markdown level1 summary"><p>Get parameters for constructing a new transaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;TransactionParametersResponse&gt; TransactionParamsAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.TransactionParametersResponse.html">TransactionParametersResponse</a>&gt;</td>
+        <td><p>Task of TransactionParametersResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TransactionParamsAsyncWithHttpInfo.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TransactionParamsAsyncWithHttpInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L607">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TransactionParamsAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParamsAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TransactionParamsAsyncWithHttpInfo" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParamsAsyncWithHttpInfo">TransactionParamsAsyncWithHttpInfo()</h4>
+  <div class="markdown level1 summary"><p>Get parameters for constructing a new transaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;TransactionParametersResponse&gt;&gt; TransactionParamsAsyncWithHttpInfo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionParametersResponse.html">TransactionParametersResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (TransactionParametersResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_TransactionParamsWithHttpInfo.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.TransactionParamsWithHttpInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L305">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_TransactionParamsWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParamsWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_TransactionParamsWithHttpInfo" data-uid="Algorand.V2.Algod.IDefaultApi.TransactionParamsWithHttpInfo">TransactionParamsWithHttpInfo()</h4>
+  <div class="markdown level1 summary"><p>Get parameters for constructing a new transaction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;TransactionParametersResponse&gt; TransactionParamsWithHttpInfo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.TransactionParametersResponse.html">TransactionParametersResponse</a>&gt;</td>
+        <td><p>ApiResponse of TransactionParametersResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_WaitForBlock_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.WaitForBlock(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L315">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_WaitForBlock_" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlock*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_WaitForBlock_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlock(System.Nullable{System.Int64})">WaitForBlock(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets the node status after waiting for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NodeStatusResponse WaitForBlock(long? round)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round to wait until returning status</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a></td>
+        <td><p>NodeStatusResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_WaitForBlock_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Waits for a block to appear after round {round} and returns the node's status at the time.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_WaitForBlockAsync_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.WaitForBlockAsync(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L617">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_WaitForBlockAsync_" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlockAsync*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_WaitForBlockAsync_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlockAsync(System.Nullable{System.Int64})">WaitForBlockAsync(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets the node status after waiting for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;NodeStatusResponse&gt; WaitForBlockAsync(long? round)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round to wait until returning status</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a>&gt;</td>
+        <td><p>Task of NodeStatusResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_WaitForBlockAsync_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Waits for a block to appear after round {round} and returns the node's status at the time.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_WaitForBlockAsyncWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.WaitForBlockAsyncWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L628">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_WaitForBlockAsyncWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlockAsyncWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_WaitForBlockAsyncWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlockAsyncWithHttpInfo(System.Nullable{System.Int64})">WaitForBlockAsyncWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets the node status after waiting for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ApiResponse&lt;NodeStatusResponse&gt;&gt; WaitForBlockAsyncWithHttpInfo(long? round)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round to wait until returning status</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a>&gt;&gt;</td>
+        <td><p>Task of ApiResponse (NodeStatusResponse)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_WaitForBlockAsyncWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Waits for a block to appear after round {round} and returns the node's status at the time.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi_WaitForBlockWithHttpInfo_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi.WaitForBlockWithHttpInfo(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L326">View Source</a>
+  </span>
+  <a id="Algorand_V2_Algod_IDefaultApi_WaitForBlockWithHttpInfo_" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlockWithHttpInfo*"></a>
+  <h4 id="Algorand_V2_Algod_IDefaultApi_WaitForBlockWithHttpInfo_System_Nullable_System_Int64__" data-uid="Algorand.V2.Algod.IDefaultApi.WaitForBlockWithHttpInfo(System.Nullable{System.Int64})">WaitForBlockWithHttpInfo(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets the node status after waiting for the given round.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ApiResponse&lt;NodeStatusResponse&gt; WaitForBlockWithHttpInfo(long? round)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">round</span></td>
+        <td><p>The round to wait until returning status</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiResponse-1.html">ApiResponse</a>&lt;<a class="xref" href="Algorand.V2.Model.NodeStatusResponse.html">NodeStatusResponse</a>&gt;</td>
+        <td><p>ApiResponse of NodeStatusResponse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Algorand_V2_Algod_IDefaultApi_WaitForBlockWithHttpInfo_System_Nullable_System_Int64___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Waits for a block to appear after round {round} and returns the node's status at the time.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Algorand.Client.ApiException.html">ApiException</a></td>
+        <td><p>Thrown when fails to make API call</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_V2_Algod_IDefaultApi.md&amp;value=---%0Auid%3A%20Algorand.V2.Algod.IDefaultApi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/V2/Algod/DefaultApi.cs/#L24" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
