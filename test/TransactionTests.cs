@@ -25,16 +25,6 @@ namespace test
             return null;
         }
 
-        //private void Assert.AreEqual(Transaction actual, Transaction expected)
-        //{
-        //    Assert.AreEqual(actual, expected);
-        //    Assert.AreEqual(actual.sender, expected.sender);
-        //    Assert.AreEqual(actual.receiver, expected.receiver);
-        //    Assert.AreEqual(actual.amount, expected.amount);
-        //    Assert.AreEqual(actual.lastValid, expected.lastValid);
-        //    Assert.AreEqual(actual.genesisHash, expected.genesisHash);
-        //}
-
         [Test]
         public void testSerialization()
         {
@@ -78,24 +68,6 @@ namespace test
                 new Digest(gh), 100, numDecimal, false, "tst", "testcoin", "website",
                 Encoding.UTF8.GetBytes(metadataHash), manager, reserve, freeze, clawback);
 
-            //Transaction tx = Transaction.AssetCreateTransactionBuilder()
-            //        .sender(sender)
-            //        .fee(10)
-            //        .firstValid(322575)
-            //        .lastValid(323575)
-            //        .genesisHash(gh)
-            //        .assetTotal(100)
-            //        .assetDecimals(numDecimal)
-            //        .assetUnitName("tst")
-            //        .assetName("testcoin")
-            //        .url("website")
-            //        .metadataHashUTF8(metadataHash)
-            //        .manager(manager)
-            //        .reserve(reserve)
-            //        .freeze(freeze)
-            //        .clawback(clawback)
-            //        .build();
-
             Transaction.AssetParams expectedParams = new Transaction.AssetParams(100, numDecimal, false, "tst", "testcoin",
                 "website", Encoding.UTF8.GetBytes(metadataHash), manager, reserve, freeze, clawback);
 
@@ -126,20 +98,6 @@ namespace test
                 new Transaction.AssetParams(100, 3, false, "tst", "testcoin", "website",
                     Encoding.UTF8.GetBytes(badMetadataHash), manager, reserve, freeze, clawback);
             });
-            //Assert.AreEqualThrownBy(()-> new AssetParams(
-            //        100),
-            //        3,
-            //        false,
-            //        "tst",
-            //        "testcoin",
-            //        "website",
-            //        badMetadataHash.getBytes(StandardCharsets.UTF_8),
-            //        manager,
-            //        reserve,
-            //        freeze,
-            //        clawback))
-            //    .isInstanceOf(RuntimeException)
-            //.hasMessageContaining("asset metadataHash '" + badMetadataHash + "' is not base64 encoded");
             Assert.AreEqual(ex.Message, "asset metadataHash '" + badMetadataHash + "' is not base64 encoded");
 
 
@@ -149,21 +107,6 @@ namespace test
                     Encoding.UTF8.GetBytes(tooLongMetadataHash), manager, reserve, freeze, clawback);
             });
             Assert.AreEqual(ex2.Message, "asset metadataHash cannot be greater than 32 bytes");
-
-            //    Assert.AreEqualThrownBy(()-> new AssetParams(
-            //        100),
-            //    3,
-            //    false,
-            //    "tst",
-            //    "testcoin",
-            //    "website",
-            //    tooLongMetadataHash.getBytes(StandardCharsets.UTF_8),
-            //    manager,
-            //    reserve,
-            //    freeze,
-            //    clawback))
-            //.isInstanceOf(RuntimeException)
-            //        .hasMessageContaining("asset metadataHash cannot be greater than 32 bytes");
         }
 
         [Test]
@@ -472,6 +415,8 @@ namespace test
 
             Transaction tx = Transaction.CreateAssetAcceptTransaction(recipient, 10, firstValidRound, lastValidRound,
                 null, null, new Digest(gh), assetIndex);
+            tx.fee = 10;
+            Account.SetFeeByFeePerByte(tx, 10);
 
             byte[] outBytes = Encoder.EncodeToMsgPack(tx);
             Transaction o = Encoder.DecodeFromMsgPack<Transaction>(outBytes);

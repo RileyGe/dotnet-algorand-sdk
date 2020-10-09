@@ -358,6 +358,54 @@ namespace Algorand
                         var trans = instance as Transaction;
                         return !trans.freezeTarget.Equals(new Address());
                     };
+                }else if(property.PropertyType == typeof(List<byte[]>) && property.PropertyName == "apaa")
+                {
+                    property.ShouldSerialize = instance => {
+                        var trans = instance as Transaction;
+                        return !(trans.applicationArgs is null || trans.applicationArgs.Count < 1);
+                    };
+                }
+                else if (property.PropertyType == typeof(List<long>) && property.PropertyName == "apas")
+                {
+                    property.ShouldSerialize = instance => {
+                        var trans = instance as Transaction;
+                        return !(trans.foreignAssets is null || trans.foreignAssets.Count < 1);
+                    };
+                }
+                else if (property.PropertyType == typeof(List<long>) && property.PropertyName == "apfa")
+                {
+                    property.ShouldSerialize = instance => {
+                        var trans = instance as Transaction;
+                        return !(trans.foreignApps is null || trans.foreignApps.Count < 1);
+                    };
+                }
+                else if (property.PropertyType == typeof(List<Address>) && property.PropertyName == "apat")
+                {
+                    property.ShouldSerialize = instance => {
+                        var trans = instance as Transaction;
+                        return !(trans.accounts is null || trans.accounts.Count < 1);
+                    };
+                }
+                else if (property.PropertyType == typeof(V2.Model.StateSchema) && property.PropertyName == "apgs")
+                {
+                    property.ShouldSerialize = instance => {
+                        var trans = instance as Transaction;
+                        return !trans.globalStateSchema.Equals(new V2.Model.StateSchema());
+                    };
+                }
+                else if (property.PropertyType == typeof(V2.Model.StateSchema) && property.PropertyName == "apls")
+                {
+                    property.ShouldSerialize = instance => {
+                        var trans = instance as Transaction;
+                        return !trans.localStateSchema.Equals(new V2.Model.StateSchema());
+                    };
+                }
+                else if (property.PropertyType == typeof(Address) && property.PropertyName == "rekey")
+                {
+                    property.ShouldSerialize = instance => {
+                        var trans = instance as Transaction;
+                        return !trans.RekeyTo.Equals(new Address());
+                    };
                 }
             }
             else if(property.DeclaringType == typeof(MultisigSignature))

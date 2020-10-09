@@ -34,7 +34,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="numByteSlice">Maximum number of TEAL byte slices that may be stored in the key/value store. (required).</param>
         /// <param name="numUint">Maximum number of TEAL uints that may be stored in the key/value store. (required).</param>
-        public StateSchema(ulong? numByteSlice = default, ulong? numUint = default)
+        public StateSchema(ulong? numByteSlice = 0, ulong? numUint = 0)
         {
             // to ensure "numByteSlice" is required (not null)
             if (numByteSlice == null)

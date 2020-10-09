@@ -27,37 +27,38 @@ namespace Algorand.V2.Model
     /// \\[apan\\] defines the what additional actions occur with the transaction.  Valid types: * noop * optin * closeout * clear * update * update * delete
     /// </summary>
     /// <value>\\[apan\\] defines the what additional actions occur with the transaction.  Valid types: * noop * optin * closeout * clear * update * update * delete</value>
-    [JsonConverter(typeof(StringEnumConverter))]
-        public enum OnCompletion
+    //[JsonConverter(typeof(StringEnumConverter))]
+    public enum OnCompletion
     {
         /// <summary>
         /// Enum Noop for value: noop
         /// </summary>
         [EnumMember(Value = "noop")]
-        Noop = 1,
+        Noop = 0,
         /// <summary>
         /// Enum Optin for value: optin
         /// </summary>
         [EnumMember(Value = "optin")]
-        Optin = 2,
+        Optin = 1,
         /// <summary>
         /// Enum Closeout for value: closeout
         /// </summary>
         [EnumMember(Value = "closeout")]
-        Closeout = 3,
+        Closeout = 2,
         /// <summary>
         /// Enum Clear for value: clear
         /// </summary>
         [EnumMember(Value = "clear")]
-        Clear = 4,
+        Clear = 3,
         /// <summary>
         /// Enum Update for value: update
         /// </summary>
         [EnumMember(Value = "update")]
-        Update = 5,
+        Update = 4,
         /// <summary>
         /// Enum Delete for value: delete
         /// </summary>
         [EnumMember(Value = "delete")]
-        Delete = 6    }
+        Delete = 5
+    }
 }

@@ -77,7 +77,19 @@ namespace Algorand
                 throw new Exception("The Transaction Params can not be null!");
             return GetPaymentTransactionWithInfo(from, to, amount, message, trans.Fee, trans.LastRound, trans.GenesisID, trans.Genesishashb64);
         }
-        private static Transaction GetPaymentTransactionWithInfo(Address from, Address to, ulong? amount, string message, 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="amount"></param>
+        /// <param name="message"></param>
+        /// <param name="fee"></param>
+        /// <param name="lastRound"></param>
+        /// <param name="genesisId"></param>
+        /// <param name="genesishashb64"></param>
+        /// <returns></returns>
+        public static Transaction GetPaymentTransactionWithInfo(Address from, Address to, ulong? amount, string message, 
             ulong? fee, ulong? lastRound, string genesisId, string genesishashb64)
         {
             var notes = Encoding.UTF8.GetBytes(message);
@@ -415,6 +427,35 @@ namespace Algorand
             };
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
+        }
+        public static Transaction GetApplicationTransaction(Address sender, long firstValid, long lastValid, string genesishashb64, 
+            OnCompletion onCompletion, long applicationId, List<byte[]> applicationArgs, List<Address> accounts, List<long> foreignApps, List<long> foreignAssets)
+        {
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong)firstValid,
+                lastValid = (ulong)lastValid,
+                genesisHash = new Digest(genesishashb64)
+            };
+
+            // Global requirements
+            //Objects.requireNonNull(onCompletion, "OnCompletion is required, please file a bug report.");
+            //Objects.requireNonNull(applicationId);
+            //JavaHelper<long>.RequireNotNull()
+
+            if (applicationId >= 0) txn.applicationId = applicationId;
+            else throw new ArgumentException("Please set right application Id.");
+            //if (onCompletion != new OnCompletion()) 
+                txn.onCompletion = onCompletion;
+            //else throw new ArgumentException("OnCompletion is required, please file a bug report.");
+            if (applicationArgs != null) txn.applicationArgs = applicationArgs;
+            if (accounts != null) txn.accounts = accounts;
+            if (foreignApps != null) txn.foreignApps = foreignApps;
+            if (foreignAssets != null) txn.foreignAssets = foreignAssets;
+            return txn;
+
         }
         ///// <summary>
         ///// 

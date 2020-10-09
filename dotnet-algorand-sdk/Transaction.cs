@@ -5,6 +5,7 @@ using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
+using Algorand.V2.Model;
 
 namespace Algorand
 {
@@ -44,7 +45,8 @@ namespace Algorand
         [JsonIgnore]
         private byte[] _note;
         [JsonProperty(PropertyName = "note")]
-        public byte[] note {
+        public byte[] note
+        {
             get
             {
                 return _note;
@@ -81,6 +83,8 @@ namespace Algorand
                     _lease = value;
             }
         }
+        [JsonProperty("rekey")]
+        public Address RekeyTo = new Address();
 
         /* payment fields  *********************************************************/
         //@JsonProperty("amt")
@@ -175,6 +179,36 @@ namespace Algorand
         [JsonProperty(PropertyName = "afrz")]
         [DefaultValue(false)]
         public bool freezeState = false;
+        /* application fields */
+        [JsonProperty(PropertyName = "apaa")]
+        public List<byte[]> applicationArgs = new List<byte[]>();
+
+        [JsonProperty(PropertyName = "apan")]
+        public OnCompletion onCompletion = OnCompletion.Noop;
+
+        [JsonProperty(PropertyName = "apap")]
+        public TEALProgram approvalProgram = null;
+
+        [JsonProperty(PropertyName = "apat")]
+        public List<Address> accounts = new List<Address>();
+
+        [JsonProperty(PropertyName = "apfa")]
+        public List<long> foreignApps = new List<long>();
+
+        [JsonProperty(PropertyName = "apas")]
+        public List<long> foreignAssets = new List<long>();
+
+        [JsonProperty(PropertyName = "apgs")]
+        public StateSchema globalStateSchema = new StateSchema();
+
+        [JsonProperty(PropertyName = "apid")]
+        public long applicationId = 0L;
+
+        [JsonProperty(PropertyName = "apls")]
+        public StateSchema localStateSchema = new StateSchema();
+
+        [JsonProperty(PropertyName = "apsu")]
+        public TEALProgram clearStateProgram = null;
         /// <summary>
         /// Create a payment transaction
         /// </summary>
@@ -189,7 +223,8 @@ namespace Algorand
 
         public Transaction(Address fromAddr, Address toAddr, ulong? fee, ulong? amount, ulong? firstRound, ulong? lastRound,
                            string genesisID, Digest genesisHash) : this(fromAddr, fee, firstRound, lastRound, null, amount,
-                               toAddr, genesisID, genesisHash) { }
+                               toAddr, genesisID, genesisHash)
+        { }
         public Transaction() { }
         /// <summary>
         /// Create a payment transaction. Make sure to sign with a suggested fee.
@@ -201,12 +236,14 @@ namespace Algorand
         /// <param name="lastRound">last valid round</param>
         /// <param name="genesisID">genesis id</param>
         /// <param name="genesisHash">genesis hash</param>
-        public Transaction(Address fromAddr, Address toAddr, ulong? amount, ulong? firstRound, ulong? lastRound, string genesisID, Digest genesisHash) : 
-            this(fromAddr, 0, firstRound, lastRound, null, amount, toAddr, genesisID, genesisHash) { }
+        public Transaction(Address fromAddr, Address toAddr, ulong? amount, ulong? firstRound, ulong? lastRound, string genesisID, Digest genesisHash) :
+            this(fromAddr, 0, firstRound, lastRound, null, amount, toAddr, genesisID, genesisHash)
+        { }
 
         public Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note, ulong? amount,
             Address receiver, string genesisID, Digest genesisHash) : this(sender, fee, firstValid, lastValid, note,
-                genesisID, genesisHash, amount, receiver, new Address()) { }
+                genesisID, genesisHash, amount, receiver, new Address())
+        { }
 
         public Transaction(Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note, String genesisID, Digest genesisHash,
                            ulong? amount, Address receiver, Address closeRemainderTo)
@@ -294,7 +331,7 @@ namespace Algorand
             if (genesisHash != null) this.genesisHash = genesisHash;
 
             this.assetParams = new AssetParams(assetTotal, assetDecimals, defaultFrozen, assetUnitName, assetName, url, metadataHash, manager, reserve, freeze, clawback);
-        }        
+        }
         /// <summary>
         /// Base constructor with flat fee for asset xfer/freeze/destroy transactions.
         /// </summary>
@@ -364,6 +401,7 @@ namespace Algorand
                             [JsonProperty(PropertyName = "gen")] String genesisID,
                             [JsonProperty(PropertyName = "gh")] byte[] genesisHash,
                             [JsonProperty(PropertyName = "lx")] byte[] lease,
+                            [JsonProperty(PropertyName = "rekey")] byte[] rekeyTo,
                             [JsonProperty(PropertyName = "grp")] byte[] group,
                             // payment fields
                             [JsonProperty(PropertyName = "amt")] ulong? amount,
@@ -389,7 +427,7 @@ namespace Algorand
                             [JsonProperty(PropertyName = "faid")] ulong? assetFreezeID,
                             [JsonProperty(PropertyName = "afrz")] bool freezeState) : this(
                                 type, new Address(sender), fee, firstValid, lastValid, note,
-                                genesisID, new Digest(genesisHash), lease, new Digest(group),               // payment fields
+                                genesisID, new Digest(genesisHash), lease, null, new Digest(group),               // payment fields
                                 amount, new Address(receiver), new Address(closeRemainderTo),               // keyreg fields
                                 new ParticipationPublicKey(votePK), new VRFPublicKey(vrfPK),
                                 voteFirst, voteLast, voteKeyDilution,
@@ -397,16 +435,19 @@ namespace Algorand
                                 assetParams, assetIndex,
                                 // asset transfer fields
                                 xferAsset, assetAmount, new Address(assetSender), new Address(assetReceiver),
-                                new Address(assetCloseTo), new Address(freezeTarget), assetFreezeID, freezeState)
+                                new Address(assetCloseTo), new Address(freezeTarget), assetFreezeID, freezeState,
+                                null, default(long), null, null, null, null, null, default(long), null, null)
         { }
 
-        /**
-         * This is the private constructor which takes all the fields of Transaction
-         **/
+        /// <summary>
+        /// Constructor which takes all the fields of Transaction.
+        /// For details about which fields to use with different transaction types, refer to the developer documentation:
+        /// https://developer.algorand.org/docs/reference/transactions/#asset-transfer-transaction
+        /// </summary>
         private Transaction(Type type,
                             //header fields
-                            Address sender, ulong? fee, ulong? firstValid, ulong? lastValid,
-                            byte[] note, String genesisID, Digest genesisHash, byte[] lease, Digest group,
+                            Address sender, ulong? fee, ulong? firstValid, ulong? lastValid, byte[] note,
+                            string genesisID, Digest genesisHash, byte[] lease, Address rekeyTo, Digest group,
                             // payment fields
                             ulong? amount, Address receiver, Address closeRemainderTo,
                             // keyreg fields
@@ -417,7 +458,11 @@ namespace Algorand
                             AssetParams assetParams, ulong? assetIndex,
                             // asset transfer fields
                             ulong? xferAsset, ulong? assetAmount, Address assetSender, Address assetReceiver,
-                            Address assetCloseTo, Address freezeTarget, ulong? assetFreezeID, bool freezeState)
+                            Address assetCloseTo, Address freezeTarget, ulong? assetFreezeID, bool freezeState,
+                            // application fields
+                            List<byte[]> applicationArgs, OnCompletion onCompletion, TEALProgram approvalProgram, List<Address> accounts,
+                            List<long> foreignApps, List<long> foreignAssets, StateSchema globalStateSchema, long applicationId,
+                            StateSchema localStateSchema, TEALProgram clearStateProgram)
         {
             this.type = type;
             if (sender != null) this.sender = sender;
@@ -472,6 +517,19 @@ namespace Algorand
 
             if (assetFreezeID != null) this.assetFreezeID = assetFreezeID;
             this.freezeState = freezeState;
+
+            if (rekeyTo != null) this.RekeyTo = rekeyTo;
+            if (applicationArgs != null) this.applicationArgs = applicationArgs;
+            if (onCompletion != null) this.onCompletion = onCompletion;
+            if (approvalProgram != null) this.approvalProgram = approvalProgram;
+            if (accounts != null) this.accounts = accounts;
+            if (foreignApps != null) this.foreignApps = foreignApps;
+            if (foreignAssets != null) this.foreignAssets = foreignAssets;
+            if (globalStateSchema != null) this.globalStateSchema = globalStateSchema;
+            if (applicationId != null) this.applicationId = applicationId;
+            if (localStateSchema != null) this.localStateSchema = globalStateSchema;
+            if (clearStateProgram != null) this.clearStateProgram = clearStateProgram;
+
         }
         /// <summary>
         /// Create an asset creation transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
@@ -507,8 +565,8 @@ namespace Algorand
                     manager, reserve, freeze, clawback);
             Account.SetFeeByFeePerByte(tx, fee);
             return tx;
-        }        
-        
+        }
+
         /// <summary>
         /// Create an asset configuration transaction. Note can be null. manager, reserve, freeze, and clawback can be zeroed.
         /// </summary>
@@ -566,7 +624,7 @@ namespace Algorand
             return tx;
         }
 
-        
+
         /// <summary>
         /// Creates a tx to mark the account as willing to accept the asset.
         /// </summary>
@@ -676,7 +734,7 @@ namespace Algorand
             tx.freezeState = freezeState;
             Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
-        }        
+        }
         /// <summary>
         /// Creates a tx for revoking an asset from an account and sending it to another
         /// </summary>
@@ -722,7 +780,7 @@ namespace Algorand
             if (assetIndex != null) tx.xferAsset = assetIndex;
             Account.SetFeeByFeePerByte(tx, flatFee);
             return tx;
-        }        
+        }
         /// <summary>
         /// Creates a tx for sending some asset from an asset holder to another user.
         /// The asset receiver must have marked itself as willing to accept the asset.
@@ -808,7 +866,7 @@ namespace Algorand
                     //header fields
                     sender, fee, firstValid, lastValid, note, genesisID, genesisHash, null, null,
                     // payment fields
-                    null, null, null,
+                    null, null, null, null,
                     // keyreg fields
                     votePK, vrfPK, voteFirst, voteLast,
                     // voteKeyDilution
@@ -817,7 +875,8 @@ namespace Algorand
                     null, null,
                     // asset transfer fields
                     null, null, null, null, null, null, null,
-                    false /*default value which wont be included in the serialized object.*/);
+                    false, /*default value which wont be included in the serialized object.*/
+                    null, default(long), null, null, null, null, null, default(long), null, null);
         }
 
         ///
@@ -833,10 +892,11 @@ namespace Algorand
             public static readonly Type AssetConfig = new Type(3);
             public static readonly Type AssetTransfer = new Type(4);
             public static readonly Type AssetFreeze = new Type(5);
+            public static readonly Type ApplicationCall = new Type(6);
 
             private static Dictionary<string, int> namesMap = new Dictionary<string, int> {
                 {"", 0 }, {"pay", 1}, {"keyreg", 2},
-                { "acfg", 3}, {"axfer", 4}, { "afrz", 5}
+                { "acfg", 3}, {"axfer", 4}, { "afrz", 5}, { "appl", 6}
             };
             /// <summary>
             /// Return the enumeration for the given string value. Required for JSON serialization.
@@ -1117,7 +1177,7 @@ namespace Algorand
                     new Address(assetManager), new Address(assetReserve), new Address(assetFreeze), new Address(assetClawback))
             { }
         }
-    }    
+    }
     /// 
     /// A serializable convenience type for packaging transactions with their signatures.
     /// 
@@ -1138,7 +1198,8 @@ namespace Algorand
 
         [JsonProperty(PropertyName = "sgnr")]
         public Address authAddr = new Address();
-        public void SetAuthAddr(byte[] sigAddr) {
+        public void SetAuthAddr(byte[] sigAddr)
+        {
             authAddr = new Address(sigAddr);
         }
 
@@ -1189,7 +1250,7 @@ namespace Algorand
                 if (!authAddr.Equals(actual.authAddr)) return false;
                 return this.mSig.Equals(actual.mSig);
             }
-            return false;            
+            return false;
         }
         public override int GetHashCode()
         {

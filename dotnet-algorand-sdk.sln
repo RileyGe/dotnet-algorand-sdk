@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-algorand-sdk", "dotn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sdk-examples", "sdk-examples\sdk-examples.csproj", "{975A2D0B-C93D-4740-BE14-4EACC45A5452}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{7F1BD378-E0F0-44F6-A015-13CEFCA4A4D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{7F1BD378-E0F0-44F6-A015-13CEFCA4A4D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
