@@ -381,19 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.ByteConstBlock.html",
-          "hash": "Vo+bFLQXLQ1acuSu5y83VA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Algorand.BytesConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Algorand.BytesConverter.html",
-          "hash": "YUNPF/U28+9tfK4q6gOaDw=="
+          "hash": "jGLUeB0ifFNX/eOlbRUdew=="
         }
       },
       "is_incremental": false,
@@ -549,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.IntConstBlock.html",
-          "hash": "EF+QDDnEvJtlX1bcvaYw1g=="
+          "hash": "rqDdhV4MhAkrhRztqbFoiA=="
         }
       },
       "is_incremental": false,
@@ -1305,7 +1293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.LogicsigSignature.html",
-          "hash": "XDJOUvQPV0ejQRdx9IvuzA=="
+          "hash": "3LFzykly4v5aC6ZouVL5qQ=="
         }
       },
       "is_incremental": false,
@@ -1337,23 +1325,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Algorand.MultisigAddressConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Algorand.MultisigAddressConverter.html",
-          "hash": "HJpr0BgSkCvRZXU8xsT4HA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Algorand.MultisigSignature.yml",
       "output": {
         ".html": {
           "relative_path": "api/Algorand.MultisigSignature.html",
-          "hash": "XmOBXVWQNfbfdlgIZ6ldOA=="
+          "hash": "ktABYLM7bczKE/YHU+XCoQ=="
         }
       },
       "is_incremental": false,
@@ -1365,7 +1341,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.MultisigSubsig.html",
-          "hash": "BYOAxAlS3dZ3Nqkft1Ki1g=="
+          "hash": "662yWYldr+CUwxUdKw7T/w=="
         }
       },
       "is_incremental": false,
@@ -1377,7 +1353,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.ParticipationPublicKey.html",
-          "hash": "7zBY3VC3Sn2KPkgOF6HjbA=="
+          "hash": "9Lb1RbZrDGwimOqPEnIYjA=="
         }
       },
       "is_incremental": false,
@@ -1389,7 +1365,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.ProgramData.html",
-          "hash": "9tR8GTCV/tspM08emdwimw=="
+          "hash": "tpOOqlcxypzTp68zDmBRwg=="
         }
       },
       "is_incremental": false,
@@ -1401,7 +1377,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.Signature.html",
-          "hash": "zUR1+o95VtQGAWU6CebBuQ=="
+          "hash": "ja91+Evi7UOI8IiMpKUTnQ=="
         }
       },
       "is_incremental": false,
@@ -1425,7 +1401,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.SignedTransaction.html",
-          "hash": "3BVtNooO5qMi1/JTAP5lUg=="
+          "hash": "C94+tA+7JGgCOhTaY5sjkw=="
         }
       },
       "is_incremental": false,
@@ -1437,7 +1413,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.TEALProgram.html",
-          "hash": "EDg/4avLDSLcqOLTQQN5AA=="
+          "hash": "pFVKwT/2k7ZyVk0uelZouQ=="
         }
       },
       "is_incremental": false,
@@ -1449,7 +1425,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.Transaction.AssetParams.html",
-          "hash": "tZDpJRWOtD4UD7Wp6V6nxw=="
+          "hash": "yizvtOoO/L7junRtQqXIjA=="
         }
       },
       "is_incremental": false,
@@ -1461,7 +1437,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.Transaction.Type.html",
-          "hash": "CtSuvj3WFFkPDABXdc494Q=="
+          "hash": "39IfqjG0DX1xs6PrGCnRag=="
         }
       },
       "is_incremental": false,
@@ -1473,7 +1449,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.Transaction.html",
-          "hash": "pXqV8fAd1FI+hABAHBBBKQ=="
+          "hash": "07dve/BrfVnOjJLabFp+fA=="
         }
       },
       "is_incremental": false,
@@ -1485,19 +1461,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.TxGroup.html",
-          "hash": "pftBtho3DMEvDZ/E2lhykw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Algorand.Type2StringConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Algorand.Type2StringConverter.html",
-          "hash": "SZnuTdZFNQoFu53qAAuN/Q=="
+          "hash": "iKGfhSKN6Fg6/kbQADWA+g=="
         }
       },
       "is_incremental": false,
@@ -1509,19 +1473,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.Utils.html",
-          "hash": "uVYf01dVFKQjE9LJ1KcxRQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Algorand.Uvarint.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Algorand.Uvarint.html",
-          "hash": "gkRt2uN32w+gXq7o1wuIfQ=="
+          "hash": "6MCrXdHCY5fBUAeQSz/qfg=="
         }
       },
       "is_incremental": false,
@@ -2517,7 +2469,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.VRFPublicKey.html",
-          "hash": "AAEdS4g9zEzWxuExHOq4QA=="
+          "hash": "NOLpZI90PKWQS30qEtGatg=="
         }
       },
       "is_incremental": false,
@@ -2529,19 +2481,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.VarintResult.html",
-          "hash": "MjV6oZojJw1Kq2pKoL2Z+A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Algorand.Wordlist.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Algorand.Wordlist.html",
-          "hash": "GRpNC61RpdSbezbshqMMHQ=="
+          "hash": "ZqXDowRgZ8NSmZ3sfB2xAQ=="
         }
       },
       "is_incremental": false,
@@ -2553,7 +2493,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Algorand.html",
-          "hash": "zDzAFvpRfkt5bXVPe3Nfsw=="
+          "hash": "saCiC2/WTIWM9w2zpa5KLA=="
         }
       },
       "is_incremental": false,
@@ -2577,7 +2517,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "8yQl6OH73kW6Tdx4Me+O7w=="
+          "hash": "z9BugH2ZXgC1jRDRcaOmBw=="
         }
       },
       "is_incremental": false,
@@ -2667,7 +2607,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 213,
+          "total_file_count": 208,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

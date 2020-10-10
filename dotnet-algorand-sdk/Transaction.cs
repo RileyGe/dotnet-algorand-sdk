@@ -9,14 +9,13 @@ using Algorand.V2.Model;
 
 namespace Algorand
 {
-    /// 
+    /// <summary>
     /// A raw serializable transaction class, used to generate transactions to broadcast to the network.
     /// This is distinct from algod.model.Transaction, which is only returned for GET requests to algod.
-    /// 
+    /// </summary>
     [JsonObject]
     public class Transaction
     {
-        //private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
         private static readonly byte[] TX_SIGN_PREFIX = Encoding.UTF8.GetBytes("TX");
         private const int LEASE_LENGTH = 32;
 
@@ -26,7 +25,7 @@ namespace Algorand
 
         // Instead of embedding POJOs and using JsonUnwrapped, we explicitly export inner fields. This circumvents our encoders'
         // inability to sort child fields.
-        /* header fields ***********************************************************/
+        // header fields ***********************************************************
         [JsonProperty(PropertyName = "snd")]
         public Address sender = new Address();
         //@JsonProperty("fee")
@@ -57,17 +56,14 @@ namespace Algorand
                     _note = value;
             }
         }
-        //@JsonProperty("gen")
+
         [JsonProperty(PropertyName = "gen")]
         [DefaultValue("")]
         public string genesisID = "";
-        //@JsonProperty("gh")
         [JsonProperty(PropertyName = "gh")]
         public Digest genesisHash = new Digest();
-        //@JsonProperty("grp")
         [JsonProperty(PropertyName = "grp")]
         public Digest group = new Digest();
-        //@JsonProperty("lx")
         [JsonIgnore]
         private byte[] _lease;
         [JsonProperty(PropertyName = "lx")]
@@ -87,99 +83,98 @@ namespace Algorand
         public Address RekeyTo = new Address();
 
         /* payment fields  *********************************************************/
-        //@JsonProperty("amt")
         [JsonProperty(PropertyName = "amt")]
         [DefaultValue(0)]
         public ulong? amount = 0;
-        //@JsonProperty("rcv")
         [JsonProperty(PropertyName = "rcv")]
         public Address receiver = new Address();
-        //@JsonProperty("close")
         [JsonProperty(PropertyName = "close")]
         public Address closeRemainderTo = new Address(); // can be null, optional
 
         /* keyreg fields ***********************************************************/
-        // VotePK is the participation public key used in key registration transactions
-        //@JsonProperty("votekey")
+        /// <summary>
+        /// VotePK is the participation public key used in key registration transactions
+        /// </summary>
         [JsonProperty(PropertyName = "votekey")]
         public ParticipationPublicKey votePK = new ParticipationPublicKey();
 
-        // selectionPK is the VRF public key used in key registration transactions
-        //@JsonProperty("selkey")
+        /// <summary>
+        /// selectionPK is the VRF public key used in key registration transactions
+        /// </summary>
         [JsonProperty(PropertyName = "selkey")]
         public VRFPublicKey selectionPK = new VRFPublicKey();
-        // voteFirst is the first round this keyreg tx is valid for
-        //@JsonProperty("votefst")
+        /// <summary>
+        /// voteFirst is the first round this keyreg tx is valid for
+        /// </summary>
         [JsonProperty(PropertyName = "votefst")]
         [DefaultValue(0)]
         public ulong? voteFirst = 0;
 
-        // voteLast is the last round this keyreg tx is valid for
-        //@JsonProperty("votelst")
+        /// <summary>
+        /// voteLast is the last round this keyreg tx is valid for
+        /// </summary>
         [JsonProperty(PropertyName = "votelst")]
         [DefaultValue(0)]
         public ulong? voteLast = 0;
-        // voteKeyDilution
-        //@JsonProperty("votekd")
+        /// <summary>
+        /// voteKeyDilution
+        /// </summary>
         [JsonProperty(PropertyName = "votekd")]
         [DefaultValue(0)]
         public ulong? voteKeyDilution = 0;
 
         /* asset creation and configuration fields *********************************/
-        //@JsonProperty("apar")
         [JsonProperty(PropertyName = "apar")]
         public AssetParams assetParams = new AssetParams();
-        //@JsonProperty("caid")
         [JsonProperty(PropertyName = "caid")]
         [DefaultValue(0)]
         public ulong? assetIndex = 0;
 
         /* asset transfer fields ***************************************************/
-        //@JsonProperty("xaid")
         [JsonProperty(PropertyName = "xaid")]
         [DefaultValue(0)]
         public ulong? xferAsset = 0;
 
-        // The amount of asset to transfer. A zero amount transferred to self
-        // allocates that asset in the account's Assets map.
-        //@JsonProperty("aamt")
+        /// <summary>
+        /// The amount of asset to transfer. A zero amount transferred to self
+        /// allocates that asset in the account's Assets map.
+        /// </summary>
         [JsonProperty(PropertyName = "aamt")]
         [DefaultValue(0)]
         public ulong? assetAmount = 0;
 
-        // The sender of the transfer.  If this is not a zero value, the real
-        // transaction sender must be the Clawback address from the AssetParams. If
-        // this is the zero value, the asset is sent from the transaction's Sender.
-        //@JsonProperty("asnd")
+        /// <summary>
+        /// The sender of the transfer.  If this is not a zero value, the real
+        /// transaction sender must be the Clawback address from the AssetParams. If
+        /// this is the zero value, the asset is sent from the transaction's Sender.
+        /// </summary>
         [JsonProperty(PropertyName = "asnd")]
         public Address assetSender = new Address();
 
-        // The receiver of the transfer.
-        //@JsonProperty("arcv")
+        /// <summary>
+        /// The receiver of the transfer.
+        /// </summary>
         [JsonProperty(PropertyName = "arcv")]
         public Address assetReceiver = new Address();
 
-        // Indicates that the asset should be removed from the account's Assets map,
-        // and specifies where the remaining asset holdings should be transferred.
-        // It's always valid to transfer remaining asset holdings to the AssetID
-        // account.
-        //@JsonProperty("aclose")
+        /// <summary>
+        /// Indicates that the asset should be removed from the account's Assets map,
+        /// and specifies where the remaining asset holdings should be transferred.
+        /// It's always valid to transfer remaining asset holdings to the AssetID account.
+        /// </summary>
         [JsonProperty(PropertyName = "aclose")]
         public Address assetCloseTo = new Address();
 
-        /* asset freeze fields */
-        //@JsonProperty("fadd")
+        /* asset freeze fields******************************************* */
         [JsonProperty(PropertyName = "fadd")]
         public Address freezeTarget = new Address();
-        //@JsonProperty("faid")
         [JsonProperty(PropertyName = "faid")]
         [DefaultValue(0)]
         public ulong? assetFreezeID = 0;
-        //@JsonProperty("afrz")
         [JsonProperty(PropertyName = "afrz")]
         [DefaultValue(false)]
         public bool freezeState = false;
-        /* application fields */
+        /* application fields *********************************************/
         [JsonProperty(PropertyName = "apaa")]
         public List<byte[]> applicationArgs = new List<byte[]>();
 
@@ -388,8 +383,38 @@ namespace Algorand
             this.assetParams = new AssetParams(0, 0, false, "", "", "", null, manager, reserve, freeze, clawback);
             assetIndex = index;
         }
-        // workaround for nested JsonValue classes
-        // @JsonCreator
+        /// <summary>
+        /// workaround for nested JsonValue classes
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="sender"></param>
+        /// <param name="fee"></param>
+        /// <param name="firstValid"></param>
+        /// <param name="lastValid"></param>
+        /// <param name="note"></param>
+        /// <param name="genesisID"></param>
+        /// <param name="genesisHash"></param>
+        /// <param name="lease"></param>
+        /// <param name="rekeyTo"></param>
+        /// <param name="group"></param>
+        /// <param name="amount"></param>
+        /// <param name="receiver"></param>
+        /// <param name="closeRemainderTo"></param>
+        /// <param name="votePK"></param>
+        /// <param name="vrfPK"></param>
+        /// <param name="voteFirst"></param>
+        /// <param name="voteLast"></param>
+        /// <param name="voteKeyDilution"></param>
+        /// <param name="assetParams"></param>
+        /// <param name="assetIndex"></param>
+        /// <param name="xferAsset"></param>
+        /// <param name="assetAmount"></param>
+        /// <param name="assetSender"></param>
+        /// <param name="assetReceiver"></param>
+        /// <param name="assetCloseTo"></param>
+        /// <param name="freezeTarget"></param>
+        /// <param name="assetFreezeID"></param>
+        /// <param name="freezeState"></param>
         [JsonConstructor]
         private Transaction([JsonProperty(PropertyName = "type")] Type type,
                             //header fields
@@ -879,9 +904,9 @@ namespace Algorand
                     null, default(long), null, null, null, null, null, default(long), null, null);
         }
 
-        ///
+        /// <summary>
         /// TxType represents a transaction type.
-        ///
+        /// </summary>
         [JsonConverter(typeof(Type2StringConverter))]
         public class Type
         {
@@ -935,6 +960,10 @@ namespace Algorand
                     return this.type == tp.type;
                 else
                     return false;
+            }
+            public override int GetHashCode()
+            {
+                return base.GetHashCode();
             }
         }
         /// <summary>
@@ -1020,6 +1049,9 @@ namespace Algorand
         {
             return base.GetHashCode();
         }
+        /// <summary>
+        /// Asset Params
+        /// </summary>
         public class AssetParams
         {
             /// <summary>
@@ -1029,53 +1061,72 @@ namespace Algorand
             [DefaultValue(0)]
             public ulong? assetTotal = 0;
 
-            // Decimals specifies the number of digits to display after the decimal
-            // place when displaying this asset. A value of 0 represents an asset
-            // that is not divisible, a value of 1 represents an asset divisible
-            // into tenths, and so on. This value must be between 0 and 19
-            // (inclusive).
+            /// <summary>
+            /// Decimals specifies the number of digits to display after the decimal
+            /// place when displaying this asset. A value of 0 represents an asset
+            /// that is not divisible, a value of 1 represents an asset divisible
+            /// into tenths, and so on. This value must be between 0 and 19(inclusive).
+            /// </summary>
             [JsonProperty(PropertyName = "dc")]
             [DefaultValue(0)]
             public int assetDecimals = 0;
 
-            //// whether each account has their asset slot frozen for this asset by default
+            /// <summary>
+            /// whether each account has their asset slot frozen for this asset by default
+            /// </summary>
             [JsonProperty(PropertyName = "df")]
             [DefaultValue(false)]
             public bool assetDefaultFrozen = false;
 
-            //// a hint to the unit name of the asset
+            /// <summary>
+            /// a hint to the unit name of the asset
+            /// </summary>
             [JsonProperty(PropertyName = "un")]
             [DefaultValue("")]
             public string assetUnitName = "";
 
-            //// the name of the asset
+            /// <summary>
+            /// the name of the asset
+            /// </summary>
             [JsonProperty(PropertyName = "an")]
             [DefaultValue("")]
             public String assetName = "";
 
-            //// URL where more information about the asset can be retrieved
+            /// <summary>
+            /// URL where more information about the asset can be retrieved
+            /// </summary>
             [JsonProperty(PropertyName = "au")]
             [DefaultValue("")]
             public String url = "";
 
-            //// MetadataHash specifies a commitment to some unspecified asset
-            //// metadata. The format of this metadata is up to the application.
+            /// <summary>
+            /// MetadataHash specifies a commitment to some unspecified asset
+            /// metadata. The format of this metadata is up to the application.
+            /// </summary>
             [JsonProperty(PropertyName = "am")]
             public byte[] metadataHash;
 
-            //// the address which has the ability to reconfigure the asset
+            /// <summary>
+            /// the address which has the ability to reconfigure the asset
+            /// </summary>
             [JsonProperty(PropertyName = "m")]
             public Address assetManager = new Address();
 
-            //// the asset reserve: assets owned by this address do not count against circulation
+            /// <summary>
+            /// the asset reserve: assets owned by this address do not count against circulation
+            /// </summary>
             [JsonProperty(PropertyName = "r")]
             public Address assetReserve = new Address();
 
-            //// the address which has the ability to freeze/unfreeze accounts holding this asset
+            /// <summary>
+            /// the address which has the ability to freeze/unfreeze accounts holding this asset
+            /// </summary>
             [JsonProperty(PropertyName = "f")]
             public Address assetFreeze = new Address();
 
-            //// the address which has the ability to issue clawbacks against asset-holding accounts
+            /// <summary>
+            /// the address which has the ability to issue clawbacks against asset-holding accounts
+            /// </summary>
             [JsonProperty(PropertyName = "c")]
             public Address assetClawback = new Address();
 
@@ -1178,9 +1229,9 @@ namespace Algorand
             { }
         }
     }
-    /// 
+    /// <summary>
     /// A serializable convenience type for packaging transactions with their signatures.
-    /// 
+    /// </summary>
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class SignedTransaction
     {

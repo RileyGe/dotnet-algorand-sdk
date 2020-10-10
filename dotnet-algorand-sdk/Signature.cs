@@ -37,7 +37,9 @@ namespace Algorand
             this.Bytes = rawBytes;
         }
 
-        // default values for serializer to ignore
+        /// <summary>
+        /// default values for serializer to ignore
+        /// </summary>
         public Signature()
         {
             Bytes = new byte[ED25519_SIG_SIZE];
@@ -54,6 +56,11 @@ namespace Algorand
             return Bytes.GetHashCode();
         }
     }
+    /// <summary>
+    /// Serializable logicsig class. 
+    /// LogicsigSignature is constructed from a program and optional arguments. 
+    /// Signature sig and MultisigSignature msig property are available for modification by it's clients.
+    /// </summary>
     [JsonObject]
     public class LogicsigSignature
     {
@@ -72,7 +79,13 @@ namespace Algorand
         [JsonProperty(PropertyName = "msig")]
         public MultisigSignature msig;
 
-        //@JsonCreator
+        /// <summary>
+        /// LogicsigSignature
+        /// </summary>
+        /// <param name="logic">Unsigned logicsig object</param>
+        /// <param name="args">Unsigned logicsig object's arguments</param>
+        /// <param name="sig"></param>
+        /// <param name="msig"></param>
         [JsonConstructor]
         public LogicsigSignature(
             [JsonProperty("l")] byte[] logic,
@@ -92,13 +105,16 @@ namespace Algorand
             }
             this.msig = msig;
         }
-
+        /// <summary>
+        /// Uninitialized object used for serializer to ignore default values.
+        /// </summary>
         public LogicsigSignature()
         {
             this.logic = null;
             this.args = null;
         }
         /// <summary>
+        /// alculate escrow address from logic sig program
         /// DEPRECATED
         /// Please use Address property.
         /// The address of the LogicsigSignature
@@ -117,14 +133,21 @@ namespace Algorand
                 return new Address(Digester.Digest(BytesToSign()));
             } 
         }
-
+        /// <summary>
+        /// Return prefixed program as byte array that is ready to sign
+        /// </summary>
+        /// <returns>byte array</returns>
         public byte[] BytesToSign()
         {
             List<byte> prefixedEncoded = new List<byte>(LOGIC_PREFIX);
             prefixedEncoded.AddRange(this.logic);
             return prefixedEncoded.ToArray();
         }
-
+        /// <summary>
+        /// Perform signature verification against the sender address
+        /// </summary>
+        /// <param name="address">Address to verify</param>
+        /// <returns>bool</returns>
         public bool Verify(Address address)
         {
             if (this.logic == null)
@@ -233,6 +256,9 @@ namespace Algorand
             return flag;
         }
     }
+    /// <summary>
+    /// Serializable raw multisig class.
+    /// </summary>
     [JsonObject]
     public class MultisigSignature
     {
@@ -244,9 +270,16 @@ namespace Algorand
 
         [JsonProperty(PropertyName = "subsig")]
         public List<MultisigSubsig> subsigs;
-
+        /// <summary>
+        /// create a multisig signature.
+        /// </summary>
+        /// <param name="version">required</param>
+        /// <param name="threshold">required</param>
+        /// <param name="subsigs">can be empty or null</param>
         [JsonConstructor]
-        public MultisigSignature([JsonProperty(PropertyName = "v")] int version, [JsonProperty(PropertyName = "thr")] int threshold,
+        public MultisigSignature(
+            [JsonProperty(PropertyName = "v")] int version, 
+            [JsonProperty(PropertyName = "thr")] int threshold,
             [JsonProperty(PropertyName = "subsig")] List<MultisigSubsig> subsigs = null)
         {
             this.version = version;
@@ -261,7 +294,11 @@ namespace Algorand
         {
             this.subsigs = new List<MultisigSubsig>();
         }
-
+        /// <summary>
+        /// Performs signature verification
+        /// </summary>
+        /// <param name="message">raw message to verify</param>
+        /// <returns>bool</returns>
         public bool Verify(byte[] message)
         {
             if (this.version == 1 && this.threshold > 0 && this.subsigs.Count != 0)
@@ -329,7 +366,9 @@ namespace Algorand
             return this.version.GetHashCode() + this.threshold.GetHashCode() + this.subsigs.GetHashCode();
         }
     }
-
+    /// <summary>
+    /// Serializable multisig sub-signature
+    /// </summary>
     [JsonObject]
     public class MultisigSubsig
     {
@@ -338,7 +377,11 @@ namespace Algorand
 
         [JsonProperty(PropertyName = "s")]
         public Signature sig;
-
+        /// <summary>
+        /// workaround wrapped json values
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="sig"></param>
         [JsonConstructor]
         public MultisigSubsig([JsonProperty("pk")] byte[] key = null, [JsonProperty("s")] byte[] sig = null)
         {

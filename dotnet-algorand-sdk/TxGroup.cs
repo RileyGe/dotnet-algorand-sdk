@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Algorand
 {
+    /// <summary>
+    /// TxGroup exports computeGroupID and assignGroupID functions
+    /// </summary>
     [JsonObject]
     public class TxGroup
     {
@@ -92,7 +95,10 @@ namespace Algorand
         private TxGroup([JsonProperty(PropertyName = "txlist")] Digest[] txGroupHashes) {
             this.txGroupHashes = txGroupHashes;
         }
-
+        /// <summary>
+        /// Return encoded representation of the transaction with a prefix suitable for signing
+        /// </summary>
+        /// <returns>bytes</returns>
         private byte[] BytesToSign() {
             byte[] encodedTx = Encoder.EncodeToMsgPack(this);
             byte[] prefixEncodedTx = JavaHelper<byte>.ArrayCopyOf(TG_PREFIX, TG_PREFIX.Length + encodedTx.Length);

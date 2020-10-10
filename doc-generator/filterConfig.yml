@@ -1,0 +1,10 @@
+﻿apiRules:
+- exclude:
+    uidRegex: ^Algorand\.BytesConverter$
+- exclude:
+    uidRegex: ^Algorand\.Type2StringConverter$
+- exclude:
+    uidRegex: ^Algorand\.MultisigAddressConverter$
+- exclude:
+    uidRegex: ^Algorand\.Logic\.Uvarint$
+    

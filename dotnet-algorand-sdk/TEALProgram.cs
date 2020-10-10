@@ -3,6 +3,9 @@ using System;
 
 namespace Algorand
 {
+    /// <summary>
+    /// TEALProgram
+    /// </summary>
     public class TEALProgram
     {
         private byte[] program = null;
@@ -15,11 +18,13 @@ namespace Algorand
             }
         }
 
-        // default values for serializer to ignore
+        /// <summary>
+        /// default values for serializer to ignore
+        /// </summary>
         public TEALProgram() { }
 
         /// <summary>
-        /// Initialize a TEALProgram based on the byte array.A runtime exception is thrown if the program is invalid.
+        /// Initialize a TEALProgram based on the byte array.An ArgumentException is thrown if the program is invalid.
         /// </summary>
         /// <param name="program">program</param>
         [JsonConstructor]

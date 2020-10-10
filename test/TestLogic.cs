@@ -115,11 +115,13 @@ namespace test
             byte[] int1 = Enumerable.Repeat((byte)0x22, 10).ToArray();
             //byte[] int1 = new byte[10];
             //Arrays.fill(int1, (byte)0x22);
-            byte[] program2 = new byte[program.Length + int1.Length];
+            var program2 = program.ToList();
+            program2.AddRange(int1);
+            //byte[] program2 = program.ToList().AddRange(int1);
 
-            JavaHelper<byte>.SyatemArrayCopy(program, 0, program2, 0, program.Length);
-            JavaHelper<byte>.SyatemArrayCopy(int1, 0, program2, program.Length, int1.Length);
-            programData = Logic.ReadProgram(program2, args);
+            //JavaHelper<byte>.SyatemArrayCopy(program, 0, program2, 0, program.Length);
+            //JavaHelper<byte>.SyatemArrayCopy(int1, 0, program2, program.Length, int1.Length);
+            programData = Logic.ReadProgram(program2.ToArray(), args);
             Assert.IsTrue(programData.good);
             TestUtil.ContainsExactlyElementsOf(programData.intBlock, new List<int>(new int[] { 1 }));
             Assert.IsEmpty(programData.byteBlock);
@@ -144,13 +146,14 @@ namespace test
             byte[] program = { 0x01, 0x20, 0x01, 0x01, 0x22  // int 1
         };
             byte[] int1 = new byte[1000];
-            byte[] program2 = new byte[program.Length + int1.Length];
+            var program2 = program.ToList();
+            program2.AddRange(int1);
             List<byte[]> args = new List<byte[]>();
 
-            JavaHelper<byte>.SyatemArrayCopy(program, 0, program2, 0, program.Length);
-            JavaHelper<byte>.SyatemArrayCopy(int1, 0, program2, program.Length, int1.Length);
+            //JavaHelper<byte>.SyatemArrayCopy(program, 0, program2, 0, program.Length);
+            //JavaHelper<byte>.SyatemArrayCopy(int1, 0, program2, program.Length, int1.Length);
 
-            var ex = Assert.Throws<ArgumentException>(() => { Logic.CheckProgram(program2, args); });
+            var ex = Assert.Throws<ArgumentException>(() => { Logic.CheckProgram(program2.ToArray(), args); });
             Assert.AreEqual("program too long", ex.Message);
         }
 

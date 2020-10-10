@@ -73,7 +73,8 @@
   
   <h1 id="Algorand_MultisigSignature" data-uid="Algorand.MultisigSignature" class="text-break">Class MultisigSignature
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Serializable raw multisig class.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -112,7 +113,7 @@ public class MultisigSignature</code></pre>
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature__ctor.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L260">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L293">View Source</a>
   </span>
   <a id="Algorand_MultisigSignature__ctor_" data-uid="Algorand.MultisigSignature.#ctor*"></a>
   <h4 id="Algorand_MultisigSignature__ctor" data-uid="Algorand.MultisigSignature.#ctor">MultisigSignature()</h4>
@@ -127,11 +128,12 @@ public class MultisigSignature</code></pre>
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature__ctor_System_Int32_System_Int32_System_Collections_Generic_List_Algorand_MultisigSubsig__.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.%23ctor(System.Int32%2CSystem.Int32%2CSystem.Collections.Generic.List%7BAlgorand.MultisigSubsig%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L248">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L279">View Source</a>
   </span>
   <a id="Algorand_MultisigSignature__ctor_" data-uid="Algorand.MultisigSignature.#ctor*"></a>
   <h4 id="Algorand_MultisigSignature__ctor_System_Int32_System_Int32_System_Collections_Generic_List_Algorand_MultisigSubsig__" data-uid="Algorand.MultisigSignature.#ctor(System.Int32,System.Int32,System.Collections.Generic.List{Algorand.MultisigSubsig})">MultisigSignature(Int32, Int32, List&lt;MultisigSubsig&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>create a multisig signature.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -151,17 +153,20 @@ public MultisigSignature([JsonProperty(PropertyName = &quot;v&quot;)] int versio
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">version</span></td>
-        <td></td>
+        <td><p>required</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">threshold</span></td>
-        <td></td>
+        <td><p>required</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Algorand.MultisigSubsig.html">MultisigSubsig</a>&gt;</td>
         <td><span class="parametername">subsigs</span></td>
-        <td></td>
+        <td><p>can be empty or null</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -172,7 +177,7 @@ public MultisigSignature([JsonProperty(PropertyName = &quot;v&quot;)] int versio
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature_subsigs.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.subsigs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L246">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L272">View Source</a>
   </span>
   <h4 id="Algorand_MultisigSignature_subsigs" data-uid="Algorand.MultisigSignature.subsigs">subsigs</h4>
   <div class="markdown level1 summary"></div>
@@ -202,7 +207,7 @@ public List&lt;MultisigSubsig&gt; subsigs</code></pre>
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature_threshold.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.threshold%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L243">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L269">View Source</a>
   </span>
   <h4 id="Algorand_MultisigSignature_threshold" data-uid="Algorand.MultisigSignature.threshold">threshold</h4>
   <div class="markdown level1 summary"></div>
@@ -232,7 +237,7 @@ public int threshold</code></pre>
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature_version.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.version%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L240">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L266">View Source</a>
   </span>
   <h4 id="Algorand_MultisigSignature_version" data-uid="Algorand.MultisigSignature.version">version</h4>
   <div class="markdown level1 summary"></div>
@@ -264,7 +269,7 @@ public int version</code></pre>
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L318">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L355">View Source</a>
   </span>
   <a id="Algorand_MultisigSignature_Equals_" data-uid="Algorand.MultisigSignature.Equals*"></a>
   <h4 id="Algorand_MultisigSignature_Equals_System_Object_" data-uid="Algorand.MultisigSignature.Equals(System.Object)">Equals(Object)</h4>
@@ -313,7 +318,7 @@ public int version</code></pre>
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature_GetHashCode.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L327">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L364">View Source</a>
   </span>
   <a id="Algorand_MultisigSignature_GetHashCode_" data-uid="Algorand.MultisigSignature.GetHashCode*"></a>
   <h4 id="Algorand_MultisigSignature_GetHashCode" data-uid="Algorand.MultisigSignature.GetHashCode">GetHashCode()</h4>
@@ -345,11 +350,12 @@ public int version</code></pre>
     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature_Verify_System_Byte___.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature.Verify(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L265">View Source</a>
+    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L302">View Source</a>
   </span>
   <a id="Algorand_MultisigSignature_Verify_" data-uid="Algorand.MultisigSignature.Verify*"></a>
   <h4 id="Algorand_MultisigSignature_Verify_System_Byte___" data-uid="Algorand.MultisigSignature.Verify(System.Byte[])">Verify(Byte[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Performs signature verification</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -368,7 +374,8 @@ public int version</code></pre>
       <tr>
         <td><span class="xref">System.Byte</span>[]</td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>raw message to verify</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -383,7 +390,8 @@ public int version</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>bool</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -398,7 +406,7 @@ public int version</code></pre>
                     <a href="https://github.com/RileyGe/dotnet-algorand-sdk/new/master/apiSpec/new?filename=Algorand_MultisigSignature.md&amp;value=---%0Auid%3A%20Algorand.MultisigSignature%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L236" class="contribution-link">View Source</a>
+                    <a href="https://github.com/RileyGe/dotnet-algorand-sdk/blob/master/dotnet-algorand-sdk/Signature.cs/#L262" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

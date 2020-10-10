@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Algorand
 {
-    public class Wordlist
+    internal class Wordlist
     {
         private const string RAW_CHECKSUM = "cancel";
         public static string[] RAW = new string[]{

@@ -36,7 +36,7 @@ namespace test
             {
                 byte[] randKey = new byte[32];
                 r.NextBytes(randKey);
-                string mn = Mnemonic.FromKey(JavaHelper<byte>.ArrayCopyOf(randKey, randKey.Length));
+                string mn = Mnemonic.FromKey(randKey);
                 byte[] regenKey = Mnemonic.ToKey(mn);
                 Assert.AreEqual(regenKey, randKey);
             }
@@ -50,7 +50,7 @@ namespace test
             {
                 byte[] randKey = new byte[32];
                 r.NextBytes(randKey);
-                string mn = Mnemonic.FromKey(JavaHelper<byte>.ArrayCopyOf(randKey, randKey.Length));
+                string mn = Mnemonic.FromKey(randKey);
                 string[] words = mn.Split(" ");
                 string oldWord = words[words.Length - 1];
                 string newWord = oldWord;

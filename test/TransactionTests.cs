@@ -1,6 +1,7 @@
 using Algorand;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Text;
 using Encoder = Algorand.Encoder;
 
@@ -371,10 +372,10 @@ namespace test
             stx2 = new SignedTransaction(tx2, new Signature(), new MultisigSignature(), new LogicsigSignature(), tx2.TxID());
             byte[] stx1Enc = Encoder.EncodeToMsgPack(stx1);
             byte[] stx2Enc = Encoder.EncodeToMsgPack(stx2);
-            byte[] concat = JavaHelper<byte>.ArrayCopyOf(stx1Enc, stx1Enc.Length + stx2Enc.Length);
-            JavaHelper<byte>.SyatemArrayCopy(stx2Enc, 0, concat, stx1Enc.Length, stx2Enc.Length);
+            var concat = stx1Enc.ToList();
+            concat.AddRange(stx2Enc);
 
-            Assert.AreEqual(Convert.ToBase64String(concat), goldenTxg);
+            Assert.AreEqual(Convert.ToBase64String(concat.ToArray()), goldenTxg);
 
             // check assignGroupID
             Transaction[] result = TxGroup.AssignGroupID(tx1, tx2);

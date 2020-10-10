@@ -8,8 +8,17 @@ using AssetParams = Algorand.Algod.Model.AssetParams;
 
 namespace Algorand
 {
+    /// <summary>
+    /// Convenience methods for algorand sdk.
+    /// </summary>
     public class Utils
     {
+        /// <summary>
+        /// wait transaction to complete
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="txID"></param>
+        /// <returns></returns>
         public static string WaitTransactionToComplete(AlgodApi instance, string txID) //throws Exception
         {
             while (true)
@@ -26,6 +35,12 @@ namespace Algorand
                 System.Threading.Thread.Sleep(250);             
             }
         }
+        /// <summary>
+        /// wait transaction to complete using algod v2 api
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="txID"></param>
+        /// <returns></returns>
         public static string WaitTransactionToComplete(V2.AlgodApi instance, string txID) //throws Exception
         {
             while (true)
@@ -43,12 +58,23 @@ namespace Algorand
                 System.Threading.Thread.Sleep(250);
             }
         }
-
+        /// <summary>
+        /// encode and submit signed transaction
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="signedTx"></param>
+        /// <returns></returns>
         public static TransactionID SubmitTransaction(AlgodApi instance, SignedTransaction signedTx) //throws Exception
         {
             byte[] encodedTxBytes = Encoder.EncodeToMsgPack(signedTx);             
             return instance.RawTransaction(encodedTxBytes);
         }
+        /// <summary>
+        /// encode and submit signed transaction using algod v2 api
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="signedTx"></param>
+        /// <returns></returns>
         public static PostTransactionsResponse SubmitTransaction(V2.AlgodApi instance, SignedTransaction signedTx) //throws Exception
         {
             byte[] encodedTxBytes = Encoder.EncodeToMsgPack(signedTx);

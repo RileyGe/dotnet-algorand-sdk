@@ -51,7 +51,7 @@ namespace Algorand
                 //            reader.close();
             }
 
-            VarintResult result = Uvarint.parse(program);
+            VarintResult result = Uvarint.GetUvarint(program);
             int vlen = result.length;
             if (vlen <= 0)
             {
@@ -152,7 +152,7 @@ namespace Algorand
         static int CheckIntConstBlock(byte[] program, int pc)
         {
             int size = 1;
-            VarintResult result = Uvarint.parse(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
+            VarintResult result = Uvarint.GetUvarint(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
             if (result.length <= 0)
             {
                 throw new ArgumentException(string.Format("could not decode int const block at pc=%d", pc));
@@ -168,7 +168,7 @@ namespace Algorand
                     {
                         throw new ArgumentException("int const block exceeds program length");
                     }
-                    result = Uvarint.parse(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
+                    result = Uvarint.GetUvarint(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
                     if (result.length <= 0)
                     {
                         throw new ArgumentException(string.Format("could not decode int const[%d] block at pc=%d", i, pc + size));
@@ -183,7 +183,7 @@ namespace Algorand
         static int CheckByteConstBlock(byte[] program, int pc)
         {
             int size = 1;
-            VarintResult result = Uvarint.parse(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
+            VarintResult result = Uvarint.GetUvarint(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
             if (result.length <= 0)
             {
                 throw new ArgumentException(string.Format("could not decode byte[] const block at pc=%d", pc));
@@ -200,7 +200,7 @@ namespace Algorand
                         throw new ArgumentException("byte[] const block exceeds program length");
                     }
 
-                    result = Uvarint.parse(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
+                    result = Uvarint.GetUvarint(JavaHelper<byte>.ArrayCopyRange(program, pc + size, program.Length));
                     if (result.length <= 0)
                     {
                         throw new ArgumentException(string.Format("could not decode byte[] const[%d] block at pc=%d", i, pc + size));
@@ -483,39 +483,40 @@ namespace Algorand
             }
             return langSpec.EvalMaxVersion;
         }
-    }
-    
-    public class Uvarint
-    {
-        Uvarint()
-        {
-        }
 
-        public static VarintResult parse(byte[] data)
+        public class Uvarint
         {
-            int x = 0;
-            int s = 0;
-
-            for (int i = 0; i < data.Length; ++i)
+            Uvarint()
             {
-                int b = data[i] & 255;
-                if (b < 128)
-                {
-                    if (i <= 9 && (i != 9 || b <= 1))
-                    {
-                        return new VarintResult(x | (b & 255) << s, i + 1);
-                    }
-
-                    return new VarintResult(0, -(i + 1));
-                }
-
-                x |= (b & 127 & 255) << s;
-                s += 7;
             }
 
-            return new VarintResult();
+            public static VarintResult GetUvarint(byte[] data)
+            {
+                int x = 0;
+                int s = 0;
+
+                for (int i = 0; i < data.Length; ++i)
+                {
+                    int b = data[i] & 255;
+                    if (b < 128)
+                    {
+                        if (i <= 9 && (i != 9 || b <= 1))
+                        {
+                            return new VarintResult(x | (b & 255) << s, i + 1);
+                        }
+
+                        return new VarintResult(0, -(i + 1));
+                    }
+
+                    x |= (b & 127 & 255) << s;
+                    s += 7;
+                }
+
+                return new VarintResult();
+            }
         }
-    }
+    }   
+    
     public class VarintResult
     {
         public int value;

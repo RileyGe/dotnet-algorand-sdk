@@ -6779,77 +6779,6 @@ references:
   commentId: F:Algorand.ByteConstBlock.size
   fullName: Algorand.ByteConstBlock.size
   nameWithType: ByteConstBlock.size
-- uid: Algorand.BytesConverter
-  name: BytesConverter
-  href: api/Algorand.BytesConverter.html
-  commentId: T:Algorand.BytesConverter
-  fullName: Algorand.BytesConverter
-  nameWithType: BytesConverter
-- uid: Algorand.BytesConverter.CanConvert(System.Type)
-  name: CanConvert(Type)
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_CanConvert_System_Type_
-  commentId: M:Algorand.BytesConverter.CanConvert(System.Type)
-  fullName: Algorand.BytesConverter.CanConvert(System.Type)
-  nameWithType: BytesConverter.CanConvert(Type)
-- uid: Algorand.BytesConverter.CanConvert*
-  name: CanConvert
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_CanConvert_
-  commentId: Overload:Algorand.BytesConverter.CanConvert
-  isSpec: "True"
-  fullName: Algorand.BytesConverter.CanConvert
-  nameWithType: BytesConverter.CanConvert
-- uid: Algorand.BytesConverter.CanRead
-  name: CanRead
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_CanRead
-  commentId: P:Algorand.BytesConverter.CanRead
-  fullName: Algorand.BytesConverter.CanRead
-  nameWithType: BytesConverter.CanRead
-- uid: Algorand.BytesConverter.CanRead*
-  name: CanRead
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_CanRead_
-  commentId: Overload:Algorand.BytesConverter.CanRead
-  isSpec: "True"
-  fullName: Algorand.BytesConverter.CanRead
-  nameWithType: BytesConverter.CanRead
-- uid: Algorand.BytesConverter.CanWrite
-  name: CanWrite
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_CanWrite
-  commentId: P:Algorand.BytesConverter.CanWrite
-  fullName: Algorand.BytesConverter.CanWrite
-  nameWithType: BytesConverter.CanWrite
-- uid: Algorand.BytesConverter.CanWrite*
-  name: CanWrite
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_CanWrite_
-  commentId: Overload:Algorand.BytesConverter.CanWrite
-  isSpec: "True"
-  fullName: Algorand.BytesConverter.CanWrite
-  nameWithType: BytesConverter.CanWrite
-- uid: Algorand.BytesConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Algorand.BytesConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Algorand.BytesConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: BytesConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
-- uid: Algorand.BytesConverter.ReadJson*
-  name: ReadJson
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_ReadJson_
-  commentId: Overload:Algorand.BytesConverter.ReadJson
-  isSpec: "True"
-  fullName: Algorand.BytesConverter.ReadJson
-  nameWithType: BytesConverter.ReadJson
-- uid: Algorand.BytesConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: WriteJson(JsonWriter, Object, JsonSerializer)
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Algorand.BytesConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Algorand.BytesConverter.WriteJson(Newtonsoft.Json.JsonWriter, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: BytesConverter.WriteJson(JsonWriter, Object, JsonSerializer)
-- uid: Algorand.BytesConverter.WriteJson*
-  name: WriteJson
-  href: api/Algorand.BytesConverter.html#Algorand_BytesConverter_WriteJson_
-  commentId: Overload:Algorand.BytesConverter.WriteJson
-  isSpec: "True"
-  fullName: Algorand.BytesConverter.WriteJson
-  nameWithType: BytesConverter.WriteJson
 - uid: Algorand.Client
   name: Algorand.Client
   href: api/Algorand.Client.html
@@ -17385,77 +17314,6 @@ references:
   commentId: F:Algorand.MultisigAddress.version
   fullName: Algorand.MultisigAddress.version
   nameWithType: MultisigAddress.version
-- uid: Algorand.MultisigAddressConverter
-  name: MultisigAddressConverter
-  href: api/Algorand.MultisigAddressConverter.html
-  commentId: T:Algorand.MultisigAddressConverter
-  fullName: Algorand.MultisigAddressConverter
-  nameWithType: MultisigAddressConverter
-- uid: Algorand.MultisigAddressConverter.CanConvert(System.Type)
-  name: CanConvert(Type)
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_CanConvert_System_Type_
-  commentId: M:Algorand.MultisigAddressConverter.CanConvert(System.Type)
-  fullName: Algorand.MultisigAddressConverter.CanConvert(System.Type)
-  nameWithType: MultisigAddressConverter.CanConvert(Type)
-- uid: Algorand.MultisigAddressConverter.CanConvert*
-  name: CanConvert
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_CanConvert_
-  commentId: Overload:Algorand.MultisigAddressConverter.CanConvert
-  isSpec: "True"
-  fullName: Algorand.MultisigAddressConverter.CanConvert
-  nameWithType: MultisigAddressConverter.CanConvert
-- uid: Algorand.MultisigAddressConverter.CanRead
-  name: CanRead
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_CanRead
-  commentId: P:Algorand.MultisigAddressConverter.CanRead
-  fullName: Algorand.MultisigAddressConverter.CanRead
-  nameWithType: MultisigAddressConverter.CanRead
-- uid: Algorand.MultisigAddressConverter.CanRead*
-  name: CanRead
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_CanRead_
-  commentId: Overload:Algorand.MultisigAddressConverter.CanRead
-  isSpec: "True"
-  fullName: Algorand.MultisigAddressConverter.CanRead
-  nameWithType: MultisigAddressConverter.CanRead
-- uid: Algorand.MultisigAddressConverter.CanWrite
-  name: CanWrite
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_CanWrite
-  commentId: P:Algorand.MultisigAddressConverter.CanWrite
-  fullName: Algorand.MultisigAddressConverter.CanWrite
-  nameWithType: MultisigAddressConverter.CanWrite
-- uid: Algorand.MultisigAddressConverter.CanWrite*
-  name: CanWrite
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_CanWrite_
-  commentId: Overload:Algorand.MultisigAddressConverter.CanWrite
-  isSpec: "True"
-  fullName: Algorand.MultisigAddressConverter.CanWrite
-  nameWithType: MultisigAddressConverter.CanWrite
-- uid: Algorand.MultisigAddressConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Algorand.MultisigAddressConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Algorand.MultisigAddressConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: MultisigAddressConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
-- uid: Algorand.MultisigAddressConverter.ReadJson*
-  name: ReadJson
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_ReadJson_
-  commentId: Overload:Algorand.MultisigAddressConverter.ReadJson
-  isSpec: "True"
-  fullName: Algorand.MultisigAddressConverter.ReadJson
-  nameWithType: MultisigAddressConverter.ReadJson
-- uid: Algorand.MultisigAddressConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: WriteJson(JsonWriter, Object, JsonSerializer)
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Algorand.MultisigAddressConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Algorand.MultisigAddressConverter.WriteJson(Newtonsoft.Json.JsonWriter, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: MultisigAddressConverter.WriteJson(JsonWriter, Object, JsonSerializer)
-- uid: Algorand.MultisigAddressConverter.WriteJson*
-  name: WriteJson
-  href: api/Algorand.MultisigAddressConverter.html#Algorand_MultisigAddressConverter_WriteJson_
-  commentId: Overload:Algorand.MultisigAddressConverter.WriteJson
-  isSpec: "True"
-  fullName: Algorand.MultisigAddressConverter.WriteJson
-  nameWithType: MultisigAddressConverter.WriteJson
 - uid: Algorand.MultisigSignature
   name: MultisigSignature
   href: api/Algorand.MultisigSignature.html
@@ -18736,6 +18594,19 @@ references:
   isSpec: "True"
   fullName: Algorand.Transaction.Type.Equals
   nameWithType: Transaction.Type.Equals
+- uid: Algorand.Transaction.Type.GetHashCode
+  name: GetHashCode()
+  href: api/Algorand.Transaction.Type.html#Algorand_Transaction_Type_GetHashCode
+  commentId: M:Algorand.Transaction.Type.GetHashCode
+  fullName: Algorand.Transaction.Type.GetHashCode()
+  nameWithType: Transaction.Type.GetHashCode()
+- uid: Algorand.Transaction.Type.GetHashCode*
+  name: GetHashCode
+  href: api/Algorand.Transaction.Type.html#Algorand_Transaction_Type_GetHashCode_
+  commentId: Overload:Algorand.Transaction.Type.GetHashCode
+  isSpec: "True"
+  fullName: Algorand.Transaction.Type.GetHashCode
+  nameWithType: Transaction.Type.GetHashCode
 - uid: Algorand.Transaction.Type.KeyRegistration
   name: KeyRegistration
   href: api/Algorand.Transaction.Type.html#Algorand_Transaction_Type_KeyRegistration
@@ -18853,77 +18724,6 @@ references:
   commentId: F:Algorand.TxGroup.MAX_TX_GROUP_SIZE
   fullName: Algorand.TxGroup.MAX_TX_GROUP_SIZE
   nameWithType: TxGroup.MAX_TX_GROUP_SIZE
-- uid: Algorand.Type2StringConverter
-  name: Type2StringConverter
-  href: api/Algorand.Type2StringConverter.html
-  commentId: T:Algorand.Type2StringConverter
-  fullName: Algorand.Type2StringConverter
-  nameWithType: Type2StringConverter
-- uid: Algorand.Type2StringConverter.CanConvert(System.Type)
-  name: CanConvert(Type)
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_CanConvert_System_Type_
-  commentId: M:Algorand.Type2StringConverter.CanConvert(System.Type)
-  fullName: Algorand.Type2StringConverter.CanConvert(System.Type)
-  nameWithType: Type2StringConverter.CanConvert(Type)
-- uid: Algorand.Type2StringConverter.CanConvert*
-  name: CanConvert
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_CanConvert_
-  commentId: Overload:Algorand.Type2StringConverter.CanConvert
-  isSpec: "True"
-  fullName: Algorand.Type2StringConverter.CanConvert
-  nameWithType: Type2StringConverter.CanConvert
-- uid: Algorand.Type2StringConverter.CanRead
-  name: CanRead
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_CanRead
-  commentId: P:Algorand.Type2StringConverter.CanRead
-  fullName: Algorand.Type2StringConverter.CanRead
-  nameWithType: Type2StringConverter.CanRead
-- uid: Algorand.Type2StringConverter.CanRead*
-  name: CanRead
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_CanRead_
-  commentId: Overload:Algorand.Type2StringConverter.CanRead
-  isSpec: "True"
-  fullName: Algorand.Type2StringConverter.CanRead
-  nameWithType: Type2StringConverter.CanRead
-- uid: Algorand.Type2StringConverter.CanWrite
-  name: CanWrite
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_CanWrite
-  commentId: P:Algorand.Type2StringConverter.CanWrite
-  fullName: Algorand.Type2StringConverter.CanWrite
-  nameWithType: Type2StringConverter.CanWrite
-- uid: Algorand.Type2StringConverter.CanWrite*
-  name: CanWrite
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_CanWrite_
-  commentId: Overload:Algorand.Type2StringConverter.CanWrite
-  isSpec: "True"
-  fullName: Algorand.Type2StringConverter.CanWrite
-  nameWithType: Type2StringConverter.CanWrite
-- uid: Algorand.Type2StringConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Algorand.Type2StringConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Algorand.Type2StringConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: Type2StringConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
-- uid: Algorand.Type2StringConverter.ReadJson*
-  name: ReadJson
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_ReadJson_
-  commentId: Overload:Algorand.Type2StringConverter.ReadJson
-  isSpec: "True"
-  fullName: Algorand.Type2StringConverter.ReadJson
-  nameWithType: Type2StringConverter.ReadJson
-- uid: Algorand.Type2StringConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: WriteJson(JsonWriter, Object, JsonSerializer)
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Algorand.Type2StringConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Algorand.Type2StringConverter.WriteJson(Newtonsoft.Json.JsonWriter, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: Type2StringConverter.WriteJson(JsonWriter, Object, JsonSerializer)
-- uid: Algorand.Type2StringConverter.WriteJson*
-  name: WriteJson
-  href: api/Algorand.Type2StringConverter.html#Algorand_Type2StringConverter_WriteJson_
-  commentId: Overload:Algorand.Type2StringConverter.WriteJson
-  isSpec: "True"
-  fullName: Algorand.Type2StringConverter.WriteJson
-  nameWithType: Type2StringConverter.WriteJson
 - uid: Algorand.Utils
   name: Utils
   href: api/Algorand.Utils.html
@@ -19275,28 +19075,6 @@ references:
   isSpec: "True"
   fullName: Algorand.Utils.WaitTransactionToComplete
   nameWithType: Utils.WaitTransactionToComplete
-- uid: Algorand.Uvarint
-  name: Uvarint
-  href: api/Algorand.Uvarint.html
-  commentId: T:Algorand.Uvarint
-  fullName: Algorand.Uvarint
-  nameWithType: Uvarint
-- uid: Algorand.Uvarint.parse(System.Byte[])
-  name: parse(Byte[])
-  href: api/Algorand.Uvarint.html#Algorand_Uvarint_parse_System_Byte___
-  commentId: M:Algorand.Uvarint.parse(System.Byte[])
-  name.vb: parse(Byte())
-  fullName: Algorand.Uvarint.parse(System.Byte[])
-  fullName.vb: Algorand.Uvarint.parse(System.Byte())
-  nameWithType: Uvarint.parse(Byte[])
-  nameWithType.vb: Uvarint.parse(Byte())
-- uid: Algorand.Uvarint.parse*
-  name: parse
-  href: api/Algorand.Uvarint.html#Algorand_Uvarint_parse_
-  commentId: Overload:Algorand.Uvarint.parse
-  isSpec: "True"
-  fullName: Algorand.Uvarint.parse
-  nameWithType: Uvarint.parse
 - uid: Algorand.V2
   name: Algorand.V2
   href: api/Algorand.V2.html
@@ -34341,15 +34119,3 @@ references:
   isSpec: "True"
   fullName: Algorand.VRFPublicKey.GetHashCode
   nameWithType: VRFPublicKey.GetHashCode
-- uid: Algorand.Wordlist
-  name: Wordlist
-  href: api/Algorand.Wordlist.html
-  commentId: T:Algorand.Wordlist
-  fullName: Algorand.Wordlist
-  nameWithType: Wordlist
-- uid: Algorand.Wordlist.RAW
-  name: RAW
-  href: api/Algorand.Wordlist.html#Algorand_Wordlist_RAW
-  commentId: F:Algorand.Wordlist.RAW
-  fullName: Algorand.Wordlist.RAW
-  nameWithType: Wordlist.RAW

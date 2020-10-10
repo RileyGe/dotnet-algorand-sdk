@@ -88,8 +88,6 @@
 </section>
       <h4><a class="xref" href="Algorand.ByteConstBlock.html">ByteConstBlock</a></h4>
       <section></section>
-      <h4><a class="xref" href="Algorand.BytesConverter.html">BytesConverter</a></h4>
-      <section></section>
       <h4><a class="xref" href="Algorand.Digest.html">Digest</a></h4>
       <section><p>A serializable class representing a SHA512-256 Digest</p>
 </section>
@@ -102,21 +100,25 @@
       <section><p>Logic class provides static checkProgram function that can be used for client-side program validation for size and execution cost.</p>
 </section>
       <h4><a class="xref" href="Algorand.LogicsigSignature.html">LogicsigSignature</a></h4>
-      <section></section>
+      <section><p>Serializable logicsig class.
+LogicsigSignature is constructed from a program and optional arguments.
+Signature sig and MultisigSignature msig property are available for modification by it's clients.</p>
+</section>
       <h4><a class="xref" href="Algorand.Mnemonic.html">Mnemonic</a></h4>
       <section><p>Provides an easy way to create mnemonics from 32-byte length keys.</p>
 </section>
       <h4><a class="xref" href="Algorand.MultisigAddress.html">MultisigAddress</a></h4>
       <section><p>MultisigAddress is a convenience class for handling multisignature public identities.</p>
 </section>
-      <h4><a class="xref" href="Algorand.MultisigAddressConverter.html">MultisigAddressConverter</a></h4>
-      <section></section>
       <h4><a class="xref" href="Algorand.MultisigSignature.html">MultisigSignature</a></h4>
-      <section></section>
+      <section><p>Serializable raw multisig class.</p>
+</section>
       <h4><a class="xref" href="Algorand.MultisigSubsig.html">MultisigSubsig</a></h4>
-      <section></section>
+      <section><p>Serializable multisig sub-signature</p>
+</section>
       <h4><a class="xref" href="Algorand.ParticipationPublicKey.html">ParticipationPublicKey</a></h4>
-      <section></section>
+      <section><p>A serializable class representing a participation key.</p>
+</section>
       <h4><a class="xref" href="Algorand.ProgramData.html">ProgramData</a></h4>
       <section><p>Metadata related to a teal program.</p>
 </section>
@@ -127,28 +129,30 @@
       <section><p>A serializable raw signed bid class.</p>
 </section>
       <h4><a class="xref" href="Algorand.SignedTransaction.html">SignedTransaction</a></h4>
-      <section></section>
+      <section><p>A serializable convenience type for packaging transactions with their signatures.</p>
+</section>
       <h4><a class="xref" href="Algorand.TEALProgram.html">TEALProgram</a></h4>
-      <section></section>
+      <section><p>TEALProgram</p>
+</section>
       <h4><a class="xref" href="Algorand.Transaction.html">Transaction</a></h4>
-      <section></section>
+      <section><p>A raw serializable transaction class, used to generate transactions to broadcast to the network.
+This is distinct from algod.model.Transaction, which is only returned for GET requests to algod.</p>
+</section>
       <h4><a class="xref" href="Algorand.Transaction.AssetParams.html">Transaction.AssetParams</a></h4>
-      <section></section>
+      <section><p>Asset Params</p>
+</section>
       <h4><a class="xref" href="Algorand.Transaction.Type.html">Transaction.Type</a></h4>
-      <section></section>
+      <section><p>TxType represents a transaction type.</p>
+</section>
       <h4><a class="xref" href="Algorand.TxGroup.html">TxGroup</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Algorand.Type2StringConverter.html">Type2StringConverter</a></h4>
-      <section></section>
+      <section><p>TxGroup exports computeGroupID and assignGroupID functions</p>
+</section>
       <h4><a class="xref" href="Algorand.Utils.html">Utils</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Algorand.Uvarint.html">Uvarint</a></h4>
-      <section></section>
+      <section><p>Convenience methods for algorand sdk.</p>
+</section>
       <h4><a class="xref" href="Algorand.VarintResult.html">VarintResult</a></h4>
       <section></section>
       <h4><a class="xref" href="Algorand.VRFPublicKey.html">VRFPublicKey</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Algorand.Wordlist.html">Wordlist</a></h4>
       <section></section>
 </article>
           </div>
