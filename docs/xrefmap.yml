@@ -34119,3 +34119,15 @@ references:
   isSpec: "True"
   fullName: Algorand.VRFPublicKey.GetHashCode
   nameWithType: VRFPublicKey.GetHashCode
+- uid: Algorand.Wordlist
+  name: Wordlist
+  href: api/Algorand.Wordlist.html
+  commentId: T:Algorand.Wordlist
+  fullName: Algorand.Wordlist
+  nameWithType: Wordlist
+- uid: Algorand.Wordlist.RAW
+  name: RAW
+  href: api/Algorand.Wordlist.html#Algorand_Wordlist_RAW
+  commentId: F:Algorand.Wordlist.RAW
+  fullName: Algorand.Wordlist.RAW
+  nameWithType: Wordlist.RAW

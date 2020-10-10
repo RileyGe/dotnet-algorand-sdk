@@ -6,7 +6,7 @@
           "files": [
             "**.csproj"
           ],
-          "src": "..\\dotnet-algorand-sdk"
+          "src": "../dotnet-algorand-sdk"
         }
       ],
       "dest": "api",
@@ -30,6 +30,12 @@
           "toc.yml",
           "*.md"
         ]
+      },
+      {
+        "files": [
+          "README.md"
+        ],
+        "src": ".."
       }
     ],
     "resource": [
@@ -37,6 +43,12 @@
         "files": [
           "images/**"
         ]
+      },
+      {
+        "files": [
+          "indexerv2.png"
+        ],
+        "src": ".."
       }
     ],
     "overwrite": [
@@ -45,8 +57,7 @@
           "apidoc/**.md"
         ],
         "exclude": [
-          "obj/**",
-          "../docs/**"
+          "obj/**"
         ]
       }
     ],

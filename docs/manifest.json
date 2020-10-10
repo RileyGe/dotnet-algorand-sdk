@@ -4,6 +4,29 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
+      "type": "Conceptual",
+      "source_relative_path": "../README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "QiiJZU220Q2vHFyfJnEe0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../indexerv2.png",
+      "output": {
+        "resource": {
+          "relative_path": "indexerv2.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "ManagedReference",
       "source_relative_path": "api/Algorand.Account.yml",
       "output": {
@@ -2489,11 +2512,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Algorand.Wordlist.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Algorand.Wordlist.html",
+          "hash": "glb2FCNDTlVVe1zuiDKwEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Algorand.yml",
       "output": {
         ".html": {
           "relative_path": "api/Algorand.html",
-          "hash": "saCiC2/WTIWM9w2zpa5KLA=="
+          "hash": "e8kMO3fLJ1PbRm5e2WrJgA=="
         }
       },
       "is_incremental": false,
@@ -2517,7 +2552,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "z9BugH2ZXgC1jRDRcaOmBw=="
+          "hash": "1ccMLdxy81oGXkvP8iVlOg=="
         }
       },
       "is_incremental": false,
@@ -2536,27 +2571,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
-      "type": "Conceptual",
-      "source_relative_path": "articles/quick_start.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/quick_start.html",
-          "hash": "1EabWdi6NvFULKy4273jSw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "+tIhHFwe9Aol0xju6liZvQ=="
+          "hash": "tyHFO7sL09dMGYAPYe0BKQ=="
         }
       },
       "is_incremental": false,
@@ -2607,7 +2627,14 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 208,
+          "total_file_count": 209,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

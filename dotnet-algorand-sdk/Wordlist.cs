@@ -3,7 +3,10 @@ using System.Text;
 
 namespace Algorand
 {
-    internal class Wordlist
+    /// <summary>
+    /// mnemonic word list
+    /// </summary>
+    public class Wordlist
     {
         private const string RAW_CHECKSUM = "cancel";
         public static string[] RAW = new string[]{
@@ -2057,9 +2060,11 @@ namespace Algorand
             "zoo",
     };
 
-        // check that the words we'rent modified
+        /// <summary>
+        /// check that the words we'rent modified
+        /// </summary>
         static Wordlist()
-        {            
+        {
             if (!Mnemonic.Checksum(Encoding.ASCII.GetBytes(JavaHelper<string>.ArrayToString(RAW))).Equals(RAW_CHECKSUM))
             {
                 throw new Exception("cannot initialize passphrase library: wordlist corrupted");
