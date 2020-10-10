@@ -22,6 +22,8 @@ The SDK version 0.2 add the support of Algorand Api 2.0 and the Indexer Api.
 
 dotnet-algorand-skd is a dotnet library for communicating and interacting with the Algorand network. It contains a REST client for accessing algod instances over the web, and also exposes functionality for mnemonics, creating transactions, signing transactions, and serializing data across the network.
 
+Please find documents of dotnet-algorand-sdk on https://rileyge.github.io/dotnet-algorand-sdk/.
+
 ## 1. Prerequisites
 
 This library is compliant to .Net Standard 2.0.

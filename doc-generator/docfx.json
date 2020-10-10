@@ -12,7 +12,7 @@
       "dest": "api",
       "filter": "filterConfig.yml",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
     }
   ],
   "build": {
@@ -63,6 +63,12 @@
     ],
     "dest": "../docs",
     "globalMetadataFiles": [],
+    "globalMetadata": {
+      "_enableSearch": true,
+      "_appTitle": "Dotnet Algorand Documents",
+      "_appFaviconPath": "images/favicon.ico",
+      "_appLogoPath": "images/logo.png"
+    },
     "fileMetadataFiles": [],
     "template": [
       "default"
