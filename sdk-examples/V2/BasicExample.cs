@@ -39,7 +39,7 @@ namespace sdk_examples.V2
             }
 
             var accountInfo = algodApiInstance.AccountInformation(src.Address.ToString());
-            Console.WriteLine(string.Format("Account Balance: %d microAlgos", accountInfo.Amount));
+            Console.WriteLine(string.Format("Account Balance: {0} microAlgos", accountInfo.Amount));
 
             try
             {
