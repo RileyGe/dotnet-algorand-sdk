@@ -67,7 +67,6 @@ namespace sdk_examples.V2.contract
             }
 
             Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
-            Console.ReadKey();
         }
     }
 }

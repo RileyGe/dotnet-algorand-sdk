@@ -18,7 +18,7 @@ namespace sdk_examples
             //V2.contract.CompileTeal.Main(args); return;
             //V2.contract.ContractAccount.Main(args); return;
             //V2.contract.LogicSignature.Main(args); return;
-            V2.contract.DryrunDedugging.Main(args); return;
+            //V2.contract.DryrunDedugging.Main(args); return;
             //V2.IndexerExamples.Main(args); return;
 
 

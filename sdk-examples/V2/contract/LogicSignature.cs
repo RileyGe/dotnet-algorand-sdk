@@ -23,6 +23,7 @@ namespace sdk_examples.V2.contract
             LogicsigSignature lsig = new LogicsigSignature(program, null);            
 
             // sign the logic signaure with an account sk
+            // 这里操作的意义是账号1批准逻辑签名可以操纵我的账号
             acct1.SignLogicsig(lsig);
             var contractSig = Convert.ToBase64String(lsig.sig.Bytes);
             var acct1Address = acct1.Address.ToString();
@@ -59,6 +60,7 @@ namespace sdk_examples.V2.contract
             {
                 //bypass verify for non-lsig
                 SignedTransaction signedTx = Account.SignLogicsigTransaction(lsig2, tx);
+                
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
             }
@@ -69,7 +71,6 @@ namespace sdk_examples.V2.contract
             }
             
             Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
-            Console.ReadKey();
         }
     }
 }
