@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "BykhXktTX4lGLqfZVrdDNg=="
+          "hash": "OWnWhbB5liEvcCbX3Zp8YA=="
         }
       },
       "is_incremental": false,
@@ -2641,25 +2641,23 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Disable incremental build by force rebuild option.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "ForceRebuild"
+        "skipped_file_count": 0
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 4,
-          "skipped_file_count": 0
+          "skipped_file_count": 3
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 209,
-          "skipped_file_count": 0
+          "skipped_file_count": 209
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,

@@ -79,32 +79,169 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="dotnet-algorand-sdk">Dotnet Algorand SDK</h1>
 
-<blockquote>
-<h3 id="important-">**IMPORTANT **</h3>
-<p>Dotnet-algorand-sdk Version 0.2.X modifies the namespace of algod API 1.0 compared to  dotnet-algorand-sdk Version 0.1.X. Please replaces the namespaces below:</p>
-<p>Replace <strong>Algorand.Algod.Client.Model</strong> with <strong>Algorand.Algod.Model</strong></p>
-<p>Replace <strong>Algorand.Algod.Client.Api</strong> with <strong>Algorand.Algod.Api</strong></p>
-<p>Replace <strong>Algorand.Kmd.Client.Model</strong> with <strong>Algorand.Algod.Model</strong></p>
-<p>Replace <strong>Algorand.Kmd.Client.Api</strong> with <strong>Algorand.Kmd.Api</strong></p>
-<p>Replace <strong>Algorand.Algod.Client</strong> with <strong>Algorand.Client</strong></p>
-<p>Replace <strong>Algorand.Kmd.Client</strong> with <strong>Algorand.Client</strong></p>
-<p>Everything else remains the same.</p>
-</blockquote>
 <p>The SDK version 0.2 add the support of Algorand Api 2.0 and the Indexer Api.</p>
 <p>dotnet-algorand-skd is a dotnet library for communicating and interacting with the Algorand network. It contains a REST client for accessing algod instances over the web, and also exposes functionality for mnemonics, creating transactions, signing transactions, and serializing data across the network.</p>
-<p>Please find documents of dotnet-algorand-sdk on <a href="https://rileyge.github.io/dotnet-algorand-sdk/">https://rileyge.github.io/dotnet-algorand-sdk/</a>.</p>
+<p>Please find documents of dotnet-algorand-sdk on <a href="https://rileyge.github.io/dotnet-algorand-sdk/">https://rileyge.github.io/dotnet-algorand-sdk/</a>. You can find more Chinese resource from <a href="https://developer.algorand.org/zh-hans/">https://developer.algorand.org/zh-hans/</a></p>
 <h2 id="1-prerequisites">1. Prerequisites</h2>
 <p>This library is compliant to .Net Standard 2.0.</p>
 <h2 id="2-how-to-install">2. How to Install</h2>
 <p>Open the NuGet command line and type:</p>
 <pre><code class="lang-powershell">Install-Package Algorand
 </code></pre>
-<h2 id="3-quick-start-for-algod-api-10">3. Quick Start for algod API 1.0</h2>
+<h2 id="3-quick-start">3. Quick Start</h2>
+<p>Algorand already released Algod API 2.0 for a long time, Some service providers no longer support API 1.0 (such as Purestake). It is highly recommended to use the API 2.0 and Indexer to build your program.</p>
+<p>In dotnet-algorand-sdk, the algod API 2.0 is almost the same as API 1.0. The most important change is using the namespace <strong>Algorand.V2</strong>.</p>
+<p>Normally, we can add the following namespace references at the beginning of the class. Note: Since <code>Algorand.V2.Model</code> and <code>Algorand</code> namespace both have the realization of the <code>Account</code> class, we can add the 5th line using <code>Algorand.Account</code> as default.</p>
+<pre><code class="lang-c#">using Algorand;
+using Algorand.V2;
+using Algorand.Client;
+using Algorand.V2.Model;
+using Account = Algorand.Account;
+</code></pre>
+<p>Let's try some code.</p>
+<pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;; //find in algod.net
+string ALGOD_API_TOKEN = &quot;your algod api token&quot;; //find in algod.token
+AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+
+try
+{
+    var supply = algodApiInstance.GetSupply();
+    Console.WriteLine(&quot;Total Algorand Supply: &quot; + supply.TotalMoney);
+    Console.WriteLine(&quot;Online Algorand Supply: &quot; + supply.OnlineMoney);
+}
+catch (ApiException e)
+{
+    Console.WriteLine(&quot;Exception when calling algod#getSupply: &quot; + e.Message);
+}
+
+try
+{
+    var transParams = algodApiInstance.TransactionParams();
+    Console.WriteLine(&quot;Transaction Params: &quot; + transParams.ToJson());
+}
+catch (ApiException e)
+{
+    throw new Exception(&quot;Could not get params&quot;, e);
+}
+</code></pre>
+<p>Dotnet-algorand-sdk has good support for PureStake, you can connect to PureStake by replacing the ALGOD_API_TOKEN use PureStake API KEY. It's very difficult to tell the difference between API 1.0 and API 2.0 besides the namespace is different. So if you are familiar with API 1.0, it's very easy to use API 2.0.</p>
+<p>It's simple to query information from Algod, the code blow show how to send an transaction using API 2.0.</p>
+<pre><code class="lang-c#">string ALGOD_API_ADDR = &quot;your algod api address&quot;; //find in algod.net
+string ALGOD_API_TOKEN = &quot;your algod api token&quot;; //find in algod.token          
+string SRC_ACCOUNT = &quot;typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup&quot;;
+string DEST_ADDR = &quot;KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU&quot;;
+if (!Address.IsValid(DEST_ADDR))
+    Console.WriteLine(&quot;The address &quot; + DEST_ADDR + &quot; is not valid!&quot;);
+Account src = new Account(SRC_ACCOUNT);
+Console.WriteLine(&quot;My account address is:&quot; + src.Address.ToString());
+
+AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+
+try
+{
+    var supply = algodApiInstance.GetSupply();
+    Console.WriteLine(&quot;Total Algorand Supply: &quot; + supply.TotalMoney);
+    Console.WriteLine(&quot;Online Algorand Supply: &quot; + supply.OnlineMoney);
+}
+catch (ApiException e)
+{
+    Console.WriteLine(&quot;Exception when calling algod#getSupply:&quot; + e.Message);
+}
+
+var accountInfo = algodApiInstance.AccountInformation(src.Address.ToString());
+Console.WriteLine(string.Format(&quot;Account Balance: {0} microAlgos&quot;, accountInfo.Amount));
+
+try
+{
+    var trans = algodApiInstance.TransactionParams();
+    var lr = trans.LastRound;
+    var block = algodApiInstance.GetBlock(lr);
+                
+    Console.WriteLine(&quot;Lastround: &quot; + trans.LastRound.ToString());
+    Console.WriteLine(&quot;Block txns: &quot; + block.Block.ToString());
+}
+catch (ApiException e)
+{
+    Console.WriteLine(&quot;Exception when calling algod#getSupply:&quot; + e.Message);
+}
+
+TransactionParametersResponse transParams;
+try
+{
+    transParams = algodApiInstance.TransactionParams();                
+}
+catch (ApiException e)
+{
+    throw new Exception(&quot;Could not get params&quot;, e);
+}
+var amount = Utils.AlgosToMicroalgos(1);
+var tx = Utils.GetPaymentTransaction(src.Address, new Address(DEST_ADDR), amount, &quot;pay message&quot;, transParams);
+var signedTx = src.SignTransaction(tx);
+
+Console.WriteLine(&quot;Signed transaction with txid: &quot; + signedTx.transactionID);
+
+// send the transaction to the network
+try
+{
+    var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+    Console.WriteLine(&quot;Successfully sent tx with id: &quot; + id.TxId);
+    Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+}
+catch (ApiException e)
+{
+    // This is generally expected, but should give us an informative error message.
+    Console.WriteLine(&quot;Exception when calling algod#rawTransaction: &quot; + e.Message);
+}
+Console.WriteLine(&quot;You have successefully arrived the end of this test, please press and key to exist.&quot;);
+</code></pre>
+<p><strong>DO NOT SHOW THE MNEMONIC IN YOU CODE</strong>. The code above is only used for function display and cannot be used in the actual production environment</p>
+<p>You can find more examples in the <strong>sdk-examples</strong> project.</p>
+<h2 id="4-quick-start-for-indexer">4. Quick Start for Indexer</h2>
+<p>As we all know blockchain has a chain data struct, so it's very different for us to search the data. So algorand retrieve the blockchain data from a PostgreSQL compatible database. Then we can search for the blockchain very easily.</p>
+<p><img src="indexerv2.png" alt="Algorand Indexer"></p>
+<p>The indexer has 12 methods to search the blockchain and some of these methods have a lot of variables to control the result. Let's try some code.</p>
+<pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;;
+string ALGOD_API_TOKEN = &quot;your algod api token&quot;;
+
+IndexerApi indexer = new IndexerApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+//AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+var health = indexer.MakeHealthCheck();
+Console.WriteLine(&quot;Make Health Check: &quot; + health.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var address = &quot;KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU&quot;;
+var acctInfo = indexer.LookupAccountByID(address);
+Console.WriteLine(&quot;Look up account by id: &quot; + acctInfo.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var transInfos = indexer.LookupAccountTransactions(address, 10);
+Console.WriteLine(&quot;Look up account transactions(limit 10): &quot; + transInfos.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var appsInfo = indexer.SearchForApplications(limit: 10);
+Console.WriteLine(&quot;Search for application(limit 10): &quot; + appsInfo.ToJson());
+
+var appIndex = appsInfo.Applications[0].Id;
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var appInfo = indexer.LookupApplicationByID(appIndex);
+Console.WriteLine(&quot;Look up application by id: &quot; + appInfo.ToJson());
+
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var assetsInfo = indexer.SearchForAssets(limit: 10, unit: &quot;LAT&quot;);
+Console.WriteLine(&quot;Search for assets&quot; + assetsInfo.ToJson());
+
+var assetIndex = assetsInfo.Assets[0].Index;
+System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
+var assetInfo = indexer.LookupAssetByID(assetIndex);
+Console.WriteLine(&quot;Look up asset by id:&quot; + assetInfo.ToJson());
+</code></pre>
+<p>Please enjoy!!!</p>
+<h2 id="5-quick-start-for-algod-api-10">5. Quick Start for algod API 1.0</h2>
 <pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;; //find in algod.net
 string ALGOD_API_TOKEN = &quot;your algod api token&quot;; //find in algod.token
 AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
 </code></pre>
-<p>dotnet-algorand-sdk has good support for PureStake, you can connect to PureStake by replacing the ALGOD_API_TOKEN use PureStake API KEY.</p>
+<p>Now purestake <strong>DO NOT</strong> support algod API 1.0, please use your own node to test the functions below.</p>
 <p>Get information from algorand blockchain:</p>
 <pre><code class="lang-csharp">try
 {
@@ -161,77 +298,16 @@ catch (ApiException e)
     Console.WriteLine(&quot;Exception when calling algod#rawTransaction: &quot; + e.Message);
 }
 </code></pre>
+<h2 id="6-migrate-from-dotnet-algorand-sdk-01x-to-dotnet-algorand-sdk-02x">6. Migrate from dotnet-algorand-sdk 0.1.X to dotnet-algorand-sdk 0.2.X</h2>
+<p>Dotnet-algorand-sdk Version 0.2.X modifies the namespace of algod API 1.0 compared to  dotnet-algorand-sdk Version 0.1.X. Please replaces the namespaces below:</p>
+<p>Replace <strong>Algorand.Algod.Client.Model</strong> with <strong>Algorand.Algod.Model</strong></p>
+<p>Replace <strong>Algorand.Algod.Client.Api</strong> with <strong>Algorand.Algod.Api</strong></p>
+<p>Replace <strong>Algorand.Kmd.Client.Model</strong> with <strong>Algorand.Algod.Model</strong></p>
+<p>Replace <strong>Algorand.Kmd.Client.Api</strong> with <strong>Algorand.Kmd.Api</strong></p>
+<p>Replace <strong>Algorand.Algod.Client</strong> with <strong>Algorand.Client</strong></p>
+<p>Replace <strong>Algorand.Kmd.Client</strong> with <strong>Algorand.Client</strong></p>
+<p>Everything else remains the same.</p>
 <p>That's all? Yes, this is a complete example, you can find more examples in the sdk-examples project.</p>
-<h2 id="4-quick-start-for-algod-api-20">4. Quick Start for algod API 2.0</h2>
-<p>Algod API 2.0 has a lot of good features, such as dryrun debugging and teal compile. So it is highly recommended to use the API 2.0 to build your program.</p>
-<p>In dotnet-algorand-sdk, the algod API 2.0 is almost the same as API 1.0. The most important change is using the namespace <strong>Algorand.V2</strong>. Let's try some code.</p>
-<pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;; //find in algod.net
-string ALGOD_API_TOKEN = &quot;your algod api token&quot;; //find in algod.token
-AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-
-try
-{
-    var supply = algodApiInstance.GetSupply();
-    Console.WriteLine(&quot;Total Algorand Supply: &quot; + supply.TotalMoney);
-    Console.WriteLine(&quot;Online Algorand Supply: &quot; + supply.OnlineMoney);
-}
-catch (ApiException e)
-{
-    Console.WriteLine(&quot;Exception when calling algod#getSupply: &quot; + e.Message);
-}
-
-try
-{
-    var transParams = algodApiInstance.TransactionParams();
-    Console.WriteLine(&quot;Transaction Params: &quot; + transParams.ToJson());
-}
-catch (ApiException e)
-{
-    throw new Exception(&quot;Could not get params&quot;, e);
-}
-</code></pre>
-<p>It's very difficult to tell the difference between API 1.0 and API 2.0 besides the namespace is different. So if you are familiar with API 1.0, it's very easy to use API 2.0.</p>
-<p>You can find more examples in the <strong>sdk-examples</strong> project.</p>
-<h2 id="5-quick-start-for-indexer">5. Quick Start for Indexer</h2>
-<p>As we all know blockchain has a chain data struct, so it's very different for us to search the data. So algorand retrieve the blockchain data from a PostgreSQL compatible database. Then we can search for the blockchain very easily.</p>
-<p><img src="indexerv2.png" alt="Algorand Indexer"></p>
-<p>The indexer has 12 methods to search the blockchain and some of these methods have a lot of variables to control the result. Let's try some code.</p>
-<pre><code class="lang-csharp">string ALGOD_API_ADDR = &quot;your algod api address&quot;;
-string ALGOD_API_TOKEN = &quot;your algod api token&quot;;
-
-IndexerApi indexer = new IndexerApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-//AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-var health = indexer.MakeHealthCheck();
-Console.WriteLine(&quot;Make Health Check: &quot; + health.ToJson());
-
-System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
-var address = &quot;KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU&quot;;
-var acctInfo = indexer.LookupAccountByID(address);
-Console.WriteLine(&quot;Look up account by id: &quot; + acctInfo.ToJson());
-
-System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
-var transInfos = indexer.LookupAccountTransactions(address, 10);
-Console.WriteLine(&quot;Look up account transactions(limit 10): &quot; + transInfos.ToJson());
-
-System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
-var appsInfo = indexer.SearchForApplications(limit: 10);
-Console.WriteLine(&quot;Search for application(limit 10): &quot; + appsInfo.ToJson());
-
-var appIndex = appsInfo.Applications[0].Id;
-System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
-var appInfo = indexer.LookupApplicationByID(appIndex);
-Console.WriteLine(&quot;Look up application by id: &quot; + appInfo.ToJson());
-
-System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
-var assetsInfo = indexer.SearchForAssets(limit: 10, unit: &quot;LAT&quot;);
-Console.WriteLine(&quot;Search for assets&quot; + assetsInfo.ToJson());
-
-var assetIndex = assetsInfo.Assets[0].Index;
-System.Threading.Thread.Sleep(1200); //test in purestake, imit 1 req/sec
-var assetInfo = indexer.LookupAssetByID(assetIndex);
-Console.WriteLine(&quot;Look up asset by id:&quot; + assetInfo.ToJson());
-</code></pre>
-<p>Please enjoy!!!</p>
 </article>
           </div>
           
