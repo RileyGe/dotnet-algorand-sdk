@@ -2,9 +2,6 @@
 using Algorand.Client;
 using Algorand.V2;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace sdk_examples.V2.contract
 {

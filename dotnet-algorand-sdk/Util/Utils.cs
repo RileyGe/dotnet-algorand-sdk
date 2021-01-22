@@ -36,27 +36,43 @@ namespace Algorand
             }
         }
         /// <summary>
-        /// wait transaction to complete using algod v2 api
+        /// utility function to wait on a transaction to be confirmed using algod v2 API
         /// </summary>
-        /// <param name="instance"></param>
-        /// <param name="txID"></param>
-        /// <returns></returns>
-        public static string WaitTransactionToComplete(V2.AlgodApi instance, string txID) //throws Exception
+        /// <param name="instance">The algod api instance using algod v2 API</param>
+        /// <param name="txID">transaction ID</param>
+        /// <param name="timeout">how many rounds do you wish to check pending transactions for</param>
+        /// <returns>The pending transaction response</returns>
+        public static PendingTransactionResponse WaitTransactionToComplete(V2.AlgodApi instance, string txID, int timeout = 3) //throws Exception
         {
-            while (true)
+
+            if (instance == null || txID == null || txID.Length == 0 || timeout < 0)
             {
-                //Check the pending tranactions
-                var b3 = instance.PendingTransactionInformation(txID);
-                
-                if (b3.ConfirmedRound != null && b3.ConfirmedRound > 0)
-                {
-                    return "Transaction " + txID + " confirmed in round " + b3.ConfirmedRound;
-                }
-                // loops 4 times per second, > 5 times per second will fail using TestNet Purestake Free verison  
-                // also blocks are created in under 5 seconds so no real need to poll constantly - 
-                // a few times per second should be fine
-                System.Threading.Thread.Sleep(250);
+                throw new ArgumentException("Bad arguments for waitForConfirmation.");
             }
+            NodeStatusResponse nodeStatusResponse = instance.GetStatus();            
+            var startRound = nodeStatusResponse.LastRound + 1;
+            var currentRound = startRound;
+            while (currentRound < (startRound + timeout))
+            {
+                var pendingInfo = instance.PendingTransactionInformation(txID);
+
+                if (pendingInfo != null)
+                {
+                    if (pendingInfo.ConfirmedRound != null && pendingInfo.ConfirmedRound > 0)
+                    {
+                        // Got the completed Transaction
+                        return pendingInfo;
+                    }
+                    if (pendingInfo.PoolError != null && pendingInfo.PoolError.Length > 0)
+                    {
+                        // If there was a pool error, then the transaction has been rejected!
+                        throw new Exception("The transaction has been rejected with a pool error: " + pendingInfo.PoolError);
+                    }
+                }
+                instance.WaitForBlock(currentRound);
+                currentRound++;
+            }
+            throw new Exception("Transaction not confirmed after " + timeout + " rounds!");
         }
         /// <summary>
         /// encode and submit signed transaction

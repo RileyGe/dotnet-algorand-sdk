@@ -49,6 +49,8 @@ namespace sdk_examples.V2
                 byteList.AddRange(Algorand.Encoder.EncodeToMsgPack(signedTx2));
                 var id = algodApiInstance.RawTransaction(byteList.ToArray());
                 Console.WriteLine("Successfully sent tx group with first tx id: " + id);
+                Console.WriteLine("Confirmed Round is: " + 
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
             }
             catch (ApiException e)
             {

@@ -75,7 +75,8 @@ namespace sdk_examples.V2
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                Console.WriteLine("Confirmed Round is: " +
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
                 // Now that the transaction is confirmed we can get the assetID
                 var ptx = algodApiInstance.PendingTransactionInformation(id.TxId);                
                 assetID = ptx.AssetIndex;
@@ -114,7 +115,8 @@ namespace sdk_examples.V2
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                Console.WriteLine("Confirmed Round is: " +
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
             }
             catch (Exception e)
             {
@@ -153,7 +155,8 @@ namespace sdk_examples.V2
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                Console.WriteLine("Confirmed Round is: " +
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it can accept the new asseet
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
@@ -186,7 +189,8 @@ namespace sdk_examples.V2
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                Console.WriteLine("Confirmed Round is: " +
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it now has 5 of the new asset
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
@@ -222,7 +226,8 @@ namespace sdk_examples.V2
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                Console.WriteLine("Confirmed Round is: " +
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it now frozen 
                 // Note--currently no getter method for frozen state
@@ -261,7 +266,8 @@ namespace sdk_examples.V2
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                Console.WriteLine("Confirmed Round is: " +
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it now has 0 of the new asset
                 act = algodApiInstance.AccountInformation(acct3.Address.ToString());
@@ -297,7 +303,8 @@ namespace sdk_examples.V2
                 Console.WriteLine("Transaction ID: " + id);
                 //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
                 //Console.ReadKey();
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                Console.WriteLine("Confirmed Round is: " +
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
                 // We can now list the account information for acct1 
                 // and see that the asset is no longer there
                 act = algodApiInstance.AccountInformation(acct1.Address.ToString());
@@ -311,7 +318,6 @@ namespace sdk_examples.V2
                 return;
             }
             Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
-            Console.ReadKey();
         }
     }
 }

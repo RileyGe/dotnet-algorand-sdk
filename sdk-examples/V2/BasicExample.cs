@@ -75,7 +75,8 @@ namespace sdk_examples.V2
             {
                 var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                Console.WriteLine(Utils.WaitTransactionToComplete(algodApiInstance, id.TxId));
+                var resp = Utils.WaitTransactionToComplete(algodApiInstance, id.TxId);
+                Console.WriteLine("Confirmed Round is: " + resp.ConfirmedRound);
             }
             catch (ApiException e)
             {
