@@ -23,7 +23,7 @@ namespace sdk_examples.V2
                 ALGOD_API_ADDR = "http://" + ALGOD_API_ADDR;
             }
 
-            string ALGOD_API_TOKEN = args[1];
+            string ALGOD_API_TOKEN = args.Length > 1 ? args[1] : null;
             var account1_passphrase = "fringe model trophy claw stove perfect address market license abstract master slender choice around field embark sudden carbon exclude abuse square bulb front ability violin";
             var account2_passphrase = "impulse nation creek toy carpet amused dream can small long disorder source mail game category damp spread length cupboard theory either baby squeeze about orbit";
             var account3_passphrase = "fade exit sword someone lock minimum scout keen label dance jaguar select conduct luxury rose idea solid major solid lens globe agent assume abstract alien";

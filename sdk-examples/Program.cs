@@ -20,7 +20,8 @@ namespace sdk_examples
             //V2.contract.LogicSignature.Main(args); return;
             //V2.contract.DryrunDedugging.Main(args); return;
             //V2.IndexerExamples.Main(args); return;
-            V2.RekeyExample.Main(args); return;
+            //V2.RekeyExample.Main(args); return;
+            V2.AccountTest.Main(args); return;
 
 
             //AssetExample.Main(args); return;

@@ -336,7 +336,7 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of Account</returns>
-        System.Threading.Tasks.Task<Account> AccountInformationAsync (string address, string format = null);
+        System.Threading.Tasks.Task<Algorand.V2.Model.Account> AccountInformationAsync (string address, string format = null);
 
         /// <summary>
         /// Get account information.
@@ -348,7 +348,7 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (Account)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Account>> AccountInformationAsyncWithHttpInfo (string address, string format = null);
+        System.Threading.Tasks.Task<ApiResponse<Algorand.V2.Model.Account>> AccountInformationAsyncWithHttpInfo (string address, string format = null);
         /// <summary>
         /// Get application information.
         /// </summary>
@@ -809,9 +809,9 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of Account</returns>
-        public async System.Threading.Tasks.Task<Account> AccountInformationAsync (string address, string format = null)
+        public async System.Threading.Tasks.Task<Algorand.V2.Model.Account> AccountInformationAsync (string address, string format = null)
         {
-             ApiResponse<Account> localVarResponse = await AccountInformationAsyncWithHttpInfo(address, format);
+             ApiResponse<Algorand.V2.Model.Account> localVarResponse = await AccountInformationAsyncWithHttpInfo(address, format);
              return localVarResponse.Data;
 
         }
@@ -823,7 +823,7 @@ namespace Algorand.V2.Algod
         /// <param name="address">An account public key</param>
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded. (optional)</param>
         /// <returns>Task of ApiResponse (Account)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Account>> AccountInformationAsyncWithHttpInfo (string address, string format = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Algorand.V2.Model.Account>> AccountInformationAsyncWithHttpInfo (string address, string format = null)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -874,9 +874,9 @@ namespace Algorand.V2.Algod
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Account>(localVarStatusCode,
+            return new ApiResponse<Algorand.V2.Model.Account>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+                (Algorand.V2.Model.Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Algorand.V2.Model.Account)));
         }
 
         /// <summary>
