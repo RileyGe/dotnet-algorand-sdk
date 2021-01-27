@@ -333,4 +333,5 @@ ASALocalRun/
 /dotnet-algorand-sdk/jsoncs.json
 /dotnet-algorand-sdk/jsonjava.json
 /bddtest
+/doc-generator/log.txt
 doc-generator/log.txt
