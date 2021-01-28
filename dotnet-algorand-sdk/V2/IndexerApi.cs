@@ -17,25 +17,28 @@ namespace Algorand.V2
         /// </summary>
         /// <param name="host">using a URI format.If the scheme is not supplied the client will use HTTP.</param>
         /// <param name="token">authentication token.</param>
+        /// <param name="tokenHeader">If you are using the API service, set this param with the header name.
+        /// Purestake and psn.algorand.org API service can set the name automatically.</param>
         /// <param name="timeout">time out.</param>
-        public IndexerApi(string host, string token, int timeout = -1)
+        public IndexerApi(string host, string token, string tokenHeader = "", int timeout = -1)
         {
-            Configuration config = new Configuration
-            {
+            Configuration config = new Configuration {
                 BasePath = host
             };
-            if (host.Contains("algorand.api.purestake.io"))
-                //config.ApiKey.Add(new KeyValuePair<string, string>("X-API-Key", apiToken)); //purestake
-                config.AddDefaultHeader("X-API-Key", token);
+
+            //purestake or bsn.algorand.org
+            if (host.Contains("algorand.api.purestake.io") || host.Contains("bsngate.com/api"))
+                tokenHeader = "X-API-Key";
+
+            if (tokenHeader != null && tokenHeader.Length > 0)
+                config.AddDefaultHeader(tokenHeader, token);
 
             config.ApiKey.Add(new KeyValuePair<string, string>("X-Algo-API-Token", token));
 
-            if (timeout > 0)
-            {
+            if (timeout > 0) {
                 config.Timeout = timeout;
             }
             this._config = config;
-            //super(host, port, token, "X-Algo-API-Token");
         }
         private Configuration _config;
         private CommonApi _commonapi = null;
