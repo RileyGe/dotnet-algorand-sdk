@@ -197,7 +197,8 @@ namespace Algorand
         public StateSchema globalStateSchema = new StateSchema();
 
         [JsonProperty(PropertyName = "apid")]
-        public long applicationId = 0L;
+        [DefaultValue(0)]
+        public ulong? applicationId = 0;
 
         [JsonProperty(PropertyName = "apls")]
         public StateSchema localStateSchema = new StateSchema();
@@ -486,7 +487,7 @@ namespace Algorand
                             Address assetCloseTo, Address freezeTarget, ulong? assetFreezeID, bool freezeState,
                             // application fields
                             List<byte[]> applicationArgs, OnCompletion onCompletion, TEALProgram approvalProgram, List<Address> accounts,
-                            List<long> foreignApps, List<long> foreignAssets, StateSchema globalStateSchema, long applicationId,
+                            List<long> foreignApps, List<long> foreignAssets, StateSchema globalStateSchema, ulong? applicationId,
                             StateSchema localStateSchema, TEALProgram clearStateProgram)
         {
             this.type = type;
@@ -545,7 +546,7 @@ namespace Algorand
 
             if (rekeyTo != null) this.RekeyTo = rekeyTo;
             if (applicationArgs != null) this.applicationArgs = applicationArgs;
-            if (onCompletion != null) this.onCompletion = onCompletion;
+            this.onCompletion = onCompletion;
             if (approvalProgram != null) this.approvalProgram = approvalProgram;
             if (accounts != null) this.accounts = accounts;
             if (foreignApps != null) this.foreignApps = foreignApps;

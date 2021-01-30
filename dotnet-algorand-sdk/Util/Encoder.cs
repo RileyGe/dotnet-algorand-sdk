@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Newtonsoft.Msgpack;
 using Org.BouncyCastle.Crypto.Parameters;
+using System.IO;
+using Newtonsoft.Msgpack;
 
 namespace Algorand
 {
@@ -22,35 +22,6 @@ namespace Algorand
         /// <returns>serialized object</returns>
         public static byte[] EncodeToMsgPack(object o)
         {
-            //ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
-            //// It is important to sort fields alphabetically to match the Algorand canonical encoding
-            //var settings = new JsonSerializerSettings()
-            //{
-            //    ContractResolver = AlgorandContractResolver.Instance,
-            //    DefaultValueHandling = DefaultValueHandling.Ignore
-            //};
-            //objectMapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
-            //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-            //// There's some odd bug in Jackson < 2.8.? where null values are not excluded. See:
-            //// https://github.com/FasterXML/jackson-databind/issues/1351. So we will
-            //// also annotate all fields manually
-            //objectMapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
-
-            //MemoryStream ms = new MemoryStream();
-            //using (var writer = new BsonDataWriter(ms))
-            //{
-            //    JsonSerializer serializer = new JsonSerializer
-            //    {
-            //        DefaultValueHandling = DefaultValueHandling.Ignore,
-            //        ContractResolver = AlgorandContractResolver.Instance,
-            //        Formatting = Formatting.None
-            //    };
-            //    serializer.Serialize(writer, o);
-            //}
-            //string data = Convert.ToBase64String(ms.ToArray());
-            //MessagePack.MessagePackSerializerOptions options = 
-            //    MessagePack.MessagePackSerializerOptions.Standard.
-
             MemoryStream memoryStream = new MemoryStream();
             JsonSerializer serializer = new JsonSerializer()
             {
@@ -59,14 +30,9 @@ namespace Algorand
                 Formatting = Formatting.None
             };
 
-            // serialize product to MessagePack
-            MessagePackWriter writer = new MessagePackWriter(memoryStream);
+            MessagePackWriter writer = new MessagePackWriter(memoryStream);            
             serializer.Serialize(writer, o);
             var bytes = memoryStream.ToArray();
-            //Console.WriteLine(BitConverter.ToString(memoryStream.ToArray()));
-            //var jstr = EncodeToJson(o);
-            //var newObj = JsonConvert.DeserializeObject(jstr);
-            //var bytes = MessagePack.MessagePackSerializer.ConvertFromJson(EncodeToJson(o));
             return bytes;
         }
 
@@ -78,13 +44,6 @@ namespace Algorand
         /// <returns>deserialized object</returns>
         public static T DecodeFromMsgPack<T>(byte[] input)
         {
-            // See encodedToMsgPack for explanation of settings, and how this makes msgpack canonical
-            //ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
-            //    objectMapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
-            //    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-            //    objectMapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
-            //    return objectMapper.readValue(input, tClass);
-            // deserialize product from MessagePack
             MemoryStream st = new MemoryStream(input);
             //memoryStream.Write(input, 0, input.Length);
             //memoryStream.Seek(0, SeekOrigin.Begin);
@@ -96,14 +55,7 @@ namespace Algorand
             };
             MessagePackReader reader = new MessagePackReader(st);
             return serializer.Deserialize<T>(reader);
-
-
-            //MemoryStream st = new MemoryStream(Convert.FromBase64String(bs64));
-            //JsonSerializer ser = new JsonSerializer();
-            //// deserialize product from MessagePack
-            //MessagePackReader reader = new MessagePackReader(st);
-            //Product deserializedProduct = ser.Deserialize<Product>(reader);
-
+            //return DecodeFromJson<T>(MessagePackSerializer.ConvertToJson(input));
         }
         
         /// <summary>
@@ -116,7 +68,8 @@ namespace Algorand
             var settings = new JsonSerializerSettings()
             {
                 ContractResolver = AlgorandContractResolver.Instance,
-                DefaultValueHandling = DefaultValueHandling.Ignore
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                Formatting = Formatting.None
             };
             var ostr = JsonConvert.SerializeObject(o, settings);
             return ostr;
@@ -140,62 +93,7 @@ namespace Algorand
         public static string EncodeToHexStr(byte[] bytes)
         {
             return BitConverter.ToString(bytes, 0).Replace("-", string.Empty).ToLower();
-        }
-
-        ///**
-        // * Convenience method for decoding bytes from hex.
-        // * @param hexStr hex string to decode
-        // * @return byte array
-        // * @throws DecoderException
-        // */
-        //public static byte[] decodeFromHexStr(String hexStr) throws DecoderException
-        //{
-        //        return Hex.decodeHex(hexStr);
-        //}
-
-        /**
-         * Convenience method for writing bytes as base32
-         * @param bytes input
-         * @return base32 string with stripped whitespace
-         */
-        //public static string EncodeToBase32StripPad(byte[] bytes)
-        //{
-        //    //Base32 codec = new Base32((byte)BASE32_PAD_CHAR);            
-        //    string paddedStr = Base32.ToBase32String(bytes, true);
-        //    // strip padding
-        //    //int i = 0;
-        //    //for (; i < paddedStr.Length; i++)
-        //    //{
-        //    //    if (paddedStr[i] == BASE32_PAD_CHAR)
-        //    //    {
-        //    //        break;
-        //    //    }
-        //    //}
-        //    int i = paddedStr.IndexOf(BASE32_PAD_CHAR);
-        //    return paddedStr.Substring(0, i);
-        //}
-
-        ///**
-        // * Encode to base64 string. Does not strip padding.
-        // * @param bytes input
-        // * @return base64 string with appropriate padding
-        // */
-        //public static String encodeToBase64(byte[] bytes)
-        //{
-        //    Base64 codec = new Base64();
-        //    return codec.encodeToString(bytes);
-        //}
-
-        ///**
-        // * Decode from base64 string.
-        // * @param str input
-        // * @return decoded bytes
-        // */
-        //public static byte[] decodeFromBase64(String str)
-        //{
-        //    Base64 codec = new Base64();
-        //    return codec.decode(str);
-        //}
+        }        
     }
 
     internal class AlgorandContractResolver : DefaultContractResolver
