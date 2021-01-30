@@ -20,14 +20,15 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Algorand.Client.SwaggerDateConverter;
+using System.ComponentModel;
 
 namespace Algorand.V2.Model
 {
     /// <summary>
     /// Represents a \\[apls\\] local-state or \\[apgs\\] global-state schema. These schemas determine how much storage may be used in a local-state or global-state for an application. The more space used, the larger minimum balance must be maintained in the account holding the data.
     /// </summary>
-    [DataContract]
-        public partial class StateSchema :  IEquatable<StateSchema>, IValidatableObject
+    [JsonObject]
+    public partial class StateSchema :  IEquatable<StateSchema>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StateSchema" /> class.
@@ -60,14 +61,17 @@ namespace Algorand.V2.Model
         /// Maximum number of TEAL byte slices that may be stored in the key/value store.
         /// </summary>
         /// <value>Maximum number of TEAL byte slices that may be stored in the key/value store.</value>
-        [DataMember(Name="num-byte-slice", EmitDefaultValue=false)]
+
+        [JsonProperty(PropertyName = "nbs", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [DefaultValue(0)]
         public ulong? NumByteSlice { get; set; }
 
         /// <summary>
         /// Maximum number of TEAL uints that may be stored in the key/value store.
         /// </summary>
         /// <value>Maximum number of TEAL uints that may be stored in the key/value store.</value>
-        [DataMember(Name="num-uint", EmitDefaultValue=false)]
+        [JsonProperty(PropertyName = "nui", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [DefaultValue(0)]
         public ulong? NumUint { get; set; }
 
         /// <summary>
@@ -90,7 +94,8 @@ namespace Algorand.V2.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return JsonConvert.SerializeObject(this, Formatting.Indented,
+                new JsonSerializerSettings() { DefaultValueHandling = DefaultValueHandling.Ignore });
         }
 
         /// <summary>

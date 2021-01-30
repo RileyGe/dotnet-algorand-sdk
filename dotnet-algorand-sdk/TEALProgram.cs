@@ -6,6 +6,7 @@ namespace Algorand
     /// <summary>
     /// TEALProgram
     /// </summary>
+    [JsonConverter(typeof(BytesConverter))]
     public class TEALProgram
     {
         private byte[] program = null;
@@ -43,9 +44,10 @@ namespace Algorand
         }
 
         /// <summary>
-        /// Initialize a TEALProgram based on the base64 encoding.A runtime exception is thrown if the program is invalid.
+        /// Initialize a TEALProgram based on the base64 encoding.
+        /// A runtime exception is thrown if the program is invalid.
         /// </summary>
         /// <param name="base64String">base64String</param>
-        public TEALProgram(String base64String) : this(Convert.FromBase64String(base64String)) { }
+        public TEALProgram(string base64String) : this(Convert.FromBase64String(base64String)) { }
     }
 }

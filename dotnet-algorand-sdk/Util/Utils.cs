@@ -140,7 +140,6 @@ namespace Algorand
             Account.SetFeeByFeePerByte(tx, fee);
             return tx;
         }
-
         /// <summary>
         /// Get a payment transaction
         /// </summary>
@@ -157,8 +156,7 @@ namespace Algorand
                 throw new Exception("The Transaction Params can not be null!");
             return GetPaymentTransactionWithInfo(from, to, amount, message,
                 (ulong?)trans.Fee, (ulong?)trans.LastRound, trans.GenesisId, Convert.ToBase64String(trans.GenesisHash));
-        }       
-
+        }
         /// <summary>
         /// Generate a 32 bytes string for asset metadata hash
         /// </summary>
@@ -470,6 +468,20 @@ namespace Algorand
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="firstValid"></param>
+        /// <param name="lastValid"></param>
+        /// <param name="genesishashb64"></param>
+        /// <param name="onCompletion"></param>
+        /// <param name="applicationId"></param>
+        /// <param name="applicationArgs"></param>
+        /// <param name="accounts"></param>
+        /// <param name="foreignApps"></param>
+        /// <param name="foreignAssets"></param>
+        /// <returns></returns>
         public static Transaction GetApplicationTransaction(Address sender, long firstValid, long lastValid, string genesishashb64, 
             OnCompletion onCompletion, long applicationId, List<byte[]> applicationArgs, List<Address> accounts, List<long> foreignApps, List<long> foreignAssets)
         {
@@ -487,7 +499,7 @@ namespace Algorand
             //Objects.requireNonNull(applicationId);
             //JavaHelper<long>.RequireNotNull()
 
-            if (applicationId >= 0) txn.applicationId = applicationId;
+            if (applicationId >= 0) txn.applicationId = (ulong?)applicationId;
             else throw new ArgumentException("Please set right application Id.");
             //if (onCompletion != new OnCompletion()) 
                 txn.onCompletion = onCompletion;
@@ -497,7 +509,115 @@ namespace Algorand
             if (foreignApps != null) txn.foreignApps = foreignApps;
             if (foreignAssets != null) txn.foreignAssets = foreignAssets;
             return txn;
-
+        }
+        public static Transaction GetApplicationCreateTransaction(Address sender, TEALProgram approvalProgram, TEALProgram clearProgram,
+            ulong? globalInts, ulong? globalBytes, ulong? localInts, ulong? localBytes, TransactionParametersResponse trans)
+        {
+            var fee = (ulong?)trans.Fee;
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong?)trans.LastRound,
+                lastValid = (ulong?)trans.LastRound + 1000,
+                genesisID = trans.GenesisId,
+                genesisHash = new Digest(trans.GenesisHash),
+                fee = fee >= 1000 ? fee : 1000,
+                approvalProgram = approvalProgram,
+                clearStateProgram = clearProgram,
+                onCompletion = OnCompletion.Noop,
+                globalStateSchema = new StateSchema(globalInts, globalBytes),
+                localStateSchema = new StateSchema(localInts, localBytes)
+            };
+            return txn;
+        }
+        public static Transaction GetApplicationOptinTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans)
+        {
+            var fee = (ulong?)trans.Fee;
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong?)trans.LastRound,
+                lastValid = (ulong?)trans.LastRound + 1000,
+                genesisID = trans.GenesisId,
+                genesisHash = new Digest(trans.GenesisHash),
+                fee = fee >= 1000 ? fee : 1000,
+                onCompletion = OnCompletion.Optin,
+                applicationId = applicationId
+            };
+            return txn;
+        }
+        public static Transaction GetApplicationCallTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans, List<byte[]> args = null)
+        {
+            var fee = (ulong?)trans.Fee;
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong?)trans.LastRound,
+                lastValid = (ulong?)trans.LastRound + 1000,
+                genesisID = trans.GenesisId,
+                genesisHash = new Digest(trans.GenesisHash),
+                fee = fee >= 1000 ? fee : 1000,
+                applicationId = applicationId,
+                applicationArgs = args
+            };
+            return txn;
+        }
+        public static Transaction GetApplicationUpdateTransaction(Address sender, ulong? applicationId, 
+            TEALProgram approvalProgram, TEALProgram clearProgram, TransactionParametersResponse trans)
+        {
+            var fee = (ulong?)trans.Fee;
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong?)trans.LastRound,
+                lastValid = (ulong?)trans.LastRound + 1000,
+                genesisID = trans.GenesisId,
+                genesisHash = new Digest(trans.GenesisHash),
+                fee = fee >= 1000 ? fee : 1000,
+                applicationId = applicationId,
+                onCompletion = OnCompletion.Update,
+                approvalProgram = approvalProgram,
+                clearStateProgram = clearProgram
+            };
+            return txn;
+        }
+        public static Transaction GetApplicationDeleteTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans)
+        {
+            var fee = (ulong?)trans.Fee;
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong?)trans.LastRound,
+                lastValid = (ulong?)trans.LastRound + 1000,
+                genesisID = trans.GenesisId,
+                genesisHash = new Digest(trans.GenesisHash),
+                fee = fee >= 1000 ? fee : 1000,
+                onCompletion = OnCompletion.Delete,
+                applicationId = applicationId
+            };
+            return txn;
+        }
+        public static Transaction GetApplicationClearTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans)
+        {
+            var fee = (ulong?)trans.Fee;
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong?)trans.LastRound,
+                lastValid = (ulong?)trans.LastRound + 1000,
+                genesisID = trans.GenesisId,
+                genesisHash = new Digest(trans.GenesisHash),
+                fee = fee >= 1000 ? fee : 1000,
+                onCompletion = OnCompletion.Clear,
+                applicationId = applicationId
+            };
+            return txn;
         }
         ///// <summary>
         ///// 
