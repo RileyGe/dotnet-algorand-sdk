@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Parameters;
-using System.Collections.Generic;
-using System.Text;
 using System;
 
 namespace Algorand
@@ -17,7 +15,7 @@ namespace Algorand
         {
             return (typeof(Signature) == objectType || typeof(Digest) == objectType || typeof(Address) == objectType ||
                 typeof(VRFPublicKey) == objectType || typeof(ParticipationPublicKey) == objectType ||
-                typeof(Ed25519PublicKeyParameters) == objectType);
+                typeof(Ed25519PublicKeyParameters) == objectType || typeof(TEALProgram) == objectType);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -60,6 +58,10 @@ namespace Algorand
             {
                 var key = value as Ed25519PublicKeyParameters;
                 bytes = key.GetEncoded();
+            }else if(value is TEALProgram)
+            {
+                var program = value as TEALProgram;
+                bytes = program.Bytes;
             }
             //writer.WriteValue(Convert.ToBase64String(bytes));
             writer.WriteValue(bytes);

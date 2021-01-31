@@ -1,0 +1,10 @@
+#pragma version 2
+byte "counter"
+byte "counter"
+app_global_get
+int 1
++
+app_global_put
+byte "counter"
+app_global_get
+return

@@ -1,0 +1,19 @@
+#pragma version 2
+byte "counter"
+byte "counter"
+app_global_get
+int 1
++
+app_global_put
+int 0
+byte "localcounter"
+int 0
+byte "localcounter"
+app_local_get
+int 1
++
+app_local_put
+int 0
+byte "localcounter"
+app_local_get
+return

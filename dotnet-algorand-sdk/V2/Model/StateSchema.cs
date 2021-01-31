@@ -35,7 +35,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <param name="numByteSlice">Maximum number of TEAL byte slices that may be stored in the key/value store. (required).</param>
         /// <param name="numUint">Maximum number of TEAL uints that may be stored in the key/value store. (required).</param>
-        public StateSchema(ulong? numByteSlice = 0, ulong? numUint = 0)
+        public StateSchema(ulong? numUint = 0, ulong? numByteSlice = 0)
         {
             // to ensure "numByteSlice" is required (not null)
             if (numByteSlice == null)
@@ -80,12 +80,10 @@ namespace Algorand.V2.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class StateSchema {\n");
-            sb.Append("  NumByteSlice: ").Append(NumByteSlice).Append("\n");
-            sb.Append("  NumUint: ").Append(NumUint).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return string.Format("class StateSchema {\n" +
+                "  NumUint: {0}\n" +
+                "  NumByteSlice: {1}\n" +
+                "}\n", NumUint, ToString(), NumByteSlice.ToString());
         }
   
         /// <summary>

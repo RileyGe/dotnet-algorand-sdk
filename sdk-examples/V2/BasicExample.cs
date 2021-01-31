@@ -32,6 +32,9 @@ namespace sdk_examples.V2
                 var supply = algodApiInstance.GetSupply();
                 Console.WriteLine("Total Algorand Supply: " + supply.TotalMoney);
                 Console.WriteLine("Online Algorand Supply: " + supply.OnlineMoney);
+                var task = algodApiInstance.GetSupplyAsync();
+                task.Wait();
+                Console.WriteLine("Total Algorand Supply(Async): " + task.Result.TotalMoney);
             }
             catch (ApiException e)
             {

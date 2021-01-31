@@ -134,7 +134,7 @@ namespace Algorand
         public static Transaction GetPaymentTransactionWithInfo(Address from, Address to, ulong? amount, string message, 
             ulong? fee, ulong? lastRound, string genesisId, string genesishashb64)
         {
-            var notes = Encoding.UTF8.GetBytes(message);
+            var notes = message is null ? null : Encoding.UTF8.GetBytes(message);
             var tx = new Transaction(from, fee, lastRound, lastRound + 1000,
                     notes, amount, to, genesisId, new Digest(genesishashb64));
             Account.SetFeeByFeePerByte(tx, fee);
@@ -216,7 +216,6 @@ namespace Algorand
             Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
-
         /// <summary>
         /// Generate an asset config transaction
         /// </summary>
@@ -468,50 +467,60 @@ namespace Algorand
             Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="firstValid"></param>
+        ///// <param name="lastValid"></param>
+        ///// <param name="genesishashb64"></param>
+        ///// <param name="onCompletion"></param>
+        ///// <param name="applicationId"></param>
+        ///// <param name="applicationArgs"></param>
+        ///// <param name="accounts"></param>
+        ///// <param name="foreignApps"></param>
+        ///// <param name="foreignAssets"></param>
+        ///// <returns></returns>
+        //public static Transaction GetApplicationTransaction(Address sender, long firstValid, long lastValid, string genesishashb64, 
+        //    OnCompletion onCompletion, long applicationId, List<byte[]> applicationArgs, List<Address> accounts, List<long> foreignApps, List<long> foreignAssets)
+        //{
+        //    var txn = new Transaction
+        //    {
+        //        type = Transaction.Type.ApplicationCall,
+        //        sender = sender,
+        //        firstValid = (ulong)firstValid,
+        //        lastValid = (ulong)lastValid,
+        //        genesisHash = new Digest(genesishashb64)
+        //    };
+
+        //    // Global requirements
+        //    //Objects.requireNonNull(onCompletion, "OnCompletion is required, please file a bug report.");
+        //    //Objects.requireNonNull(applicationId);
+        //    //JavaHelper<long>.RequireNotNull()
+
+        //    if (applicationId >= 0) txn.applicationId = (ulong?)applicationId;
+        //    else throw new ArgumentException("Please set right application Id.");
+        //    //if (onCompletion != new OnCompletion()) 
+        //        txn.onCompletion = onCompletion;
+        //    //else throw new ArgumentException("OnCompletion is required, please file a bug report.");
+        //    if (applicationArgs != null) txn.applicationArgs = applicationArgs;
+        //    if (accounts != null) txn.accounts = accounts;
+        //    if (foreignApps != null) txn.foreignApps = foreignApps;
+        //    if (foreignAssets != null) txn.foreignAssets = foreignAssets;
+        //    return txn;
+        //}
         /// <summary>
-        /// 
+        /// create application tranaction
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="firstValid"></param>
-        /// <param name="lastValid"></param>
-        /// <param name="genesishashb64"></param>
-        /// <param name="onCompletion"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="applicationArgs"></param>
-        /// <param name="accounts"></param>
-        /// <param name="foreignApps"></param>
-        /// <param name="foreignAssets"></param>
-        /// <returns></returns>
-        public static Transaction GetApplicationTransaction(Address sender, long firstValid, long lastValid, string genesishashb64, 
-            OnCompletion onCompletion, long applicationId, List<byte[]> applicationArgs, List<Address> accounts, List<long> foreignApps, List<long> foreignAssets)
-        {
-            var txn = new Transaction
-            {
-                type = Transaction.Type.ApplicationCall,
-                sender = sender,
-                firstValid = (ulong)firstValid,
-                lastValid = (ulong)lastValid,
-                genesisHash = new Digest(genesishashb64)
-            };
-
-            // Global requirements
-            //Objects.requireNonNull(onCompletion, "OnCompletion is required, please file a bug report.");
-            //Objects.requireNonNull(applicationId);
-            //JavaHelper<long>.RequireNotNull()
-
-            if (applicationId >= 0) txn.applicationId = (ulong?)applicationId;
-            else throw new ArgumentException("Please set right application Id.");
-            //if (onCompletion != new OnCompletion()) 
-                txn.onCompletion = onCompletion;
-            //else throw new ArgumentException("OnCompletion is required, please file a bug report.");
-            if (applicationArgs != null) txn.applicationArgs = applicationArgs;
-            if (accounts != null) txn.accounts = accounts;
-            if (foreignApps != null) txn.foreignApps = foreignApps;
-            if (foreignAssets != null) txn.foreignAssets = foreignAssets;
-            return txn;
-        }
+        /// <param name="sender">sender of the transaction</param>
+        /// <param name="approvalProgram">approval program</param>
+        /// <param name="clearProgram">clear program</param>
+        /// <param name="globalSchema">global schema</param>
+        /// <param name="localSchema">local schema</param>
+        /// <param name="trans">suggested transaction params</param>
+        /// <returns>create application tranaction</returns>
         public static Transaction GetApplicationCreateTransaction(Address sender, TEALProgram approvalProgram, TEALProgram clearProgram,
-            ulong? globalInts, ulong? globalBytes, ulong? localInts, ulong? localBytes, TransactionParametersResponse trans)
+            StateSchema globalSchema, StateSchema localSchema, TransactionParametersResponse trans)
         {
             var fee = (ulong?)trans.Fee;
             var txn = new Transaction
@@ -526,11 +535,18 @@ namespace Algorand
                 approvalProgram = approvalProgram,
                 clearStateProgram = clearProgram,
                 onCompletion = OnCompletion.Noop,
-                globalStateSchema = new StateSchema(globalInts, globalBytes),
-                localStateSchema = new StateSchema(localInts, localBytes)
+                globalStateSchema = globalSchema,
+                localStateSchema = localSchema
             };
             return txn;
         }
+        /// <summary>
+        /// optin application tranaction
+        /// </summary>
+        /// <param name="sender">sender of the transaction</param>
+        /// <param name="applicationId">application id</param>
+        /// <param name="trans">suggested transaction params</param>
+        /// <returns>optin application tranaction</returns>
         public static Transaction GetApplicationOptinTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans)
         {
             var fee = (ulong?)trans.Fee;
@@ -548,6 +564,14 @@ namespace Algorand
             };
             return txn;
         }
+        /// <summary>
+        /// call application transaction
+        /// </summary>
+        /// <param name="sender">sender of the transaction</param>
+        /// <param name="applicationId">application id</param>
+        /// <param name="trans">suggested transaction params</param>
+        /// <param name="args">arguments</param>
+        /// <returns>call application transaction</returns>
         public static Transaction GetApplicationCallTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans, List<byte[]> args = null)
         {
             var fee = (ulong?)trans.Fee;
@@ -565,6 +589,15 @@ namespace Algorand
             };
             return txn;
         }
+        /// <summary>
+        /// update application transaction
+        /// </summary>
+        /// <param name="sender">sender of the transaction</param>
+        /// <param name="applicationId">application id</param>
+        /// <param name="approvalProgram">approval program</param>
+        /// <param name="clearProgram">clear program</param>
+        /// <param name="trans">suggested transaction params</param>
+        /// <returns>update application transaction</returns>
         public static Transaction GetApplicationUpdateTransaction(Address sender, ulong? applicationId, 
             TEALProgram approvalProgram, TEALProgram clearProgram, TransactionParametersResponse trans)
         {
@@ -585,6 +618,13 @@ namespace Algorand
             };
             return txn;
         }
+        /// <summary>
+        /// delete transaction transaction
+        /// </summary>
+        /// <param name="sender">sender of the transaction</param>
+        /// <param name="applicationId">application id</param>
+        /// <param name="trans">suggested transaction params</param>
+        /// <returns>delete transaction transaction</returns>
         public static Transaction GetApplicationDeleteTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans)
         {
             var fee = (ulong?)trans.Fee;
@@ -602,6 +642,13 @@ namespace Algorand
             };
             return txn;
         }
+        /// <summary>
+        /// clear transaction transaction
+        /// </summary>
+        /// <param name="sender">sender of the transaction</param>
+        /// <param name="applicationId">application id</param>
+        /// <param name="trans">suggested transaction params</param>
+        /// <returns>clear transaction transaction</returns>
         public static Transaction GetApplicationClearTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans)
         {
             var fee = (ulong?)trans.Fee;
@@ -615,6 +662,30 @@ namespace Algorand
                 genesisHash = new Digest(trans.GenesisHash),
                 fee = fee >= 1000 ? fee : 1000,
                 onCompletion = OnCompletion.Clear,
+                applicationId = applicationId
+            };
+            return txn;
+        }
+        /// <summary>
+        /// close out transaction transaction
+        /// </summary>
+        /// <param name="sender">sender of the transaction</param>
+        /// <param name="applicationId">application id</param>
+        /// <param name="trans">suggested transaction params</param>
+        /// <returns>close out transaction transaction</returns>
+        public static Transaction GetApplicationCloseTransaction(Address sender, ulong? applicationId, TransactionParametersResponse trans)
+        {
+            var fee = (ulong?)trans.Fee;
+            var txn = new Transaction
+            {
+                type = Transaction.Type.ApplicationCall,
+                sender = sender,
+                firstValid = (ulong?)trans.LastRound,
+                lastValid = (ulong?)trans.LastRound + 1000,
+                genesisID = trans.GenesisId,
+                genesisHash = new Digest(trans.GenesisHash),
+                fee = fee >= 1000 ? fee : 1000,
+                onCompletion = OnCompletion.Closeout,
                 applicationId = applicationId
             };
             return txn;
@@ -659,7 +730,13 @@ namespace Algorand
         //    Account.SetFeeByFeePerByte(tx, trans.Fee);
         //    return tx;
         //}
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="stxn"></param>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public static DryrunResponse GetDryrunResponse(V2.AlgodApi client, SignedTransaction stxn, byte[] source = null)
         {
             List<DryrunSource> sources = new List<DryrunSource>();

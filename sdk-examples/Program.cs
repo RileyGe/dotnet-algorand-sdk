@@ -12,7 +12,7 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
-            V2.BasicExample.Main(args); return;
+            //V2.BasicExample.Main(args); return;
             //V2.AssetExample.Main(args); return;
             //V2.AtomicTransferExample.Main(args); return;
             //V2.contract.CompileTeal.Main(args); return;
@@ -22,6 +22,8 @@ namespace sdk_examples
             //V2.IndexerExamples.Main(args); return;
             //V2.RekeyExample.Main(args); return;
             //V2.AccountTest.Main(args); return;
+            //V2.contract.DryrunStatefulExample.Main(args); return;
+            V2.contract.StatefulContract.Main(args); return;
 
 
             //AssetExample.Main(args); return;

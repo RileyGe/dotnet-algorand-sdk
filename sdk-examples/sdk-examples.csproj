@@ -8,7 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="V2\contract\DryrunStatefulExample.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BouncyCastle.NetCore" Version="1.8.8" />
+    <PackageReference Include="MessagePack" Version="2.2.85" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +22,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="V2\contract\hello_world.teal">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="V2\contract\hello_world_clear.teal">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="V2\contract\hello_world_updated.teal">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="V2\contract\sample.teal">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
