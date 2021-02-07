@@ -204,7 +204,7 @@ namespace sdk_examples.V2.contract
                 ReadLocalState(client, user, appid);
 
                 // close-out from application
-                closeOutApp(client, user, (ulong)appid);
+                CloseOutApp(client, user, (ulong)appid);
 
                 // opt-in again to application
                 OptIn(client, user, appid);
@@ -229,7 +229,7 @@ namespace sdk_examples.V2.contract
                 Console.WriteLine("Exception when calling algod#sendTransaction: " + e.Message);
             }
         }
-        public static void closeOutApp(AlgodApi client, Account sender, ulong appId)
+        public static void CloseOutApp(AlgodApi client, Account sender, ulong appId)
         {
             try
             {
