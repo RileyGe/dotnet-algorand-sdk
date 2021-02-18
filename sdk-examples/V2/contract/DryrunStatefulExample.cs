@@ -67,7 +67,7 @@ namespace sdk_examples.V2.contract
                 //call app from user account updates global storage
 
                 CallApp(client, creator, user, appid, null,
-                    new TEALProgram(approval_program_compiled.Result), "hello_world.teal");
+                    new TEALProgram(approval_program_compiled.Result), "V2/contract/hello_world.teal");
 
                 // read global state of application
                 ReadGlobalState(client, creator, appid);
@@ -79,7 +79,7 @@ namespace sdk_examples.V2.contract
 
                 //call application with updated app which updates local storage counter
                 CallApp(client, creator, user, appid, null,
-                    new TEALProgram(approval_program_refactored_compiled.Result), "hello_world_updated.teal");
+                    new TEALProgram(approval_program_refactored_compiled.Result), "V2/contract/hello_world_updated.teal");
 
                 //read local state of application from user account
                 ReadLocalState(client, user, appid);
@@ -92,7 +92,7 @@ namespace sdk_examples.V2.contract
 
                 //call application with arguments
                 CallApp(client, creator, user, appid, null,
-                    new TEALProgram(approval_program_refactored_compiled.Result), "hello_world_updated.teal");
+                    new TEALProgram(approval_program_refactored_compiled.Result), "V2/contract/hello_world_updated.teal");
 
                 // delete application
                 // clears global storage only
@@ -159,7 +159,7 @@ namespace sdk_examples.V2.contract
                 var id = Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
                 var resp = Utils.WaitTransactionToComplete(client, id.TxId);
-                Console.WriteLine("Application ID is: " + JObject.Parse(resp.Txn.ToString())["apid"]);
+                Console.WriteLine("Application ID is: " + resp.ApplicationIndex);
                 return resp.ApplicationIndex;
             }
             catch (ApiException e)
@@ -179,7 +179,7 @@ namespace sdk_examples.V2.contract
                 var id = Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
                 var resp = Utils.WaitTransactionToComplete(client, id.TxId);
-                Console.WriteLine("Optin to Application ID: " + resp.ApplicationIndex);
+                Console.WriteLine("Optin to Application ID: " + (resp.Txn as JObject)["txn"]["apid"]);
             }
             catch (ApiException e)
             {
@@ -199,7 +199,7 @@ namespace sdk_examples.V2.contract
                 var id = Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
                 var resp = Utils.WaitTransactionToComplete(client, id.TxId);
-                Console.WriteLine("Optin to Application ID: " + resp.ApplicationIndex);
+                Console.WriteLine("Success deleted the application " + (resp.Txn as JObject)["txn"]["apid"]);
             }
             catch (ApiException e)
             {
@@ -214,10 +214,12 @@ namespace sdk_examples.V2.contract
                 var transParams = client.TransactionParams();
                 var tx = Utils.GetApplicationClearTransaction(sender.Address, (ulong?)applicationId, transParams);
                 var signedTx = sender.SignTransaction(tx);
+                Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
+
                 var id = Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
                 var resp = Utils.WaitTransactionToComplete(client, id.TxId);
-                Console.WriteLine("Clear Application ID: " + resp.ApplicationIndex);
+                Console.WriteLine("Success cleared the application " + (resp.Txn as JObject)["txn"]["apid"]);
             }
             catch (ApiException e)
             {
@@ -276,38 +278,8 @@ namespace sdk_examples.V2.contract
 
         private static void Excute(string line)
         {
-
-            System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "cmd.exe";
-            p.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
-            p.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
-            p.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
-            p.StartInfo.RedirectStandardError = true;//重定向标准错误输出
-            p.StartInfo.CreateNoWindow = true;//不显示程序窗口
-            p.Start();//启动程序
-
-            //向cmd窗口发送输入信息
-            p.StandardInput.WriteLine(line);
-            p.StandardInput.AutoFlush = true;
-            //p.StandardInput.WriteLine("exit");
-            //向标准输入写入要执行的命令。这里使用&是批处理命令的符号，表示前面一个命令不管是否执行成功都执行后面(exit)命令，如果不执行exit命令，后面调用ReadToEnd()方法会假死
-            //同类的符号还有&&和||前者表示必须前一个命令执行成功才会执行后面的命令，后者表示必须前一个命令执行失败才会执行后面的命令
-
-            //获取cmd窗口的输出信息
-            string output = p.StandardOutput.ReadToEnd();
-            Console.WriteLine(output);
-
-            //StreamReader reader = p.StandardOutput;
-            //string line=reader.ReadLine();
-            //while (!reader.EndOfStream)
-            //{
-            //    str += line + "  ";
-            //    line = reader.ReadLine();
-            //}
-
-            p.WaitForExit();//等待程序执行完退出进程
-            p.Close();
-            //return output;
+            var strCmdText = "/C " + line;
+            System.Diagnostics.Process.Start("cmd.exe", strCmdText);
         }
 
         private static void WriteDrr(string filePath, DryrunRequest content)
@@ -337,7 +309,12 @@ namespace sdk_examples.V2.contract
             {
                 if (applicationLocalState[i].Id == appId)
                 {
-                    Console.WriteLine("User's application local state: " + applicationLocalState[i].KeyValue.ToString());
+                    var outStr = "User's application local state: ";
+                    foreach (var v in applicationLocalState[i].KeyValue)
+                    {
+                        outStr += v.ToString();
+                    }
+                    Console.WriteLine(outStr);
                 }
             }
         }
@@ -350,9 +327,15 @@ namespace sdk_examples.V2.contract
             {
                 if (createdApplications[i].Id == appId)
                 {
-                    Console.WriteLine("Application global state: " + createdApplications[i].Params.GlobalState.ToString());
+                    var outStr = "Application global state: ";
+                    foreach (var v in createdApplications[i].Params.GlobalState)
+                    {
+                        outStr += v.ToString();
+                    }
+                    Console.WriteLine(outStr);
                 }
             }
         }
+        
     }
 }

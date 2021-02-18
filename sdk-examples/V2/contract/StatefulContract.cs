@@ -216,10 +216,10 @@ namespace sdk_examples.V2.contract
                 ReadLocalState(client, user, appid);
 
                 // delete application
-                deleteApp(client, creator, appid);
+                DeleteApp(client, creator, appid);
 
                 // clear application from user account
-                clearApp(client, user, appid);
+                ClearApp(client, user, appid);
 
                 Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
             }
@@ -316,7 +316,7 @@ namespace sdk_examples.V2.contract
             }
         }
 
-        static void deleteApp(AlgodApi client, Account sender, long? applicationId)
+        static void DeleteApp(AlgodApi client, Account sender, long? applicationId)
         {
             try
             {
@@ -336,7 +336,7 @@ namespace sdk_examples.V2.contract
             }
         }
 
-        static void clearApp(AlgodApi client, Account sender, long? applicationId)
+        static void ClearApp(AlgodApi client, Account sender, long? applicationId)
         {
             try
             {
