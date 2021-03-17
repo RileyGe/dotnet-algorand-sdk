@@ -31,24 +31,8 @@ namespace Algorand
         {
             if (langSpec == null)
             {
-
-                //     var jsonStr = (new StreamReader("langspec.json")).ReadToEnd();
-                //     langSpec = JsonConvert.DeserializeObject<LangSpec>(jsonStr);
-
-                // read file from embedded resources - not the file system
                 var jsonStr = GetFromResources("langspec.json");
                 langSpec = JsonConvert.DeserializeObject<LangSpec>(jsonStr);
-
-                //                InputStreamReader reader;
-                //                try {
-                //                reader = new InputStreamReader(Logic.class.getResourceAsStream("/langspec.json"), "UTF-8");
-                //            } catch (UnsupportedEncodingException var11) {
-                //                throw new IllegalStateException("langspec opening error");
-                // }
-
-                // Gson g = (new GsonBuilder()).create();
-                //        langSpec = (Logic.LangSpec) g.fromJson(reader, Logic.LangSpec.class);
-                //            reader.close();
             }
 
             VarintResult result = Uvarint.GetUvarint(program);
@@ -440,23 +424,8 @@ namespace Algorand
             {
                 return;
             }
-            string json = File.ReadAllText("langspec.json");
+            string json = GetFromResources("langspec.json");
             langSpec = JsonConvert.DeserializeObject<LangSpec>(json);
-            //        Reader reader;
-            //        try {
-            //            reader = new InputStreamReader(
-            //                Logic.class.getResourceAsStream("/langspec.json"),
-            //                "UTF-8"
-            //            );
-            //        } catch (UnsupportedEncodingException ex)
-            //{
-            //    throw new IllegalStateException("langspec opening error");
-            //}
-
-            //Gson g = new GsonBuilder().create();
-
-            //langSpec = g.fromJson(reader, LangSpec.class);
-            //reader.close();
         }
         /// <summary>
         /// TEAL supported version
