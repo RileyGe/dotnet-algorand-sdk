@@ -30,6 +30,15 @@
     <None Update="V2\contract\sample.teal">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="V2\contract\stateful_approval_init.teal">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="V2\contract\stateful_approval_refact.teal">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="V2\contract\stateful_clear.teal">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

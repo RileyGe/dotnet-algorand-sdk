@@ -22,8 +22,8 @@ namespace sdk_examples
             //V2.IndexerExamples.Main(args); return;
             //V2.RekeyExample.Main(args); return;
             //V2.AccountTest.Main(args); return;
-            V2.contract.DryrunStatefulExample.Main(args); return;
-            //V2.contract.StatefulContract.Main(args); return;
+            //V2.contract.DryrunStatefulExample.Main(args); return;
+            V2.contract.StatefulContract.Main(args); return;
 
 
             //AssetExample.Main(args); return;

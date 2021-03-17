@@ -56,113 +56,14 @@ namespace sdk_examples.V2.contract
             ulong globalBytes = 0;
 
             // user declared approval program (initial)
-            string approvalProgramSourceInitial = "#pragma version 2\n"
-                    + "///// Handle each possible OnCompletion type. We don't have to worry about\n"
-                    + "//// handling ClearState, because the ClearStateProgram will execute in that\n"
-                    + "//// case, not the ApprovalProgram.\n" +
-
-                    "txn OnCompletion\n" + "int NoOp\n" + "==\n" + "bnz handle_noop\n" +
-
-                    "txn OnCompletion\n" + "int OptIn\n" + "==\n" + "bnz handle_optin\n" +
-
-                    "txn OnCompletion\n" + "int CloseOut\n" + "==\n" + "bnz handle_closeout\n" +
-
-                    "txn OnCompletion\n" + "int UpdateApplication\n" + "==\n" + "bnz handle_updateapp\n" +
-
-                    "txn OnCompletion\n" + "int DeleteApplication\n" + "==\n" + "bnz handle_deleteapp\n" +
-
-                    "//// Unexpected OnCompletion value. Should be unreachable.\n" + "err\n" +
-
-                    "handle_noop:\n" + "//// Handle NoOp\n" + "//// Check for creator\n"
-                    + "addr 53GNUYJSTKGEHAVYE5ZS65YTVJSYZSJ7KJBWNQT3MJESCOKNOWEBYTLVA4\n" + "txn Sender\n" + "==\n"
-                    + "bnz handle_optin\n" +
-
-                    "//// read global state\n" + "byte \"counter\"\n" + "dup\n" + "app_global_get\n" +
-
-                    "//// increment the value\n" + "int 1\n" + "+\n" +
-
-                    "//// store to scratch space\n" + "dup\n" + "store 0\n" +
-
-                    "//// update global state\n" + "app_global_put\n" +
-
-                    "//// read local state for sender\n" + "int 0\n" + "byte \"counter\"\n" + "app_local_get\n" +
-
-                    "//// increment the value\n" + "int 1\n" + "+\n" + "store 1\n" +
-
-                    "//// update local state for sender\n" + "int 0\n" + "byte \"counter\"\n" + "load 1\n"
-                    + "app_local_put\n" +
-
-                    "//// load return value as approval\n" + "load 0\n" + "return\n" +
-
-                    "handle_optin:\n" + "//// Handle OptIn\n" + "//// approval\n" + "int 1\n" + "return\n" +
-
-                    "handle_closeout:\n" + "//// Handle CloseOut\n" + "////approval\n" + "int 1\n" + "return\n" +
-
-                    "handle_deleteapp:\n" + "//// Check for creator\n"
-                    + "addr 53GNUYJSTKGEHAVYE5ZS65YTVJSYZSJ7KJBWNQT3MJESCOKNOWEBYTLVA4\n" + "txn Sender\n" + "==\n"
-                    + "return\n" +
-
-                    "handle_updateapp:\n" + "//// Check for creator\n"
-                    + "addr 53GNUYJSTKGEHAVYE5ZS65YTVJSYZSJ7KJBWNQT3MJESCOKNOWEBYTLVA4\n" + "txn Sender\n" + "==\n"
-                    + "return\n";
+            string approvalProgramSourceInitial = File.ReadAllText("stateful_approval_init.teal");
 
             // user declared approval program (refactored)
-            string approvalProgramSourceRefactored = "#pragma version 2\n"
-                    + "//// Handle each possible OnCompletion type. We don't have to worry about\n"
-                    + "//// handling ClearState, because the ClearStateProgram will execute in that\n"
-                    + "//// case, not the ApprovalProgram.\n" +
-
-                    "txn OnCompletion\n" + "int NoOp\n" + "==\n" + "bnz handle_noop\n" +
-
-                    "txn OnCompletion\n" + "int OptIn\n" + "==\n" + "bnz handle_optin\n" +
-
-                    "txn OnCompletion\n" + "int CloseOut\n" + "==\n" + "bnz handle_closeout\n" +
-
-                    "txn OnCompletion\n" + "int UpdateApplication\n" + "==\n" + "bnz handle_updateapp\n" +
-
-                    "txn OnCompletion\n" + "int DeleteApplication\n" + "==\n" + "bnz handle_deleteapp\n" +
-
-                    "//// Unexpected OnCompletion value. Should be unreachable.\n" + "err\n" +
-
-                    "handle_noop:\n" + "//// Handle NoOp\n" + "//// Check for creator\n"
-                    + "addr 53GNUYJSTKGEHAVYE5ZS65YTVJSYZSJ7KJBWNQT3MJESCOKNOWEBYTLVA4\n" + "txn Sender\n" + "==\n"
-                    + "bnz handle_optin\n" +
-
-                    "//// read global state\n" + "byte \"counter\"\n" + "dup\n" + "app_global_get\n" +
-
-                    "//// increment the value\n" + "int 1\n" + "+\n" +
-
-                    "//// store to scratch space\n" + "dup\n" + "store 0\n" +
-
-                    "//// update global state\n" + "app_global_put\n" +
-
-                    "//// read local state for sender\n" + "int 0\n" + "byte \"counter\"\n" + "app_local_get\n" +
-
-                    "//// increment the value\n" + "int 1\n" + "+\n" + "store 1\n" +
-
-                    "//// update local state for sender\n" + "//// update \"counter\"\n" + "int 0\n" + "byte \"counter\"\n"
-                    + "load 1\n" + "app_local_put\n" +
-
-                    "//// update \"timestamp\"\n" + "int 0\n" + "byte \"timestamp\"\n" + "txn ApplicationArgs 0\n"
-                    + "app_local_put\n" +
-
-                    "//// load return value as approval\n" + "load 0\n" + "return\n" +
-
-                    "handle_optin:\n" + "//// Handle OptIn\n" + "//// approval\n" + "int 1\n" + "return\n" +
-
-                    "handle_closeout:\n" + "//// Handle CloseOut\n" + "////approval\n" + "int 1\n" + "return\n" +
-
-                    "handle_deleteapp:\n" + "//// Check for creator\n"
-                    + "addr 53GNUYJSTKGEHAVYE5ZS65YTVJSYZSJ7KJBWNQT3MJESCOKNOWEBYTLVA4\n" + "txn Sender\n" + "==\n"
-                    + "return\n" +
-
-                    "handle_updateapp:\n" + "//// Check for creator\n"
-                    + "addr 53GNUYJSTKGEHAVYE5ZS65YTVJSYZSJ7KJBWNQT3MJESCOKNOWEBYTLVA4\n" + "txn Sender\n" + "==\n"
-                    + "return\n";
+            string approvalProgramSourceRefactored = File.ReadAllText("stateful_approval_refact.teal");
             // creator 53GNUYJSTKGEHAVYE5ZS65YTVJSYZSJ7KJBWNQT3MJESCOKNOWEBYTLVA4
             // user GG7UDCTXNHADKSJ22GG64BZNKXXLXMSYWVZDD2UGHBZ6RLVXWGRLMW52DU
             // declare clear state program source
-            string clearProgramSource = "#pragma version 2\n" + "int 1\n";
+            string clearProgramSource = File.ReadAllText("stateful_clear.teal");
 
             var approvalProgram =
                 client.TealCompile(Encoding.UTF8.GetBytes(approvalProgramSourceInitial));
