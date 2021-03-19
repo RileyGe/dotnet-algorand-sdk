@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using Algorand.V2.Model;
 using Account = Algorand.Account;
+using System.Runtime.InteropServices;
 
 namespace sdk_examples.V2.contract
 {
@@ -278,8 +279,15 @@ namespace sdk_examples.V2.contract
 
         private static void Excute(string line)
         {
-            var strCmdText = "/C " + line;
-            System.Diagnostics.Process.Start("cmd.exe", strCmdText);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                System.Diagnostics.Process.Start("/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal", line);
+            }
+            else if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                var strCmdText = "/C " + line;
+                System.Diagnostics.Process.Start("cmd.exe", strCmdText);
+            }            
         }
 
         private static void WriteDrr(string filePath, DryrunRequest content)
