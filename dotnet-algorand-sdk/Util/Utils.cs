@@ -211,8 +211,11 @@ namespace Algorand
             var tx = Transaction.CreateAssetCreateTransaction(new Address(asset.Creator), (ulong?)trans.Fee, (ulong?)trans.LastRound, (ulong?)trans.LastRound + 1000,
                 Encoding.UTF8.GetBytes(message), trans.GenesisId, new Digest(trans.GenesisHash),
                 asset.Total, (int)asset.Decimals, (bool)asset.DefaultFrozen, asset.UnitName, asset.Name, asset.Url,
-                asset.MetadataHash, new Address(asset.Manager), new Address(asset.Reserve),
-                new Address(asset.Freeze), new Address(asset.Clawback));
+                asset.MetadataHash, 
+                asset.Manager==""||asset.Manager==null ? null : new Address(asset.Manager), 
+                asset.Reserve==""||asset.Reserve==null ? null : new Address(asset.Reserve),
+                asset.Freeze==""||asset.Freeze==null ? null : new Address(asset.Freeze), 
+                asset.Clawback==""||asset.Clawback==null ? null : new Address(asset.Clawback));
             Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
