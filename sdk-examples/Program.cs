@@ -16,13 +16,13 @@ namespace sdk_examples
             //V2.AssetExample.Main(args); return;
             //V2.AtomicTransferExample.Main(args); return;
             //V2.contract.CompileTeal.Main(args); return;
-            //V2.contract.ContractAccount.Main(args); return;
+            V2.contract.ContractAccount.Main(args); return;
             //V2.contract.LogicSignature.Main(args); return;
             //V2.contract.DryrunDedugging.Main(args); return;
             //V2.IndexerExamples.Main(args); return;
             //V2.RekeyExample.Main(args); return;
             //V2.AccountTest.Main(args); return;
-            V2.contract.DryrunStatefulExample.Main(args); return;
+            //V2.contract.DryrunStatefulExample.Main(args); return;
             //V2.contract.StatefulContract.Main(args); return;
 
 
@@ -45,7 +45,8 @@ namespace sdk_examples
 
             string ALGOD_API_TOKEN = args[1];
             string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
-            string DEST_ADDR = "KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU";
+            string DEST_ADDR = "7XVBE6T6FMUR6TI2XGSVSOPJHKQE2SDVPMFA3QUZNWM7IY6D4K2L23ZN2A";
+
             if (!Address.IsValid(DEST_ADDR))
                 Console.WriteLine("The address " + DEST_ADDR + " is not valid!");
             Account src = new Account(SRC_ACCOUNT);

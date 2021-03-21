@@ -257,6 +257,12 @@ namespace sdk_examples.V2.contract
 
                 Excute(string.Format("tealdbg debug {0} --dryrun-req {1}", tealFileName, drrFile));
 
+                // break here on the next line with debugger
+                // run this command in this folder
+                // tealdbg debug hello_world.teal --dryrun-req mydrr.dr
+                // or
+                // tealdbg debug hello_world_updated.teal --dryrun-req mydrr.dr
+
                 var id = Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
                 var resp = Utils.WaitTransactionToComplete(client, id.TxId);
@@ -281,7 +287,7 @@ namespace sdk_examples.V2.contract
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                System.Diagnostics.Process.Start("/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal", line);
+                System.Diagnostics.Process.Start("/System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal", line);
             }
             else if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -293,7 +299,7 @@ namespace sdk_examples.V2.contract
         private static void WriteDrr(string filePath, DryrunRequest content)
         {
             var data = Encoder.EncodeToMsgPack(content);
-            File.WriteAllBytes(filePath, data);
+            File.WriteAllBytes("./V2/contract/" + filePath, data);
         }
 
         static DryrunRequest DryrunDrr(SignedTransaction signTx, TEALProgram program, Algorand.V2.Model.Account cr, Algorand.V2.Model.Account usr)
