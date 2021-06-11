@@ -6,7 +6,7 @@ using System.Text;
 namespace Algorand.Algod.Api
 {
     /// <summary>
-    /// Rename DefautlApi
+    /// Rename DefaultApi
     /// </summary>
     public class AlgodApi : DefaultApi
     {
