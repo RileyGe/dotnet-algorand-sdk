@@ -13,10 +13,10 @@ namespace sdk_examples
         static void Main(string[] args)
         {
             //V2.BasicExample.Main(args); return;
-            //V2.AssetExample.Main(args); return;
+            V2.AssetExample.Main(args); return;
             //V2.AtomicTransferExample.Main(args); return;
             //V2.contract.CompileTeal.Main(args); return;
-            V2.contract.ContractAccount.Main(args); return;
+            //V2.contract.ContractAccount.Main(args); return;
             //V2.contract.LogicSignature.Main(args); return;
             //V2.contract.DryrunDedugging.Main(args); return;
             //V2.IndexerExamples.Main(args); return;

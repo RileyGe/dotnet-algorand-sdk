@@ -16,10 +16,10 @@ namespace Algorand
         /// <summary>
         /// wait transaction to complete
         /// </summary>
-        /// <param name="instance"></param>
-        /// <param name="txID"></param>
+        /// <param name="instance">The algod api instance using algod v1 API</param>
+        /// <param name="txID">transaction ID</param>
         /// <returns></returns>
-        public static string WaitTransactionToComplete(AlgodApi instance, string txID) //throws Exception
+        public static string WaitTransactionToComplete(AlgodApi instance, string txID)
         {
             while (true)
             {
@@ -42,7 +42,7 @@ namespace Algorand
         /// <param name="txID">transaction ID</param>
         /// <param name="timeout">how many rounds do you wish to check pending transactions for</param>
         /// <returns>The pending transaction response</returns>
-        public static PendingTransactionResponse WaitTransactionToComplete(V2.AlgodApi instance, string txID, int timeout = 3) //throws Exception
+        public static PendingTransactionResponse WaitTransactionToComplete(V2.AlgodApi instance, string txID, int timeout = 3) 
         {
 
             if (instance == null || txID == null || txID.Length == 0 || timeout < 0)
@@ -134,12 +134,31 @@ namespace Algorand
         public static Transaction GetPaymentTransactionWithInfo(Address from, Address to, ulong? amount, string message, 
             ulong? fee, ulong? lastRound, string genesisId, string genesishashb64)
         {
-            var notes = message is null ? null : Encoding.UTF8.GetBytes(message);
-            var tx = new Transaction(from, fee, lastRound, lastRound + 1000,
-                    notes, amount, to, genesisId, new Digest(genesishashb64));
+            var tx = GetPaymentTransactionWithFlatFee(from, to, amount, message, fee, lastRound, genesisId, genesishashb64);
             Account.SetFeeByFeePerByte(tx, fee);
             return tx;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="amount"></param>
+        /// <param name="message"></param>
+        /// <param name="flatFee"></param>
+        /// <param name="lastRound"></param>
+        /// <param name="genesisId"></param>
+        /// <param name="genesishashb64"></param>
+        /// <returns></returns>
+        public static Transaction GetPaymentTransactionWithFlatFee(Address from, Address to, ulong? amount, string message,
+            ulong? flatFee, ulong? lastRound, string genesisId, string genesishashb64)
+        {
+            var notes = message is null ? null : Encoding.UTF8.GetBytes(message);
+            var tx = new Transaction(from, flatFee, lastRound, lastRound + 1000,
+                    notes, amount, to, genesisId, new Digest(genesishashb64));
+            return tx;
+        }
+
         /// <summary>
         /// Get a payment transaction
         /// </summary>
@@ -180,7 +199,7 @@ namespace Algorand
         /// the number of digits to display after the decimal place when displaying the asset. 
         /// This value must be between 0 and 19</param>
         /// <returns>transaction</returns>
-        public static Transaction GetCreateAssetTransaction(AssetParams asset, TransactionParams trans, string message = "", int decimals = 0)
+        public static Transaction GetCreateAssetTransaction(AssetParams asset, TransactionParams trans, string message = "", int decimals = 0, ulong? flatFee = null)
         {
             ValidateAsset(asset);
             // assetDecimals is not exist in api, so set as zero in this version
@@ -189,7 +208,15 @@ namespace Algorand
                 asset.Total, decimals, (bool)asset.Defaultfrozen, asset.Unitname, asset.Assetname, asset.Url,
                 Convert.FromBase64String(asset.Metadatahash), new Address(asset.Managerkey), new Address(asset.Reserveaddr),
                 new Address(asset.Freezeaddr), new Address(asset.Clawbackaddr));
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if(flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            
             return tx;
         }        
 
@@ -204,7 +231,7 @@ namespace Algorand
         /// the number of digits to display after the decimal place when displaying the asset. 
         /// This value must be between 0 and 19</param>
         /// <returns>transaction</returns>
-        public static Transaction GetCreateAssetTransaction(V2.Model.AssetParams asset, V2.Model.TransactionParametersResponse trans, string message = "")
+        public static Transaction GetCreateAssetTransaction(V2.Model.AssetParams asset, V2.Model.TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             ValidateAsset(asset);
             // assetDecimals is not exist in api, so set as zero in this version
@@ -216,7 +243,15 @@ namespace Algorand
                 asset.Reserve==""||asset.Reserve==null ? null : new Address(asset.Reserve),
                 asset.Freeze==""||asset.Freeze==null ? null : new Address(asset.Freeze), 
                 asset.Clawback==""||asset.Clawback==null ? null : new Address(asset.Clawback));
-            Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }            
             return tx;
         }
         /// <summary>
@@ -228,7 +263,7 @@ namespace Algorand
         /// <param name="trans">The blockchain infomation</param>
         /// <param name="message">The message for the transaction(have no affect to the assect)</param>
         /// <returns>transaction</returns>
-        public static Transaction GetConfigAssetTransaction(Address sender, ulong? assetId, AssetParams asset, TransactionParams trans, string message = "")
+        public static Transaction GetConfigAssetTransaction(Address sender, ulong? assetId, AssetParams asset, TransactionParams trans, string message = "", ulong? flatFee = null)
         {
             ValidateAsset(asset);
             //sender must be manager
@@ -236,11 +271,19 @@ namespace Algorand
                 trans.LastRound, trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID,
                 new Digest(trans.Genesishashb64), assetId, new Address(asset.Managerkey), 
                 new Address(asset.Reserveaddr), new Address(asset.Freezeaddr), new Address(asset.Clawbackaddr), false);
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
             return tx;
         }
 
-        public static Transaction GetConfigAssetTransaction(Address sender, V2.Model.Asset asset, TransactionParametersResponse trans, string message = "")
+        public static Transaction GetConfigAssetTransaction(Address sender, V2.Model.Asset asset, TransactionParametersResponse trans, 
+            string message = "", ulong? flatFee = null)
         {
             ValidateAsset(asset.Params);
             //sender must be manager
@@ -248,7 +291,15 @@ namespace Algorand
                 (ulong?)trans.LastRound, (ulong?)trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisId,
                 new Digest(trans.GenesisHash), (ulong?)asset.Index, new Address(asset.Params.Manager),
                 new Address(asset.Params.Reserve), new Address(asset.Params.Freeze), new Address(asset.Params.Clawback), false);
-            Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
 
@@ -263,9 +314,10 @@ namespace Algorand
         /// <param name="trans">The blockchain infomation</param>
         /// <param name="message">The message for the transaction(have no affect to the assect)</param>
         /// <returns>transaction</returns>
-        public static Transaction GetActivateAssetTransaction(Address sender, ulong? assetId, TransactionParams trans, string message = "")
+        public static Transaction GetActivateAssetTransaction(Address sender, ulong? assetId, TransactionParams trans, 
+            string message = "", ulong? flatFee = null)
         {            
-            return GetAssetOptingInTransaction(sender, assetId, trans, message);
+            return GetAssetOptingInTransaction(sender, assetId, trans, message, flatFee);
         }
         /// <summary>
         /// Generate an opting in asset transaction
@@ -276,38 +328,72 @@ namespace Algorand
         /// <param name="trans">The blockchain infomation</param>
         /// <param name="message">The message for the transaction(have no affect to the assect)</param>
         /// <returns>transaction</returns>
-        public static Transaction GetAssetOptingInTransaction(Address sender, ulong? assetId, TransactionParams trans, string message = "")
+        public static Transaction GetAssetOptingInTransaction(Address sender, ulong? assetId, TransactionParams trans, 
+            string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetAcceptTransaction(sender, 1, trans.LastRound,
                 trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID,
                 new Digest(trans.Genesishashb64), assetId);
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetAssetOptingInTransaction(Address sender, long? assetID, TransactionParametersResponse trans, string message = "")
+        public static Transaction GetAssetOptingInTransaction(Address sender, long? assetID, TransactionParametersResponse trans, 
+            string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetAcceptTransaction(sender, 1, (ulong?)trans.LastRound,
                 (ulong?)trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisId,
                 new Digest(trans.GenesisHash), (ulong?)assetID);
-            Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
 
         public static Transaction GetTransferAssetTransaction(Address from, Address to, ulong? assetId, ulong amount, TransactionParams trans, 
-            Address closeTo = null, string message = "") {
+            Address closeTo = null, string message = "", ulong? flatFee = null) {
             var tx = Transaction.CreateAssetTransferTransaction(from, to, closeTo, amount, 1,
                 trans.LastRound, trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID, 
                 new Digest(trans.Genesishashb64), assetId);
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
         public static Transaction GetTransferAssetTransaction(Address from, Address to, long? assetId, ulong amount, 
-            TransactionParametersResponse trans, Address closeTo = null, string message = "")
+            TransactionParametersResponse trans, Address closeTo = null, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetTransferTransaction(from, to, closeTo, amount, 1,
                 (ulong?)trans.LastRound, (ulong?)trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisId,
                 new Digest(trans.GenesisHash), (ulong?)assetId);
-            Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
 
@@ -322,20 +408,36 @@ namespace Algorand
         /// <param name="message">The message for the transaction(have no affect to the assect)</param>
         /// <returns>transaction</returns>
         public static Transaction GetFreezeAssetTransaction(Address sender, Address toFreeze, ulong? assetId, bool freezeState, 
-            TransactionParams trans, string message = "")
+            TransactionParams trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetFreezeTransaction(sender, toFreeze, freezeState, 1, trans.LastRound,
                 trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), new Digest(trans.Genesishashb64), assetId);
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
 
         public static Transaction GetFreezeAssetTransaction(Address sender, Address toFreeze, long? assetId, bool freezeState, 
-            TransactionParametersResponse trans, string message = "")
+            TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetFreezeTransaction(sender, toFreeze, freezeState, 1, (ulong?)trans.LastRound,
                 (ulong?)trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), new Digest(trans.GenesisHash), (ulong?)assetId);
-            Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
         /// <summary>
@@ -350,22 +452,49 @@ namespace Algorand
         /// <param name="message"></param>
         /// <returns></returns>
         public static Transaction GetRevokeAssetTransaction(Address reserve, Address revokedFrom, Address receiver, ulong? assetId, 
-            ulong amount, TransactionParams trans, string message = "")
+            ulong amount, TransactionParams trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetRevokeTransaction(reserve, revokedFrom, receiver, amount, 1, trans.LastRound,
                 trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisID, 
                 new Digest(trans.Genesishashb64), assetId);
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reserve"></param>
+        /// <param name="revokedFrom"></param>
+        /// <param name="receiver"></param>
+        /// <param name="assetId"></param>
+        /// <param name="amount"></param>
+        /// <param name="trans"></param>
+        /// <param name="message"></param>
+        /// <param name="flatFee"></param>
+        /// <returns></returns>
         public static Transaction GetRevokeAssetTransaction(Address reserve, Address revokedFrom, Address receiver, long? assetId, 
-            ulong amount, TransactionParametersResponse trans, string message = "")
+            ulong amount, TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetRevokeTransaction(reserve, revokedFrom, receiver, amount, 1, (ulong?)trans.LastRound,
                 (ulong?)trans.LastRound + 1000, Encoding.UTF8.GetBytes(message), trans.GenesisId,
                 new Digest(trans.GenesisHash), (ulong?)assetId);
-            Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
 
@@ -377,18 +506,36 @@ namespace Algorand
         /// <param name="trans"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public static Transaction GetDestroyAssetTransaction(Address manager, ulong? assetId, TransactionParams trans, string message = "")
+        public static Transaction GetDestroyAssetTransaction(Address manager, ulong? assetId, TransactionParams trans, 
+            string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetDestroyTransaction(manager, 1, trans.LastRound, trans.LastRound + 1000, 
                 Encoding.UTF8.GetBytes(message), new Digest(trans.Genesishashb64), assetId);
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetDestroyAssetTransaction(Address manager, long? assetId, TransactionParametersResponse trans, string message = "")
+        public static Transaction GetDestroyAssetTransaction(Address manager, long? assetId, TransactionParametersResponse trans, 
+            string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetDestroyTransaction(manager, 1, (ulong?)trans.LastRound, (ulong?)trans.LastRound + 1000,
                 Encoding.UTF8.GetBytes(message), new Digest(trans.GenesisHash), (ulong?)assetId);
-            Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
             return tx;
         }
         private static void ValidateAsset(AssetParams asset)
@@ -460,14 +607,22 @@ namespace Algorand
         /// <param name="signedBid"></param>
         /// <param name="trans"></param>
         /// <returns></returns>
-        public static Transaction GetBidTransaction(Address bidder, Address auction, SignedBid signedBid, TransactionParams trans)
+        public static Transaction GetBidTransaction(Address bidder, Address auction, SignedBid signedBid, TransactionParams trans, ulong? flatFee = null)
         {
             var tx = new Transaction(bidder, auction, 0, trans.LastRound, trans.LastRound + 1000,
                 trans.GenesisID, new Digest(trans.Genesishashb64))
             {
                 note = Encoder.EncodeToMsgPack(signedBid)
             };
-            Account.SetFeeByFeePerByte(tx, trans.Fee);
+            if (flatFee is null || flatFee == 0)
+            {
+                Account.SetFeeByFeePerByte(tx, (ulong?)trans.Fee);
+            }
+            else
+            {
+                tx.fee = flatFee;
+            }
+            //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
         ///// <summary>
