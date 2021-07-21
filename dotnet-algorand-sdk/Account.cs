@@ -27,7 +27,41 @@ namespace Algorand
         private static readonly byte[] BYTES_SIGN_PREFIX = Encoding.UTF8.GetBytes("MX");
         private const ulong MIN_TX_FEE_UALGOS = 1000;
         private static readonly byte[] PROGDATA_SIGN_PREFIX = Encoding.UTF8.GetBytes("ProgData");
+        /// <summary>
+        /// Rebuild the account from private key
+        /// </summary>
+        /// <param name="privateKey">Private Key</param>
+        /// <returns>the rebuilded account</returns>
+        public static Account AccountFromPrivateKey(byte[] privateKey)
+        {
+            if(privateKey.Length != SK_SIZE)            
+                throw new ArgumentException("Incorrect private key length");
+            
+            var privateKeyRebuild = new Ed25519PrivateKeyParameters(privateKey, 0);
+            var publicKeyRebuild = privateKeyRebuild.GeneratePublicKey();
+            var act = new Account
+            {
+                privateKeyPair = new AsymmetricCipherKeyPair(publicKeyRebuild, privateKeyRebuild),
+            };
+            act.Address = new Address(act.GetClearTextPublicKey());
+            return act;
+        }
+        /// <summary>
+        /// get clear text private key
+        /// </summary>
+        /// <returns>the private key as length 32 byte array.</returns>
+        public byte[] GetClearTextPrivateKey()
+        {
+            var privateKey = privateKeyPair.Private as Ed25519PrivateKeyParameters;
 
+            byte[] b = privateKey.GetEncoded(); // X.509 prepended with ASN.1 prefix
+
+            if (b.Length != SK_SIZE)
+            {
+                throw new Exception("Generated private key is the wrong size");
+            }
+            return b;
+        }
         /// <summary>
         /// Generate a newc account, random account.
         /// </summary>
@@ -55,7 +89,6 @@ namespace Algorand
         {
             Ed25519KeyPairGenerator keyPairGenerator = new Ed25519KeyPairGenerator();
             keyPairGenerator.Init(new Ed25519KeyGenerationParameters(srandom));
-
             this.privateKeyPair = keyPairGenerator.GenerateKeyPair();
             byte[] raw = this.GetClearTextPublicKey();
             this.Address = new Address(raw);
