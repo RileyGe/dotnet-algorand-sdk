@@ -6,7 +6,7 @@
     <AssemblyName>Algorand</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.2.0.7</Version>
+    <Version>0.2.0.8</Version>
     <Authors>rileyge</Authors>
     <Company>tson.com</Company>
     <Product>Algorand SDK</Product>
@@ -16,8 +16,8 @@
     <PackageReleaseNotes>The Algorand SDK.
 Updated to API 2.0.</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
-    <AssemblyVersion>0.2.0.7</AssemblyVersion>
-    <FileVersion>0.2.0.7</FileVersion>
+    <AssemblyVersion>0.2.0.8</AssemblyVersion>
+    <FileVersion>0.2.0.8</FileVersion>
     <Copyright></Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
