@@ -12,8 +12,12 @@ namespace sdk_examples
     {
         static void Main(string[] args)
         {
+            var act = new Account();
+            var act2 = Account.AccountFromPrivateKey(act.GetClearTextPrivateKey());
+            if (act.Address.ToString() == act2.Address.ToString()) Console.WriteLine("Success!");
+            return;
             //V2.BasicExample.Main(args); return;
-            V2.AssetExample.Main(args); return;
+            //V2.AssetExample.Main(args); return;
             //V2.AtomicTransferExample.Main(args); return;
             //V2.contract.CompileTeal.Main(args); return;
             //V2.contract.ContractAccount.Main(args); return;
