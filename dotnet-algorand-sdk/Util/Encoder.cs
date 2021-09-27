@@ -267,7 +267,7 @@ namespace Algorand
                         return !(trans.applicationArgs is null || trans.applicationArgs.Count < 1);
                     };
                 }
-                else if (property.PropertyType == typeof(List<long>) && property.PropertyName == "apas")
+                else if (property.PropertyType == typeof(List<ulong>) && property.PropertyName == "apas")
                 {
                     property.ShouldSerialize = instance => {
                         var trans = instance as Transaction;
