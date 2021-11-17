@@ -62,7 +62,7 @@ namespace Algorand.V2.Model
         /// </summary>
         /// <value>Maximum number of TEAL byte slices that may be stored in the key/value store.</value>
 
-        [JsonProperty(PropertyName = "nbs", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "num-byte-slice", DefaultValueHandling = DefaultValueHandling.Ignore)]
         [DefaultValue(0)]
         public ulong? NumByteSlice { get; set; }
 
@@ -70,7 +70,7 @@ namespace Algorand.V2.Model
         /// Maximum number of TEAL uints that may be stored in the key/value store.
         /// </summary>
         /// <value>Maximum number of TEAL uints that may be stored in the key/value store.</value>
-        [JsonProperty(PropertyName = "nui", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "num-uint", DefaultValueHandling = DefaultValueHandling.Ignore)]
         [DefaultValue(0)]
         public ulong? NumUint { get; set; }
 
