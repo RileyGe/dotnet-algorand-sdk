@@ -191,7 +191,7 @@ namespace Algorand
         public List<long> foreignApps = new List<long>();
 
         [JsonProperty(PropertyName = "apas")]
-        public List<long> foreignAssets = new List<long>();
+        public List<ulong> foreignAssets = new List<ulong>();
 
         [JsonProperty(PropertyName = "apgs")]
         public StateSchema globalStateSchema = new StateSchema();
@@ -487,7 +487,7 @@ namespace Algorand
                             Address assetCloseTo, Address freezeTarget, ulong? assetFreezeID, bool freezeState,
                             // application fields
                             List<byte[]> applicationArgs, OnCompletion onCompletion, TEALProgram approvalProgram, List<Address> accounts,
-                            List<long> foreignApps, List<long> foreignAssets, StateSchema globalStateSchema, ulong? applicationId,
+                            List<long> foreignApps, List<ulong> foreignAssets, StateSchema globalStateSchema, ulong? applicationId,
                             StateSchema localStateSchema, TEALProgram clearStateProgram)
         {
             this.type = type;
