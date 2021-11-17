@@ -1171,7 +1171,7 @@ namespace Algorand
 
                 if (url != null)
                 {
-                    if (url.Length > 32) throw new ArgumentException("asset url cannot be greater than 32 characters");
+                    if (url.Length > 96) throw new ArgumentException("asset url cannot be greater than 96 characters");
                     this.url = url;
                 }
 
@@ -1180,7 +1180,7 @@ namespace Algorand
                     if (metadataHash.Length > 32) throw new ArgumentException("asset metadataHash cannot be greater than 32 bytes");
                     try
                     {
-                        Convert.FromBase64String(Encoding.UTF8.GetString(metadataHash));
+                        //Convert.FromBase64String(Encoding.UTF8.GetString(metadataHash));
                     }
                     catch (Exception)
                     {
