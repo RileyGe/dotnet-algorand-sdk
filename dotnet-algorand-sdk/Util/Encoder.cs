@@ -13,7 +13,7 @@ namespace Algorand
     /// <summary>
     /// Convenience method for serializing and deserializing arbitrary objects to json or msgpack.
     /// </summary>
-    public class Encoder
+    public static class Encoder
     {        
         /// <summary>
         /// Convenience method for serializing arbitrary objects.
@@ -94,6 +94,20 @@ namespace Algorand
         {
             return BitConverter.ToString(bytes, 0).Replace("-", string.Empty).ToLower();
         }        
+
+        /// <summary>
+        /// Convenience method to get a value as a big-endian byte array
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static byte[] ToBigEndianBytes(this ulong val)
+        {
+            var bytes = BitConverter.GetBytes(val);
+            if (BitConverter.IsLittleEndian) //depends on hardware
+                Array.Reverse(bytes);
+            
+            return bytes;
+        }
     }
 
     internal class AlgorandContractResolver : DefaultContractResolver

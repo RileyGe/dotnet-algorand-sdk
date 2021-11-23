@@ -914,5 +914,13 @@ namespace Algorand
             if (sources.Count < 1) sources = null;
             return client.TealDryrun(new DryrunRequest(txns: stxns, sources: sources));
         }
+
+        internal static byte[] CombineBytes(byte[] b1, byte[] b2)
+        {
+            byte[] ret = new byte[b1.Length + b2.Length];
+            Buffer.BlockCopy(b1, 0, ret, 0, b1.Length);
+            Buffer.BlockCopy(b2, 0, ret, b1.Length, b2.Length);
+            return ret;
+        }
     }
 }

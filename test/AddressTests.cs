@@ -45,5 +45,18 @@ namespace test
             Assert.AreEqual(o, a);
             Assert.AreEqual("VKM6KSCTDHEM6KGEAMSYCNEGIPFJMHDSEMIRAQLK76CJDIRMMDHKAIRMFQ", o.EncodeAsString());
         }
+
+        [Test]
+        public void testAddressForApplication()
+        {
+            ulong appID = 77;
+            Address expected = new Address("PCYUFPA2ZTOYWTP43MX2MOX2OWAIAXUDNC2WFCXAGMRUZ3DYD6BWFDL5YM");
+            Address actual = Address.ForApplication(appID);
+            Assert.AreEqual(actual,expected);
+
+
+
+  
+        }
     }
 }
