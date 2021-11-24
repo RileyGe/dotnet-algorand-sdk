@@ -102,7 +102,7 @@ namespace Algorand
         private byte[] BytesToSign() {
             byte[] encodedTx = Encoder.EncodeToMsgPack(this);
             byte[] prefixEncodedTx = JavaHelper<byte>.ArrayCopyOf(TG_PREFIX, TG_PREFIX.Length + encodedTx.Length);
-            JavaHelper<byte>.SyatemArrayCopy(encodedTx, 0, prefixEncodedTx, TG_PREFIX.Length, encodedTx.Length);
+            JavaHelper<byte>.SystemArrayCopy(encodedTx, 0, prefixEncodedTx, TG_PREFIX.Length, encodedTx.Length);
             return prefixEncodedTx;
         }
     }

@@ -1175,17 +1175,9 @@ namespace Algorand
                     this.url = url;
                 }
 
-                if (metadataHash != null && metadataHash.Length > 0)
+                if (metadataHash != null)
                 {
-                    if (metadataHash.Length > 32) throw new ArgumentException("asset metadataHash cannot be greater than 32 bytes");
-                    try
-                    {
-                        //Convert.FromBase64String(Encoding.UTF8.GetString(metadataHash));
-                    }
-                    catch (Exception)
-                    {
-                        throw new ArgumentException("asset metadataHash '" + Encoding.UTF8.GetString(metadataHash) + "' is not base64 encoded");
-                    }
+                    if (metadataHash.Length != 32) throw new ArgumentException("asset metadataHash must have 32 bytes");
                     this.metadataHash = metadataHash;
                 }
             }
