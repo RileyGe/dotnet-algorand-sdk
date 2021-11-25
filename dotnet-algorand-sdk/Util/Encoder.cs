@@ -302,18 +302,18 @@ namespace Algorand
                         return !(trans.accounts is null || trans.accounts.Count < 1);
                     };
                 }
-                else if (property.PropertyType == typeof(V2.Model.StateSchema) && property.PropertyName == "apgs")
+                else if (property.PropertyType == typeof(V2.Indexer.Model.StateSchema) && property.PropertyName == "apgs")
                 {
                     property.ShouldSerialize = instance => {
                         var trans = instance as Transaction;
-                        return !trans.globalStateSchema.Equals(new V2.Model.StateSchema());
+                        return !trans.globalStateSchema.Equals(new V2.Indexer.Model.StateSchema());
                     };
                 }
-                else if (property.PropertyType == typeof(V2.Model.StateSchema) && property.PropertyName == "apls")
+                else if (property.PropertyType == typeof(V2.Indexer.Model.StateSchema) && property.PropertyName == "apls")
                 {
                     property.ShouldSerialize = instance => {
                         var trans = instance as Transaction;
-                        return !trans.localStateSchema.Equals(new V2.Model.StateSchema());
+                        return !trans.localStateSchema.Equals(new V2.Indexer.Model.StateSchema());
                     };
                 }
                 else if (property.PropertyType == typeof(Address) && property.PropertyName == "rekey")

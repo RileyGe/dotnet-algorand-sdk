@@ -26,7 +26,7 @@ namespace Algorand.V2.Indexer
         /// <param name="include_all">Include all items including closed accounts, deleted applications, destroyed assets, opted-out asset holdings, and closed-out application localstates.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, int? round, bool? include_all);
+        System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, ulong? round, bool? include_all);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="account_id">account string</param>
@@ -34,7 +34,7 @@ namespace Algorand.V2.Indexer
         /// <param name="include_all">Include all items including closed accounts, deleted applications, destroyed assets, opted-out asset holdings, and closed-out application localstates.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, int? round, bool? include_all, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, ulong? round, bool? include_all, System.Threading.CancellationToken cancellationToken);
 
         /// <param name="limit">Maximum number of results to return. There could be additional pages even if the limit is not reached.</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results.</param>
@@ -56,7 +56,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string account_id, bool? rekey_to);
+        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string account_id, bool? rekey_to);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="limit">Maximum number of results to return. There could be additional pages even if the limit is not reached.</param>
@@ -79,7 +79,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string account_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string account_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken);
 
         /// <param name="include_all">Include all items including closed accounts, deleted applications, destroyed assets, opted-out asset holdings, and closed-out application localstates.</param>
         /// <returns>(empty)</returns>
@@ -100,7 +100,7 @@ namespace Algorand.V2.Indexer
         /// <param name="sender_address">Only include transactions with this sender address.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, int? min_round, int? max_round, string sender_address);
+        System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, ulong? min_round, ulong? max_round, string sender_address);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="limit">Maximum number of results to return. There could be additional pages even if the limit is not reached.</param>
@@ -111,7 +111,7 @@ namespace Algorand.V2.Indexer
         /// <param name="sender_address">Only include transactions with this sender address.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, int? min_round, int? max_round, string sender_address, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, ulong? min_round, ulong? max_round, string sender_address, System.Threading.CancellationToken cancellationToken);
 
         /// <param name="include_all">Include all items including closed accounts, deleted applications, destroyed assets, opted-out asset holdings, and closed-out application localstates.</param>
         /// <returns>(empty)</returns>
@@ -132,7 +132,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currency_less_than">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, int? round, int? currency_greater_than, int? currency_less_than, int asset_id);
+        System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, ulong? round, ulong? currency_greater_than, ulong? currency_less_than, int asset_id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="include_all">Include all items including closed accounts, deleted applications, destroyed assets, opted-out asset holdings, and closed-out application localstates.</param>
@@ -143,7 +143,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currency_less_than">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, int? round, int? currency_greater_than, int? currency_less_than, int asset_id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, ulong? round, ulong? currency_greater_than, ulong? currency_less_than, int asset_id, System.Threading.CancellationToken cancellationToken);
 
         /// <param name="limit">Maximum number of results to return. There could be additional pages even if the limit is not reached.</param>
         /// <param name="next">The next page of results. Use the next token provided by the previous results.</param>
@@ -166,7 +166,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to);
+        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="limit">Maximum number of results to return. There could be additional pages even if the limit is not reached.</param>
@@ -190,7 +190,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken);
 
         /// <param name="round_number">Round number</param>
         /// <returns>(empty)</returns>
@@ -253,7 +253,7 @@ namespace Algorand.V2.Indexer
         /// <param name="include_all">Include all items including closed accounts, deleted applications, destroyed assets, opted-out asset holdings, and closed-out application localstates.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, int? round, bool? include_all)
+        public System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, ulong? round, bool? include_all)
         {
             return AccountsAsync(account_id, round, include_all, System.Threading.CancellationToken.None);
         }
@@ -264,7 +264,7 @@ namespace Algorand.V2.Indexer
         /// <param name="include_all">Include all items including closed accounts, deleted applications, destroyed assets, opted-out asset holdings, and closed-out application localstates.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, int? round, bool? include_all, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Response6> AccountsAsync(string account_id, ulong? round, bool? include_all, System.Threading.CancellationToken cancellationToken)
         {
             if (account_id == null)
                 throw new System.ArgumentNullException("account_id");
@@ -391,7 +391,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string account_id, bool? rekey_to)
+        public System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string account_id, bool? rekey_to)
         {
             return TransactionsGetAsync(limit, next, note_prefix, tx_type, sig_type, txid, round, min_round, max_round, asset_id, before_time, after_time, currency_greater_than, currency_less_than, account_id, rekey_to, System.Threading.CancellationToken.None);
         }
@@ -417,7 +417,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string account_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, int? asset_id, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string account_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken)
         {
             if (account_id == null)
                 throw new System.ArgumentNullException("account_id");
@@ -679,7 +679,7 @@ namespace Algorand.V2.Indexer
         /// <param name="sender_address">Only include transactions with this sender address.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, int? min_round, int? max_round, string sender_address)
+        public System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, ulong? min_round, ulong? max_round, string sender_address)
         {
             return LogsAsync(application_id, limit, next, txid, min_round, max_round, sender_address, System.Threading.CancellationToken.None);
         }
@@ -693,7 +693,7 @@ namespace Algorand.V2.Indexer
         /// <param name="sender_address">Only include transactions with this sender address.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, int? min_round, int? max_round, string sender_address, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Response8> LogsAsync(int application_id, int? limit, string next, string txid, ulong? min_round, ulong? max_round, string sender_address, System.Threading.CancellationToken cancellationToken)
         {
             if (application_id == null)
                 throw new System.ArgumentNullException("application_id");
@@ -909,7 +909,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currency_less_than">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, int? round, int? currency_greater_than, int? currency_less_than, int asset_id)
+        public System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, ulong? round, ulong? currency_greater_than, ulong? currency_less_than, int asset_id)
         {
             return BalancesAsync(include_all, limit, next, round, currency_greater_than, currency_less_than, asset_id, System.Threading.CancellationToken.None);
         }
@@ -923,7 +923,7 @@ namespace Algorand.V2.Indexer
         /// <param name="currency_less_than">Results should have an amount less than this value. MicroAlgos are the default currency unless an asset-id is provided, in which case the asset will be used.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, int? round, int? currency_greater_than, int? currency_less_than, int asset_id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Response10> BalancesAsync(bool? include_all, int? limit, string next, ulong? round, ulong? currency_greater_than, ulong? currency_less_than, int asset_id, System.Threading.CancellationToken cancellationToken)
         {
             if (asset_id == null)
                 throw new System.ArgumentNullException("asset_id");
@@ -1057,7 +1057,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to)
+        public System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to)
         {
             return TransactionsGetAsync(limit, next, note_prefix, tx_type, sig_type, txid, round, min_round, max_round, before_time, after_time, currency_greater_than, currency_less_than, address, address_role, exclude_close_to, asset_id, rekey_to, System.Threading.CancellationToken.None);
         }
@@ -1084,7 +1084,7 @@ namespace Algorand.V2.Indexer
         /// <param name="rekey_to">Include results which include the rekey-to field.</param>
         /// <returns>(empty)</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, int? round, int? min_round, int? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, int? currency_greater_than, int? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Response4> TransactionsGetAsync(int? limit, string next, string note_prefix, TxType? tx_type, SigType? sig_type, string txid, ulong? round, ulong? min_round, ulong? max_round, System.DateTimeOffset? before_time, System.DateTimeOffset? after_time, ulong? currency_greater_than, ulong? currency_less_than, string address, AddressRole? address_role, bool? exclude_close_to, int asset_id, bool? rekey_to, System.Threading.CancellationToken cancellationToken)
         {
             if (asset_id == null)
                 throw new System.ArgumentNullException("asset_id");

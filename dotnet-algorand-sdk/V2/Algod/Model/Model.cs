@@ -31,11 +31,11 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>\[algo\] total number of MicroAlgos in the account</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public int Amount { get; set; }
+        public ulong Amount { get; set; }
 
         /// <summary>specifies the amount of MicroAlgos in the account, without the pending rewards.</summary>
         [Newtonsoft.Json.JsonProperty("amount-without-pending-rewards", Required = Newtonsoft.Json.Required.Always)]
-        public int AmountWithoutPendingRewards { get; set; }
+        public ulong AmountWithoutPendingRewards { get; set; }
 
         /// <summary>\[appl\] applications local data stored in this account.
         /// <br/>
@@ -76,19 +76,19 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>amount of MicroAlgos of pending rewards in this account.</summary>
         [Newtonsoft.Json.JsonProperty("pending-rewards", Required = Newtonsoft.Json.Required.Always)]
-        public int PendingRewards { get; set; }
+        public ulong PendingRewards { get; set; }
 
         /// <summary>\[ebase\] used as part of the rewards computation. Only applicable to accounts which are participating.</summary>
         [Newtonsoft.Json.JsonProperty("reward-base", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? RewardBase { get; set; }
+        public ulong? RewardBase { get; set; }
 
         /// <summary>\[ern\] total rewards of MicroAlgos the account has received, including pending rewards.</summary>
         [Newtonsoft.Json.JsonProperty("rewards", Required = Newtonsoft.Json.Required.Always)]
-        public int Rewards { get; set; }
+        public ulong Rewards { get; set; }
 
         /// <summary>The round for which this information is relevant.</summary>
         [Newtonsoft.Json.JsonProperty("round", Required = Newtonsoft.Json.Required.Always)]
-        public int Round { get; set; }
+        public ulong Round { get; set; }
 
         /// <summary>\[onl\] delegation status of the account's MicroAlgos
         /// <br/>* Offline - indicates that the associated account is delegated.
@@ -124,15 +124,15 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>\[voteFst\] First round for which this participation is valid.</summary>
         [Newtonsoft.Json.JsonProperty("vote-first-valid", Required = Newtonsoft.Json.Required.Always)]
-        public int VoteFirstValid { get; set; }
+        public ulong VoteFirstValid { get; set; }
 
         /// <summary>\[voteKD\] Number of subkeys in each batch of participation keys.</summary>
         [Newtonsoft.Json.JsonProperty("vote-key-dilution", Required = Newtonsoft.Json.Required.Always)]
-        public int VoteKeyDilution { get; set; }
+        public ulong VoteKeyDilution { get; set; }
 
         /// <summary>\[voteLst\] Last round for which this participation is valid.</summary>
         [Newtonsoft.Json.JsonProperty("vote-last-valid", Required = Newtonsoft.Json.Required.Always)]
-        public int VoteLastValid { get; set; }
+        public ulong VoteLastValid { get; set; }
 
         /// <summary>\[vote\] root participation public key (if any) currently registered for this round.</summary>
         [Newtonsoft.Json.JsonProperty("vote-participation-key", Required = Newtonsoft.Json.Required.Always)]
@@ -166,11 +166,11 @@ namespace Algorand.V2.Algod.Model
     {
         /// <summary>\[a\] number of units held.</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public long Amount { get; set; }
+        public ulong Amount { get; set; }
 
         /// <summary>Asset ID of the holding.</summary>
         [Newtonsoft.Json.JsonProperty("asset-id", Required = Newtonsoft.Json.Required.Always)]
-        public int AssetId { get; set; }
+        public ulong AssetId { get; set; }
 
         /// <summary>Address that created this asset. This is the address where the parameters for this asset can be found, and also the address where unwanted asset units can be sent in the worst case.</summary>
         [Newtonsoft.Json.JsonProperty("creator", Required = Newtonsoft.Json.Required.Always)]
@@ -237,7 +237,7 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>\[t\] The total number of units of this asset.</summary>
         [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
-        public long Total { get; set; }
+        public ulong? Total { get; set; }
 
         /// <summary>\[un\] Name of a unit of this asset, as supplied by the creator. Included only when the name of a unit of this asset is composed of printable utf-8 characters.</summary>
         [Newtonsoft.Json.JsonProperty("unit-name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -309,23 +309,23 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>When registered, this is the first round it may be used.</summary>
         [Newtonsoft.Json.JsonProperty("effective-first-valid", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? EffectiveFirstValid { get; set; }
+        public ulong? EffectiveFirstValid { get; set; }
 
         /// <summary>When registered, this is the last round it may be used.</summary>
         [Newtonsoft.Json.JsonProperty("effective-last-valid", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? EffectiveLastValid { get; set; }
+        public ulong? EffectiveLastValid { get; set; }
 
         /// <summary>Round when this key was last used to vote.</summary>
         [Newtonsoft.Json.JsonProperty("last-vote", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? LastVote { get; set; }
+        public ulong? LastVote { get; set; }
 
         /// <summary>Round when this key was last used to propose a block.</summary>
         [Newtonsoft.Json.JsonProperty("last-block-proposal", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? LastBlockProposal { get; set; }
+        public ulong? LastBlockProposal { get; set; }
 
         /// <summary>Round when this key was last used to generate a state proof.</summary>
         [Newtonsoft.Json.JsonProperty("last-state-proof", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? LastStateProof { get; set; }
+        public ulong? LastStateProof { get; set; }
 
         /// <summary>Key information stored on the account.</summary>
         [Newtonsoft.Json.JsonProperty("key", Required = Newtonsoft.Json.Required.Always)]
@@ -372,7 +372,7 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>\[ui\] uint value.</summary>
         [Newtonsoft.Json.JsonProperty("uint", Required = Newtonsoft.Json.Required.Always)]
-        public long Uint { get; set; }
+        public ulong Uint { get; set; }
 
 
     }
@@ -428,7 +428,7 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>\[ui\] uint value.</summary>
         [Newtonsoft.Json.JsonProperty("uint", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? Uint { get; set; }
+        public ulong? Uint { get; set; }
 
 
     }
@@ -439,7 +439,7 @@ namespace Algorand.V2.Algod.Model
     {
         /// <summary>\[appidx\] application index.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        public int Id { get; set; }
+        public ulong Id { get; set; }
 
         /// <summary>\[appparams\] application parameters.</summary>
         [Newtonsoft.Json.JsonProperty("params", Required = Newtonsoft.Json.Required.Always)]
@@ -570,7 +570,7 @@ namespace Algorand.V2.Algod.Model
     {
         [Newtonsoft.Json.JsonProperty("txns", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<string> Txns { get; set; } = new System.Collections.ObjectModel.Collection<string>();
+        public System.Collections.Generic.ICollection<SignedTransaction> Txns { get; set; } = new System.Collections.ObjectModel.Collection<SignedTransaction>();
 
         [Newtonsoft.Json.JsonProperty("accounts", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -587,11 +587,11 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>Round is available to some TEAL scripts. Defaults to the current round on the network this algod is attached to.</summary>
         [Newtonsoft.Json.JsonProperty("round", Required = Newtonsoft.Json.Required.Always)]
-        public long Round { get; set; }
+        public ulong Round { get; set; }
 
         /// <summary>LatestTimestamp is available to some TEAL scripts. Defaults to the latest confirmed timestamp this algod is attached to.</summary>
         [Newtonsoft.Json.JsonProperty("latest-timestamp", Required = Newtonsoft.Json.Required.Always)]
-        public long LatestTimestamp { get; set; }
+        public ulong LatestTimestamp { get; set; }
 
         [Newtonsoft.Json.JsonProperty("sources", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -617,7 +617,7 @@ namespace Algorand.V2.Algod.Model
         public int TxnIndex { get; set; }
 
         [Newtonsoft.Json.JsonProperty("app-index", Required = Newtonsoft.Json.Required.Always)]
-        public long AppIndex { get; set; }
+        public ulong AppIndex { get; set; }
 
 
     }
@@ -653,7 +653,7 @@ namespace Algorand.V2.Algod.Model
         public string Branch { get; set; }
 
         [Newtonsoft.Json.JsonProperty("build_number", Required = Newtonsoft.Json.Required.Always)]
-        public long Build_number { get; set; }
+        public ulong Build_number { get; set; }
 
         [Newtonsoft.Json.JsonProperty("channel", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -664,10 +664,10 @@ namespace Algorand.V2.Algod.Model
         public string Commit_hash { get; set; }
 
         [Newtonsoft.Json.JsonProperty("major", Required = Newtonsoft.Json.Required.Always)]
-        public long Major { get; set; }
+        public ulong Major { get; set; }
 
         [Newtonsoft.Json.JsonProperty("minor", Required = Newtonsoft.Json.Required.Always)]
-        public long Minor { get; set; }
+        public ulong Minor { get; set; }
 
 
     }
@@ -807,22 +807,22 @@ namespace Algorand.V2.Algod.Model
     {
         /// <summary>Round</summary>
         [Newtonsoft.Json.JsonProperty("current_round", Required = Newtonsoft.Json.Required.Always)]
-        public int Current_round { get; set; }
+        public ulong Current_round { get; set; }
 
         /// <summary>OnlineMoney</summary>
         [Newtonsoft.Json.JsonProperty("online-money", Required = Newtonsoft.Json.Required.Always)]
-        public int OnlineMoney { get; set; }
+        public ulong OnlineMoney { get; set; }
 
         /// <summary>TotalMoney</summary>
         [Newtonsoft.Json.JsonProperty("total-money", Required = Newtonsoft.Json.Required.Always)]
-        public int TotalMoney { get; set; }
+        public ulong TotalMoney { get; set; }
 
 
     }
 
     /// <summary>NodeStatus contains the information about a node status</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class Response5
+    public partial class NodeStatusResponse
     {
         /// <summary>CatchupTime in nanoseconds</summary>
         [Newtonsoft.Json.JsonProperty("catchup-time", Required = Newtonsoft.Json.Required.Always)]
@@ -830,7 +830,7 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>LastRound indicates the last round seen</summary>
         [Newtonsoft.Json.JsonProperty("last-round", Required = Newtonsoft.Json.Required.Always)]
-        public int LastRound { get; set; }
+        public ulong LastRound { get; set; }
 
         /// <summary>LastVersion indicates the last consensus version supported</summary>
         [Newtonsoft.Json.JsonProperty("last-version", Required = Newtonsoft.Json.Required.Always)]
@@ -844,7 +844,7 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>NextVersionRound is the round at which the next consensus version will apply</summary>
         [Newtonsoft.Json.JsonProperty("next-version-round", Required = Newtonsoft.Json.Required.Always)]
-        public int NextVersionRound { get; set; }
+        public ulong NextVersionRound { get; set; }
 
         /// <summary>NextVersionSupported indicates whether the next consensus version is supported by this node</summary>
         [Newtonsoft.Json.JsonProperty("next-version-supported", Required = Newtonsoft.Json.Required.Always)]
@@ -890,7 +890,7 @@ namespace Algorand.V2.Algod.Model
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class Response6
+    public partial class PostTransactionsResponse
     {
         /// <summary>encoding of the transaction hash.</summary>
         [Newtonsoft.Json.JsonProperty("txId", Required = Newtonsoft.Json.Required.Always)]
@@ -916,7 +916,7 @@ namespace Algorand.V2.Algod.Model
         /// <br/>Fee may fall to zero but transactions must still have a fee of
         /// <br/>at least MinTxnFee for the current network protocol.</summary>
         [Newtonsoft.Json.JsonProperty("fee", Required = Newtonsoft.Json.Required.Always)]
-        public int Fee { get; set; }
+        public ulong Fee { get; set; }
 
         /// <summary>GenesisHash is the hash of the genesis block.</summary>
         [Newtonsoft.Json.JsonProperty("genesis-hash", Required = Newtonsoft.Json.Required.Always)]
@@ -930,12 +930,12 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>LastRound indicates the last round seen</summary>
         [Newtonsoft.Json.JsonProperty("last-round", Required = Newtonsoft.Json.Required.Always)]
-        public int LastRound { get; set; }
+        public ulong LastRound { get; set; }
 
         /// <summary>The minimum transaction fee (not per byte) required for the
         /// <br/>txn to validate for the current network protocol.</summary>
         [Newtonsoft.Json.JsonProperty("min-fee", Required = Newtonsoft.Json.Required.Always)]
-        public int MinFee { get; set; }
+        public ulong MinFee { get; set; }
 
 
     }
@@ -957,7 +957,7 @@ namespace Algorand.V2.Algod.Model
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class Response9
+    public partial class DryrunResponse
     {
         [Newtonsoft.Json.JsonProperty("txns", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]

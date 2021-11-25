@@ -56,7 +56,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Encoded block object.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response2> BlocksAsync(int round, Format? format);
+        System.Threading.Tasks.Task<Response2> BlocksAsync(ulong round, Format? format);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get the block for the given round.</summary>
@@ -64,7 +64,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Encoded block object.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response2> BlocksAsync(int round, Format? format, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Response2> BlocksAsync(ulong round, Format? format, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Get a Merkle proof for a transaction in a block.</summary>
         /// <param name="round">The round in which the transaction appears.</param>
@@ -72,7 +72,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Proof of transaction in a block.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response3> ProofAsync(int round, string txid, Format? format);
+        System.Threading.Tasks.Task<Response3> ProofAsync(ulong round, string txid, Format? format);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get a Merkle proof for a transaction in a block.</summary>
@@ -81,7 +81,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Proof of transaction in a block.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response3> ProofAsync(int round, string txid, Format? format, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Response3> ProofAsync(ulong round, string txid, Format? format, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Get the current supply reported by the ledger.</summary>
         /// <returns>Supply represents the current supply of MicroAlgos in the system.</returns>
@@ -96,36 +96,36 @@ namespace Algorand.V2.Algod
 
         /// <summary>Gets the current node status.</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response5> StatusAsync();
+        System.Threading.Tasks.Task<NodeStatusResponse> StatusAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets the current node status.</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response5> StatusAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<NodeStatusResponse> StatusAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Gets the node status after waiting for the given round.</summary>
         /// <param name="round">The round to wait until returning status</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response5> WaitForBlockAfterAsync(int round);
+        System.Threading.Tasks.Task<NodeStatusResponse> WaitForBlockAfterAsync(ulong round);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets the node status after waiting for the given round.</summary>
         /// <param name="round">The round to wait until returning status</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response5> WaitForBlockAfterAsync(int round, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<NodeStatusResponse> WaitForBlockAfterAsync(ulong round, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Broadcasts a raw transaction to the network.</summary>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Transaction ID of the submission.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response6> TransactionsAsync(System.IO.Stream rawtxn);
+        System.Threading.Tasks.Task<PostTransactionsResponse> TransactionsAsync(System.IO.Stream rawtxn);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Broadcasts a raw transaction to the network.</summary>
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Transaction ID of the submission.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response6> TransactionsAsync(System.IO.Stream rawtxn, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<PostTransactionsResponse> TransactionsAsync(System.IO.Stream rawtxn, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Get parameters for constructing a new transaction</summary>
         /// <returns>TransactionParams contains the parameters that help a client construct a new transaction.</returns>
@@ -221,14 +221,14 @@ namespace Algorand.V2.Algod
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data.</param>
         /// <returns>DryrunResponse contains per-txn debug information from a dryrun.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response9> DryrunAsync(DryrunRequest request);
+        System.Threading.Tasks.Task<DryrunResponse> DryrunAsync(DryrunRequest request);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Provide debugging information for a transaction (or group).</summary>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data.</param>
         /// <returns>DryrunResponse contains per-txn debug information from a dryrun.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response9> DryrunAsync(DryrunRequest request, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<DryrunResponse> DryrunAsync(DryrunRequest request, System.Threading.CancellationToken cancellationToken);
 
     }
 
@@ -523,7 +523,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Encoded block object.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response2> BlocksAsync(int round, Format? format)
+        public System.Threading.Tasks.Task<Response2> BlocksAsync(ulong round, Format? format)
         {
             return BlocksAsync(round, format, System.Threading.CancellationToken.None);
         }
@@ -534,7 +534,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Encoded block object.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response2> BlocksAsync(int round, Format? format, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Response2> BlocksAsync(ulong round, Format? format, System.Threading.CancellationToken cancellationToken)
         {
             if (round == null)
                 throw new System.ArgumentNullException("round");
@@ -653,7 +653,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Proof of transaction in a block.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response3> ProofAsync(int round, string txid, Format? format)
+        public System.Threading.Tasks.Task<Response3> ProofAsync(ulong round, string txid, Format? format)
         {
             return ProofAsync(round, txid, format, System.Threading.CancellationToken.None);
         }
@@ -665,7 +665,7 @@ namespace Algorand.V2.Algod
         /// <param name="format">Configures whether the response object is JSON or MessagePack encoded.</param>
         /// <returns>Proof of transaction in a block.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response3> ProofAsync(int round, string txid, Format? format, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Response3> ProofAsync(ulong round, string txid, Format? format, System.Threading.CancellationToken cancellationToken)
         {
             if (round == null)
                 throw new System.ArgumentNullException("round");
@@ -870,7 +870,7 @@ namespace Algorand.V2.Algod
 
         /// <summary>Gets the current node status.</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response5> StatusAsync()
+        public System.Threading.Tasks.Task<NodeStatusResponse> StatusAsync()
         {
             return StatusAsync(System.Threading.CancellationToken.None);
         }
@@ -878,7 +878,7 @@ namespace Algorand.V2.Algod
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets the current node status.</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response5> StatusAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<NodeStatusResponse> StatusAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/status");
@@ -915,7 +915,7 @@ namespace Algorand.V2.Algod
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response5>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<NodeStatusResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -965,7 +965,7 @@ namespace Algorand.V2.Algod
         /// <summary>Gets the node status after waiting for the given round.</summary>
         /// <param name="round">The round to wait until returning status</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response5> WaitForBlockAfterAsync(int round)
+        public System.Threading.Tasks.Task<NodeStatusResponse> WaitForBlockAfterAsync(ulong round)
         {
             return WaitForBlockAfterAsync(round, System.Threading.CancellationToken.None);
         }
@@ -974,7 +974,7 @@ namespace Algorand.V2.Algod
         /// <summary>Gets the node status after waiting for the given round.</summary>
         /// <param name="round">The round to wait until returning status</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response5> WaitForBlockAfterAsync(int round, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<NodeStatusResponse> WaitForBlockAfterAsync(ulong round, System.Threading.CancellationToken cancellationToken)
         {
             if (round == null)
                 throw new System.ArgumentNullException("round");
@@ -1015,7 +1015,7 @@ namespace Algorand.V2.Algod
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response5>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<NodeStatusResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1086,7 +1086,7 @@ namespace Algorand.V2.Algod
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Transaction ID of the submission.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response6> TransactionsAsync(System.IO.Stream rawtxn)
+        public System.Threading.Tasks.Task<PostTransactionsResponse> TransactionsAsync(System.IO.Stream rawtxn)
         {
             return TransactionsAsync(rawtxn, System.Threading.CancellationToken.None);
         }
@@ -1096,7 +1096,7 @@ namespace Algorand.V2.Algod
         /// <param name="rawtxn">The byte encoded signed transaction to broadcast to network</param>
         /// <returns>Transaction ID of the submission.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response6> TransactionsAsync(System.IO.Stream rawtxn, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<PostTransactionsResponse> TransactionsAsync(System.IO.Stream rawtxn, System.Threading.CancellationToken cancellationToken)
         {
             if (rawtxn == null)
                 throw new System.ArgumentNullException("rawtxn");
@@ -1139,7 +1139,7 @@ namespace Algorand.V2.Algod
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response6>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<PostTransactionsResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1928,7 +1928,7 @@ namespace Algorand.V2.Algod
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data.</param>
         /// <returns>DryrunResponse contains per-txn debug information from a dryrun.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response9> DryrunAsync(DryrunRequest request)
+        public System.Threading.Tasks.Task<DryrunResponse> DryrunAsync(DryrunRequest request)
         {
             return DryrunAsync(request, System.Threading.CancellationToken.None);
         }
@@ -1938,7 +1938,7 @@ namespace Algorand.V2.Algod
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data.</param>
         /// <returns>DryrunResponse contains per-txn debug information from a dryrun.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response9> DryrunAsync(DryrunRequest request, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<DryrunResponse> DryrunAsync(DryrunRequest request, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/teal/dryrun");
@@ -1949,10 +1949,12 @@ namespace Algorand.V2.Algod
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
-                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    //var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    System.Net.Http.ByteArrayContent content_ = new System.Net.Http.ByteArrayContent(Encoder.EncodeToMsgPack(request));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/msgpack");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/msgpack"));
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
 
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -1978,7 +1980,7 @@ namespace Algorand.V2.Algod
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response9>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<DryrunResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);

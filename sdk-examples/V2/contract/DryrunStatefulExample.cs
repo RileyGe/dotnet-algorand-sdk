@@ -5,15 +5,17 @@ using System;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using Algorand.V2.Model;
+using Algorand.V2.Algod.Model;
 using Account = Algorand.Account;
 using System.Runtime.InteropServices;
+using Algorand.V2.Algod;
+using System.Threading.Tasks;
 
 namespace sdk_examples.V2.contract
 {
     class DryrunStatefulExample
     {
-        public static void Main(params string[] args)
+        public async Task Main(params string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -21,7 +23,8 @@ namespace sdk_examples.V2.contract
                 ALGOD_API_ADDR = "http://" + ALGOD_API_ADDR;
             }
             string ALGOD_API_TOKEN = args[1];
-            var client = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            var client = new DefaultApi(httpClient);
             //// TODO: REMOVE:
             string creatorMnemonic = "benefit once mutual legal marble hurdle dress toe fuel country prepare canvas barrel divide major square name captain calm flock crumble receive economy abandon power";
             //string userMnemonic = "pledge become mouse fantasy matrix bunker ask tissue prepare vocal unit patient cliff index train network intact company across stage faculty master mom abstract above";
