@@ -614,9 +614,9 @@ namespace Algorand.V2.Indexer.Model
     public partial class HealthCheck
     {
         /// <summary>Current version.</summary>
-        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Version { get; set; }
+        //[Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
+        //[System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        //public string Version { get; set; }
 
         [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Data { get; set; }
