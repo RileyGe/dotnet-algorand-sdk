@@ -1687,7 +1687,7 @@ namespace Algorand.V2.Algod
         /// <param name="asset_id">An asset identifier</param>
         /// <returns>Asset information</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Asset> AssetsAsync(int asset_id)
+        public System.Threading.Tasks.Task<Asset> AssetsAsync(ulong asset_id)
         {
             return AssetsAsync(asset_id, System.Threading.CancellationToken.None);
         }
@@ -1697,7 +1697,7 @@ namespace Algorand.V2.Algod
         /// <param name="asset_id">An asset identifier</param>
         /// <returns>Asset information</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Asset> AssetsAsync(int asset_id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Asset> AssetsAsync(ulong asset_id, System.Threading.CancellationToken cancellationToken)
         {
             if (asset_id == null)
                 throw new System.ArgumentNullException("asset_id");

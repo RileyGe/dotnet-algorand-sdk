@@ -350,7 +350,7 @@ namespace Algorand
             //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetAssetOptingInTransaction(Address sender, long? assetID, TransactionParametersResponse trans, 
+        public static Transaction GetAssetOptingInTransaction(Address sender, ulong? assetID, TransactionParametersResponse trans, 
             string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetAcceptTransaction(sender, 1, (ulong?)trans.LastRound,
@@ -384,7 +384,7 @@ namespace Algorand
             //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetTransferAssetTransaction(Address from, Address to, long? assetId, ulong amount, 
+        public static Transaction GetTransferAssetTransaction(Address from, Address to, ulong? assetId, ulong amount, 
             TransactionParametersResponse trans, Address closeTo = null, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetTransferTransaction(from, to, closeTo, amount, 1,
@@ -429,7 +429,7 @@ namespace Algorand
             return tx;
         }
 
-        public static Transaction GetFreezeAssetTransaction(Address sender, Address toFreeze, long? assetId, bool freezeState, 
+        public static Transaction GetFreezeAssetTransaction(Address sender, Address toFreeze, ulong? assetId, bool freezeState, 
             TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetFreezeTransaction(sender, toFreeze, freezeState, 1, (ulong?)trans.LastRound,
@@ -485,7 +485,7 @@ namespace Algorand
         /// <param name="message"></param>
         /// <param name="flatFee"></param>
         /// <returns></returns>
-        public static Transaction GetRevokeAssetTransaction(Address reserve, Address revokedFrom, Address receiver, long? assetId, 
+        public static Transaction GetRevokeAssetTransaction(Address reserve, Address revokedFrom, Address receiver, ulong? assetId, 
             ulong amount, TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetRevokeTransaction(reserve, revokedFrom, receiver, amount, 1, (ulong?)trans.LastRound,
@@ -527,7 +527,7 @@ namespace Algorand
             //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetDestroyAssetTransaction(Address manager, long? assetId, TransactionParametersResponse trans, 
+        public static Transaction GetDestroyAssetTransaction(Address manager, ulong? assetId, TransactionParametersResponse trans, 
             string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetDestroyTransaction(manager, 1, (ulong?)trans.LastRound, (ulong?)trans.LastRound + 1000,

@@ -1,8 +1,11 @@
 ﻿using Algorand;
 using Algorand.V2;
-using Algorand.V2.Model;
+using Algorand.V2.Algod;
+using Algorand.V2.Algod.Model;
 using System;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Account = Algorand.Account;
 
 namespace sdk_examples.V2
@@ -13,7 +16,7 @@ namespace sdk_examples.V2
     class AssetExample
     {
         // Utility function for sending a raw signed transaction to the network        
-        public static void Main(params string[] args) //throws Exception
+        public async Task Main(params string[] args) //throws Exception
         {
             string algodApiAddrTmp = args[0];
             if (algodApiAddrTmp.IndexOf("//") == -1)
@@ -24,7 +27,8 @@ namespace sdk_examples.V2
             string ALGOD_API_ADDR = algodApiAddrTmp;
             string ALGOD_API_TOKEN = args[1];
 
-            AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient);
 
             // Shown for demonstration purposes. NEVER reveal secret mnemonics in practice.
             // These three accounts are for testing purposes
@@ -48,16 +52,22 @@ namespace sdk_examples.V2
             // Transaction
             // We will account for changing transaction parameters
             // before every transaction in this example
-            var transParams = algodApiInstance.TransactionParams();
+            var transParams = await algodApiInstance.ParamsAsync();
 
             // The following parameters are asset specific
             // and will be re-used throughout the example. 
 
             // Create the Asset
             // Total number of this asset available for circulation            
-            var ap = new AssetParams(creator: acct1.Address.ToString(), name: "latikum22", unitName: "LAT", total: 10000,
-                decimals: 0, url: "http://this.test.com", metadataHash: Encoding.ASCII.GetBytes("16efaa3924a6fd9d3a4880099a4ac65d"))
+            var ap = new AssetParams()
             {
+                Creator = acct1.Address.ToString(),
+                Name =  "latikum22",
+                UnitName= "LAT",
+                 Total= 10000,
+                Decimals= 0,
+                Url = @"http://this.test.com", 
+                MetadataHash = Encoding.ASCII.GetBytes("16efaa3924a6fd9d3a4880099a4ac65d"),
                 Manager = acct2.Address.ToString()
             };
 
@@ -70,16 +80,16 @@ namespace sdk_examples.V2
             SignedTransaction signedTx = acct1.SignTransaction(tx);
             // send the transaction to the network and
             // wait for the transaction to be confirmed
-            long? assetID = 0;
+            ulong assetID = 0;
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 // Now that the transaction is confirmed we can get the assetID
-                var ptx = algodApiInstance.PendingTransactionInformation(id.TxId);                
-                assetID = ptx.AssetIndex;
+                var ptx = await  algodApiInstance.PendingGetAsync(id.TxId,null);                
+                assetID = ptx.AssetIndex??0;
             }
             catch (Exception e)
             {
@@ -94,8 +104,8 @@ namespace sdk_examples.V2
             // Next we will change the asset configuration
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            transParams = algodApiInstance.TransactionParams();
-            Asset ast = algodApiInstance.GetAssetByID(assetID);
+            transParams = await algodApiInstance.ParamsAsync();
+            Asset ast = await algodApiInstance.AssetsAsync(assetID);
 
             // Note that configuration changes must be done by
             // The manager account, which is currently acct2
@@ -113,10 +123,10 @@ namespace sdk_examples.V2
             // wait for the transaction to be confirmed
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
             }
             catch (Exception e)
             {
@@ -127,7 +137,7 @@ namespace sdk_examples.V2
 
             // Next we will list the newly created asset
             // Get the asset information for the newly changed asset            
-            ast = algodApiInstance.GetAssetByID(assetID);
+            ast = await algodApiInstance.AssetsAsync(assetID);
             //The manager should now be the same as the creator
             Console.WriteLine(ap);
 
@@ -142,7 +152,7 @@ namespace sdk_examples.V2
             // receive the new asset        
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            transParams = algodApiInstance.TransactionParams();
+            transParams = await algodApiInstance.ParamsAsync();
             tx = Utils.GetAssetOptingInTransaction(acct3.Address, assetID, transParams, "opt in transaction");
 
             // The transaction must be signed by the current manager account
@@ -150,16 +160,16 @@ namespace sdk_examples.V2
             signedTx = acct3.SignTransaction(tx);
             // send the transaction to the network and
             // wait for the transaction to be confirmed
-            Algorand.V2.Model.Account act = null;
+            Algorand.V2.Algod.Model.Account act = null;
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it can accept the new asseet
-                act = algodApiInstance.AccountInformation(acct3.Address.ToString());
+                act  = await algodApiInstance.AccountsAsync(acct3.Address.ToString(),null);
                 Console.WriteLine(act);
             }
             catch (Exception e)
@@ -174,7 +184,7 @@ namespace sdk_examples.V2
             // to account3
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            transParams = algodApiInstance.TransactionParams();
+            transParams = await algodApiInstance.ParamsAsync();
             // Next we set asset xfer specific parameters
             // We set the assetCloseTo to null so we do not close the asset out
             Address assetCloseTo = new Address();
@@ -187,14 +197,14 @@ namespace sdk_examples.V2
             // wait for the transaction to be confirmed
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it now has 5 of the new asset
-                act = algodApiInstance.AccountInformation(acct3.Address.ToString());
-                Console.WriteLine(act.Assets.Find(h => h.AssetId == assetID).Amount);
+                act = await algodApiInstance.AccountsAsync(acct3.Address.ToString(),null);
+                Console.WriteLine(act.Assets.Where(h => h.AssetId == assetID).FirstOrDefault()?.Amount);
             }
             catch (Exception e)
             {
@@ -212,7 +222,7 @@ namespace sdk_examples.V2
             // Which in this example is account2 
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            transParams = algodApiInstance.TransactionParams();
+            transParams = await algodApiInstance.ParamsAsync();
             // Next we set asset xfer specific parameters
             // The sender should be freeze account acct2
             // Theaccount to freeze should be set to acct3
@@ -224,15 +234,15 @@ namespace sdk_examples.V2
             // wait for the transaction to be confirmed
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id.TxId);
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it now frozen 
                 // Note--currently no getter method for frozen state
-                act = algodApiInstance.AccountInformation(acct3.Address.ToString());
-                Console.WriteLine(act.Assets.Find(h => h.AssetId == assetID));
+                act = await algodApiInstance.AccountsAsync(acct3.Address.ToString(),null);
+                Console.WriteLine(act.Assets.Where(h => h.AssetId == assetID).FirstOrDefault());
             }
             catch (Exception e)
             {
@@ -253,7 +263,7 @@ namespace sdk_examples.V2
             // the recipient will also be be the creator acct1 in this case  
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            transParams = algodApiInstance.TransactionParams();
+            transParams = await algodApiInstance.ParamsAsync();
             // Next we set asset xfer specific parameters
             assetAmount = 10;
             tx = Utils.GetRevokeAssetTransaction(acct2.Address, acct3.Address, acct1.Address, assetID, assetAmount, transParams, "revoke transaction");
@@ -264,14 +274,14 @@ namespace sdk_examples.V2
             // wait for the transaction to be confirmed
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 // We can now list the account information for acct3 
                 // and see that it now has 0 of the new asset
-                act = algodApiInstance.AccountInformation(acct3.Address.ToString());
-                Console.WriteLine(act.Assets.Find(h => h.AssetId == assetID).Amount);
+                act = await algodApiInstance.AccountsAsync(acct3.Address.ToString(),null);
+                Console.WriteLine(act.Assets.Where(h => h.AssetId == assetID).FirstOrDefault()?.Amount);
             }
             catch (Exception e)
             {
@@ -287,7 +297,7 @@ namespace sdk_examples.V2
             // The address for the from field must be the creator
             // First we update standard Transaction parameters
             // To account for changes in the state of the blockchain
-            transParams = algodApiInstance.TransactionParams();
+            transParams = await  algodApiInstance.ParamsAsync();
             // Next we set asset xfer specific parameters
             // The manager must sign and submit the transaction
             // This is currently set to acct1
@@ -299,15 +309,15 @@ namespace sdk_examples.V2
             // wait for the transaction to be confirmed
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Transaction ID: " + id);
                 //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
                 //Console.ReadKey();
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 // We can now list the account information for acct1 
                 // and see that the asset is no longer there
-                act = algodApiInstance.AccountInformation(acct1.Address.ToString());
+                act = await algodApiInstance.AccountsAsync(acct1.Address.ToString(),null);
                 //Console.WriteLine("Does AssetID: " + assetID + " exist? " +
                 //    act.Thisassettotal.ContainsKey(assetID));
             }
