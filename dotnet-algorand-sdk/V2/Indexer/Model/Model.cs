@@ -637,7 +637,15 @@ namespace Algorand.V2.Indexer.Model
         [Newtonsoft.Json.JsonProperty("errors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Errors { get; set; }
 
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
 
+        public static HealthCheck FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HealthCheck>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
     }
 
     /// <summary>A simplified version of AssetHolding </summary>
@@ -1282,7 +1290,15 @@ namespace Algorand.V2.Indexer.Model
         [Newtonsoft.Json.JsonProperty("next-token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NextToken { get; set; }
 
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
 
+        public static Response2 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Response2>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
@@ -1300,6 +1316,15 @@ namespace Algorand.V2.Indexer.Model
         [Newtonsoft.Json.JsonProperty("next-token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NextToken { get; set; }
 
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+        public static Response3 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Response3>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
 
     }
 
@@ -1318,6 +1343,15 @@ namespace Algorand.V2.Indexer.Model
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Transaction> Transactions { get; set; } = new System.Collections.ObjectModel.Collection<Transaction>();
 
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+        public static Response4 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Response4>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
 
     }
 
@@ -1344,6 +1378,16 @@ namespace Algorand.V2.Indexer.Model
         /// <summary>Round at which the results were computed.</summary>
         [Newtonsoft.Json.JsonProperty("current-round", Required = Newtonsoft.Json.Required.Always)]
         public ulong CurrentRound { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+        public static Response6 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Response6>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
 
 
     }
@@ -1392,6 +1436,17 @@ namespace Algorand.V2.Indexer.Model
         /// <summary>Round at which the results were computed.</summary>
         [Newtonsoft.Json.JsonProperty("current-round", Required = Newtonsoft.Json.Required.Always)]
         public ulong CurrentRound { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+        public static Response9 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Response9>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
 
 
     }
