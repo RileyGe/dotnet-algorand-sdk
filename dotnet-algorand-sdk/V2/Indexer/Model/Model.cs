@@ -1402,6 +1402,15 @@ namespace Algorand.V2.Indexer.Model
         [Newtonsoft.Json.JsonProperty("current-round", Required = Newtonsoft.Json.Required.Always)]
         public ulong CurrentRound { get; set; }
 
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+        public static Response7 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Response7>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
 
     }
 

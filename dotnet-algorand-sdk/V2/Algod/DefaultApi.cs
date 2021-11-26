@@ -195,14 +195,14 @@ namespace Algorand.V2.Algod
         /// <param name="asset_id">An asset identifier</param>
         /// <returns>Asset information</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Asset> AssetsAsync(int asset_id);
+        System.Threading.Tasks.Task<Asset> AssetsAsync(ulong asset_id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get asset information.</summary>
         /// <param name="asset_id">An asset identifier</param>
         /// <returns>Asset information</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Asset> AssetsAsync(int asset_id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Asset> AssetsAsync(ulong asset_id, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Compile TEAL source code to binary, produce its hash</summary>
         /// <param name="source">TEAL source code to be compiled</param>
