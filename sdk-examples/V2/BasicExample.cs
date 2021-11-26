@@ -1,15 +1,18 @@
 ﻿using Algorand;
 using Algorand.V2;
 using Algorand.Client;
-using Algorand.V2.Model;
+
 using System;
 using Account = Algorand.Account;
+using Algorand.V2.Algod;
+using Algorand.V2.Algod.Model;
+using System.Threading.Tasks;
 
 namespace sdk_examples.V2
 {
     class BasicExample
     {
-        public static void Main(string[] args)
+        public async Task Main(string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -24,36 +27,35 @@ namespace sdk_examples.V2
                 Console.WriteLine("The address " + DEST_ADDR + " is not valid!");
             Account src = new Account(SRC_ACCOUNT);
             Console.WriteLine("My account address is:" + src.Address.ToString());
-
-            AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            
 
             try
             {
-                var supply = algodApiInstance.GetSupply();
+                var supply = await algodApiInstance.SupplyAsync();
                 Console.WriteLine("Total Algorand Supply: " + supply.TotalMoney);
                 Console.WriteLine("Online Algorand Supply: " + supply.OnlineMoney);
-                var task = algodApiInstance.GetSupplyAsync();
-                task.Wait();
-                Console.WriteLine("Total Algorand Supply(Async): " + task.Result.TotalMoney);
+ 
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling algod#getSupply:" + e.Message);
             }
 
-            var accountInfo = algodApiInstance.AccountInformation(src.Address.ToString());
+            var accountInfo = await algodApiInstance.AccountsAsync(src.Address.ToString(),null);
             Console.WriteLine(string.Format("Account Balance: {0} microAlgos", accountInfo.Amount));
 
             try
             {
-                var trans = algodApiInstance.TransactionParams();
+                var trans = await algodApiInstance.ParamsAsync();
                 var lr = trans.LastRound;
-                var block = algodApiInstance.GetBlock(lr);
+                var block = await algodApiInstance.BlocksAsync(lr,null);
                 
                 Console.WriteLine("Lastround: " + trans.LastRound.ToString());
                 Console.WriteLine("Block txns: " + block.Block.ToString());
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling algod#getSupply:" + e.Message);
             }
@@ -61,9 +63,9 @@ namespace sdk_examples.V2
             TransactionParametersResponse transParams;
             try
             {
-                transParams = algodApiInstance.TransactionParams();                
+                transParams = await algodApiInstance.ParamsAsync();                
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 throw new Exception("Could not get params", e);
             }
@@ -76,12 +78,12 @@ namespace sdk_examples.V2
             // send the transaction to the network
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(algodApiInstance, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(algodApiInstance, id.TxId);
                 Console.WriteLine("Confirmed Round is: " + resp.ConfirmedRound);
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 // This is generally expected, but should give us an informative error message.
                 Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);
