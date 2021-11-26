@@ -130,13 +130,13 @@ namespace Algorand.V2.Algod
         /// <summary>Get parameters for constructing a new transaction</summary>
         /// <returns>TransactionParams contains the parameters that help a client construct a new transaction.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response7> ParamsAsync();
+        System.Threading.Tasks.Task<TransactionParametersResponse> ParamsAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get parameters for constructing a new transaction</summary>
         /// <returns>TransactionParams contains the parameters that help a client construct a new transaction.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response7> ParamsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<TransactionParametersResponse> ParamsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Get a list of unconfirmed transactions currently in the transaction pool.</summary>
         /// <param name="max">Truncated number of transactions to display. If max=0, returns all pending txns.</param>
@@ -208,14 +208,14 @@ namespace Algorand.V2.Algod
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Teal compile Result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response8> CompileAsync(System.IO.Stream source);
+        System.Threading.Tasks.Task<CompileResponse> CompileAsync(System.IO.Stream source);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Compile TEAL source code to binary, produce its hash</summary>
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Teal compile Result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Response8> CompileAsync(System.IO.Stream source, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CompileResponse> CompileAsync(System.IO.Stream source, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>Provide debugging information for a transaction (or group).</summary>
         /// <param name="request">Transaction (or group) and any accompanying state-simulation data.</param>
@@ -1210,7 +1210,7 @@ namespace Algorand.V2.Algod
         /// <summary>Get parameters for constructing a new transaction</summary>
         /// <returns>TransactionParams contains the parameters that help a client construct a new transaction.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response7> ParamsAsync()
+        public System.Threading.Tasks.Task<TransactionParametersResponse> ParamsAsync()
         {
             return ParamsAsync(System.Threading.CancellationToken.None);
         }
@@ -1219,7 +1219,7 @@ namespace Algorand.V2.Algod
         /// <summary>Get parameters for constructing a new transaction</summary>
         /// <returns>TransactionParams contains the parameters that help a client construct a new transaction.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response7> ParamsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<TransactionParametersResponse> ParamsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v2/transactions/params");
@@ -1256,7 +1256,7 @@ namespace Algorand.V2.Algod
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response7>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<TransactionParametersResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1809,7 +1809,7 @@ namespace Algorand.V2.Algod
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Teal compile Result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Response8> CompileAsync(System.IO.Stream source)
+        public System.Threading.Tasks.Task<CompileResponse> CompileAsync(System.IO.Stream source)
         {
             return CompileAsync(source, System.Threading.CancellationToken.None);
         }
@@ -1819,7 +1819,7 @@ namespace Algorand.V2.Algod
         /// <param name="source">TEAL source code to be compiled</param>
         /// <returns>Teal compile Result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Response8> CompileAsync(System.IO.Stream source, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CompileResponse> CompileAsync(System.IO.Stream source, System.Threading.CancellationToken cancellationToken)
         {
             if (source == null)
                 throw new System.ArgumentNullException("source");
@@ -1862,7 +1862,7 @@ namespace Algorand.V2.Algod
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response8>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<CompileResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using Algorand.V2;
+using Algorand.V2.Algod;
+using Algorand.V2.Algod.Model;
 
 namespace sdk_examples.V2.contract
 {
     public class CompileTeal
     {
-        public static void Main(string[] args)
+        public async Task Main(string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -14,12 +17,17 @@ namespace sdk_examples.V2.contract
                 ALGOD_API_ADDR = "http://" + ALGOD_API_ADDR;
             }
 
-            string ALGOD_API_TOKEN = args[1];            
-
-            AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            string ALGOD_API_TOKEN = args[1];
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            
             // read file - int 1
             byte[] data = File.ReadAllBytes("V2\\contract\\sample.teal");
-            var response = algodApiInstance.TealCompile(data);
+            CompileResponse response;
+            using (var datams = new MemoryStream())
+            {
+                 response = await algodApiInstance.CompileAsync(datams);
+            }
 
             Console.WriteLine("response: " + response);
             Console.WriteLine("Hash: " + response.Hash);

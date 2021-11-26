@@ -1,6 +1,6 @@
 ﻿using Algorand.Algod.Api;
 using Algorand.Algod.Model;
-
+using Algorand.V2.Algod.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;

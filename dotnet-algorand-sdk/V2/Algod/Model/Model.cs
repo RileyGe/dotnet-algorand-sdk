@@ -279,7 +279,7 @@ namespace Algorand.V2.Algod.Model
     {
         /// <summary>The application which this local state is for.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        public int Id { get; set; }
+        public ulong Id { get; set; }
 
         /// <summary>\[hsch\] schema.</summary>
         [Newtonsoft.Json.JsonProperty("schema", Required = Newtonsoft.Json.Required.Always)]
@@ -678,27 +678,27 @@ namespace Algorand.V2.Algod.Model
     {
         /// <summary>The asset index if the transaction was found and it created an asset.</summary>
         [Newtonsoft.Json.JsonProperty("asset-index", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AssetIndex { get; set; }
+        public ulong? AssetIndex { get; set; }
 
         /// <summary>The application index if the transaction was found and it created an application.</summary>
         [Newtonsoft.Json.JsonProperty("application-index", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ApplicationIndex { get; set; }
+        public ulong? ApplicationIndex { get; set; }
 
         /// <summary>Rewards in microalgos applied to the close remainder to account.</summary>
         [Newtonsoft.Json.JsonProperty("close-rewards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CloseRewards { get; set; }
+        public ulong? CloseRewards { get; set; }
 
         /// <summary>Closing amount for the transaction.</summary>
         [Newtonsoft.Json.JsonProperty("closing-amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ClosingAmount { get; set; }
+        public ulong? ClosingAmount { get; set; }
 
         /// <summary>The number of the asset's unit that were transferred to the close-to address.</summary>
         [Newtonsoft.Json.JsonProperty("asset-closing-amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? AssetClosingAmount { get; set; }
+        public ulong? AssetClosingAmount { get; set; }
 
         /// <summary>The round where this transaction was confirmed, if present.</summary>
         [Newtonsoft.Json.JsonProperty("confirmed-round", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ConfirmedRound { get; set; }
+        public ulong? ConfirmedRound { get; set; }
 
         /// <summary>Indicates that the transaction was kicked out of this node's transaction pool (and specifies why that happened).  An empty string indicates the transaction wasn't kicked out of this node's txpool due to an error.
         /// <br/></summary>
@@ -708,11 +708,11 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>Rewards in microalgos applied to the receiver account.</summary>
         [Newtonsoft.Json.JsonProperty("receiver-rewards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? ReceiverRewards { get; set; }
+        public ulong? ReceiverRewards { get; set; }
 
         /// <summary>Rewards in microalgos applied to the sender account.</summary>
         [Newtonsoft.Json.JsonProperty("sender-rewards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? SenderRewards { get; set; }
+        public ulong? SenderRewards { get; set; }
 
         /// <summary>\[ld\] Local state key/value changes for the application being executed by this transaction.</summary>
         [Newtonsoft.Json.JsonProperty("local-state-delta", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -903,7 +903,7 @@ namespace Algorand.V2.Algod.Model
     /// <summary>TransactionParams contains the parameters that help a client construct
     /// <br/>a new transaction.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class Response7
+    public partial class TransactionParametersResponse
     {
         /// <summary>ConsensusVersion indicates the consensus protocol version
         /// <br/>as of LastRound.</summary>
@@ -941,7 +941,7 @@ namespace Algorand.V2.Algod.Model
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class Response8
+    public partial class CompileResponse
     {
         /// <summary>base32 SHA512_256 of program bytes (Address style)</summary>
         [Newtonsoft.Json.JsonProperty("hash", Required = Newtonsoft.Json.Required.Always)]
@@ -972,6 +972,15 @@ namespace Algorand.V2.Algod.Model
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string ProtocolVersion { get; set; }
 
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+        public static DryrunResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DryrunResponse>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
 
     }
 

@@ -1,13 +1,15 @@
 ﻿using Algorand;
 using Algorand.Client;
 using Algorand.V2;
+using Algorand.V2.Algod;
 using System;
+using System.Threading.Tasks;
 
 namespace sdk_examples.V2.contract
 {
     class ContractAccount
     {
-        public static void Main(params string[] args)
+        public async Task Main(params string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -18,11 +20,12 @@ namespace sdk_examples.V2.contract
             string ALGOD_API_TOKEN = args[1];
             //string toAddressMnemonic = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
             var toAddress = new Address("7XVBE6T6FMUR6TI2XGSVSOPJHKQE2SDVPMFA3QUZNWM7IY6D4K2L23ZN2A");
-            var algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            Algorand.V2.Model.TransactionParametersResponse transParams;
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            Algorand.V2.Algod.Model.TransactionParametersResponse transParams;
             try
             {
-                transParams = algodApiInstance.TransactionParams();
+                transParams =await algodApiInstance.ParamsAsync();
             }
             catch (ApiException e)
             {
@@ -44,12 +47,11 @@ namespace sdk_examples.V2.contract
             {
                 try
                 {
-                    //签名操作
                     SignedTransaction signedTx = Account.SignLogicsigTransaction(lsig, tx);                    
-                    var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                    var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                     Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
                     Console.WriteLine("Confirmed Round is: " +
-                        Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                        Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 }
                 catch (ApiException e)
                 {

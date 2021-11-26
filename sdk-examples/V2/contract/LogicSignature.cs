@@ -1,13 +1,15 @@
 using Algorand;
 using Algorand.Client;
 using Algorand.V2;
+using Algorand.V2.Algod;
 using System;
+using System.Threading.Tasks;
 
 namespace sdk_examples.V2.contract
 {
     class LogicSignature
     {
-        public static void Main(params string[] args)
+        public async Task Main(params string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -44,11 +46,13 @@ namespace sdk_examples.V2.contract
 
             //为了表示与账号1全部脱离，所以新建一个LogicsigSignature
             LogicsigSignature lsig2 = new LogicsigSignature(program, null, Convert.FromBase64String(contractSig));
-            var algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            Algorand.V2.Model.TransactionParametersResponse transParams;
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+
+            Algorand.V2.Algod.Model.TransactionParametersResponse transParams;
             try
             {
-                transParams = algodApiInstance.TransactionParams();
+                transParams = await algodApiInstance.ParamsAsync();
             }
             catch (ApiException e)
             {
@@ -63,10 +67,10 @@ namespace sdk_examples.V2.contract
                 //bypass verify for non-lsig
                 SignedTransaction signedTx = Account.SignLogicsigTransaction(lsig2, tx);
                 
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                 Console.WriteLine("Successfully sent tx logic sig tx id: " + id);
                 Console.WriteLine("Confirmed Round is: " +
-                        Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                        Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
             }
             catch (ApiException e)
             {
