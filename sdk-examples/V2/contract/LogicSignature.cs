@@ -47,7 +47,7 @@ namespace sdk_examples.V2.contract
             //为了表示与账号1全部脱离，所以新建一个LogicsigSignature
             LogicsigSignature lsig2 = new LogicsigSignature(program, null, Convert.FromBase64String(contractSig));
             var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
 
             Algorand.V2.Algod.Model.TransactionParametersResponse transParams;
             try

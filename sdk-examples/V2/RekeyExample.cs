@@ -42,7 +42,7 @@ namespace sdk_examples.V2
             //build transaction
 
             var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
             var trans = await algodApiInstance.ParamsAsync();   
             Console.WriteLine("Lastround: " + trans.LastRound.ToString());
 

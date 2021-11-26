@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Text;
 
 namespace Algorand.V2
@@ -17,7 +18,7 @@ namespace Algorand.V2
             if (tokenHeader != null && tokenHeader.Length > 0)
                 _httpClient.DefaultRequestHeaders.Add(tokenHeader, token);
 
-            _httpClient.Timeout = timeout > 0 ? (TimeSpan.FromMilliseconds((double)timeout)) : TimeSpan.Zero;
+            _httpClient.Timeout = timeout > 0 ? (TimeSpan.FromMilliseconds((double)timeout)) : Timeout.InfiniteTimeSpan;
 
             return _httpClient;
 

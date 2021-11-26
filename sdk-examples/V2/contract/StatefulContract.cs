@@ -35,7 +35,7 @@ namespace sdk_examples.V2.contract
             var creator = new Account(creatorMnemonic);
             var user = new Account(userMnemonic);
             var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            DefaultApi client = new DefaultApi(httpClient);
+            DefaultApi client = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
 
             //var transParams = client.TransactionParams();
             //var tx = Utils.GetPaymentTransaction(admin.Address, creator.Address, 

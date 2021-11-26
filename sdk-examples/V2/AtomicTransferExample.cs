@@ -27,7 +27,7 @@ namespace sdk_examples.V2
             string DEST_ADDR2 = "OAMCXDCH7LIVYUF2HSNQLPENI2ZXCWBSOLUAOITT47E4FAMFGAMI4NFLYU";
             Algorand.Account src = new Algorand.Account(SRC_ACCOUNT);
             var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
             Algorand.V2.Algod.Model.TransactionParametersResponse transParams;
             try
             {

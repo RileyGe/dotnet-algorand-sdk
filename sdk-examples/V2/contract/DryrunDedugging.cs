@@ -31,7 +31,7 @@ namespace sdk_examples.V2.contract
             acct1.SignLogicsig(lsig);
 
             var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
             Algorand.V2.Algod.Model.TransactionParametersResponse transParams;
             try
             {

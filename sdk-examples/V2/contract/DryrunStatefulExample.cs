@@ -24,7 +24,7 @@ namespace sdk_examples.V2.contract
             }
             string ALGOD_API_TOKEN = args[1];
             var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            var client = new DefaultApi(httpClient);
+            var client = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
             //// TODO: REMOVE:
             string creatorMnemonic = "benefit once mutual legal marble hurdle dress toe fuel country prepare canvas barrel divide major square name captain calm flock crumble receive economy abandon power";
             //string userMnemonic = "pledge become mouse fantasy matrix bunker ask tissue prepare vocal unit patient cliff index train network intact company across stage faculty master mom abstract above";

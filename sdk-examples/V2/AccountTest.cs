@@ -21,7 +21,7 @@ namespace sdk_examples.V2
             Account src = new Account(SRC_ACCOUNT);
             Console.WriteLine("My account address is:" + src.Address.ToString());
             var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            DefaultApi algodApiInstance = new DefaultApi(httpClient);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
 
             var accountInfo = await algodApiInstance.AccountsAsync(src.Address.ToString(),null);
             Console.WriteLine(string.Format("Account Balance: {0} microAlgos", accountInfo.Amount));
