@@ -29,7 +29,7 @@ namespace Algorand.V2.Algod
         /// <param name="no_wait">Don't wait for transaction to commit before returning response.</param>
         /// <returns>Transaction ID of the submission.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<RegisterParticipationKeyResponse> RegisterParticipationKeysAsync(string address, int? fee, int? key_dilution, int? round_last_valid, bool? no_wait);
+        System.Threading.Tasks.Task<RegisterParticipationKeysResponse> RegisterParticipationKeysAsync(string address, int? fee, int? key_dilution, int? round_last_valid, bool? no_wait);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <param name="address">The `account-id` to update, or `all` to update all accounts.</param>
@@ -39,7 +39,7 @@ namespace Algorand.V2.Algod
         /// <param name="no_wait">Don't wait for transaction to commit before returning response.</param>
         /// <returns>Transaction ID of the submission.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<RegisterParticipationKeyResponse> RegisterParticipationKeysAsync(string address, int? fee, int? key_dilution, int? round_last_valid, bool? no_wait, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<RegisterParticipationKeysResponse> RegisterParticipationKeysAsync(string address, int? fee, int? key_dilution, int? round_last_valid, bool? no_wait, System.Threading.CancellationToken cancellationToken);
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<object> ShutdownAsync(int? timeout);
