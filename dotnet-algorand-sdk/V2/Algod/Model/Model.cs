@@ -801,6 +801,26 @@ namespace Algorand.V2.Algod.Model
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
+    public partial class RegisterParticipationKeysResponse
+    {
+        /// <summary>encoding of the transaction hash.</summary>
+        [Newtonsoft.Json.JsonProperty("txId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string TxId { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+        public static RegisterParticipationKeysResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RegisterParticipationKeysResponse>(data, new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
+    }
+
     /// <summary>Supply represents the current supply of MicroAlgos in the system</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Response4
@@ -987,6 +1007,10 @@ namespace Algorand.V2.Algod.Model
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Response10
     {
+        /// <summary>Catchup start response string</summary>
+        [Newtonsoft.Json.JsonProperty("catchup-message", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string CatchupMessage { get; set; }
         /// <summary>encoding of the participation id.</summary>
         [Newtonsoft.Json.JsonProperty("partId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -998,6 +1022,10 @@ namespace Algorand.V2.Algod.Model
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class Response11
     {
+        /// <summary>Catchup start response string</summary>
+        [Newtonsoft.Json.JsonProperty("catchup-message", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string CatchupMessage { get; set; }
         /// <summary>Detailed description of a participation key</summary>
         [Newtonsoft.Json.JsonProperty("participationKey", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]

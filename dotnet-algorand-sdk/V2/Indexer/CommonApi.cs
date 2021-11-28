@@ -49,6 +49,7 @@ namespace Algorand.V2.Indexer
         private Newtonsoft.Json.JsonSerializerSettings CreateSerializerSettings()
         {
             var settings = new Newtonsoft.Json.JsonSerializerSettings();
+            
             UpdateJsonSerializerSettings(settings);
             return settings;
         }
