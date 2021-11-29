@@ -50,7 +50,7 @@ AVM 1.0 , Indexer 2.8 branch and Algo rel/stable branch (Nov 2021)</PackageRelea
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Newtonsoft.Msgpack" Version="0.1.11" />
-    <PackageReference Include="RestSharp" Version="106.12.0" />
+	<PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 

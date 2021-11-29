@@ -625,11 +625,19 @@ namespace test
             Assert.AreEqual(o, tx);
 
             SignedTransaction stx = account.SignTransaction(tx);
+            
             string encodedOutBytes = Convert.ToBase64String(Encoder.EncodeToMsgPack(stx));
+
+
+            SignedTransaction testtx = Encoder.DecodeFromMsgPack<SignedTransaction>(Convert.FromBase64String(goldenstring));
+
+            var goldenStringRaw=Convert.FromBase64String(goldenstring);
+
+
             SignedTransaction stxDecoded = Encoder.DecodeFromMsgPack<SignedTransaction>(Convert.FromBase64String(encodedOutBytes));
 
             Assert.AreEqual(stxDecoded, stx);
-            Assert.AreEqual(encodedOutBytes, goldenstring);
+            Assert.AreEqual( goldenstring, encodedOutBytes);
             TestUtil.SerializeDeserializeCheck(stx);
         }
 

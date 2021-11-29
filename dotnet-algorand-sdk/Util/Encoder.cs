@@ -288,7 +288,7 @@ namespace Algorand
                         return !(trans.foreignAssets is null || trans.foreignAssets.Count < 1);
                     };
                 }
-                else if (property.PropertyType == typeof(List<long>) && property.PropertyName == "apfa")
+                else if (property.PropertyType == typeof(List<ulong>) && property.PropertyName == "apfa")
                 {
                     property.ShouldSerialize = instance => {
                         var trans = instance as Transaction;

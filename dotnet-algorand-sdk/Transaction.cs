@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
-using Algorand.V2.Indexer.Model;
+using Algorand.V2.Algod.Model;
 
 namespace Algorand
 {
@@ -179,7 +179,7 @@ namespace Algorand
         public List<byte[]> applicationArgs = new List<byte[]>();
 
         [JsonProperty(PropertyName = "apan")]
-        public OnCompletion onCompletion = OnCompletion.Noop;
+        public V2.Indexer.Model.OnCompletion onCompletion = V2.Indexer.Model.OnCompletion.Noop;
 
         [JsonProperty(PropertyName = "apap")]
         public TEALProgram approvalProgram = null;
@@ -188,20 +188,20 @@ namespace Algorand
         public List<Address> accounts = new List<Address>();
 
         [JsonProperty(PropertyName = "apfa")]
-        public List<long> foreignApps = new List<long>();
+        public List<ulong> foreignApps = new List<ulong>();
 
         [JsonProperty(PropertyName = "apas")]
         public List<ulong> foreignAssets = new List<ulong>();
 
         [JsonProperty(PropertyName = "apgs")]
-        public StateSchema globalStateSchema = new StateSchema();
+        public V2.Indexer.Model.StateSchema globalStateSchema = new V2.Indexer.Model.StateSchema();
 
         [JsonProperty(PropertyName = "apid")]
         [DefaultValue(0)]
         public ulong? applicationId = 0;
 
         [JsonProperty(PropertyName = "apls")]
-        public StateSchema localStateSchema = new StateSchema();
+        public V2.Indexer.Model.StateSchema localStateSchema = new V2.Indexer.Model.StateSchema();
 
         [JsonProperty(PropertyName = "apsu")]
         public TEALProgram clearStateProgram = null;
@@ -486,9 +486,9 @@ namespace Algorand
                             ulong? xferAsset, ulong? assetAmount, Address assetSender, Address assetReceiver,
                             Address assetCloseTo, Address freezeTarget, ulong? assetFreezeID, bool freezeState,
                             // application fields
-                            List<byte[]> applicationArgs, OnCompletion onCompletion, TEALProgram approvalProgram, List<Address> accounts,
-                            List<long> foreignApps, List<ulong> foreignAssets, StateSchema globalStateSchema, ulong? applicationId,
-                            StateSchema localStateSchema, TEALProgram clearStateProgram)
+                            List<byte[]> applicationArgs, V2.Indexer.Model.OnCompletion onCompletion, TEALProgram approvalProgram, List<Address> accounts,
+                            List<ulong> foreignApps, List<ulong> foreignAssets, V2.Indexer.Model.StateSchema globalStateSchema, ulong? applicationId,
+                             V2.Indexer.Model.StateSchema localStateSchema, TEALProgram clearStateProgram)
         {
             this.type = type;
             if (sender != null) this.sender = sender;
