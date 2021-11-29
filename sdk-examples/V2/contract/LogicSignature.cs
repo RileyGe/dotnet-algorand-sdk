@@ -20,8 +20,8 @@ namespace sdk_examples.V2.contract
             //第一个账号用于给智能合约签名，并把签名发布出去
             string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
             Account acct1 = new Account(SRC_ACCOUNT);            
-            //byte[] program = Convert.FromBase64String("ASABASI="); //int 1
-            byte[] program = Convert.FromBase64String("ASABACI="); //int 0
+            byte[] program = Convert.FromBase64String("ASABASI="); //int 1
+            //byte[] program = Convert.FromBase64String("ASABACI="); //int 0
             
 
             LogicsigSignature lsig = new LogicsigSignature(program, null);
