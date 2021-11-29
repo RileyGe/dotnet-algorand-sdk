@@ -800,12 +800,12 @@ namespace Algorand.V2.Indexer.Model
             }
         }
         /// <summary>Maximum number of TEAL uints that may be stored in the key/value store.</summary>
-        [Newtonsoft.Json.JsonProperty("num-uint", DefaultValueHandling = DefaultValueHandling.Ignore)] //, Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("nui", DefaultValueHandling = DefaultValueHandling.Ignore)] //, Required = Newtonsoft.Json.Required.Always)]
         [DefaultValue(0)]
         public ulong? NumUint { get; set; }
 
         /// <summary>Maximum number of TEAL byte slices that may be stored in the key/value store.</summary>
-        [Newtonsoft.Json.JsonProperty("num-byte-slice", DefaultValueHandling = DefaultValueHandling.Ignore)] //, Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("nbs", DefaultValueHandling = DefaultValueHandling.Ignore)] //, Required = Newtonsoft.Json.Required.Always)]
         [DefaultValue(0)]
         public ulong? NumByteSlice { get; set; }
 
