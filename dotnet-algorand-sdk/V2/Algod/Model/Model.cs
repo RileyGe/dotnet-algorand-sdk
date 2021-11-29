@@ -846,7 +846,7 @@ namespace Algorand.V2.Algod.Model
     {
         /// <summary>CatchupTime in nanoseconds</summary>
         [Newtonsoft.Json.JsonProperty("catchup-time", Required = Newtonsoft.Json.Required.Always)]
-        public int CatchupTime { get; set; }
+        public ulong CatchupTime { get; set; }
 
         /// <summary>LastRound indicates the last round seen</summary>
         [Newtonsoft.Json.JsonProperty("last-round", Required = Newtonsoft.Json.Required.Always)]
@@ -876,7 +876,7 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>TimeSinceLastRound in nanoseconds</summary>
         [Newtonsoft.Json.JsonProperty("time-since-last-round", Required = Newtonsoft.Json.Required.Always)]
-        public int TimeSinceLastRound { get; set; }
+        public ulong TimeSinceLastRound { get; set; }
 
         /// <summary>The last catchpoint seen by the node</summary>
         [Newtonsoft.Json.JsonProperty("last-catchpoint", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -888,19 +888,19 @@ namespace Algorand.V2.Algod.Model
 
         /// <summary>The total number of accounts included in the current catchpoint</summary>
         [Newtonsoft.Json.JsonProperty("catchpoint-total-accounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CatchpointTotalAccounts { get; set; }
+        public ulong? CatchpointTotalAccounts { get; set; }
 
         /// <summary>The number of accounts from the current catchpoint that have been processed so far as part of the catchup</summary>
         [Newtonsoft.Json.JsonProperty("catchpoint-processed-accounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CatchpointProcessedAccounts { get; set; }
+        public ulong? CatchpointProcessedAccounts { get; set; }
 
         /// <summary>The number of accounts from the current catchpoint that have been verified so far as part of the catchup</summary>
         [Newtonsoft.Json.JsonProperty("catchpoint-verified-accounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CatchpointVerifiedAccounts { get; set; }
+        public ulong? CatchpointVerifiedAccounts { get; set; }
 
         /// <summary>The total number of blocks that are required to complete the current catchpoint catchup</summary>
         [Newtonsoft.Json.JsonProperty("catchpoint-total-blocks", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? CatchpointTotalBlocks { get; set; }
+        public ulong? CatchpointTotalBlocks { get; set; }
 
         /// <summary>The number of blocks that have already been obtained by the node as part of the catchup</summary>
         [Newtonsoft.Json.JsonProperty("catchpoint-acquired-blocks", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
