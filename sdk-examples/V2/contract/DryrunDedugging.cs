@@ -1,13 +1,15 @@
 ﻿using Algorand;
 using Algorand.Client;
 using Algorand.V2;
+using Algorand.V2.Algod;
 using System;
+using System.Threading.Tasks;
 
 namespace sdk_examples.V2.contract
 {
     class DryrunDedugging
     {
-        public static void Main(params string[] args)
+        public async Task Main(params string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -15,7 +17,7 @@ namespace sdk_examples.V2.contract
                 ALGOD_API_ADDR = "http://" + ALGOD_API_ADDR;
             }
             string ALGOD_API_TOKEN = args[1];
-            //第一个账号用于给智能合约签名，并把签名发布出去
+ 
             string SRC_ACCOUNT = "buzz genre work meat fame favorite rookie stay tennis demand panic busy hedgehog snow morning acquire ball grain grape member blur armor foil ability seminar";
             Account acct1 = new Account(SRC_ACCOUNT);
             var acct2Address = "QUDVUXBX4Q3Y2H5K2AG3QWEOMY374WO62YNJFFGUTMOJ7FB74CMBKY6LPQ";
@@ -27,12 +29,13 @@ namespace sdk_examples.V2.contract
 
             // sign the logic signaure with an account sk
             acct1.SignLogicsig(lsig);
-            
-            var algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            Algorand.V2.Model.TransactionParametersResponse transParams;
+
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
+            Algorand.V2.Algod.Model.TransactionParametersResponse transParams;
             try
             {
-                transParams = algodApiInstance.TransactionParams();
+                transParams = await algodApiInstance.ParamsAsync();
             }
             catch (ApiException e)
             {
@@ -54,7 +57,7 @@ namespace sdk_examples.V2.contract
                 //Console.WriteLine("Dryrun compiled repsonse : " + dryrunResponse.ToJson()); // pretty print
 
                 // dryrun logic sig transaction
-                var dryrunResponse2 = Utils.GetDryrunResponse(algodApiInstance, signedTx);                
+                var dryrunResponse2 = await Utils.GetDryrunResponse(algodApiInstance, signedTx);                
                 Console.WriteLine("Dryrun source repsonse : " + dryrunResponse2.ToJson()); // pretty print
             }
             catch (ApiException e)

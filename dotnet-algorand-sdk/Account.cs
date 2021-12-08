@@ -509,7 +509,7 @@ namespace Algorand
             {
                 len = this.fixedValue.Length - this.index;
             }
-            JavaHelper<byte>.SyatemArrayCopy(this.fixedValue, this.index, bytes, 0, len);
+            JavaHelper<byte>.SystemArrayCopy(this.fixedValue, this.index, bytes, 0, len);
             this.index += bytes.Length;
         }
 

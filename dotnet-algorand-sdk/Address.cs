@@ -6,6 +6,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
+
 namespace Algorand
 {
     /// <summary>
@@ -29,6 +30,8 @@ namespace Algorand
         private const int EXPECTED_STR_ENCODED_LEN = 58;
         // prefix for signing bytes
         private static readonly byte[] BYTES_SIGN_PREFIX = Encoding.UTF8.GetBytes("MX");
+        // prefix for hashing application ID
+        private static readonly byte[] APP_ID_PREFIX = Encoding.UTF8.GetBytes("appID");
 
         /// <summary>
         /// Create a new address from a byte array.
@@ -173,7 +176,19 @@ namespace Algorand
         {
             return this.Bytes.GetHashCode();
         }
-    }
+
+
+        /// <summary>
+        /// Get the escrow address of an application.
+        /// </summary>
+        /// <param name="appID">appID The ID of the application</param>
+        /// <returns>The address corresponding to that application's escrow account.</returns>
+        public static Address ForApplication(ulong appID) //throws NoSuchAlgorithmException, IOException
+        {
+            var buffer=Utils.CombineBytes(APP_ID_PREFIX, appID.ToBigEndianBytes());
+            return new Address(Digester.Digest(buffer));
+        }
+}
     /// <summary>
     /// MultisigAddress is a convenience class for handling multisignature public identities.
     /// </summary>

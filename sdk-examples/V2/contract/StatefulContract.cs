@@ -1,19 +1,22 @@
 ﻿using Algorand;
-using Algorand.Client;
+
 using Algorand.V2;
 using System;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using Algorand.V2.Model;
+
 using Account = Algorand.Account;
 using System.Text;
+using Algorand.V2.Algod;
+using Algorand.V2.Algod.Model;
+using System.Threading.Tasks;
 
 namespace sdk_examples.V2.contract
 {
     class StatefulContract
     {
-        public static void Main(params string[] args)
+        public  async Task Main(params string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -31,8 +34,8 @@ namespace sdk_examples.V2.contract
             // create two account to create and user the stateful contract
             var creator = new Account(creatorMnemonic);
             var user = new Account(userMnemonic);
-
-            var client = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi client = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
 
             //var transParams = client.TransactionParams();
             //var tx = Utils.GetPaymentTransaction(admin.Address, creator.Address, 
@@ -65,31 +68,43 @@ namespace sdk_examples.V2.contract
             // declare clear state program source
             string clearProgramSource = File.ReadAllText("stateful_clear.teal");
 
-            var approvalProgram =
-                client.TealCompile(Encoding.UTF8.GetBytes(approvalProgramSourceInitial));
-            var clearProgram =
-                client.TealCompile(Encoding.UTF8.GetBytes(clearProgramSource));
-            var approvalProgramRefactored =
-                client.TealCompile(Encoding.UTF8.GetBytes(approvalProgramSourceRefactored));
+            CompileResponse approvalProgram;
+            CompileResponse clearProgram;
+            CompileResponse approvalProgramRefactored;
+
+            using (var datams = new MemoryStream(Encoding.UTF8.GetBytes(approvalProgramSourceInitial)))
+            {
+                approvalProgram = await client.CompileAsync(datams);
+            }
+            using (var datams = new MemoryStream(Encoding.UTF8.GetBytes(clearProgramSource)))
+            {
+                clearProgram = await client.CompileAsync(datams);
+            }
+            using (var datams = new MemoryStream(Encoding.UTF8.GetBytes(approvalProgramSourceRefactored)))
+            {
+                approvalProgramRefactored = await client.CompileAsync(datams);
+            }
+         
+           
 
             try
             {
                 // create new application
-                var appid = CreateApp(client, creator, new TEALProgram(approvalProgram.Result),
+                var appid = await CreateApp(client, creator, new TEALProgram(approvalProgram.Result),
                     new TEALProgram(clearProgram.Result), globalInts, globalBytes, localInts, localBytes);
 
                 // opt-in to application
-                OptIn(client, user, appid);
+                await OptIn(client, user, appid);
                 // call application without arguments
-                CallApp(client, user, appid, null);
+                await CallApp(client, user, appid, null);
                 // read local state of application from user account
-                ReadLocalState(client, user, appid);
+                await ReadLocalState(client, user, appid);
 
                 // read global state of application
-                ReadGlobalState(client, creator, appid);
+                await ReadGlobalState(client, creator, appid);
 
                 // update application
-                UpdateApp(client, creator, appid,
+                await UpdateApp(client, creator, appid,
                     new TEALProgram(approvalProgramRefactored.Result),
                     new TEALProgram(clearProgram.Result));
                 // call application with arguments
@@ -99,176 +114,176 @@ namespace sdk_examples.V2.contract
                 {
                     Encoding.UTF8.GetBytes(date.ToString("yyyy-MM-dd 'at' HH:mm:ss"))
                 };
-                CallApp(client, user, appid, appArgs);
+                await CallApp(client, user, appid, appArgs);
 
                 // read local state of application from user account
-                ReadLocalState(client, user, appid);
+                await ReadLocalState(client, user, appid);
 
                 // close-out from application
-                CloseOutApp(client, user, (ulong)appid);
+                await CloseOutApp(client, user, (ulong)appid);
 
                 // opt-in again to application
-                OptIn(client, user, appid);
+                await OptIn(client, user, appid);
 
                 // call application with arguments
-                CallApp(client, user, appid, appArgs);
+                await CallApp(client, user, appid, appArgs);
 
                 // read local state of application from user account
-                ReadLocalState(client, user, appid);
+                await ReadLocalState(client, user, appid);
 
                 // delete application
-                DeleteApp(client, creator, appid);
+                await DeleteApp(client, creator, appid);
 
                 // clear application from user account
-                ClearApp(client, user, appid);
+                await ClearApp(client, user, appid);
 
                 Console.WriteLine("You have successefully arrived the end of this test, please press and key to exist.");
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 // This is generally expected, but should give us an informative error message.
                 Console.WriteLine("Exception when calling algod#sendTransaction: " + e.Message);
             }
         }
-        public static void CloseOutApp(AlgodApi client, Account sender, ulong appId)
+        public static async Task CloseOutApp(DefaultApi client, Account sender, ulong appId)
         {
             try
             {
-                var transParams = client.TransactionParams();
+                var transParams = await client.ParamsAsync();
                 var tx = Utils.GetApplicationCloseTransaction(sender.Address, (ulong?)appId, transParams);
                 var signedTx = sender.SignTransaction(tx);
                 Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-                var id = Utils.SubmitTransaction(client, signedTx);
+                var id = await Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(client, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(client, id.TxId);
                 Console.WriteLine("Confirmed Round is: " + resp.ConfirmedRound);
                 Console.WriteLine("Application ID is: " + appId);
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling create application: " + e.Message);
             }
         }
 
-        private static void UpdateApp(AlgodApi client, Account creator, long? appid, TEALProgram approvalProgram, TEALProgram clearProgram)
+        private static async Task UpdateApp(DefaultApi client, Account creator, ulong? appid, TEALProgram approvalProgram, TEALProgram clearProgram)
         {
             try
             {
-                var transParams = client.TransactionParams();
+                var transParams = await client.ParamsAsync();
                 var tx = Utils.GetApplicationUpdateTransaction(creator.Address, (ulong?)appid, approvalProgram, clearProgram, transParams);
                 var signedTx = creator.SignTransaction(tx);
                 Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-                var id = Utils.SubmitTransaction(client, signedTx);
+                var id = await Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(client, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(client, id.TxId);
                 Console.WriteLine("Confirmed Round is: " + resp.ConfirmedRound);
                 Console.WriteLine("Application ID is: " + appid);
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling create application: " + e.Message);
             }
         }
 
-        static long? CreateApp(AlgodApi client, Account creator, TEALProgram approvalProgram,
-            TEALProgram clearProgram, ulong? globalInts, ulong? globalBytes, ulong? localInts, ulong? localBytes)
+        static async Task<ulong?> CreateApp(DefaultApi client, Account creator, TEALProgram approvalProgram,
+            TEALProgram clearProgram, ulong globalInts, ulong globalBytes, ulong localInts, ulong localBytes)
         {
             try
             {
-                var transParams = client.TransactionParams();
+                var transParams = await client.ParamsAsync();
                 var tx = Utils.GetApplicationCreateTransaction(creator.Address, approvalProgram, clearProgram,
-                    new StateSchema(globalInts, globalBytes), new StateSchema(localInts, localBytes), transParams);
+                    new Algorand.V2.Indexer.Model.StateSchema() { NumUint = globalInts, NumByteSlice = globalBytes }, new Algorand.V2.Indexer.Model.StateSchema() { NumUint = localInts, NumByteSlice = localBytes }, transParams);
                 var signedTx = creator.SignTransaction(tx);
                 Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-                var id = Utils.SubmitTransaction(client, signedTx);
+                var id = await Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(client, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(client, id.TxId);
                 Console.WriteLine("Application ID is: " + resp.ApplicationIndex.ToString());
                 return resp.ApplicationIndex;
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling create application: " + e.Message);
                 return null;
             }
         }
 
-        static void OptIn(AlgodApi client, Account sender, long? applicationId)
+        static async Task OptIn(DefaultApi client, Account sender, ulong? applicationId)
         {
             try
             {
-                var transParams = client.TransactionParams();
+                var transParams = await client.ParamsAsync();
                 var tx = Utils.GetApplicationOptinTransaction(sender.Address, (ulong?)applicationId, transParams);
                 var signedTx = sender.SignTransaction(tx);
                 Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-                var id = Utils.SubmitTransaction(client, signedTx);
+                var id = await Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(client, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(client, id.TxId);
                 Console.WriteLine(string.Format("Address {0} optin to Application({1})",
                     sender.Address.ToString(), (resp.Txn as JObject)["txn"]["apid"]));
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling create application: " + e.Message);
             }
         }
 
-        static void DeleteApp(AlgodApi client, Account sender, long? applicationId)
+        static async Task DeleteApp(DefaultApi client, Account sender, ulong? applicationId)
         {
             try
             {
-                var transParams = client.TransactionParams();
+                var transParams = await client.ParamsAsync();
                 var tx = Utils.GetApplicationDeleteTransaction(sender.Address, (ulong?)applicationId, transParams);
                 var signedTx = sender.SignTransaction(tx);
                 Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-                var id = Utils.SubmitTransaction(client, signedTx);
+                var id = await Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(client, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(client, id.TxId);
                 Console.WriteLine("Success deleted the application " + (resp.Txn as JObject)["txn"]["apid"]);
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling create application: " + e.Message);
             }
         }
 
-        static void ClearApp(AlgodApi client, Account sender, long? applicationId)
+        static async Task ClearApp(DefaultApi client, Account sender, ulong? applicationId)
         {
             try
             {
-                var transParams = client.TransactionParams();
+                var transParams = await client.ParamsAsync();
                 var tx = Utils.GetApplicationClearTransaction(sender.Address, (ulong?)applicationId, transParams);
                 var signedTx = sender.SignTransaction(tx);
                 Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-                var id = Utils.SubmitTransaction(client, signedTx);
+                var id = await Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(client, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(client, id.TxId);
                 Console.WriteLine("Success cleared the application " + (resp.Txn as JObject)["txn"]["apid"]);
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling create application: " + e.Message);
             }
         }
 
-        static void CallApp(AlgodApi client, Account sender, long? applicationId, List<byte[]> args)
+        static async Task CallApp(DefaultApi client, Account sender, ulong? applicationId, List<byte[]> args)
         {
             try
             {
-                var transParams = client.TransactionParams();
+                var transParams = await client.ParamsAsync();
                 var tx = Utils.GetApplicationCallTransaction(sender.Address, (ulong?)applicationId, transParams, args);
                 var signedTx = sender.SignTransaction(tx);
                 Console.WriteLine("Signed transaction with txid: " + signedTx.transactionID);
 
-                var id = Utils.SubmitTransaction(client, signedTx);
+                var id = await Utils.SubmitTransaction(client, signedTx);
                 Console.WriteLine("Successfully sent tx with id: " + id.TxId);
-                var resp = Utils.WaitTransactionToComplete(client, id.TxId);
+                var resp = await Utils.WaitTransactionToComplete(client, id.TxId);
                 Console.WriteLine("Confirmed at round: " + resp.ConfirmedRound);
                 Console.WriteLine(string.Format("Call Application({0}) success.", 
                     (resp.Txn as JObject)["txn"]["apid"]));
@@ -292,22 +307,22 @@ namespace sdk_examples.V2.contract
                     Console.WriteLine(outStr);
                 }
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 Console.WriteLine("Exception when calling create application: " + e.Message);
             }
         }
 
-        static public void ReadLocalState(AlgodApi client, Account account, long? appId)
+        static public async Task ReadLocalState(DefaultApi client, Account account, ulong? appId)
         {
-            var acctResponse = client.AccountInformation(account.Address.ToString());
+            var acctResponse = await client.AccountsAsync(account.Address.ToString(),null);
             var applicationLocalState = acctResponse.AppsLocalState;
-            for (int i = 0; i < applicationLocalState.Count; i++)
+            foreach (var state in applicationLocalState)
             {
-                if (applicationLocalState[i].Id == appId)
+                if (state.Id == appId)
                 {
                     var outStr = "User's application local state: ";
-                    foreach (var v in applicationLocalState[i].KeyValue)
+                    foreach (var v in state.KeyValue)
                     {
                         outStr += v.ToString();
                     }
@@ -316,16 +331,16 @@ namespace sdk_examples.V2.contract
             }
         }
 
-        static public void ReadGlobalState(AlgodApi client, Account account, long? appId)
+        static public async Task ReadGlobalState(DefaultApi client, Account account, ulong? appId)
         {
-            var acctResponse = client.AccountInformation(account.Address.ToString());
+            var acctResponse = await client.AccountsAsync(account.Address.ToString(),null);
             var createdApplications = acctResponse.CreatedApps;
-            for (int i = 0; i < createdApplications.Count; i++)
+            foreach( var app in createdApplications)
             {
-                if (createdApplications[i].Id == appId)
+                if (app.Id == appId)
                 {
                     var outStr = "Application global state: ";
-                    foreach (var v in createdApplications[i].Params.GlobalState)
+                    foreach (var v in app.Params.GlobalState)
                     {
                         outStr += v.ToString();
                     }                    

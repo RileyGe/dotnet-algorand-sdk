@@ -91,23 +91,32 @@ namespace test
             Address reserve = addr;
             Address freeze = addr;
             Address clawback = addr;
-            string badMetadataHash = "fACPO4nRgO55j1ndAK3W6Sgc4APkcyF!";
-            string tooLongMetadataHash = "fACPO4nRgO55j1ndAK3W6Sgc4APkcyFhfACPO4nRgO55j1ndAK3W6Sgc4APkcyFh";
-
+            byte[] tooShortMetadataHash = Encoding.UTF8.GetBytes("fACPO4nRgO55j1ndAK3W6Sgc4APkcyF");
+            byte[] tooLongMetadataHash = Encoding.UTF8.GetBytes("fACPO4nRgO55j1ndAK3W6Sgc4APkcyFhfACPO4nRgO55j1ndAK3W6Sgc4APkcyFh");
+            byte[] normalMetadataHash = Convert.FromBase64String("IsHwwbvsnx9X5HMW1U468AXzbvRWk8VffLw0NQrmEq0=");
+            String url_100 = new string('w', 100);
+            
             var ex = Assert.Throws<ArgumentException>(() =>
             {
-                new Transaction.AssetParams(100, 3, false, "tst", "testcoin", "website",
-                    Encoding.UTF8.GetBytes(badMetadataHash), manager, reserve, freeze, clawback);
+                new Transaction.AssetParams(100, 3, false, "tst", "testcoin", url_100,
+                    normalMetadataHash, manager, reserve, freeze, clawback);
             });
-            Assert.AreEqual(ex.Message, "asset metadataHash '" + badMetadataHash + "' is not base64 encoded");
-
+            Assert.AreEqual("asset url cannot be greater than 96 characters", ex.Message);
 
             var ex2 = Assert.Throws<ArgumentException>(() =>
             {
                 new Transaction.AssetParams(100, 3, false, "tst", "testcoin", "website",
-                    Encoding.UTF8.GetBytes(tooLongMetadataHash), manager, reserve, freeze, clawback);
+                    tooShortMetadataHash, manager, reserve, freeze, clawback);
             });
-            Assert.AreEqual(ex2.Message, "asset metadataHash cannot be greater than 32 bytes");
+            Assert.AreEqual( "asset metadataHash must have 32 bytes", ex2.Message);
+
+
+            var ex3 = Assert.Throws<ArgumentException>(() =>
+            {
+                new Transaction.AssetParams(100, 3, false, "tst", "testcoin", "website",
+                    tooLongMetadataHash, manager, reserve, freeze, clawback);
+            });
+            Assert.AreEqual("asset metadataHash must have 32 bytes", ex3.Message);
         }
 
         [Test]
@@ -616,11 +625,19 @@ namespace test
             Assert.AreEqual(o, tx);
 
             SignedTransaction stx = account.SignTransaction(tx);
+            
             string encodedOutBytes = Convert.ToBase64String(Encoder.EncodeToMsgPack(stx));
+
+
+            SignedTransaction testtx = Encoder.DecodeFromMsgPack<SignedTransaction>(Convert.FromBase64String(goldenstring));
+
+            var goldenStringRaw=Convert.FromBase64String(goldenstring);
+
+
             SignedTransaction stxDecoded = Encoder.DecodeFromMsgPack<SignedTransaction>(Convert.FromBase64String(encodedOutBytes));
 
             Assert.AreEqual(stxDecoded, stx);
-            Assert.AreEqual(encodedOutBytes, goldenstring);
+            Assert.AreEqual( goldenstring, encodedOutBytes);
             TestUtil.SerializeDeserializeCheck(stx);
         }
 

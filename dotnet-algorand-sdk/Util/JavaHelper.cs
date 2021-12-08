@@ -26,7 +26,7 @@ namespace Algorand
             //source.CopyTo(ret, 0);
             return ret;
         }
-        internal static void SyatemArrayCopy(T[] src, int srcPos, T[] dest, int destPos, int length)
+        internal static void SystemArrayCopy(T[] src, int srcPos, T[] dest, int destPos, int length)
         {
             if(src.Length < srcPos + length || dest.Length < destPos + length)
             {

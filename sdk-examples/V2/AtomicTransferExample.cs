@@ -1,14 +1,19 @@
 ﻿using Algorand;
 using Algorand.Client;
 using Algorand.V2;
+using Algorand.V2.Algod;
+using Algorand.V2.Algod.Model;
+
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace sdk_examples.V2
 {
     class AtomicTransferExample
     {
-        public static void Main(params string[] args)
+        public async Task Main(params string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -20,17 +25,19 @@ namespace sdk_examples.V2
             string SRC_ACCOUNT = "typical permit hurdle hat song detail cattle merge oxygen crowd arctic cargo smooth fly rice vacuum lounge yard frown predict west wife latin absent cup";
             string DEST_ADDR = "KV2XGKMXGYJ6PWYQA5374BYIQBL3ONRMSIARPCFCJEAMAHQEVYPB7PL3KU";
             string DEST_ADDR2 = "OAMCXDCH7LIVYUF2HSNQLPENI2ZXCWBSOLUAOITT47E4FAMFGAMI4NFLYU";
-            Account src = new Account(SRC_ACCOUNT);
-            var algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            Algorand.V2.Model.TransactionParametersResponse transParams;
+            Algorand.Account src = new Algorand.Account(SRC_ACCOUNT);
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
+            Algorand.V2.Algod.Model.TransactionParametersResponse transParams;
             try
             {
-                transParams = algodApiInstance.TransactionParams();
+                transParams = await algodApiInstance.ParamsAsync();
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 throw new Exception("Could not get params", e);
             }
+            
             // let's create a transaction group
             var amount = Utils.AlgosToMicroalgos(1);
             var tx = Utils.GetPaymentTransaction(src.Address, new Address(DEST_ADDR), amount, "pay message", transParams);
@@ -47,12 +54,16 @@ namespace sdk_examples.V2
                 //contact the signed msgpack
                 List<byte> byteList = new List<byte>(Algorand.Encoder.EncodeToMsgPack(signedTx));
                 byteList.AddRange(Algorand.Encoder.EncodeToMsgPack(signedTx2));
-                var id = algodApiInstance.RawTransaction(byteList.ToArray());
+                PostTransactionsResponse id;
+                using (var ms = new MemoryStream(byteList.ToArray()))
+                {
+                    id = await algodApiInstance.TransactionsAsync(ms);
+                }
                 Console.WriteLine("Successfully sent tx group with first tx id: " + id);
                 Console.WriteLine("Confirmed Round is: " + 
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
             }
-            catch (ApiException e)
+            catch (Algorand.V2.Algod.Model.ApiException e)
             {
                 // This is generally expected, but should give us an informative error message.
                 Console.WriteLine("Exception when calling algod#rawTransaction: " + e.Message);

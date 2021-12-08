@@ -1,8 +1,8 @@
 ﻿using Algorand;
 using Algorand.V2;
-using Algorand.Client;
-using Algorand.V2.Model;
+using Algorand.V2.Algod;
 using System;
+using System.Threading.Tasks;
 using Account = Algorand.Account;
 
 namespace sdk_examples.V2
@@ -15,7 +15,7 @@ namespace sdk_examples.V2
     /// </summary>
     class RekeyExample
     {
-        public static void Main(string[] args)
+        public async Task Main(string[] args)
         {
             string ALGOD_API_ADDR = args[0];
             if (ALGOD_API_ADDR.IndexOf("//") == -1)
@@ -41,8 +41,9 @@ namespace sdk_examples.V2
             //Part 1
             //build transaction
 
-            AlgodApi algodApiInstance = new AlgodApi(ALGOD_API_ADDR, ALGOD_API_TOKEN);
-            var trans = algodApiInstance.TransactionParams();   
+            var httpClient = HttpClientConfigurator.ConfigureHttpClient(ALGOD_API_ADDR, ALGOD_API_TOKEN);
+            DefaultApi algodApiInstance = new DefaultApi(httpClient) { BaseUrl = ALGOD_API_ADDR };
+            var trans = await algodApiInstance.ParamsAsync();   
             Console.WriteLine("Lastround: " + trans.LastRound.ToString());
 
             
@@ -60,12 +61,12 @@ namespace sdk_examples.V2
                 // wait for the transaction to be confirmed
                 try
                 {
-                    var id = Utils.SubmitTransaction(algodApiInstance, signedTx);
+                    var id = await Utils.SubmitTransaction(algodApiInstance, signedTx);
                     Console.WriteLine("Transaction ID: " + id);
                     //waitForTransactionToComplete(algodApiInstance, signedTx.transactionID);
                     //Console.ReadKey();
                     Console.WriteLine("Confirmed Round is: " +
-                        Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                        Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
                 }
                 catch (Exception e)
                 {
@@ -75,7 +76,7 @@ namespace sdk_examples.V2
                 }
             }
 
-            var act = algodApiInstance.AccountInformation(account3.Address.ToString());
+            var act = await algodApiInstance.AccountsAsync(account3.Address.ToString(),null);
             Console.WriteLine(act);
 
             ulong? amount2 = 1000000;
@@ -84,10 +85,10 @@ namespace sdk_examples.V2
             var signedTx2 = account1.SignTransaction(tx2);
             try
             {
-                var id = Utils.SubmitTransaction(algodApiInstance, signedTx2);
+                var id = await Utils.SubmitTransaction(algodApiInstance, signedTx2);
                 Console.WriteLine("Transaction ID: " + id);
                 Console.WriteLine("Confirmed Round is: " +
-                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).ConfirmedRound);
+                    Utils.WaitTransactionToComplete(algodApiInstance, id.TxId).Result.ConfirmedRound);
             }
             catch (Exception e)
             {

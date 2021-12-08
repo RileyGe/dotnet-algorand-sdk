@@ -1,9 +1,11 @@
 ﻿using Algorand.Algod.Api;
 using Algorand.Algod.Model;
-using Algorand.V2.Model;
+using Algorand.V2.Algod.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using AssetParams = Algorand.Algod.Model.AssetParams;
 
 namespace Algorand
@@ -42,19 +44,19 @@ namespace Algorand
         /// <param name="txID">transaction ID</param>
         /// <param name="timeout">how many rounds do you wish to check pending transactions for</param>
         /// <returns>The pending transaction response</returns>
-        public static PendingTransactionResponse WaitTransactionToComplete(V2.AlgodApi instance, string txID, int timeout = 3) 
+        public static async Task<V2.Algod.Model.PendingTransactionResponse> WaitTransactionToComplete(V2.Algod.DefaultApi instance, string txID, ulong timeout = 3) 
         {
 
             if (instance == null || txID == null || txID.Length == 0 || timeout < 0)
             {
                 throw new ArgumentException("Bad arguments for waitForConfirmation.");
             }
-            NodeStatusResponse nodeStatusResponse = instance.GetStatus();            
+            V2.Algod.Model.NodeStatusResponse nodeStatusResponse = await instance.StatusAsync();            
             var startRound = nodeStatusResponse.LastRound + 1;
             var currentRound = startRound;
             while (currentRound < (startRound + timeout))
             {
-                var pendingInfo = instance.PendingTransactionInformation(txID);
+                var pendingInfo = await instance.PendingGetAsync(txID,null);
 
                 if (pendingInfo != null)
                 {
@@ -69,7 +71,7 @@ namespace Algorand
                         throw new Exception("The transaction has been rejected with a pool error: " + pendingInfo.PoolError);
                     }
                 }
-                instance.WaitForBlock(currentRound);
+                await instance.WaitForBlockAfterAsync(currentRound);
                 currentRound++;
             }
             throw new Exception("Transaction not confirmed after " + timeout + " rounds!");
@@ -91,10 +93,13 @@ namespace Algorand
         /// <param name="instance"></param>
         /// <param name="signedTx"></param>
         /// <returns></returns>
-        public static PostTransactionsResponse SubmitTransaction(V2.AlgodApi instance, SignedTransaction signedTx) //throws Exception
+        public static async Task<V2.Algod.Model.PostTransactionsResponse> SubmitTransaction(V2.Algod.DefaultApi instance, SignedTransaction signedTx) //throws Exception
         {
             byte[] encodedTxBytes = Encoder.EncodeToMsgPack(signedTx);
-            return instance.RawTransaction(encodedTxBytes);
+            using (MemoryStream ms = new MemoryStream(encodedTxBytes))
+            {
+                return await instance.TransactionsAsync(ms);
+            }
         }
         public static ulong AlgosToMicroalgos(double algos)
         {
@@ -231,7 +236,7 @@ namespace Algorand
         /// the number of digits to display after the decimal place when displaying the asset. 
         /// This value must be between 0 and 19</param>
         /// <returns>transaction</returns>
-        public static Transaction GetCreateAssetTransaction(V2.Model.AssetParams asset, V2.Model.TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
+        public static Transaction GetCreateAssetTransaction(V2.Algod.Model.AssetParams asset, V2.Algod.Model.TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             ValidateAsset(asset);
             // assetDecimals is not exist in api, so set as zero in this version
@@ -282,7 +287,7 @@ namespace Algorand
             return tx;
         }
 
-        public static Transaction GetConfigAssetTransaction(Address sender, V2.Model.Asset asset, TransactionParametersResponse trans, 
+        public static Transaction GetConfigAssetTransaction(Address sender, V2.Algod.Model.Asset asset, TransactionParametersResponse trans, 
             string message = "", ulong? flatFee = null)
         {
             ValidateAsset(asset.Params);
@@ -345,7 +350,7 @@ namespace Algorand
             //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetAssetOptingInTransaction(Address sender, long? assetID, TransactionParametersResponse trans, 
+        public static Transaction GetAssetOptingInTransaction(Address sender, ulong? assetID, TransactionParametersResponse trans, 
             string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetAcceptTransaction(sender, 1, (ulong?)trans.LastRound,
@@ -379,7 +384,7 @@ namespace Algorand
             //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetTransferAssetTransaction(Address from, Address to, long? assetId, ulong amount, 
+        public static Transaction GetTransferAssetTransaction(Address from, Address to, ulong? assetId, ulong amount, 
             TransactionParametersResponse trans, Address closeTo = null, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetTransferTransaction(from, to, closeTo, amount, 1,
@@ -424,7 +429,7 @@ namespace Algorand
             return tx;
         }
 
-        public static Transaction GetFreezeAssetTransaction(Address sender, Address toFreeze, long? assetId, bool freezeState, 
+        public static Transaction GetFreezeAssetTransaction(Address sender, Address toFreeze, ulong? assetId, bool freezeState, 
             TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetFreezeTransaction(sender, toFreeze, freezeState, 1, (ulong?)trans.LastRound,
@@ -480,7 +485,7 @@ namespace Algorand
         /// <param name="message"></param>
         /// <param name="flatFee"></param>
         /// <returns></returns>
-        public static Transaction GetRevokeAssetTransaction(Address reserve, Address revokedFrom, Address receiver, long? assetId, 
+        public static Transaction GetRevokeAssetTransaction(Address reserve, Address revokedFrom, Address receiver, ulong? assetId, 
             ulong amount, TransactionParametersResponse trans, string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetRevokeTransaction(reserve, revokedFrom, receiver, amount, 1, (ulong?)trans.LastRound,
@@ -522,7 +527,7 @@ namespace Algorand
             //Account.SetFeeByFeePerByte(tx, trans.Fee);
             return tx;
         }
-        public static Transaction GetDestroyAssetTransaction(Address manager, long? assetId, TransactionParametersResponse trans, 
+        public static Transaction GetDestroyAssetTransaction(Address manager, ulong? assetId, TransactionParametersResponse trans, 
             string message = "", ulong? flatFee = null)
         {
             var tx = Transaction.CreateAssetDestroyTransaction(manager, 1, (ulong?)trans.LastRound, (ulong?)trans.LastRound + 1000,
@@ -568,7 +573,7 @@ namespace Algorand
                 throw new ArgumentException("The metadata hash should be 32 bytes.");
         }
 
-        private static void ValidateAsset(V2.Model.AssetParams asset)
+        private static void ValidateAsset(V2.Algod.Model.AssetParams asset)
         {
             if (asset.Creator is null || asset.Creator == "") throw new ArgumentException("The sender must be specified.");
             else if (!Address.IsValid(asset.Creator)) throw new ArgumentException("The sender address is not valid.");
@@ -678,7 +683,7 @@ namespace Algorand
         /// <param name="trans">suggested transaction params</param>
         /// <returns>create application tranaction</returns>
         public static Transaction GetApplicationCreateTransaction(Address sender, TEALProgram approvalProgram, TEALProgram clearProgram,
-            StateSchema globalSchema, StateSchema localSchema, TransactionParametersResponse trans)
+            V2.Indexer.Model.StateSchema globalSchema, V2.Indexer.Model.StateSchema localSchema, TransactionParametersResponse trans)
         {
             var fee = (ulong?)trans.Fee;
             var txn = new Transaction
@@ -692,7 +697,7 @@ namespace Algorand
                 fee = fee >= 1000 ? fee : 1000,
                 approvalProgram = approvalProgram,
                 clearStateProgram = clearProgram,
-                onCompletion = OnCompletion.Noop,
+                onCompletion = V2.Indexer.Model.OnCompletion.Noop,
                 globalStateSchema = globalSchema,
                 localStateSchema = localSchema
             };
@@ -717,7 +722,7 @@ namespace Algorand
                 genesisID = trans.GenesisId,
                 genesisHash = new Digest(trans.GenesisHash),
                 fee = fee >= 1000 ? fee : 1000,
-                onCompletion = OnCompletion.Optin,
+                onCompletion = V2.Indexer.Model.OnCompletion.Optin,
                 applicationId = applicationId
             };
             return txn;
@@ -770,7 +775,7 @@ namespace Algorand
                 genesisHash = new Digest(trans.GenesisHash),
                 fee = fee >= 1000 ? fee : 1000,
                 applicationId = applicationId,
-                onCompletion = OnCompletion.Update,
+                onCompletion = V2.Indexer.Model.OnCompletion.Update,
                 approvalProgram = approvalProgram,
                 clearStateProgram = clearProgram
             };
@@ -795,7 +800,7 @@ namespace Algorand
                 genesisID = trans.GenesisId,
                 genesisHash = new Digest(trans.GenesisHash),
                 fee = fee >= 1000 ? fee : 1000,
-                onCompletion = OnCompletion.Delete,
+                onCompletion = V2.Indexer.Model.OnCompletion.Delete,
                 applicationId = applicationId
             };
             return txn;
@@ -819,7 +824,7 @@ namespace Algorand
                 genesisID = trans.GenesisId,
                 genesisHash = new Digest(trans.GenesisHash),
                 fee = fee >= 1000 ? fee : 1000,
-                onCompletion = OnCompletion.Clear,
+                onCompletion = V2.Indexer.Model.OnCompletion.Clear,
                 applicationId = applicationId
             };
             return txn;
@@ -843,7 +848,7 @@ namespace Algorand
                 genesisID = trans.GenesisId,
                 genesisHash = new Digest(trans.GenesisHash),
                 fee = fee >= 1000 ? fee : 1000,
-                onCompletion = OnCompletion.Closeout,
+                onCompletion = V2.Indexer.Model.OnCompletion.Closeout,
                 applicationId = applicationId
             };
             return txn;
@@ -895,9 +900,9 @@ namespace Algorand
         /// <param name="stxn"></param>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static DryrunResponse GetDryrunResponse(V2.AlgodApi client, SignedTransaction stxn, byte[] source = null)
+        public async static Task<V2.Algod.Model.DryrunResponse> GetDryrunResponse(V2.Algod.DefaultApi client, SignedTransaction stxn, byte[] source = null)
         {
-            List<DryrunSource> sources = new List<DryrunSource>();
+            List<V2.Algod.Model.DryrunSource> sources = new List<V2.Algod.Model.DryrunSource>();
             List<SignedTransaction> stxns = new List<SignedTransaction>();
             //compiled 
             if (source is null)
@@ -907,12 +912,21 @@ namespace Algorand
             // source
             else
             {
-                sources.Add(new DryrunSource(fieldName: "lsig",
-                    source: Encoding.UTF8.GetString(source), txnIndex: 0));
+                sources.Add(new V2.Algod.Model.DryrunSource(){
+                    FieldName= "lsig",
+                    Source= Encoding.UTF8.GetString(source), TxnIndex= 0 });
                 stxns.Add(stxn);
             }
             if (sources.Count < 1) sources = null;
-            return client.TealDryrun(new DryrunRequest(txns: stxns, sources: sources));
+            return await client.DryrunAsync(new V2.Algod.Model.DryrunRequest() { Txns = stxns, Sources = sources });
+        }
+
+        internal static byte[] CombineBytes(byte[] b1, byte[] b2)
+        {
+            byte[] ret = new byte[b1.Length + b2.Length];
+            Buffer.BlockCopy(b1, 0, ret, 0, b1.Length);
+            Buffer.BlockCopy(b2, 0, ret, b1.Length, b2.Length);
+            return ret;
         }
     }
 }

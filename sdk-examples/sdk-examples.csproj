@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="V2\contract\sample.teal" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="V2\contract\sample.teal">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BouncyCastle.NetCore" Version="1.8.8" />
     <PackageReference Include="MessagePack" Version="2.2.113" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -25,9 +35,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="V2\contract\hello_world_updated.teal">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="V2\contract\sample.teal">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="V2\contract\stateful_approval_init.teal">

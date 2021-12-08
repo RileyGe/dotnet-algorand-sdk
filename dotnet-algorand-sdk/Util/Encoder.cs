@@ -13,7 +13,7 @@ namespace Algorand
     /// <summary>
     /// Convenience method for serializing and deserializing arbitrary objects to json or msgpack.
     /// </summary>
-    public class Encoder
+    public static class Encoder
     {        
         /// <summary>
         /// Convenience method for serializing arbitrary objects.
@@ -94,6 +94,20 @@ namespace Algorand
         {
             return BitConverter.ToString(bytes, 0).Replace("-", string.Empty).ToLower();
         }        
+
+        /// <summary>
+        /// Convenience method to get a value as a big-endian byte array
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static byte[] ToBigEndianBytes(this ulong val)
+        {
+            var bytes = BitConverter.GetBytes(val);
+            if (BitConverter.IsLittleEndian) //depends on hardware
+                Array.Reverse(bytes);
+            
+            return bytes;
+        }
     }
 
     internal class AlgorandContractResolver : DefaultContractResolver
@@ -274,7 +288,7 @@ namespace Algorand
                         return !(trans.foreignAssets is null || trans.foreignAssets.Count < 1);
                     };
                 }
-                else if (property.PropertyType == typeof(List<long>) && property.PropertyName == "apfa")
+                else if (property.PropertyType == typeof(List<ulong>) && property.PropertyName == "apfa")
                 {
                     property.ShouldSerialize = instance => {
                         var trans = instance as Transaction;
@@ -288,18 +302,18 @@ namespace Algorand
                         return !(trans.accounts is null || trans.accounts.Count < 1);
                     };
                 }
-                else if (property.PropertyType == typeof(V2.Model.StateSchema) && property.PropertyName == "apgs")
+                else if (property.PropertyType == typeof(V2.Indexer.Model.StateSchema) && property.PropertyName == "apgs")
                 {
                     property.ShouldSerialize = instance => {
                         var trans = instance as Transaction;
-                        return !trans.globalStateSchema.Equals(new V2.Model.StateSchema());
+                        return !trans.globalStateSchema.Equals(new V2.Indexer.Model.StateSchema());
                     };
                 }
-                else if (property.PropertyType == typeof(V2.Model.StateSchema) && property.PropertyName == "apls")
+                else if (property.PropertyType == typeof(V2.Indexer.Model.StateSchema) && property.PropertyName == "apls")
                 {
                     property.ShouldSerialize = instance => {
                         var trans = instance as Transaction;
-                        return !trans.localStateSchema.Equals(new V2.Model.StateSchema());
+                        return !trans.localStateSchema.Equals(new V2.Indexer.Model.StateSchema());
                     };
                 }
                 else if (property.PropertyType == typeof(Address) && property.PropertyName == "rekey")

@@ -6,18 +6,18 @@
     <AssemblyName>Algorand</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.2.0.9</Version>
-    <Authors>rileyge</Authors>
-    <Company>tson.com</Company>
-    <Product>Algorand SDK</Product>
-    <PackageProjectUrl>https://github.com/RileyGe/dotnet-algorand-sdk</PackageProjectUrl>
+    <Version>0.2.0.10</Version>
+    <Authors>Frank Szendzielarz</Authors>
+    <Company>Frank Szendzielarz</Company>
+    <Product>Algorand .NET SDK </Product>
+    <PackageProjectUrl>https://github.com/FrankSzendzielarz/dotnet-algorand-sdk</PackageProjectUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <Description>Algorand SDK for .Net Framework to interact with the Algorand network. Already updated to API 2.0.</Description>
     <PackageReleaseNotes>The Algorand SDK.
-Updated to API 2.0.</PackageReleaseNotes>
+AVM 1.0 , Indexer 2.8 branch and Algo rel/stable branch (Nov 2021)</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
-    <AssemblyVersion>0.2.0.9</AssemblyVersion>
-    <FileVersion>0.2.0.9</FileVersion>
+    <AssemblyVersion>0.2.0.10</AssemblyVersion>
+    <FileVersion>0.2.0.10</FileVersion>
     <Copyright></Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
@@ -50,7 +50,7 @@ Updated to API 2.0.</PackageReleaseNotes>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Newtonsoft.Msgpack" Version="0.1.11" />
-    <PackageReference Include="RestSharp" Version="106.12.0" />
+	<PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
