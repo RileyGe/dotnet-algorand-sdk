@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-algorand-sdk", "dotnet-algorand-sdk\dotnet-algorand-sdk.csproj", "{28B73287-C2FF-4788-AAA5-0C0146FF98D4}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{7F1BD378-E0F0-44F6-A015-13CEFCA4A4D1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "doc", "doc-generator\doc.csproj", "{1E5F63E7-C4BD-4EDE-9C9F-F86DEEA7F462}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Placeholder", "Placeholder\Placeholder.csproj", "{BB7A5AA0-CB66-47C1-8453-77B9979DCD58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{1E5F63E7-C4BD-4EDE-9C9F-F86DEEA7F462}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E5F63E7-C4BD-4EDE-9C9F-F86DEEA7F462}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E5F63E7-C4BD-4EDE-9C9F-F86DEEA7F462}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB7A5AA0-CB66-47C1-8453-77B9979DCD58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB7A5AA0-CB66-47C1-8453-77B9979DCD58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB7A5AA0-CB66-47C1-8453-77B9979DCD58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB7A5AA0-CB66-47C1-8453-77B9979DCD58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
