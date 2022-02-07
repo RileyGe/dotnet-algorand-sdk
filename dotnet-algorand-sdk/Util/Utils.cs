@@ -206,14 +206,34 @@ namespace Algorand
         /// <returns>transaction</returns>
         public static Transaction GetCreateAssetTransaction(AssetParams asset, TransactionParams trans, string message = "", int decimals = 0, ulong? flatFee = null)
         {
+
             ValidateAsset(asset);
+
+            Address sender = new Address(asset.Creator);
+            ulong? fee = trans.Fee;
+            ulong? firstValid = trans.LastRound;
+            ulong? lastValid = trans.LastRound + 1000;
+            byte[] note = Encoding.UTF8.GetBytes(message);
+            string genesisID = trans.GenesisID;
+            Digest genesisHash = new Digest(trans.Genesishashb64);
+            ulong? assetTotal = asset.Total;
+            int assetDecimals = decimals;
+            bool defaultFrozen = asset.Defaultfrozen ?? false;
+            string assetUnitName = asset.Unitname;
+            string assetName = asset.Assetname;
+            string url = asset.Url;
+            byte[] metadataHash = Convert.FromBase64String(asset.Metadatahash);
+            Address manager = new Address(asset.Managerkey);
+            Address reserve = new Address(asset.Reserveaddr);
+            Address freeze = new Address(asset.Freezeaddr);
+            Address clawback = new Address(asset.Clawbackaddr);
+
             // assetDecimals is not exist in api, so set as zero in this version
-            var tx = Transaction.CreateAssetCreateTransaction(new Address(asset.Creator), trans.Fee, trans.LastRound, trans.LastRound + 1000,
-                Encoding.UTF8.GetBytes(message), trans.GenesisID, new Digest(trans.Genesishashb64),
-                asset.Total, decimals, (bool)asset.Defaultfrozen, asset.Unitname, asset.Assetname, asset.Url,
-                Convert.FromBase64String(asset.Metadatahash), new Address(asset.Managerkey), new Address(asset.Reserveaddr),
-                new Address(asset.Freezeaddr), new Address(asset.Clawbackaddr));
-            if(flatFee is null || flatFee == 0)
+            var tx = Transaction.CreateAssetCreateTransaction(sender, fee, firstValid, lastValid, note,
+                           genesisID, genesisHash, assetTotal, assetDecimals, defaultFrozen,
+                           assetUnitName, assetName, url, metadataHash,
+                           manager, reserve, freeze, clawback);
+            if (flatFee is null || flatFee == 0)
             {
                 Account.SetFeeByFeePerByte(tx, trans.Fee);
             }
@@ -221,7 +241,7 @@ namespace Algorand
             {
                 tx.fee = flatFee;
             }
-            
+
             return tx;
         }        
 
