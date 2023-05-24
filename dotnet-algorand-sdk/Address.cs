@@ -89,6 +89,15 @@ namespace Algorand
             byte[] checksumAddr = Base32.DecodeFromString(encodedAddr);
             return JavaHelper<byte>.ArrayCopyOf(checksumAddr, LEN_BYTES);
         }
+        
+        /// <summary>
+        /// Hex representation of the address usable in logic sig smart contracts
+        /// </summary>
+        /// <returns>Returns address in form of 0x41DEA6E53207AB5FC2A919D7B80A88118CF205E92036DF436DB973BAE0637CC0</returns>
+        public string ToHex()
+        {
+            return "0x"+BitConverter.ToString(this.Bytes).Replace("-", "");
+        }
         /// <summary>
         /// check if the address is valid
         /// </summary>
